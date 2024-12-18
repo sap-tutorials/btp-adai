@@ -20,7 +20,7 @@ primary_tag: topic>user-interface
 ### Update current language with Luigi Client
 
 
-In this step, you will add a function to get the current language from Luigi Client and then update it, so that the language of the UI5 micro-frontend can be changed accordingly.
+In this step, you add a function to get the current language from Luigi Client and then update it, so that the language of the UI5 micro-frontend can be changed accordingly.
 
  1. Open the `ui5-mf/webapp/controller/Main.controller.js` file and replace its content with the code below:
 
