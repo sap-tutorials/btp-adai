@@ -9,7 +9,7 @@ primary_tag: software-product>sap-build-code
 parser: v2
 ---
 
-# Create a Full-Stack CAP Application with Joule
+# Develop a Full-Stack CAP Application with Joule
 <!-- description --> In this tutorial, you will use the Generative AI capabilities of Joule to create a CAP service in SAP Build Code. 
 
 ## Prerequisites

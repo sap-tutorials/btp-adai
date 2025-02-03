@@ -9,7 +9,7 @@ primary_tag: software-product>sap-build-code
 parser: v2
 ---
 
-# Create an SAP Build Code Application from the Lobby
+# Create a Project from the Lobby
 <!-- description --> In this tutorial, you will learn how to create an application starting from the SAP Build lobby. 
 
 
