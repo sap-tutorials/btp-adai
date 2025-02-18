@@ -1,11 +1,12 @@
 ---
-parser: v2
+author_name: Paola Laufer
+author_profile: https://github.com/PaoLaufer
+keywords: tutorial
 auto_validation: true
 time: 5
-tags: [ tutorial>beginner, products>sap-business-application-studio]
-primary_tag: products>sap-business-application-studio
-author_name: Paola Laufer
-author_profile: https://github.com/Paolaufer
+tags: [ tutorial>beginner, type>tutorial, software-product>sap-business-application-studio, software-product>sapui5, software-product>sap-mobile-services, software-product-function>sap-fiori-elements, software-product-function>sap-cloud-application-programming-model, software-product>sap-business-technology-platform ]
+primary_tag: software-product>sap-business-application-studio
+parser: v2
 ---
 
 
@@ -32,11 +33,11 @@ author_profile: https://github.com/Paolaufer
 
     <!-- border -->![Choose Name](add-name.png)
 
-4. Choose **Full Stack Cloud Application** as the application type.
+4. Choose **Full Stack Cloud Application Using Prodictivity Tools** as the application type.
 
-    <!-- border -->![Choose SAP Cloud](select-devspace.png)
+    <!-- border -->![Choose SAP Cloud](2.png)
 
-    >By selecting SAP Cloud Business Application, your dev space comes with several extensions out-of-the-box that you need to develop CAP applications. For example, CDS tools, Java Tools, and MTA Tools.
+    >Your dev space comes with several extensions out-of-the-box that you need to develop CAP applications. For example, CDS tools, Java Tools, and MTA Tools.
 
 5. Choose **Create Dev Space**.
 
