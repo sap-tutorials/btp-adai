@@ -11,7 +11,7 @@ parser: v2
 
 
 # Create a Dev Space for Business Applications
-<!-- description --> Create a dev space for business applications -- a preconfigured development environment with the required tools and extensions for a specific scenario.
+<!-- description --> A dev space is a pre-configured development environment with the required tools and extensions for a specific scenario.
 
 ## Prerequisites
  - You are subscribed to SAP Business Application Studio. See [Getting Started](https://help.sap.com/viewer/9d1db9835307451daa8c930fbd9ab264/Cloud/en-US/19611ddbe82f4bf2b493283e0ed602e5.html)
@@ -33,7 +33,7 @@ parser: v2
 
     <!-- border -->![Choose Name](add-name.png)
 
-4. Choose **Full Stack Cloud Application Using Prodictivity Tools** as the application type.
+4. Choose **Full-Stack Application Using Productivity Tools** as the application type.
 
     <!-- border -->![Choose SAP Cloud](2.png)
 
@@ -48,7 +48,6 @@ parser: v2
 6. Once the dev space is running, click the dev space name to open it.
 
 
-### Test yourself
 
 
 
