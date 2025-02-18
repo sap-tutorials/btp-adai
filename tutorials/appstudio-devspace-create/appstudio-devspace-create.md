@@ -27,7 +27,7 @@ parser: v2
 
 2. Choose **Create Dev Space**.
 
-    <!-- border -->![Create DEV Space](step2-newicon-create-dev-space.png)
+    <!-- border -->![Create dev space](step2-newicon-create-dev-space.png)
 
 3. Choose a name for your dev space.
 
