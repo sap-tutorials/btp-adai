@@ -79,140 +79,55 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 2. In this step, you will add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with the one below. Keep in mind that the version numbers might be higher in your case.
 
     ```yaml
-    specVersion: "3.0"
+    specVersion: "4.0"
     metadata:
-      name: luigi.ui5app
+    name: luigi.ui5app
     type: application
     framework:
-      name: OpenUI5
-      version: "1.121.1"
-      libraries:
+    name: OpenUI5
+    version: "1.133.0"
+    libraries:
         - name: sap.m
         - name: sap.ui.core
-        - name: themelib_sap_fiori_3
         - name: themelib_sap_horizon
     builder:
-      customTasks:
+    resources:
+        excludes:
+        - "test/e2e/**"
+    customTasks:
         - name: ui5-tooling-modules-task
-          afterTask: replaceVersions
+        afterTask: replaceVersions    
     server:
-      customMiddleware:
+    customMiddleware:
         - name: ui5-tooling-modules-middleware
-          afterMiddleware: compression
+        afterMiddleware: compression
+        configuration:
+            debug: true
+            persistentCache: false
+        - name: "@ui5/middleware-code-coverage"
+        afterMiddleware: compression
         - name: ui5-middleware-livereload
-          afterMiddleware: compression
+        afterMiddleware: compression
 
     ```
 
-3. Create a new folder called `control` in `luigi.ui5app/webapp`. In it, create a file called `LuigiContainer.js` and paste the following content into it: 
-
-    ```javascript
-    sap.ui.define([
-        "sap/ui/core/webc/WebComponent",
-        "@luigi-project/container"
-    ], function(WebComponent) {
-        "use strict";
-
-        /**
-         * The luigi.ui5app.control.LuigiContainer is a component to render a Luigi micro frontend (iframe or web component based) without the need of it being a Luigi Core application.
-         */
-        var LuigiContainer = WebComponent.extend("luigi.ui5app.control.LuigiContainer", {
-            metadata: {
-                tag: "luigi-container",
-                properties: {
-                    /**
-                     * Defines the view URL to load
-                     */
-                    viewURL: {
-                        type: "string",
-                        defaultValue: "",
-                        mapping: {
-                            to: "viewURL"
-                        }
-                    },
-
-                    /**
-                     * Defines whether to load the Luigi component as web component
-                     */
-                    webComponent: {
-                        type: "any",
-                        defaultValue: false,
-                        mapping: {
-                            to: "webcomponent",
-                            formatter: "_mapIsWebComponent"
-                        }
-                    },
-
-                    /**
-                     * Defines the height of the control
-                     */
-                    height: {
-                        type: "sap.ui.core.CSSSize",
-                        mapping: "style"
-                    },
-
-                    /**
-                     * Defines the width of the control
-                     */
-                    width: {
-                        type: "sap.ui.core.CSSSize",
-                        mapping: "style"
-                    },
-
-                    /**
-                     * Defines label of the Luigi component
-                     */
-                    label: {
-                        type: "string",
-                        defaultValue: ""
-                    },
-
-                    /**
-                     * Defines the context to use
-                     */
-                    context: {
-                        type: "object",
-                        defaultValue: {}
-                    },
-
-                    theme: {
-                        type: "string",
-                        defaultValue: ""
-                    }
-                },
-                methods: [
-                    "updateContext", /** Updates the context of the Luigi component */ 
-                    "sendCustomMessage", /** Sends a custom message to the referenced iFrame or web component */
-                    "closeAlert" /** Sends a message to the Luigi component notifying that the alert has been closed */
-                ] 
-            }
-        });
-
-        LuigiContainer.prototype._mapIsWebComponent = function(vIsWebComponent) {
-            return vIsWebComponent !== "false" && vIsWebComponent ? "true" : undefined;
-        };
-
-        return LuigiContainer;
-    });
-    ```
-
-4. In Command Prompt/Terminal, download the Luigi Container npm package: 
+3. In Command Prompt/Terminal, download the Luigi Container npm package: 
 
     ```shell
     npm install @luigi-project/container
     ```
 
-5. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added. Keep in mind that the version numbers might be higher in your case.
+4. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added. Keep in mind that the version numbers might be higher in your case.
 
     ```json
     [...]
     "devDependencies": {
     [...]
     //Around line 30
-        "ui5-tooling-modules": "^3.2.4"
+        "ui5-tooling-modules": "^3.22.1"
     },
     "dependencies": {
-        "@luigi-project/container": "^1.0.0"
+        "@luigi-project/container": "^1.6.0"
     }
     ```
 
@@ -227,10 +142,11 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:core="sap.ui.core"
-        xmlns:luigi="luigi.ui5app.control"
-        core:require="{
-            core: 'sap/ui/core/Core'
-        }">
+        xmlns:webc="@ui5/webcomponents"
+        xmlns:luigi="@luigi-project/container" 
+	    core:require="{
+		    core: 'sap/ui/core/Core'
+	    }">
 
         <Page
             title="{i18n>appTitle}"
