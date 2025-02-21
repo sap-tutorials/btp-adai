@@ -114,7 +114,7 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 
     ```shell
     npm install @luigi-project/container
-    npm install -dev @ui5/webcomponents
+    npm install --save-dev @ui5/webcomponents
     ```
 
 4. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added. Keep in mind that the version numbers might be higher in your case.
