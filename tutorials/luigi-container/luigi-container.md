@@ -78,43 +78,44 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 
 2. In this step, you will add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with the one below. Keep in mind that the version numbers might be higher in your case.
 
-    ```yaml
-    specVersion: "4.0"
-    metadata:
-    name: luigi.ui5app
-    type: application
-    framework:
-    name: OpenUI5
-    version: "1.133.0"
-    libraries:
-        - name: sap.m
-        - name: sap.ui.core
-        - name: themelib_sap_horizon
-    builder:
-    resources:
-        excludes:
-        - "test/e2e/**"
-    customTasks:
-        - name: ui5-tooling-modules-task
-        afterTask: replaceVersions    
-    server:
-    customMiddleware:
-        - name: ui5-tooling-modules-middleware
+```yaml
+specVersion: "4.0"
+metadata:
+  name: luigi.ui5app
+type: application
+framework:
+  name: OpenUI5
+  version: "1.133.0"
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: themelib_sap_horizon
+builder:
+  resources:
+    excludes:
+      - "test/e2e/**"
+  customTasks:
+    - name: ui5-tooling-modules-task
+      afterTask: replaceVersions    
+server:
+  customMiddleware:
+    - name: ui5-tooling-modules-middleware
+      afterMiddleware: compression
+      configuration:
+        debug: true
+        persistentCache: false
+      - name: "@ui5/middleware-code-coverage"
         afterMiddleware: compression
-        configuration:
-            debug: true
-            persistentCache: false
-        - name: "@ui5/middleware-code-coverage"
-        afterMiddleware: compression
-        - name: ui5-middleware-livereload
+      - name: ui5-middleware-livereload
         afterMiddleware: compression
 
-    ```
+```
 
 3. In Command Prompt/Terminal, download the Luigi Container npm package: 
 
     ```shell
     npm install @luigi-project/container
+    npm install -dev @ui5/webcomponents
     ```
 
 4. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added. Keep in mind that the version numbers might be higher in your case.
@@ -124,7 +125,8 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     "devDependencies": {
     [...]
     //Around line 30
-        "ui5-tooling-modules": "^3.22.1"
+        "ui5-tooling-modules": "^3.22.1",
+        "@ui5/webcomponents": "^2.7.3",
     },
     "dependencies": {
         "@luigi-project/container": "^1.6.0"
@@ -133,7 +135,7 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 
 ### Use Luigi Container 
 
-1. In this step, you will use Luigi Container in your app and configure the Luigi [viewURL](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property in order to render a micro frontend on the page. Go to the `webapp/view/Main.view.xml` file of your UI5 application. Replace the content with the following: 
+1. In this step, you will use Luigi Container in your app and configure the Luigi [viewurl](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property in order to render a micro frontend on the page. Go to the `webapp/view/Main.view.xml` file of your UI5 application. Replace the content with the following: 
 
     ```xml
     <mvc:View
@@ -150,12 +152,10 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 
         <Page
             title="{i18n>appTitle}"
-            text="{i18n>appTitle}"
             icon="sap-icon://accept"
-            id="page"
-            description="{i18n>appDescription}">
+            id="page">
             <content>
-                <luigi:LuigiContainer viewURL="https://sdk.openui5.org/test-resources/sap/m/demokit/cart/webapp/index.html" theme="{= core.getConfiguration().getTheme() }"/>
+                <luigi:LuigiContainer viewurl="https://sdk.openui5.org/test-resources/sap/m/demokit/cart/webapp/index.html" theme="{= core.getConfiguration().getTheme() }"/>
             </content>
         </Page>
 
@@ -177,7 +177,7 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     ```xml
     [...]
             <content>
-                <luigi:LuigiContainer viewURL="https://fiddle.luigi-project.io/examples/microfrontends/fundamental/table-demo-page.html" theme="{= core.getConfiguration().getTheme() }"/>
+                <luigi:LuigiContainer viewurl="https://fiddle.luigi-project.io/examples/microfrontends/fundamental/table-demo-page.html" theme="{= core.getConfiguration().getTheme() }"/>
             </content>
     [...]
     ```
