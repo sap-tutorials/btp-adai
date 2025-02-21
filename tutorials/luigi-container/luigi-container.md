@@ -96,7 +96,7 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
           - "test/e2e/**"
       customTasks:
         - name: ui5-tooling-modules-task
-          afterTask: replaceVersions    
+          afterTask: replaceVersion
     server:
       customMiddleware:
         - name: ui5-tooling-modules-middleware
@@ -104,12 +104,12 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
           configuration:
             debug: true
             persistentCache: false
-          - name: "@ui5/middleware-code-coverage"
-            afterMiddleware: compression
-          - name: ui5-middleware-livereload
-            afterMiddleware: compression
-        ```
+        - name: "@ui5/middleware-code-coverage"
+          afterMiddleware: compression
+        - name: ui5-middleware-livereload
+          afterMiddleware: compression
 
+    ```
 3. In Command Prompt/Terminal, download the Luigi Container npm package: 
 
     ```shell
