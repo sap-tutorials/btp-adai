@@ -79,36 +79,35 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 2. In this step, you will add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with the one below. Keep in mind that the version numbers might be higher in your case.
 
 ```yaml
-specVersion: "4.0"
-metadata:
-  name: luigi.ui5app
-type: application
-framework:
-  name: OpenUI5
-  version: "1.133.0"
-  libraries:
-    - name: sap.m
-    - name: sap.ui.core
-    - name: themelib_sap_horizon
-builder:
-  resources:
-    excludes:
-      - "test/e2e/**"
-  customTasks:
-    - name: ui5-tooling-modules-task
-      afterTask: replaceVersions    
-server:
-  customMiddleware:
-    - name: ui5-tooling-modules-middleware
-      afterMiddleware: compression
-      configuration:
-        debug: true
-        persistentCache: false
-      - name: "@ui5/middleware-code-coverage"
+  specVersion: "4.0"
+  metadata:
+    name: luigi.ui5app
+  type: application
+  framework:
+    name: OpenUI5
+    version: "1.133.0"
+    libraries:
+      - name: sap.m
+      - name: sap.ui.core
+      - name: themelib_sap_horizon
+  builder:
+    resources:
+      excludes:
+        - "test/e2e/**"
+    customTasks:
+      - name: ui5-tooling-modules-task
+        afterTask: replaceVersions    
+  server:
+    customMiddleware:
+      - name: ui5-tooling-modules-middleware
         afterMiddleware: compression
-      - name: ui5-middleware-livereload
-        afterMiddleware: compression
-
+        configuration:
+          debug: true
+          persistentCache: false
+        - name: "@ui5/middleware-code-coverage"
+          afterMiddleware: compression
+        - name: ui5-middleware-livereload
+          afterMiddleware: compression
 ```
 
 3. In Command Prompt/Terminal, download the Luigi Container npm package: 
