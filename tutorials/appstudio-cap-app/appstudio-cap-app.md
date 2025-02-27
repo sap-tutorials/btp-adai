@@ -193,7 +193,7 @@ author_profile: https://github.com/Paolaufer
 ### Add custom logic
 
 
-1. Go to the Explorer..
+1. Go to the Explorer.
    
 2. In the `srv` folder, create a new file called `service.js`.
    
@@ -268,9 +268,9 @@ You will first add all required dependencies, and then create and run a run conf
 
 4. Press `Enter` to use the default name for the configuration. A new configuration is added to the run configuration tree.
 
-5. Select SAP HANA CLoud as the database type.
+5. Select SAP HANA Cloud as the database type.
 
-    <!-- border -->![Run SAP HANA Cloud](run5.png)
+    <!-- border -->![Run SAP HANA Cloud](run-5.png)
 
 6. Log in to Cloud Foundry.
 
