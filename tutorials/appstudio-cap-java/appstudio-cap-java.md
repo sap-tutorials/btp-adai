@@ -115,49 +115,45 @@ author_profile: https://github.com/Paolaufer
 
 9. Rename the new entity **Authors**.
 
-10. Click on the entity and then click on the ![show details](2-10d.png) (Show Details) icon.
-
-    <!-- border -->![show details](2-9.png)
-
-11. In the Properties pane, click **+** to add a new property.
+10. In the Properties pane, click **+** to add a new property.
 
     <!-- border -->![show details](2-5.png)
 
-12. Add the following property:
+11. Add the following property:
 
     |Name| Type|
     | ---- | ---- |
     | name | String | 
 
-13. Click **Add Entity**.
+12. Click **Add Entity**.
 
     <!-- border -->![show details](2-8.png)
 
-14. Rename the new entity **Genres**.
+13. Rename the new entity **Genres**.
 
-15. Click on the **Authors** entity and then click on the Add Relationship icon.
+14. Click on the **Authors** entity and then click on the Add Relationship icon.
 
       <!-- border -->![show details](2-10a.png)
 
-16. Drag the arrow to the **Books** entity.
+15. Drag the arrow to the **Books** entity.
 
     <!-- border -->![show details](2-11.png)
 
-17. In the **Relationship Details** dialog, select the **To-One** radio button for the **Cardinality** and click **OK**. 
+16. In the **Relationship Details** dialog, select the **To-One** radio button for the **Cardinality** and click **OK**. 
   
     <!-- border -->![show details](2-17.png)
 
-18. Click on the **Genres** entity and then click on the Add Relationship icon.
+17. Click on the **Genres** entity and then click on the Add Relationship icon.
 
     <!-- border -->![show details](2-18.png)
 
-19. Drag the arrow to the **Books** entity.
+18. Drag the arrow to the **Books** entity.
 
     <!-- border -->![show details](2-19.png)
 
-20. In the **Relationship Details** dialog, select the **Composition** radio button for the **Type**. 
+19. In the **Relationship Details** dialog, select the **Composition** radio button for the **Type**. 
 
-21. Select the **To-Many** radio button for the **Cardinality** and click **OK**.
+20. Select the **To-Many** radio button for the **Cardinality** and click **OK**.
   
     <!-- border -->![show details](2-20.png)
 
