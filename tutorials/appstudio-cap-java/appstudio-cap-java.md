@@ -8,8 +8,8 @@ author_name: Paola Laufer
 author_profile: https://github.com/Paolaufer
 ---
 
-# Develop a CAP Node App Using SAP Business Application Studio
-<!-- description --> Develop a simple CAP Node.js application using SAP Business Application Studio.
+# Develop a CAP JAVA App Using SAP Business Application Studio
+<!-- description --> Develop a simple CAP Java application using SAP Business Application Studio.
 
 ## Prerequisites
 - You have access to SAP Business Application Studio (see [Set Up SAP Business Application Studio for Development](appstudio-onboarding)).
@@ -34,10 +34,12 @@ author_profile: https://github.com/Paolaufer
 
 ---
 
-### Create new CAP project
+### Create new CAP Java project
 
 
 1. From the SAP Business Application Studio hamburger menu, select **File > New Project from Template**.
+
+    >You can also go to the Command Palette and choose **SAP Business Application Studio: New Project From Template**.
 
 2. Select the **CAP Project** template, and click **Start**.
 
@@ -45,15 +47,29 @@ author_profile: https://github.com/Paolaufer
 
 3. Enter **`bookshop`** as the name for the project.
 
-4. Select the **SAP HANA Cloud** checkbox. 
+4. From the **Select your runtime** dropdown list, select **Java**.
 
-    <!-- border -->![hana](1-3.png)
+5. Select the **SAP HANA Cloud** checkbox. 
 
-5. Click **Finish**.
+    <!-- border -->![hana](1-1.png)
 
-    The project is generated and opens in the Storyboard.
+6. Click **Finish**.
 
-    <!-- border -->![storyboard](1-4.png)
+    The project is generated.
+
+7. From the SAP Business Application Studio hamburger menu, select **File > Open Folder**.
+
+8. In the command palette, open the projects folder.
+    
+    <!-- border -->![storyboard](1-12.png)
+
+9. Select your project and click **OK**.
+
+    <!-- border -->![storyboard](1-11.png)
+
+    The Storyboard is displayed.
+
+    <!-- border -->![storyboard](1-5.png)
 
 
 ### Define bookshop data schema
@@ -99,45 +115,49 @@ author_profile: https://github.com/Paolaufer
 
 9. Rename the new entity **Authors**.
 
-10. In the Properties pane, click **+** to add a new property.
+10. Click on the entity and then click on the ![show details](2-10d.png) (Show Details) icon.
+
+    <!-- border -->![show details](2-9.png)
+
+11. In the Properties pane, click **+** to add a new property.
 
     <!-- border -->![show details](2-5.png)
 
-11. Add the following property:
+12. Add the following property:
 
     |Name| Type|
     | ---- | ---- |
     | name | String | 
 
-12. Click **Add Entity**.
+13. Click **Add Entity**.
 
     <!-- border -->![show details](2-8.png)
 
-13. Rename the new entity **Genres**.
+14. Rename the new entity **Genres**.
 
-14. Click on the **Authors** entity and then click on the Add Relationship icon.
+15. Click on the **Authors** entity and then click on the Add Relationship icon.
 
       <!-- border -->![show details](2-10a.png)
 
-15. Drag the arrow to the **Books** entity.
+16. Drag the arrow to the **Books** entity.
 
     <!-- border -->![show details](2-11.png)
 
-16. In the **Relationship Details** dialog, select the **To-One** radio button for the **Cardinality** and click **OK**. 
+17. In the **Relationship Details** dialog, select the **To-One** radio button for the **Cardinality** and click **OK**. 
   
     <!-- border -->![show details](2-17.png)
 
-17. Click on the **Genres** entity and then click on the Add Relationship icon.
+18. Click on the **Genres** entity and then click on the Add Relationship icon.
 
     <!-- border -->![show details](2-18.png)
 
-18. Drag the arrow to the **Books** entity.
+19. Drag the arrow to the **Books** entity.
 
     <!-- border -->![show details](2-19.png)
 
-19. In the **Relationship Details** dialog, select the **Composition** radio button for the **Type**. 
+20. In the **Relationship Details** dialog, select the **Composition** radio button for the **Type**. 
 
-20. Select the **To-Many** radio button for the **Cardinality** and click **OK**.
+21. Select the **To-Many** radio button for the **Cardinality** and click **OK**.
   
     <!-- border -->![show details](2-20.png)
 
@@ -177,7 +197,7 @@ author_profile: https://github.com/Paolaufer
     <!-- border -->![create entity](3-8a.png)     
 
 
-### Add initial data
+### Add sample data
 
 1. In the storyboard, go to the **Data Models** tile, click on **Authors**, and select **Add Data**.
 
@@ -189,45 +209,80 @@ author_profile: https://github.com/Paolaufer
 
 3. Repeat the procedure to add rows for the **Genres** and the **Books** entities.
 
+4. In the command palette, search for the `application.yaml` file.
 
-### Add custom logic
+   <!-- border -->![create entity](4-4.png)
 
+5. Add the following line in the `cds` section for the default profile.
+   
+    ```Java
+    data-source.csv.paths : "test/data/**"
+
+    ```
+
+6. Save your changes.
+   
+    The file should look like this:
+
+    <!-- border -->![create entity](4-5.png)
+
+    This configuration tells the application where the sample data is located within the project structure.
+
+
+### Create a Java class for the custom event handler
 
 1. Go to the Explorer.
    
-2. In the `srv` folder, create a new file called `service.js`.
+2. Navigate to `srv` > `src` > `main` > `java / customer / bookshop`, and create a new folder called `handlers`.
+
+    <!-- border -->![package for Custom Event Handlers](5-2a.png)
+
+3. Add a new file in the `handlers` folder called `BookshopServiceHandler.java`.
+
+    <!-- border -->![package for Custom Event Handlers](5-3b.png)
    
-3. If asked if you want to allow the use of the ESLint library for validation, click **Allow**.
+4. Populate the `BookshopServiceHandler.java` file with the following: 
 
-    <!-- border -->![Allow ESLint](eslint.png)
+    ```Java
+    package customer.bookshop.handlers;
+    import org.springframework.stereotype.Component;
 
-4. Populate the `service.js` file with the following:
+    import com.sap.cds.Result;
+    import com.sap.cds.services.cds.CdsReadEventContext;
+    import com.sap.cds.services.cds.CqnService;
+    import com.sap.cds.services.handler.EventHandler;
 
-    ```JavaScript
-        /**
-        * Implementation for CatalogService defined in ./cat-service.cds
-        */
-        const cds = require('@sap/cds')
-        module.exports = function (){
-          // Register your event handlers in here, e.g....
-          this.after ('READ','Books', each => {
-            if (each.stock > 111) {
-              each.title += ` -- 11% discount!`
-            }
-          })
-        }
+    import com.sap.cds.services.handler.annotations.After;
+    import com.sap.cds.services.handler.annotations.ServiceName;
+
+    @Component
+    @ServiceName("bookshopService")
+    public class BookshopServiceHandler implements EventHandler {
+
+    @After(event = CqnService.EVENT_READ, entity = "bookshopService.Books")
+    public void onRead(CdsReadEventContext context){
+    Result result = context.getResult();
+    //result.forEach(r -> System.out.println(r.get("title")));
+    result.forEach(r -> {
+    if( ((Integer) r.get("stock"))> 111)
+    r.put("title",((String)r.get("title")).concat(" -- Discount"));
+    });
+    }
+    }
 
     ```
+
+    To learn more about working with event handlers, see [Event Handlers](https://cap.cloud.sap/docs/java/event-handlers/).
 
 5. Save your changes.
    
     Your application should look similar to the structure shown in the picture below.
 
-    <!-- border -->![Project structure](5-3.png)
+    <!-- border -->![Project structure](5-4.png)
 
     You can also see the semantic structure of the application in the Project Overview.
 
-    <!-- border -->![Project structure](5-3a.png)
+    <!-- border -->![Project structure](5-4b.png)
 
 
 
@@ -252,7 +307,7 @@ You will first add all required dependencies, and then create and run a run conf
 
         ```
 
-1. From the left side menu, open the Run Configurations view.
+1. From the Activity pane, open the Run Configurations view.
 
     <!-- border -->![Open Run Configurations view](6-1.png)
 
@@ -260,7 +315,7 @@ You will first add all required dependencies, and then create and run a run conf
 
     <!-- border -->![Open Run Configurations view](create-new-config.png)
 
-3. Select `Bookshop - (CAP Node project)` as the runnable application from the command palette prompt.
+3. Select `Bookshop - (CAP Java)` as the runnable application from the command palette prompt.
 
     <!-- border -->![Open Run Configurations view](6-2.png)
 
@@ -268,25 +323,29 @@ You will first add all required dependencies, and then create and run a run conf
 
 4. Press `Enter` to use the default name for the configuration. A new configuration is added to the run configuration tree.
 
-5. In the **Configuration** editor, select the **Local (project's default)** radio button for the database type. 
+5. In the **Configuration** editor, select the **Default Profile** radio button for the database type. 
 
-    <!-- border -->![Open Run Configurations view](6-5a.png) 
+    <!-- border -->![Open Run Configurations view](6-6a.png)
 
-7. Click the green arrow on the right of the configuration name to run the application.
+6. Click the green arrow on the right of the configuration name to run the application.
+ 
+    <!-- border -->![Run](6-3.png)
 
-    <!-- border -->![Open Run Configurations view](6-3.png)
+7. If prompted, open the application in a new tab.
+   
+    <!-- border -->![Run](6-8.png)
 
     The application opens in the browser. 
     
-8. Click on **Books** to see the metadata and entities for the service.
+8.  Click on **Books** to see the metadata and entities for the service.
 
     <!-- border -->![Open Run Configurations view](6-4.png)
 
     You can also debug your application to check your code logic. For example, to debug the custom logic for this application, perform the following steps:
 
-9. Place a breakpoint in the function in the `service.js` file.
+9.  Place a breakpoint in the function in the `service.js` file.
 
-10.  In the running app, click the `Books` entity. It should stop at the breakpoint.
+10. In the running app, click the `Books` entity. It should stop at the breakpoint.
 
     <!-- border -->![Breakpoint](6-6.png)
 
@@ -322,7 +381,7 @@ You will first add all required dependencies, and then create and run a run conf
 
     <!-- border -->![Open Run Configurations view](create-new-config.png)
 
-3. Select `Bookshop - (CAP Node)` as the runnable application from the command palette prompt.
+3. Select `Bookshop - (CAP Java)` as the runnable application from the command palette prompt.
 
     <!-- border -->![Open Run Configurations view](6-2.png)
 
@@ -332,37 +391,42 @@ You will first add all required dependencies, and then create and run a run conf
 
 5. In the **Configuration** editor, select the **SAP HANA Cloud** radio button for the database type. 
 
-    <!-- border -->![Open Run Configurations view](7-5.png)
-
+    <!-- border -->![Open Run Configurations view](6-10.png)
+ 
 6. Log in to Cloud Foundry.
 
 7. From the **SAP Cloud Instance** dropdown list, select the relevant instance.
 
-8. Select the **Deploy data model to the SAP HANA instance before running** checkbox. 
+8. From the **Deploy the data model before running** dropdown list, select the **Deploy (with data)** radio button. 
 
-    <!-- border -->![Open Run Configurations view](7-8.png)
+    <!-- border -->![Open Run Configurations view](7-12.png)
 
-9. Click the green arrow on the right of the configuration name to run the application.
 
-11.	From the terminal on the bookshop folder, run `cds add mta`.
-This adds an `mta.yaml` file to the root of your application.
+9. Click the green arrow on the right of the run configuration.
+
+    <!-- border -->![Open Run Configurations view](6-9.png)
+
+7. If prompted, open the application in a new tab.
+   
+    <!-- border -->![Run](6-8.png)
+
+    The application opens in the browser. 
+
+10.	From the terminal on the bookshop folder, run `cds add mta`. This adds an `mta.yaml` file to the root of your application.
 
     Note: If you are working on a trial account, open the `mta.yaml` file, and in the `resources` section change the `service` parameter to `hana`. Save your changes.
 
 11.	Right-click the `mta.yaml` file and choose **Build MTA Project**.
 
-    <!-- border -->![Build MTA](build-mta.png)
+    <!-- border -->![Build MTA](7-11.png)
 
       A new folder for `mta_archives` is created containing the new `mtar` file.
 
 12. Right-click the `mtar` file and choose **Deploy MTA Archive**.
 
-    <!-- border -->![Deploy MTA](deploy-mta2.png)
+    <!-- border -->![Deploy MTA](7-12.png)
 
 Once the task is complete, your application should be available in your Cloud Foundry space.
 To access your application, go to your space in the SAP Cloud Platform cockpit and select **Applications** from the side menu.
-
----
-
 
 ---
