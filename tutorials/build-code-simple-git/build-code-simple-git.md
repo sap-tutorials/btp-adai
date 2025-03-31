@@ -18,44 +18,14 @@ SAP Business Application Studio enables you to connect and interact with the Git
 ## Prerequisites
 - You have an SAP BTP Trial account ([Get a Free Account on SAP BTP Trial](hcp-create-trial-account)).
 - You are subscribed to SAP Business Application Studio. See [Getting Started](https://help.sap.com/viewer/9d1db9835307451daa8c930fbd9ab264/Cloud/en-US/19611ddbe82f4bf2b493283e0ed602e5.html).
- 
+  
+To begin using Simplified Git, you must have a project that includes a Git repository. From the **SIMPLIFIED GIT** view, you can open a folder with an existing Git project, clone a repository locally using a URL, or create a new project with a local Git repository and connect it to a remote one.
+
+<!-- border -->![Add Git Repo](simplified-git-add-repo.png)
+
 
 ## You will learn
-- To efficiently manage your source code using Simplified Git.
-  
-
-### Create a Dev Space in SAP Business Application Studio
-
-A dev space is a development environment offering customized setups for business scenarios, equipped with essential tools and runtimes to optimize application development and testing.
-
->This tutorial assumes that you are using an SAP BTP trial account. If you are using a different account, some steps might be different.
-
-1. Open **SAP Business Application Studio**.
-
-2. Choose **Create Dev Space**.
-
-    <!-- border -->![Create DEV Space](step2-newicon-create-dev-space.png)
-
-3. Choose a name for your dev space.
-
-    <!-- border -->![Choose Name](add-name.png)
-
-4. Choose **Full Stack Cloud Application** as the application type.
-
-    <!-- border -->![Choose SAP Cloud](select-devspace.png)
-
-    >By selecting the Full Stack Cloud Application, your dev space comes with several extensions out-of-the-box that you need to develop CAP applications. For example, CDS tools, Java Tools, and MTA Tools.
-
-5. Choose **Create Dev Space**.
-
-    <!-- border -->![Create Dev](click-create-button.png)
-
-    >The creation of the dev space takes a while. You see that the status for your dev space will change from **STARTING** to **RUNNING**.
-
-6. Once the dev space is running, click the dev space name to open it.
-7. To begin with Simplified Git, ensure you have a project that includes a Git repository. Open **SIMPLIFIED GIT** from the activity bar to either open a folder with an existing Git project, clone a repository locally using a URL, or create a new project with a local Git repository and connect it to a remote one.
-
-    <!-- border -->![Add Git Repo](simplified-git-add-repo.png)
+- To efficiently manage your source code using Simplified Git. 
 
 
 ### Clone a Repository from Git
