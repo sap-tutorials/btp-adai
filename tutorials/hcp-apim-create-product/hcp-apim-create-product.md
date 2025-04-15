@@ -16,7 +16,7 @@ tags: [  tutorial>beginner, topic>cloud, products>sap-api-management ]
 
 
 ## You will learn  
-SAP Integration Suite, API Management uses three main components to expose APIs.
+In SAP Integration Suite, API Management uses three main components to expose APIs.
 - The API Provider is used to abstract the connection to the backend / target system
 - The API Proxy is the actual API which contains the logic to connect to the target system. Here you can model the flow, add security policies, transform the incoming message or look for content injections
 - The API Product which bundles one or more API Proxies before they are exposed in the API Developer portal so they can be consumed by a developer
