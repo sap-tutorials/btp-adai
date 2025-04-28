@@ -33,7 +33,7 @@ In this step, you copy the endpoint address of the deployed integration flow.
 
 ### Test the integration scenario
 
-During this step, you test your integration design using Postman. You can use any testing platform of your choice.
+During this step, you test your integration design using any API testing platform of your choice. **For this tutorial, we are using Postman.**
 
 1. Open your **Postman** application.
 

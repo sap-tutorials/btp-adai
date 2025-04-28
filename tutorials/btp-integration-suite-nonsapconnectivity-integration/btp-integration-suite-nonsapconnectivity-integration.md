@@ -33,11 +33,11 @@ author_profile: https://github.com/Karunaharan
 
 4. Choose the **Artifacts** tab. Here you will create your first integration flow. Choose **Add** > **Integration Flow**.
 
-5. Enter a **Name** for the integration flow and choose **OK**.
+5. Enter a **Name** for the integration flow and choose **Add and Open in Editor** to open directly.
 
       <!-- border -->![1-4-Integration-Flow](1-4-Integration-Flow.png)
 
-6. Choose **Save** and open the integration flow by selecting it.
+6. Alternatively, choose **Add** and open the integration flow by selecting it.
 
 7. Choose **Edit** to start editing the integration flow.
 
