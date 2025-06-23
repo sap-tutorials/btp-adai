@@ -109,6 +109,8 @@ Congratulations! You created a new view that displays all products in stock and 
 
  7. Finally, let's activate a new version with this new section. Go to **Activate New Version**, name it *Added Search Results* and press **Confirm**. You can now leave key user adaptation by pressing the **Exit** button on the toolbar and try out the application with your adaptations.
 
+    > Some systems do not support versioning. In this case, just press **Save**, and exit key user adaptation.
+
     ![Activate New Version](step2-activatenewversion.png)
 
     ![Enter Version Name](step2-enteraddedsearchresultsname.png)
@@ -118,6 +120,8 @@ Congratulations! You created a new view that displays all products in stock and 
     > If you navigate to different products from the product table (where you created the new view), you will see that the current product name is passed as parameter to the embedded content.
 
 Good job! You now know how to create tailored views in SAP Fiori elements applications and use embedded content to easily add more features to existing applications.
+
+>For the SAPUI5 Demokit apps, the key user changes are saved in your browser's local storage. If you create too many versions and want to get a clean state, you can remove all entries starting with *sap.ui.fl* from your browser's local storage.
 
 ### Summary
 
