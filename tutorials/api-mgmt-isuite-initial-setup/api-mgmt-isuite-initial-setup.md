@@ -18,7 +18,7 @@ primary_tag: software-product>sap-api-management
   - Access API Management features and resources available on Integration Suite.
 
 ## Intro
-To set up the API Management capability from Integration Suite, you should first have an Integration Suite subscription. 
+To set up the API Management capability from Integration Suite, you should first have an Integration Suite subscription.
 
 >**IMPORTANT** Ensure that you don't have an instance of starter plan created in the same subaccount, where you plan to create an Integration Suite subscription. Also, note that API Management capabilities from Integration Suite and API Management subscriptions using the standalone tile cannot coexist in the same subaccount.
 
@@ -79,22 +79,23 @@ To set up the API Management capability from Integration Suite, you should first
 2. To design, develop, publish, and oversee APIs in a secure and scalable environment, choose **Manage APIs** and choose **Next** on the **Activate Capabilities** dialog.
    <!-- border -->![Add API Management Capability](design-develop-manage.png)
 
-3. To discover, consume and monitor APIs from a centralized API catalogue, select the checkbox **Enable API Business Hub Enterprise**. 
-   Once you enable API business hub enterprise, you will get an option to enable **Graph**.
+3. To discover, consume and monitor APIs from a centralized API catalogue, select the checkbox **Developer Hub**. 
+   Once you enable Developer Hub, you will get an option to enable **Graph**.
+   <!-- border -->![Activate Developer Hub](activate-devhub-graph.png)
 
 4. If you want to expose all your business data in the form of a single semantically connected data graph, select the checkbox for **Graph**, and choose **Next**.
-   <!-- border -->![Activate API Business Hub Enterprise](activate-abhe-graph.png)
+   <!-- border -->![Activate Developer Hub](activate-abhe-graph.png)
 
 5. Choose **Activate** on the **Activate Capabilities** dialog.
-   <!-- border -->![API Portal and API Business Hub Enterprise is Active ](activate-apim.png)
+   <!-- border -->![API Portal and Developer Hub is Active ](activate-apim.png)
 
 6. On the resulting screen, choose **OK** once the status changes from **In Progress** to **Active**.
-   <!-- border -->![API Portal and API Business Hub Enterprise is Active ](Isuite-activated_apim-graph.png)
+   <!-- border -->![API Portal and Developer Hub is Active ](Isuite-activated_apim-graph.png)
 
 7. Go to the **SAP BTP Cockpit**, choose **Security** > **Users** and select the user to whom you want to assign the role. Under **Role Collections** section, choose **Assign Role Collection**. In the resulting dialog box, choose the following roles and choose **Assign Role Collection**:
 
    - **APIManagement.Selfservice.Administrator** - This role is required to configure API Management service in Integration Suite. 
-   - **AuthGroup.SelfService.Admin** - This role is required during the onboarding of API business hub enterprise and to get access to it.
+   - **AuthGroup.SelfService.Admin** - This role is required during the onboarding of Developer Hub and to get access to it.
    - **Graph.KeyUser** - This role is required to create and activate business data graphs for a landscape.
    - **GraphNavigator.Viewer** - This role is required to explore business data graphs in **Graph Navigator**.
    
@@ -106,10 +107,10 @@ To set up the API Management capability from Integration Suite, you should first
 
    
 
-1. On the **Integration Suite** home page, choose **Settings** > **APIs** from the left navigation pane.
+1. On the **Integration Suite** home page, choose **Settings** > **Runtimes** from the left navigation pane.
    <!-- border -->![Setting Up API Management Service](settings-api.png)
 
-2. On the **Configure the API Management Service** page, configure the following and choose **Set Up**:
+2. On the **Configure the API Management Service** page, configure the following and choose **Activate**:
 
     - Select the Account type:
 
