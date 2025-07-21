@@ -107,7 +107,7 @@ To set up the API Management capability from Integration Suite, you should first
 
    
 
-1. On the **Integration Suite** home page, choose **Settings** > **Runtimes** from the left navigation pane.
+1. On the **Integration Suite** homepage, choose **Settings** > **Runtimes** from the left navigation pane.
    <!-- border -->![Setting Up API Management Service](settings-api.png)
 
 2. On the **Configure the API Management Service** page, configure the following and choose **Activate**:
