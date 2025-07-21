@@ -4,7 +4,7 @@ author_profile: https://github.com/PaoLaufer
 keywords: tutorial
 auto_validation: true
 time: 5
-tags: [ tutorial>beginner, type>tutorial, software-product>sap-business-application-studio, software-product>sapui5, software-product>sap-mobile-services, software-product>sap-fiori-elements, software-product-function>sap-cloud-application-programming-model, software-product>sap-business-technology-platform ]
+tags: [ tutorial>beginner, type>tutorial, software-product>sap-business-application-studio, software-product>sapui5, software-product>sap-mobile-services, software-product-function>sap-fiori-elements, software-product-function>sap-cloud-application-programming-model, software-product>sap-business-technology-platform ]
 primary_tag: software-product>sap-build-code
 parser: v2
 ---
@@ -39,34 +39,37 @@ parser: v2
   
     * **Add from Dev Space**: to add a project from an existing SAP Business Application studio dev space to your SAP Build Code tenant.
 
-3. Click the **Build an Application** tile.
+3. Click the **Application** tile.
 
-    <!-- border -->![Build an Application](build_an_app.png)
+    <!-- border -->![Build an Application](3.png)
 
-4. Click the **SAP Build Code** tile to develop your project in SAP Business Application Studio, the SAP Build Code development environment, leveraging the capabilities of the services included in SAP Build Code.
+4. Select the type of application you want to create.
    
-    <!-- border -->![SAP Build Code](bc.png)
+    <!-- border -->![Select application type](4.png)
 
-5. Select the type of application you want to create.
-   
-    <!-- border -->![Select application type](types.png)
+    * Select **Full-Stack** to develop, extend, and deploy full-stack applications of type **Full Stack with Productivity Tools**.
+    * Select **Frontend** to build responsive, interactive web UIs.
+    * Secelct **Backend** to build server-side applications. 
+    * Select **Mobile** to customize, deploy, and manage your customized iOS and Android apps in the cloud.
 
-    * Select **SAP Fiori Application** to build UI using freestyle SAPUI5 or SAP Fiori elements.
-    * Select **Full-Stack Application** to create an application of type **Full Stack with Productivity Tools**. This will enable you to develop, extend, and deploy your app. You can provide the app with a desktop or mobile UI. 
-    * Select **Mobile Application** to customize, deploy, and manage your customized iOS and Android apps in the cloud.
+5. If you selected a Full Stack application, select **Full-Stack Node.JS**, **Full-Stack Java**, or **Full-Stack ABAP** as your development stack.
 
-6. Enter a name for your project.
+    <!-- border -->![Select development stack](5.png)
 
-7. If you selected a Full Stack application, select **Node** or **Java** as your development stack.
+6. Provide a name for your project.
 
-    <!-- border -->![Select development stack](development stack.png)
-
-8. Select the dev space where you want the project to reside.
+6. Select the dev space where you want the project to reside.
     >SAP Build Code recommends the dev space it deems most suitable, and it will automatically create a new one for you if you don't already have one. If you have other dev spaces of the same type (for example, Full-Stack), you can select between them. If you want to create a different dev space, or a dev space or another type, go to the Dev Space Manager. See [Working in the Dev Space Manager](https://help.sap.com/docs/build_code/d0d8f5bfc3d640478854e6f4e7c7584a/ad40d52d0bea4d79baaf9626509caf33.html?locale=en-US).
 
-    <!-- border -->![Select dev space](devspace.png)
+    <!-- border -->![Select dev space](7.png)
 
-9.  Click **Create**.
+7.  Click **Review**. 
+   
+    A summary of your selections is displayed.
+
+    <!-- border -->![Select development stack](8.png)
+
+8.  Click **Create**.
 
     You can see the project being created in the Project table of the lobby.  
     >The creation of the project may take a few moments.

@@ -31,7 +31,7 @@ author_profile: https://github.com/Karunaharan
 
     >The **Technical Name** gets populated automatically based on the name that you provide.
 
-      Choose **Save** and then choose **Artifacts**. In this tab, you will create your first integration flow.
+      Choose **Save** and then choose **Artifacts** to navigate to the artifacts tab. In this tab, you will create your first integration flow.
 
       <!-- border -->![Provide package details and navigate to artifacts](2-1-enter-integration-package-details.png)
 
@@ -39,7 +39,7 @@ author_profile: https://github.com/Karunaharan
 
       <!-- border -->![Add integration flow artifact](2-2-add-integration-flow-new.png)
 
-      Enter a **Name** for the integration flow and choose **Add and Open in Editor**.
+      Enter a **Name** for the integration flow and  choose **Add and Open in Editor**.
 
       <!-- border -->![Enter integration flow details and confirm](2-2-enter-iflow-details.png)
 
@@ -135,7 +135,7 @@ You have now created a step that will (in the further step) connect and communic
 
     <!-- border -->![Select message protocol](8-3-select-odata-adapter-msg-protocol.png)
 
-4. Select the **Connection** tab. In the **Address** field, enter **`https://refapp-espm-ui-cf.cfapps.eu10.hana.ondemand.com/espm-cloud-web/espm.svc`**. This is the URL of the online web shop from which you will fetch the product details.
+4. Select the **Connection** tab. In the **Address** field, enter **`https://refapp-espm-ui-cf.cfapps.eu10.hana.ondemand.com/espm-cloud-web/espm.svc`**. This is the URL of the online web shop from which the product details will be fetched.
 
 5. Select the **Processing** tab and choose **Select** in the **Resource Path** field.
 
@@ -151,7 +151,7 @@ You have now created a step that will (in the further step) connect and communic
 
     <!-- border -->![OData processing resource path selection - 4](8-8-odata-processing-4.png)
 
-9. In the **Filter By** section, choose the **Select Field** icon.
+9. Choose the **Select Field** icon.
 
     <!-- border -->![OData processing resource path selection - 5](8-9-odata-processing-5.png)
 
@@ -162,8 +162,6 @@ You have now created a step that will (in the further step) connect and communic
 11. In the dropdown list, select **Equal**. In the value field, enter **`${header.productIdentifier}`**. Choose **Finish**.
 
     <!-- border -->![OData processing resource path selection - 7](8-11-odata-processing-7.png)
-
-12. Choose **Save**.
 
 Now you have configured the OData adapter to fetch the details of the product based on the product ID that you send as input while making the HTTP call.
 

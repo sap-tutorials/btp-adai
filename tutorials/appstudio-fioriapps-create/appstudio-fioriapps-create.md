@@ -111,8 +111,10 @@ The flow consists of the following parts:
     | Description | **An SAP Fiori app to view a list of suppliers (demo)** |
     | Project folder path | **`/home/user/projects/FioriDemo`** |
     | Minimum SAPUI5 version | (Use the latest version)  |
+    | Enable TypeScript | **No** |
     | Add deployment configuration | **Yes** |
     | Add FLP configuration | **Yes** |
+    | Use virtual endpoints for local preview | **No** |
     | Configure advanced options | **No** (default) |
 
     Make sure to set the correct project folder path and to use the latest SAPUI5 version.
@@ -130,7 +132,7 @@ The flow consists of the following parts:
     |:----------|:------|
     | Please choose the target | **Cloud Foundry** (default) |
     | Destination name | **ES5 - https: //sapes5.sapdevcenter.com** |
-    | Add application to managed application router? | **Yes** |
+    | Add Router Module | Add Application to Managed Application Router |
 
     <!-- border -->![deployment configuration](BAS-Generate-App-7-1-.png)
 
