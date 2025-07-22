@@ -107,7 +107,7 @@ To set up the API Management capability from Integration Suite, you should first
 
    
 
-1. On the **Integration Suite** homepage, choose **Settings** > **Runtimes** from the left navigation pane.
+1. On the **Integration Suite** home page, choose **Settings** > **Runtimes** from the left navigation pane.
    <!-- border -->![Setting Up API Management Service](settings-api.png)
 
 2. On the **Configure the API Management Service** page, configure the following and choose **Activate**:
@@ -130,7 +130,7 @@ To set up the API Management capability from Integration Suite, you should first
 
       The **Configuration** process is triggered, where the necessary resources are provisioned for you. It's followed by **Testing the Setup**, where a simple API Proxy is deployed and invoked to check that everything is set up properly.
 
-      When the processes complete, the indicators turn green to indicate that the processes are successful. A **Release Notification** email is sent out to the email ID, which you provided earlier in the process in the **Configure the API Management Service** screen. This email contains details of the newly set up API Management service on your account.
+      When the processes complete, the indicators turn green to indicate that the processes are successful. A **Release Notification** email is sent out to the email ID, which you provided earlier in the process in the **Configure the API Management Service** screen. This e-mail contains details of the newly set up API Management service on your account.
     <!-- border -->![Completion of API Management Onboarding](apim-setup-complete.png)
 
 4. Log out of the **Integration Suite** and login again.
