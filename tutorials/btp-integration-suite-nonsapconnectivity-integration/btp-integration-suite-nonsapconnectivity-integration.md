@@ -4,8 +4,8 @@ auto_validation: true
 time: 30
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # Design an Integration Flow to Connect with Open Connectors 
@@ -98,11 +98,11 @@ During this step, you define your sender channel and sender adapter. We use an H
 
     <!-- border -->![4-6-Credential-Name](4-6-Credential-Name.png)
 
-7. For the **Resource**, choose **Select**.
+7. For the **Resource**, enter **/employees**.
 
     > At this point, Cloud Integration tests the connection to the mentioned Base URI using the mentioned credential name. This is a way for you to check if everything is going as expected. This connection testing helps you choose the right API resource.
 
-    <!-- border -->![4-7-Resource](4-7-Resource.png)
+    <!-- border -->![4-7-Resource](4-7-Resource-workaround.png)
 
 8. For **Method**, choose **GET** operation.
 
