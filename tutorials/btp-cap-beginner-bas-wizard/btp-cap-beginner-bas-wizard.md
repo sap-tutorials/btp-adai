@@ -57,10 +57,6 @@ In the previous step you've created an already runnable application. To demo tha
 
 > A run configuration is a collection of settings and files to run/debug your application.
 
-1. Go to **Terminal > New Terminal** and from the terminal, execute `npm install`.
-
-   This installs all dependencies from your `package.json`.
-
 1. Go to the **Run Configurations** panel and select **Create Configuration**.
 
 1. Choose `bookshop - development profile (CAP)`.
@@ -111,11 +107,11 @@ Open the context menu on `db/schema.cds` and select **Open With > CDS Graphical 
 
 <!-- border -->![The graphical modeler, showing the authors and the books entity.](graph-modeler-1.png)
 
-Select the **Books** entity and add a relationship to the **Authors** entity.
+Select the **Books** entity and add a managed association to the **Authors** entity.
 
 <!-- border -->![Selected books entity in the graphical modeler and a pointer to the **Add relationship** icon.](graph-modeler-2.png)
 
-Switch **Direction** to **Unidirectional** and then stick with the defaults, which means using `authors` as property name and `my.bookshop.Authors` as target entity.
+Stick with the defaults and confirm with **OK**.
 
 <!-- border -->![The **New Relationship** screen to define the association to-one, the property name, and the target entity type.](graph-modeler-3.png)
 
@@ -144,9 +140,29 @@ service AdminService @(requires:'admin') {
 
 ### Use databases
 
-Your project is [auto-configured by the `@cap-js/sqlite` plugin.](https://cap.cloud.sap/docs/guides/databases-sqlite#setup-configuration). The benefit of this auto-wired configuration is, that it works out of the box. Until now you used the in-memory database automatically when you ran the application. It reflects all changes you do to your data model and sample data on the fly. But it also means that data is reset to the initial `.csv` content with every restart.
+Your project is [auto-configured by the `@cap-js/sqlite` plugin](https://cap.cloud.sap/docs/guides/databases-sqlite#setup-configuration). The benefit of this auto-wired configuration is, that it works out of the box. Until now you used the in-memory database automatically when you ran the application. It reflects all changes you do to your data model and sample data on the fly. But it also means that data is reset to the initial `.csv` content with every restart.
 
 The next step is to have a file-based persistence of your data. And it's just some configuration you need to add and your application is configured to use a database. That gives you persistent data even though you're restarting your application. To use persistence also means you explicitly deploy the changes you make, to see them in your application.
+
+1. First let's make sure that you know the current state of effective database configuration.
+
+    Open a terminal by going to **Terminal > New Terminal** and execute the following:
+
+    ```Shell/Bash
+    cds env requires.db
+    ```
+
+    The response should look as follows:
+
+    ```Shell/Bash
+    {
+      impl: '@cap-js/sqlite',
+      credentials: { url: ':memory:' },
+      kind: 'sqlite'
+    }
+    ```
+
+    You see, that the current configuration uses an in-memory database. Let's change that.
 
 1. Add the needed configuration for a file-based SQLite database to your `package.json`.
 
@@ -159,7 +175,7 @@ The next step is to have a file-based persistence of your data. And it's just so
     }}
     ```
 
-1. Open a terminal by going to **Terminal > New Terminal** and deploy your data to a file-based SQLite3 database.
+1. Go to your terminal and deploy your data to a file-based SQLite3 database.
 
     ```Shell/Bash
     cds deploy
@@ -190,27 +206,27 @@ This adds csv files with a single header line for all entities to the `db/data/`
     >The filename is important to make use of a default to [pick up sample data](https://cap.cloud.sap/docs/guides/databases#providing-initial-data).
 
     ```CSV
-    ID;title;descr;authors_ID;stock;price;currency_code
-    201;Wuthering Heights;"Wuthering Heights, Emily Brontë's only novel, was published in 1847 under the pseudonym ""Ellis Bell"". It was written between October 1845 and June 1846. Wuthering Heights and Anne Brontë's Agnes Grey were accepted by publisher Thomas Newby before the success of their sister Charlotte's novel Jane Eyre. After Emily's death, Charlotte edited the manuscript of Wuthering Heights and arranged for the edited version to be published as a posthumous second edition in 1850.";101;12;11.11;GBP
-    207;Jane Eyre;"Jane Eyre /ɛər/ (originally published as Jane Eyre: An Autobiography) is a novel by English writer Charlotte Brontë, published under the pen name ""Currer Bell"", on 16 October 1847, by Smith, Elder & Co. of London. The first American edition was published the following year by Harper & Brothers of New York. Primarily a bildungsroman, Jane Eyre follows the experiences of its eponymous heroine, including her growth to adulthood and her love for Mr. Rochester, the brooding master of Thornfield Hall. The novel revolutionised prose fiction in that the focus on Jane's moral and spiritual development is told through an intimate, first-person narrative, where actions and events are coloured by a psychological intensity. The book contains elements of social criticism, with a strong sense of Christian morality at its core and is considered by many to be ahead of its time because of Jane's individualistic character and how the novel approaches the topics of class, sexuality, religion and feminism.";107;11;12.34;GBP
-    251;The Raven;"""The Raven"" is a narrative poem by American writer Edgar Allan Poe. First published in January 1845, the poem is often noted for its musicality, stylized language, and supernatural atmosphere. It tells of a talking raven's mysterious visit to a distraught lover, tracing the man's slow fall into madness. The lover, often identified as being a student, is lamenting the loss of his love, Lenore. Sitting on a bust of Pallas, the raven seems to further distress the protagonist with its constant repetition of the word ""Nevermore"". The poem makes use of folk, mythological, religious, and classical references.";150;333;13.13;USD
-    252;Eleonora;"""Eleonora"" is a short story by Edgar Allan Poe, first published in 1842 in Philadelphia in the literary annual The Gift. It is often regarded as somewhat autobiographical and has a relatively ""happy"" ending.";150;555;14;USD
-    271;Catweazle;Catweazle is a British fantasy television series, starring Geoffrey Bayldon in the title role, and created by Richard Carpenter for London Weekend Television. The first series, produced and directed by Quentin Lawrence, was screened in the UK on ITV in 1970. The second series, directed by David Reid and David Lane, was shown in 1971. Each series had thirteen episodes, most but not all written by Carpenter, who also published two books based on the scripts.;170;22;150;JPY
+    ID,title,descr,stock,price,currency_code,authors_ID
+    201,Wuthering Heights,"Wuthering Heights, Emily Brontë's only novel, was published in 1847 under the pseudonym ""Ellis Bell"". It was written between October 1845 and June 1846. Wuthering Heights and Anne Brontë's Agnes Grey were accepted by publisher Thomas Newby before the success of their sister Charlotte's novel Jane Eyre. After Emily's death, Charlotte edited the manuscript of Wuthering Heights and arranged for the edited version to be published as a posthumous second edition in 1850.",12,11.11,GBP,101
+    207,Jane Eyre,"Jane Eyre /ɛər/ (originally published as Jane Eyre: An Autobiography) is a novel by English writer Charlotte Brontë, published under the pen name ""Currer Bell"", on 16 October 1847, by Smith, Elder & Co. of London. The first American edition was published the following year by Harper & Brothers of New York. Primarily a bildungsroman, Jane Eyre follows the experiences of its eponymous heroine, including her growth to adulthood and her love for Mr. Rochester, the brooding master of Thornfield Hall. The novel revolutionised prose fiction in that the focus on Jane's moral and spiritual development is told through an intimate, first-person narrative, where actions and events are coloured by a psychological intensity. The book contains elements of social criticism, with a strong sense of Christian morality at its core and is considered by many to be ahead of its time because of Jane's individualistic character and how the novel approaches the topics of class, sexuality, religion and feminism.",11,12.34,GBP,107
+    251,The Raven,"""The Raven"" is a narrative poem by American writer Edgar Allan Poe. First published in January 1845, the poem is often noted for its musicality, stylized language, and supernatural atmosphere. It tells of a talking raven's mysterious visit to a distraught lover, tracing the man's slow fall into madness. The lover, often identified as being a student, is lamenting the loss of his love, Lenore. Sitting on a bust of Pallas, the raven seems to further distress the protagonist with its constant repetition of the word ""Nevermore"". The poem makes use of folk, mythological, religious, and classical references.",333,13.13,USD,150
+    252,Eleonora,"""Eleonora"" is a short story by Edgar Allan Poe, first published in 1842 in Philadelphia in the literary annual The Gift. It is often regarded as somewhat autobiographical and has a relatively ""happy"" ending.",555,14,USD,150
+    271,Catweazle,"Catweazle is a British fantasy television series, starring Geoffrey Bayldon in the title role, and created by Richard Carpenter for London Weekend Television. The first series, produced and directed by Quentin Lawrence, was screened in the UK on ITV in 1970. The second series, directed by David Reid and David Lane, was shown in 1971. Each series had thirteen episodes, most but not all written by Carpenter, who also published two books based on the scripts.",22,150,JPY,170
     ```
 
 1. Open `my.bookshop-Authors.csv` file in the `db/data` folder and replace the content.
 
     ```CSV
-    ID;name
-    101;Emily Brontë
-    107;Charlotte Brontë
-    150;Edgar Allen Poe
-    170;Richard Carpenter
+    ID,name
+    101,Emily Brontë
+    107,Charlotte Brontë
+    150,Edgar Allen Poe
+    170,Richard Carpenter
     ```
 
     In the previous step we switched to a file-based persistence. That means you can't see your sample data in your application without deployment. And as we didn't deploy the sample data until now, you can restart your running application and still see the initial sample data.
 
-    To see your recent changes, you need to deploy your data using `cds deploy --to sqlite`.
+    To see your recent changes, you need to deploy your data using `cds deploy`.
 
 1. Go to the debug panel with **View > Debug** and restart the app.
 
