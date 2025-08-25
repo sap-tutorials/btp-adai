@@ -85,7 +85,7 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     type: application
     framework:
       name: OpenUI5
-      version: "1.133.0"
+      version: "1.139.0"
       libraries:
         - name: sap.m
         - name: sap.ui.core
