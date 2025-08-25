@@ -123,12 +123,11 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     [...]
     "devDependencies": {
     [...]
-    //Around line 30
-        "ui5-tooling-modules": "^3.22.1",
-        "@ui5/webcomponents": "^2.7.3",
+        "ui5-tooling-modules": "^3.30.2",
+        "@ui5/webcomponents": "^2.13.3",
     },
     "dependencies": {
-        "@luigi-project/container": "^1.6.0"
+        "@luigi-project/container": "^1.7.2"
     }
     ```
 
