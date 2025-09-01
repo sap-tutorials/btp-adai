@@ -4,8 +4,8 @@ auto_validation: true
 time: 15
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 For the sake of providing an example, we're using a BambooHR trial system that already contains sample data. You can also use a third-party system of your choice to which connectivity is supported via Open Connectors. Currently, Open Connectors provides connectivity to more than 170 third-party applications and solutions. See [Connectors Catalog](https://help.openconnectors.ext.hana.ondemand.com/home/catalog).
