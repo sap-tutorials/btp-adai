@@ -4,8 +4,8 @@ auto_validation: true
 time: 25
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # Preparing Your SAP Integration Suite Tenant 
@@ -131,7 +131,7 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
 1. Navigate to your SAP BTP subaccount. Choose **Security > Users**. Choose the entry against your name.
 
-2. In the **Role Collections** section, choose **Assign Role Collection**. Assign the following role collections:
+2. In the **Role Collections** section, select the Three-Dot-Icon and choose **Assign Role Collection**. Assign the following role collections:
 
     |  Capability                   | Role Collection
     |  :-------------               | :-------------
@@ -143,9 +143,9 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
 ### Create a service instance and a service key
 
- A **service instance** defines how a service of SAP BTP (in our case, the **Process Integration Runtime** service) can be called from a remote component. In the context of SAP Integration Suite, a service instance is the definition of an OAuth client. The service key generated out of the service instance contains credentials and other information that is required for authentication to execute and monitor integration artifacts.
+ A **service instance** defines how a service of SAP BTP (in our case, **SAP Process Integration Runtime** service) can be called from a remote component. In the context of SAP Integration Suite, a service instance is the definition of an OAuth client. The service key generated out of the service instance contains credentials and other information that is required for authentication to execute and monitor integration artifacts.
 
- Create an instance of the **Process Integration Runtime** service to access the endpoints after deploying the integration artifacts.
+ Create an instance of **SAP Process Integration Runtime** service to access the endpoints after deploying the integration artifacts.
 
 1. Choose **Services > Instances and Subscriptions**.
 
@@ -153,7 +153,7 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
     <!-- border -->![Create-Service-Instance](5-2-Create-Service-Instance.png)
 
-3. In the **New Instance or Subscription** dialog, choose **Process Integration Runtime** from the list of services.
+3. In the **New Instance or Subscription** dialog, choose **SAP Process Integration Runtime** from the list of services.
 
 4. Choose **integration-flow** from the list of  plans.
 
@@ -167,7 +167,7 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
     A service instance is created.
 
-8. Under **Actions**, choose **Create Service Key**.
+8. Under **Actions** (Three-Dot-Icon), choose **Create Service Key**.
 
     <!-- border -->![5-8-Create-Service-Key](5-8-Create-Service-Key.png)
 

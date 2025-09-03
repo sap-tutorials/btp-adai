@@ -4,8 +4,8 @@ auto_validation: true
 time: 20
 tags: [ tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # Expose Integration Flow Endpoint as API and Test the Flow

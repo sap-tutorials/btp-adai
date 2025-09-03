@@ -4,8 +4,8 @@ auto_validation: true
 time: 10
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # Test Your Integration Scenario
@@ -33,7 +33,7 @@ In this step, you copy the endpoint address of the deployed integration flow.
 
 ### Test the integration scenario
 
-During this step, you test your integration design using Postman. You can use any testing platform of your choice.
+During this step, you test your integration design using any API testing platform of your choice. **For this tutorial, we are using Postman.**
 
 1. Open your **Postman** application.
 

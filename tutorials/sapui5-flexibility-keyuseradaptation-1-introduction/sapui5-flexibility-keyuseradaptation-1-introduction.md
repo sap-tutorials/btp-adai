@@ -48,13 +48,9 @@ Different users work with SAPUI5 applications differently - e.g. depending on wh
 
     ![Rename](step2-rename1.png)
 
-3. The field name is highlighted in blue. Overwrite the text.
+3. Enter the new text and press **OK**
 
     ![Overwrite text](step2-rename2.png)
-
-4. Click anywhere outside the field to confirm your change.
-   
-    >You can also start a rename by double-clicking on the field text.
 
 ### Move a field
 
@@ -73,6 +69,8 @@ Different users work with SAPUI5 applications differently - e.g. depending on wh
 
 1. Press the **Activate New Version** button in the toolbar.
 
+    > Some systems do not support versioning. In this case, just press **Save**, and exit key user adaptation.
+
     ![Save](step4-activate.png)
 
 2. Enter a name for your version, e.g. "My First Version" and press **Confirm**.
@@ -87,14 +85,14 @@ Different users work with SAPUI5 applications differently - e.g. depending on wh
 
 ---
 
-Congratulations! You have just made your first key user adaptations and activated your first version. In a real system, all end users would see your version of the app: a tailored UI of the Manage Products app to work more efficiently.
+Congratulations! You just made your first key user adaptations and activated your first version. In a real system, all end users would see your version of the app: a tailored UI of the Manage Products app to work more efficiently.
 
 >Notice that, if you reload the app, your changes will still be there.
 
 ### Restoring the app to its original state
 
 1. Start key user adaptation again (like in Step 1).
-   
+
 2. On the Version drop down (left side of the toolbar), select *Original App*.
 
     ![Original App](step5-originalapp.png)

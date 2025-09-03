@@ -4,8 +4,8 @@ auto_validation: true
 time: 10
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # The Use Case: Connectivity to Non-SAP Applications using SAP Integration Suite
@@ -41,7 +41,7 @@ You use *Cloud Integration* to:
    
 2. deploy the integration flow to a cloud-based runtime location
 
-Finally, use an open API platform like Postman to securely invoke the deployed integration artifact to see that you're able to fetch data from a third-party software using SAP Integration Suite.
+Finally, use an open API Client like Postman to securely invoke the deployed integration artifact to see that you're able to fetch data from a third-party software using SAP Integration Suite.
 
 For the sake of providing an example, we're using a BambooHR trial system that already contains sample data. You can also use a third-party system of your choice to which connectivity is supported via Open Connectors. Currently, Open Connectors provides connectivity to more than 170 third-party applications and solutions. See [Connectors Catalog](https://help.openconnectors.ext.hana.ondemand.com/home/catalog).
 
