@@ -87,11 +87,11 @@ Congratulations! You created a new view that displays all products in stock and 
 
     ![Embed Content as section](step2-embedcontentassection.png)
 
-3. This will open the *Define Embedded Content* dialog, where you can configure what will be displayed in the new section. Our goal is to add search results for the product name in Bing. Write *Search Results* as title. Then go to the *URL* field and type in: `https://www.bing.com/search?form=&q=`. This is the base URL for searches in Bing, to which you will add a product specific value.
+3. This will open the *Define Embedded Content* dialog, where you can configure what will be displayed in the new section. Our goal is to add search results for the product name in Bing. Write *Search Results* as title. Then go to the *URL* field and type in: `https://www.bing.com/search?form=&q=`. This is the base URL for searches in Bing, to which you will add a product specific value. Finally, click on the **Edit URL Parameters** to open the *Available Values* table.
    
     ![Define Embedded Content](step2-defineembeddedcontent.png)
 
-4. Notice that, on the left side of the *URL* field, there is a table called *Available Values*. These values are retrieved from the underlying data model for this Object Page. By selecting one of these parameters to be part of the URL, you can use a dynamic value retrieved from the currently displayed product. In this case, you want to search with the product name, so scroll down the table and find the parameter *Name*. When you click on it, the parameter will be added to the URL in the position of the cursor (or at the end, if nothing is selected) between curly braces. The final URL should be `https://www.bing.com/search?form=&q={Name}`.
+4. The values in *Available Values* are retrieved from the underlying data model for this Object Page. By selecting one of these parameters to be part of the URL, you can use a dynamic value retrieved from the currently displayed product. In this case, you want to search with the product name, so scroll down the table and find the parameter *Name*. When you click on it, the parameter will be added to the URL in the position of the cursor (or at the end, if nothing is selected) between curly braces. The final URL should be `https://www.bing.com/search?form=&q={Name}`.
 
     ![Available Values](step2-availablevalues.png)
 
@@ -109,6 +109,8 @@ Congratulations! You created a new view that displays all products in stock and 
 
  7. Finally, let's activate a new version with this new section. Go to **Activate New Version**, name it *Added Search Results* and press **Confirm**. You can now leave key user adaptation by pressing the **Exit** button on the toolbar and try out the application with your adaptations.
 
+    > Some systems do not support versioning. In this case, just press **Save**, and exit key user adaptation.
+
     ![Activate New Version](step2-activatenewversion.png)
 
     ![Enter Version Name](step2-enteraddedsearchresultsname.png)
@@ -118,6 +120,8 @@ Congratulations! You created a new view that displays all products in stock and 
     > If you navigate to different products from the product table (where you created the new view), you will see that the current product name is passed as parameter to the embedded content.
 
 Good job! You now know how to create tailored views in SAP Fiori elements applications and use embedded content to easily add more features to existing applications.
+
+>For the SAPUI5 Demokit apps, the key user changes are saved in your browser's local storage. If you create too many versions and want to get a clean state, you can remove all entries starting with *sap.ui.fl* from your browser's local storage.
 
 ### Summary
 

@@ -4,8 +4,8 @@ auto_validation: true
 time: 20
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # Set Up Integration Suite Trial
@@ -61,7 +61,9 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 > - If you have already subscribed to Integration Suite in your existing trial account, proceed to **Step 3**. You can consume only one Integration Suite tenant per trial account.
 
 
-1. In your web browser, open the [SAP BTP trial cockpit](https://cockpit.hanatrial.ondemand.com/).
+1. In your web browser, open the [SAP BTP trial cockpit](https://cockpit.hanatrial.ondemand.com/). Select the **Singapore - Azure** region.
+   
+    <!-- border -->![Trial Region selection](2-3-Screenshot_AP21.png)
 
 2. Navigate to the trial global account by choosing **Go To Your Trial Account**.
 
@@ -102,7 +104,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
     <!-- border -->![Assign Role Collection](3-7-Assign-Role-Collection.png)
 
-7. Go back to **Instances and Suscriptions**. Select **Integration Suite**. Click **Go to Application** in the **Integration Suite** overview page. Now you are directed to the Integration Suite home page.
+7. Go back to **Instances and Subscriptions**. Select **Integration Suite**. Click **Go to Application** in the **Integration Suite** overview page. Now you are directed to the Integration Suite home page.
 
     <!-- border -->![Assign Role Collection](3-8-Go-to-Application.png)
 
@@ -129,7 +131,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
     Select the **Enable Developer Hub** checkbox. Choose **Next**.
 
-    <!-- border -->![API management](4-1-API_step.png)
+    <!-- border -->![API management](4-1-API_step_1.png)
 
 2. Choose **Activate** to provision the selected capabilities.
 
@@ -148,18 +150,19 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 ### Automatically assign roles and create service instances using Booster
 
+>**NOTE**: Due to technical limitations, Boosters currently only work for subaccounts located in the Singapore region. Using subaccounts located in other regions can lead to errors when using Boosters. **See also Step 1 of this tutorial**. 
 
- In this step, you execute a booster that will assign you the necessary roles to access and use the activated capabilities, and create service instance of Process Integration Runtime.
+ In this step, you execute a booster that will assign you the necessary roles to access and use the activated capabilities, and create service instance of SAP Process Integration Runtime.
 
  A **Booster** is a set of guided and interactive steps that enable you to select, configure, and consume services on SAP BTP to achieve a specific technical goal. In this case, the Integration Suite booster will help you with assigning roles and creating service instances.
 
- A **service instance** defines how a service of SAP BTP (in our case, the **Process Integration Runtime** service) can be called from a remote component. In the context of Integration Suite, a service instance is the definition of an OAuth client. The service key generated out of the service instance contains credentials and other information that is required at a later step to call the integration flow.
+ A **service instance** defines how a service of SAP BTP (in our case, **SAP Process Integration Runtime** service) can be called from a remote component. In the context of Integration Suite, a service instance is the definition of an OAuth client. The service key generated out of the service instance contains credentials and other information that is required at a later step to call the integration flow.
 
 1. Navigate to the overview page of your SAP BTP global account.
 
 2. Choose **Boosters** on the left navigation pane.
 
-3. From the list of boosters, look out for the tile **Enable Integration Suite**. You can start the booster execution by choosing **Start** on the tile.
+3. From the list of boosters, look out for the tile **Enable Integration Suite** under the **Integration** section. You can start the booster execution by choosing **Start** on the tile.
 
     <!-- border -->![Booster Tile](5-3-Booster-Tile.png)
 

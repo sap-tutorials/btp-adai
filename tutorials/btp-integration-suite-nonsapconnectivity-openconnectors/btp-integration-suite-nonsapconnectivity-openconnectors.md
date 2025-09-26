@@ -4,8 +4,8 @@ auto_validation: true
 time: 20
 tags: [tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
 primary_tag: software-product>sap-integration-suite
-author_name: Karunaharan V
-author_profile: https://github.com/Karunaharan
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 ---
 
 # Establish Connection Between Your BambooHR Trial and Open Connectors
@@ -62,7 +62,7 @@ You've now successfully created a BambooHR connector instance. In this step, you
 
     <!-- border -->![Test-API](3-1-Test-API.png)
 
-2. In the list of APIs, look out for the category **employees** and the GET API **/employees**.
+2. In the list of APIs, look out for the category **employees** and choose the GET API **/employees**.
 
     This API fetches a list of all employees (sample data) in your BambooHR trial system.
 
@@ -87,11 +87,11 @@ In this step, you'll create a security material in Cloud Integration that takes 
 
     <!-- border -->![Authorization-Values](4-1-Authorization-Values.png)
 
-2. In your SAP Integration Suite home page, choose **Monitor > Integrations**.
+2. In your SAP Integration Suite home page, choose **Monitor > Integrations and APIs**.
 
     In case Open Connectors had opened in the same tab, click **SAP Integration Suite** at the top left to navigate to the SAP Integration Suite home page.
 
-3. Choose **Security Material**.
+3. Choose **Security Material** under the **Manage Security** section.
 
 4. Choose **Create > User Credentials**.
 

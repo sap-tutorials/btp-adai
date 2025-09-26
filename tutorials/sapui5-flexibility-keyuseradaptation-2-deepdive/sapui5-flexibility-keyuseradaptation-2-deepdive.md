@@ -117,5 +117,7 @@ In the next steps you will learn how to create other UI changes and see more fea
    
     ![Filtering](step4-filtering.png)
 
+>For the SAPUI5 Demokit apps, the key user changes are saved in your browser's local storage. If you create too many versions and want to get a clean state, you can remove all entries starting with *sap.ui.fl* from your browser's local storage.
+
 Well done! You now know how to add new fields and combine and split them. You also learned how to navigate your application in key user adaptation and see details about the UI changes which were created.
 In the next tutorial you will look at more advanced features of key user adaptation using an SAP Fiori elements app.
