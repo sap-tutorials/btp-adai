@@ -1,5 +1,7 @@
 ---
 parser: v2
+author_name: Kasturi Kabiraj
+author_profile: https://github.com/Kakabira
 auto_validation: true
 time: 15
 tags: [ tutorial>beginner, software-product>sap-api-management]
