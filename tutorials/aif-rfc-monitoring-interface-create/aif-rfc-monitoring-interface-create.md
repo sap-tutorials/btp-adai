@@ -1,5 +1,7 @@
 ---
 parser: v2
+author_name: Melanie Cueppers
+author_profile: https://github.com/MelanieCueppers
 auto_validation: false
 time: 30
 tags: [ tutorial>beginner, software-product>sap-s-4hana, tutorial>license]
