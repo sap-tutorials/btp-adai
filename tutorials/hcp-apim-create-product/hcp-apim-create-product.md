@@ -1,5 +1,7 @@
 ---
 parser: v2
+author_name: Kasturi Kabiraj
+author_profile: https://github.com/Kakabira
 primary_tag: products>sap-integration-suite
 auto_validation: true
 tags: [  tutorial>beginner, topic>cloud, products>sap-api-management ]
