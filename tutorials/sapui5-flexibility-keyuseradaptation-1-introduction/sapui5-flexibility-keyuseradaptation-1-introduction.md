@@ -25,7 +25,7 @@ Different users work with SAPUI5 applications differently - e.g. depending on wh
 
 1. Go to the [SAPUI5 Demo Kit](https://ui5.sap.com/#/demoapps), and open the **Key User Adaptation** demo app under *SAPUI5 Flexibility Demo Apps*.
 
-2. Go to the user actions menu of the app (in this demo app you are the *Default User*).
+2. Go to the user actions menu of the app (in this demo app you are *John Doe*).
 
     ![User actions menu](step1-useractionsmenu.png)
 

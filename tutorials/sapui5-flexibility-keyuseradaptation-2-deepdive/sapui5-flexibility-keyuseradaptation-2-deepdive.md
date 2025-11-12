@@ -29,7 +29,7 @@ In the next steps you will learn how to create other UI changes and see more fea
 
 1. Go again to the [SAPUI5 Demo Kit](https://ui5.sap.com/#/demoapps), and open the **Key User Adaptation** demo app under *SAPUI5 Flexibility Demo Apps*.
 
-2. Start key user adaptation by clicking on the upper right **DU** icon and selecting **Adapt UI**. Make sure to select *Original App* on the Version drop down (left side of the toolbar). This will load the app without any previous UI changes so you can start a new draft. The draft is only visible to key users and only while in adaptation mode - end users will not see any UI changes until the draft is activated as a version.
+2. Start key user adaptation by clicking on the upper right **JD** icon and selecting **Adapt UI**. Make sure to select *Original App* on the Version drop down (left side of the toolbar). This will load the app without any previous UI changes so you can start a new draft. The draft is only visible to key users and only while in adaptation mode - end users will not see any UI changes until the draft is activated as a version.
 
 3. Go to the **General Information** section and right-click on the first field, **Product**. Then select **Add: Field**.
 

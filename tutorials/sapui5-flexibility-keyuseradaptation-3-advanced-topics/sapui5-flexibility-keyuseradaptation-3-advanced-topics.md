@@ -25,7 +25,7 @@ So far you have learned how easy it is to adapt applications using intuitive "wh
 
 1. Go again to the [SAPUI5 Demo Kit](https://ui5.sap.com/#/demoapps), and this time open the **Key User Adaptation for SAP Fiori Elements** demo app under *SAPUI5 Flexibility Demo Apps*.
 
-2. Start key user adaptation by clicking on the upper right **DU** icon and selecting **Adapt UI**. Make sure to select *Original App* on the Version drop down (left side of the toolbar). This will load the app without any previous UI changes so you can start a new draft.
+2. Start key user adaptation by clicking on the upper right **JD** icon and selecting **Adapt UI**. Make sure to select *Original App* on the Version drop down (left side of the toolbar). This will load the app without any previous UI changes so you can start a new draft.
    
     ![Start Key User Adaptation](step1-startkeyuseradaptation.png)
 
