@@ -69,19 +69,22 @@ In the next steps you will learn how to create other UI changes and see more fea
    
     ![Combine](step2-combine.png)
 
-4. Both fields are now combined into one. This feature is useful to save space on the UI, especially in applications with many fields.
+4. Both fields are now combined into one. You can now rename the combined field to simply "Name". This feature is useful to save space on the UI, especially in applications with many fields. The combined field can also be split back to the two original fields.
     
     >The order of the entries in the combined field depends on the order in which the original fields were selected. The combined field will appear in the same position as the field where you triggered the *Combine* action.
 
+    >By now you probably noticed that not all actions are available for every control. The available actions depend on many factors such as the control type, where it is located in the application and whether the action makes sense in the application context.
+
+<!-- REMOVED DUE TO BUG WITH RENAME OF COMBINED FIELDS - REINSTATE AFTER FIXED INCLUDING INSTRUCTIONS FOR THE RELOAD
 5. Right-click on this field again and press **Split**. The fields are now separated again.
 
     ![Split](step2-split.png)
 
  6. Both fields retain the name from the combined field. This is because the field might have been renamed, and you don't want to lose the new name. Rename them back to *First Name* and *Last Name*.
 
-    ![Rename](step2-afterrename.png)
+    ![Rename](step2-afterrename.png) -->
 
-    > By now you probably noticed that not all actions are available for every control. The available actions depend on many factors such as the control type, where it is located in the application and whether the action makes sense in the application context.
+
 
 ### Navigation mode
 
