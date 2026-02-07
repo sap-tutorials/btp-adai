@@ -87,7 +87,7 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
 1. Open a command line window and run the following command in a folder of your choice to create the project:
 
     ```Shell/Bash
-    cds init my-bookshop
+    cds init my-bookshop --nodejs
     ```
 
     > This creates a folder `my-bookshop` in the current directory.
@@ -111,13 +111,13 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
     > As there's no content in the project so far, it just keeps waiting for content with a message as shown:
 
     ```Shell/Bash
-    cds serve all --with-mocks --in-memory?
-    watching: cds,csn,csv,ts,mjs,cjs,js,json,properties,edmx,xml,env,css,gif,html,jpg,png,svg...
-    live reload enabled for browsers
-            _______________________
+    cds serve all --with-mocks --in-memory? 
+    ( live reload enabled for browsers ) 
 
+            ___________________________
+ 
 
-        No models found in db/,srv/,app/,schema,services.
+        No models found in db/,srv/,app/,app/*.
         Waiting for some to arrive...
     ```
 
@@ -128,7 +128,7 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
 1. Open a command line window and run the following command in a folder of your choice to create the project:
 
     ```Shell/Bash
-    cds init my-bookshop
+    cds init my-bookshop --nodejs
     ```
 
     > This creates a folder `my-bookshop` in the current directory.
@@ -211,15 +211,17 @@ After initializing the project, you should see the following empty folders:
 3. As soon as you've saved your file, the still running `cds watch` reacts immediately with some new output as shown below:
 
     ```Shell/Bash
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
+    [cds] - using bindings from: { registry: '~/.cds-services.json' }
     [cds] - connect to db > sqlite { database: ':memory:' }
-     > init from ./db/csv/my.bookshop-Authors.csv
-    /> successfully deployed to sqlite in-memory db
+    /> successfully deployed to in-memory database. 
 
-    [cds] - serving CatalogService { at: '/odata/v4/catalog', impl: './srv/cat-service.js' }
-
+    [cds] - using auth strategy { kind: 'mocked' }
+    [cds] - serving CatalogService {
+        at: [ '/odata/v4/catalog' ],
+        decl: 'srv/cat-service.cds:3'
+    }
     [cds] - server listening on { url: 'http://localhost:4004' }
-    [cds] - launched at 18/05/2022, 19:49:32, in: 874.456ms
+    [cds] - server v9.7.0 launched in 668 ms
     [cds] - [ terminate with ^C ]
     ```
 
@@ -358,10 +360,14 @@ This adds csv files with a single header line for all entities to the `db/data/`
      > init from ./db/csv/my.bookshop-Books.csv
     /> successfully deployed to sqlite in-memory db
 
-    [cds] - serving CatalogService { at: '/odata/v4/catalog', impl: './srv/cat-service.js' }
-
+    [cds] - using auth strategy { kind: 'mocked' }
+    [cds] - serving CatalogService {
+        at: [ '/odata/v4/catalog' ],
+        decl: 'srv/cat-service.cds:3',
+        impl: 'srv/cat-service.js'
+    }
     [cds] - server listening on { url: 'http://localhost:4004' }
-    [cds] - launched at 18/05/2022, 19:49:47, in: 861.036ms
+    [cds] - server v9.7.1 launched in 419 ms
     [cds] - [ terminate with ^C ]
     ```
 
@@ -443,12 +449,16 @@ Instead of using in-memory, you can also use persistent databases.
     ```
 
     ```Shell/Bash
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { url: 'sqlite.db', database: 'db/my-bookshop.db' }
-    [cds] - serving CatalogService { at: '/odata/v4/catalog', impl: './srv/cat-service.js' }
-
+    [cds] - using bindings from: { registry: '~/.cds-services.json' }
+    [cds] - connect to db > sqlite { url: 'db/my-bookshop.sqlite' }
+    [cds] - using auth strategy { kind: 'mocked' }
+    [cds] - serving CatalogService {
+        at: [ '/odata/v4/catalog' ],
+        decl: 'srv/cat-service.cds:3',
+        impl: 'srv/cat-service.js'
+    }
     [cds] - server listening on { url: 'http://localhost:4004' }
-    [cds] - launched at 18/05/2022, 19:54:53, in: 830.398ms
+    [cds] - server v9.7.1 launched in 296 ms
     [cds] - [ terminate with ^C ]
     ```
 
