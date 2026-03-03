@@ -8,11 +8,11 @@ author_name: Melanie Cueppers
 author_profile: https://github.com/MelanieCueppers
 ---
 
-# Set Up Integration Suite Trial
+# Set Up SAP Integration Suite Trial
 <!-- description --> Get onboarded to SAP Integration Suite trial account.
 
 ## Prerequisites
-- You have created a **trial account on SAP Business Technology Platform:** [Get a Free Trial Account on SAP BTP](hcp-create-trial-account)
+- You've created a **trial account on SAP Business Technology Platform:** [Get a Free Trial Account on SAP BTP](hcp-create-trial-account)
 
 ## You will learn
 -	How to start your SAP Integration Suite trial
@@ -20,13 +20,13 @@ author_profile: https://github.com/MelanieCueppers
 -	How to provision and activate the capabilities
 
 ## SAP Integration Suite
-SAP Integration Suite combines the integration capabilities such as Cloud Integration (Process Integration), API Management, Integration Advisor, Trading Partner Management, Integration Assessment, and Open Connectors into a cohesive and simplified toolkit for enterprise integrations. To provide a comprehensive integration experience, these services are not available separately, but only as part of the Integration Suite.
+SAP Integration Suite combines the integration capabilities such as Cloud Integration (Process Integration), API Management, Integration Advisor, Trading Partner Management, Integration Assessment, and Open Connectors into a cohesive and simplified toolkit for enterprise integrations. To provide a comprehensive integration experience, these services are not available separately, but only as part of SAP Integration Suite.
 
-The Integration Suite includes all integration capabilities in simple service plans. To know more on these plans, see [Integration Suite](https://discovery-center.cloud.sap/#/serviceCatalog/integration-suite/?region=all&tab=service_plan) service catalog.
+SAP Integration Suite includes all integration capabilities in simple service plans. To learn more on these plans, see [Integration Suite](https://discovery-center.cloud.sap/#/serviceCatalog/integration-suite/?region=all&tab=service_plan) service catalog.
 
 This part of the mission lets you experience few capabilities offered by SAP Integration Suite. For the complete mission, see [Request Product Details with an Integration Scenario](mission.cp-starter-integration-cpi).
 
-> **IMPORTANT**: Trial accounts are not intended for productive usage or team development. If you're using Integration Suite from a production account for your proof of concepts or real-time business cases, refer to the [product documentation](https://help.sap.com/docs/integration-suite) on SAP Help Portal for step-by-step explanation of the initial set up and further information.
+> **IMPORTANT**: Trial accounts are not intended for productive usage or team development. If you're using SAP Integration Suite from a production account for your proof of concepts or real-time business cases, refer to the [product documentation](https://help.sap.com/docs/integration-suite) on SAP Help Portal for step-by-step explanation of the initial set up and further information.
 
 > **Remember**
 This tutorial is applicable only if you want to set up SAP Integration Suite for the use case covered in the mission [Request Product Details with an Integration Scenario](https://developers.sap.com/mission.cp-starter-integration-cpi.html). If you like to do a general set up of SAP Integration Suite or cover other use cases, then the steps mentioned here might not be exactly applicable. For general set up, refer to [Subscribing and Configuring Initial Access to SAP Integration Suite](https://help.sap.com/docs/integration-suite/sap-integration-suite/subscribing-to-integration-suite) and [Activating and Managing Capabilities](https://help.sap.com/docs/integration-suite/sap-integration-suite/activating-and-managing-capabilities).
@@ -58,7 +58,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
           - **Option 2**:
           To continue with an existing subaccount, unsubscribe from Cloud Integration and API Management services, and then proceed to **Step 2**.
 
-> - If you have already subscribed to Integration Suite in your existing trial account, proceed to **Step 3**. You can consume only one Integration Suite tenant per trial account.
+> - If you've already subscribed to SAP Integration Suite in your existing trial account, proceed to **Step 3**. You can consume only oneSAP  Integration Suite tenant per trial account.
 
 
 1. In your web browser, open the [SAP BTP trial cockpit](https://cockpit.hanatrial.ondemand.com/). Select the **Singapore - Azure** region.
@@ -76,7 +76,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 ### Subscribe to the service
 
-1. Select **Services > Instances and Subscriptions**.
+1. Select **Services** > **Instances and Subscriptions**.
 
 2. Choose **Create**.
 
@@ -84,19 +84,19 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 3. In the **New Instance or Subscription** dialog, choose **Integration Suite** from the list of services.
 
-    >If Integration Suite is not visible in the **Services** list, you need to assign Integration Suite Trial entitlements. To assign entitlements, see [Manage Entitlements on SAP BTP Trial](cp-trial-entitlements).
+    >If SAP Integration Suite is not visible in the **Services** list, you need to assign SAP Integration Suite Trial entitlements. To assign entitlements, see [Manage Entitlements on SAP BTP Trial](cp-trial-entitlements).
 
     >- In the tutorial referred above, after **Step 3.5**, there is a list of available services on the left pane.
 
-    >- Filter for Integration Suite service and select the service.
+    >- Filter for SAP Integration Suite service and select the service.
 
     >- Select the service plan, add it to your subaccount, and continue with this tutorial.
 
-4. Choose the default plan which is **trial** and then choose **Create**. You are subscribed to the service now.
+4. Choose the default plan, **trial**, and then choose **Create**. You're now subscribed to the service.
 
     <!-- border -->![Create Subscription](3-4-Create_Subscription.png)
 
-5. Select **Security > Users**. Choose the entry against your name. In the **Role Collections** section, select the Three-Dot-Icon and choose **Assign Role Collection**.
+5. Select **Security** > **Users**. Choose the entry against your name. In the **Role Collections** section, select the Three-Dot-Icon and choose **Assign Role Collection**.
 
     <!-- border -->![Assign Roles](3-6-Assign-Roles.png)
 
@@ -104,7 +104,8 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
     <!-- border -->![Assign Role Collection](3-7-Assign-Role-Collection.png)
 
-7. Go back to **Instances and Subscriptions**. Select **Integration Suite**. Click **Go to Application** in the **Integration Suite** overview page. Now you are directed to the Integration Suite home page.
+7. Go back to **Instances and Subscriptions**. Select **Integration Suite**. Click **Go to Application** in the **Integration Suite** overview page. Now you are directed to the SAP Integration Suite home page.
+    >If you don't have access to the page, log out of SAP Integration Suite, then log in again. 
 
     <!-- border -->![Assign Role Collection](3-8-Go-to-Application.png)
 
@@ -112,12 +113,12 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 ### Activate the capabilities
 
->**IMPORTANT**: Ensure that you unsubscribe from the standalone services (like Cloud Integration, or API Management) if you have already subscribed to them in the same subaccount.  If the standalone subscription exists, you will be unable to activate respective capability via the Integration Suite.
+>**IMPORTANT**: Ensure that you unsubscribe from the standalone services (like Cloud Integration, or API Management) if you've already subscribed to them in the same subaccount. If a standalone subscription exists, you'll be unable to activate the respective capability using SAP Integration Suite.
 
 >**Navigational Steps**: Go to **Instances and Subscriptions** and delete the subscriptions.
 
 
-1. In the Integration Suite home page, choose **Add Capabilities** to activate the capabilities offered by Integration Suite.
+1. On the SAP Integration Suite home page, choose **Add Capabilities** to activate the capabilities offered by SAP Integration Suite.
 
     <!-- border -->![Integration suite launchpad](4-1-isuitenewlaunchpage.png)
 
@@ -129,34 +130,34 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
     <!-- border -->![Intermediate Step](4-1-CPI_step.png)
 
-    Select the **Enable Developer Hub** checkbox. Choose **Next**.
+    Select the **Developer Hub** checkbox. Choose **Next**.
 
-    <!-- border -->![API management](4-1-API_step_1.png)
+    <!-- border -->![API management](4-1-API_step_2.png)
 
 2. Choose **Activate** to provision the selected capabilities.
 
-    >For some capabilities, you would be given a choice to select additional functionalities that you need to choose based on your business requirement.
+    >For some capabilities, you can select additional functionalities that you need to choose based on your business requirement.
 
     <!-- border -->![Activate capabilities](4-2-Activate_capabilities.png)
 
     The activation takes a while to complete.
-    >**IMPORTANT**: Before you proceed, please wait for the capabilities to be activated.
+    >**IMPORTANT**: Before you proceed, please wait for the capabilities to be activated. They're activated once you can see the respective capability tiles on your home screen. You might need to refresh the browser.
 
     <!-- border -->![Activation dialog](4-2-Activation.png)
 
-    >To access the features of each capability, you must first assign capability-specific roles which is explained in the next step.
+    >To access the features of each capability, you must first assign capability-specific roles, which is explained in the next step.
 
 
 
-### Automatically assign roles and create service instances using Booster
+### Automatically assign roles and create service instances using booster
 
->**NOTE**: Due to technical limitations, Boosters currently only work for subaccounts located in the Singapore region. Using subaccounts located in other regions can lead to errors when using Boosters. **See also Step 1 of this tutorial**. 
+>**NOTE**: Due to technical limitations, boosters currently only work for subaccounts located in the **Singapore region**. Using subaccounts located in other regions can lead to errors when using Boosters. **See also step 1 of this tutorial**. 
 
  In this step, you execute a booster that will assign you the necessary roles to access and use the activated capabilities, and create service instance of SAP Process Integration Runtime.
 
- A **Booster** is a set of guided and interactive steps that enable you to select, configure, and consume services on SAP BTP to achieve a specific technical goal. In this case, the Integration Suite booster will help you with assigning roles and creating service instances.
+ A **booster** is a set of guided and interactive steps that enable you to select, configure, and consume services on SAP BTP to achieve a specific technical goal. In this case, the Integration Suite booster will help you with assigning roles and creating service instances.
 
- A **service instance** defines how a service of SAP BTP (in our case, **SAP Process Integration Runtime** service) can be called from a remote component. In the context of Integration Suite, a service instance is the definition of an OAuth client. The service key generated out of the service instance contains credentials and other information that is required at a later step to call the integration flow.
+ A **service instance** defines how a service of SAP BTP (in our case, **SAP Process Integration Runtime** service) can be called from a remote component. In the context of SAP Integration Suite, a service instance is the definition of an OAuth client. The service key generated out of the service instance contains credentials and other information that is required at a later step to call the integration flow.
 
 1. Navigate to the overview page of your SAP BTP global account.
 
@@ -170,7 +171,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
     <!-- border -->![Booster Tile](5-3-Booster-Overview.png)
 
-4. In the **Configure Subaccount** tab, select your subaccount, organization, and space in which you have subscribed for Integration Suite service. Choose **Next**.
+4. In the **Configure Subaccount** tab, select your subaccount, organization, and space in which you have subscribed to SAP Integration Suite. Choose **Next**.
 
     <!-- border -->![Configure Subaccount](5-4-Conf-subaccount.png)
 
@@ -196,9 +197,9 @@ You can also manually do the role assignment and service instance creation witho
 ### Verify the activated capabilities
 
 
-1. Refresh the Integration Suite home page to see capability-specific menu items being added to the left navigation.
+Refresh the SAP Integration Suite home page to see that capability-specific menu items were added to the left navigation.
 
-    <!-- border -->![Activated Capabilities](6-2-Verifycapabilities.png)
+<!-- border -->![Activated Capabilities](6-2-Verifycapabilities.png)
 
 
 

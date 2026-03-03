@@ -12,7 +12,7 @@ author_profile: https://github.com/MelanieCueppers
 <!-- description --> Design an integration flow to integrate an online webshop that exposes data via OData service and fetch the product details.
 
 ## Prerequisites
- - You have provisioned your SAP Integration Suite tenant. For more information, see [Set Up Integration Suite Trial](cp-starter-isuite-onboard-subscribe).
+ - You've provisioned your SAP Integration Suite tenant. For more information, see [Set Up SAP Integration Suite Trial](cp-starter-isuite-onboard-subscribe).
 
 
 ## You will learn
@@ -74,7 +74,7 @@ In this step, you define your sender channel and sender adapter. In this case, w
 
 Input to the integration flow is sent in JSON format. At a later point, you communicate to a web shop, which is a OData service that understands only XML. You use a converter for this JSON to XML conversion. After the input is converted into XML, the message is sent as header information to the OData service to fetch the required product details.
 
-1. From the palette (the grey bar on the top containing integration flow steps), choose **Message Transformers > Converter > JSON to XML Converter**.
+1. From the palette (the grey bar on the top containing integration flow steps), choose **Message Transformers** > **Converter** > **JSON to XML Converter**.
 
     <!-- border -->![JSON to XML Converter](5-1-json-to-xml-converter.png)
 
@@ -87,11 +87,11 @@ Input to the integration flow is sent in JSON format. At a later point, you comm
 
 The Content Modifier allows you to modify a incoming message by changing the content of the data containers that are involved in message processing (message header, message body, or message exchange). The data written to the message header using a Content Modifier also becomes part of the outbound message addressed to a receiver system. For more information about Content Modifier, see [Content Modifier Basics](https://help.sap.com/docs/integration-suite/sap-integration-suite/content-modifier-basics).
 
-1. Choose **Message Transformers > Content Modifier** and add it to the message path, as you did for the **JSON to XML Converter**.
+1. Choose **Message Transformers** > **Content Modifier** and add it to the message path, as you did for the **JSON to XML Converter**.
 
     <!-- border -->![Add Content Modifier](6-1-connect-content-modifier.png)
 
-2. In the property sheet, choose **Message Header > Add** to configure the **Content Modifier**. Enter the following parameters:
+2. In the property sheet, choose **Message Header** > **Add** to configure the **Content Modifier**. Enter the following parameters:
 
     |  Field Name     | Description
     |  :------------- | :-------------
@@ -151,7 +151,7 @@ You have now created a step that will (in the further step) connect and communic
 
     <!-- border -->![OData processing resource path selection - 4](8-8-odata-processing-4.png)
 
-9. Choose the **Select Field** icon.
+9. In the **Filter By** section, choose the **Select Field** icon.
 
     <!-- border -->![OData processing resource path selection - 5](8-9-odata-processing-5.png)
 
@@ -170,11 +170,11 @@ Now you have configured the OData adapter to fetch the details of the product ba
 ### Deploy the integration flow
 
 
-1. Choose **Deploy** to deploy the integration flow. Choose **Yes** in the confirmation dialog for deployment. Upon deployment confirmation, choose the **Deployment Status** tab in the property sheet.
+1. Choose **Deploy** to deploy the integration flow. Choose **Yes** in the confirmation dialog for deployment. The deployment can take some time to finish.
 
     <!-- border -->![Deploy integration flow and access deployment status](9-1-deploy-iflow.png)
 
-2. In the **Deployment Status** tab, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
+2. Once the integration flow is deployed, go to the **Deployment Status** tab in the propery sheet. Here, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
 
     <!-- border -->![View deployment status](9-2-view-deployment-status.png)
 
