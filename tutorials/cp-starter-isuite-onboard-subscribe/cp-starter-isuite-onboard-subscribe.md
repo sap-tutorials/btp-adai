@@ -12,7 +12,7 @@ author_profile: https://github.com/MelanieCueppers
 <!-- description --> Get onboarded to SAP Integration Suite trial account.
 
 ## Prerequisites
-- You've created a **trial account on SAP Business Technology Platform:** [Get a Free Trial Account on SAP BTP](hcp-create-trial-account)
+You've created a **trial account on SAP Business Technology Platform:** [Get a Free Trial Account on SAP BTP](hcp-create-trial-account)
 
 ## You will learn
 -	How to start your SAP Integration Suite trial
