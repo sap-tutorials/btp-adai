@@ -1,5 +1,7 @@
 ---
 parser: v2
+author_name: Kasturi Kabiraj
+author_profile: https://github.com/Kakabira
 title: Get Started with API Revisions
 description: Make incremental changes to an API proxy without causing any disruption to the published API.
 auto_validation: true
