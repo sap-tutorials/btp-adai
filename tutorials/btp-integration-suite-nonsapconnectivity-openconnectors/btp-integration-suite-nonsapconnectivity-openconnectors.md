@@ -68,7 +68,7 @@ You've now successfully created a BambooHR connector instance. In this step, you
 
     <!-- border -->![Get-Employees-API](3-2-Get-Employees-API.png)
 
-3. Choose **Try Out** and **Execute** to test the API.
+3. To test the API, choose **Try it out** and **Execute**.
 
     You see a successful response with response code 200 and a response body containing employees data from your BambooHR trial system.
     
@@ -79,11 +79,11 @@ You've now successfully created a BambooHR connector instance. In this step, you
 
 ### Create a Security Material in Cloud Integration
 
-In a later tutorial of this mission, you'll establish an integration between Cloud Integration and BambooHR through Open Connectors. For this integration to work as expected, Open Connectors must authenticate you via a user credential. 
+In a later tutorial of this mission, you'll establish an integration between Cloud Integration and BambooHR through Open Connectors. For this integration to work as expected, Open Connectors must authenticate you using a user credential. 
 
-In this step, you'll create a security material in Cloud Integration that takes care of this authentication.
+In this step, you'll create security material in Cloud Integration that takes care of this authentication.
 
-1. In the successful API response, copy the authorization values for the properties **User**, **Organization**, and **Element**.
+1. In the successful API response, copy the authorization values for the properties **User**, **Organization**, and **Element**. You can find them in the Curl area above the server response you just received.  
 
     <!-- border -->![Authorization-Values](4-1-Authorization-Values.png)
 
@@ -91,7 +91,7 @@ In this step, you'll create a security material in Cloud Integration that takes 
 
     In case Open Connectors had opened in the same tab, click **SAP Integration Suite** at the top left to navigate to the SAP Integration Suite home page.
 
-3. Choose **Security Material** under the **Manage Security** section.
+3. In the **Manage Security** section, choose **Security Material**.
 
 4. Choose **Create > User Credentials**.
 

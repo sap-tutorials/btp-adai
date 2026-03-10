@@ -19,7 +19,7 @@ author_profile: https://github.com/MelanieCueppers
 
 ### Create an Integration Package and Integration Flow
 
-1. On the SAP Integration Suite home page, choose **Design** > **Integrations and APIs** > **Create** to create an integration package.
+1. Back in SAP Integration Suite, go to **Design** > **Integrations and APIs** and choose **Create** to create an integration package.
     
     > An integration flow must be associated to an integration package.
 
@@ -41,7 +41,7 @@ author_profile: https://github.com/MelanieCueppers
 
 7. Choose **Edit** to start editing the integration flow.
 
-    Choose **Restore** at the bottom right corner to bring up the **Property Sheet**. Property sheet is the place where you configure the parameters for every step in the integration flow.
+    Choose **Restore** at the bottom right corner to bring up the **Property Sheet**. The property sheet is where you configure the parameters for every step in the integration flow.
 
       <!-- border -->![1-6-Edit-Iflow](1-6-Edit-Iflow.png)
 
@@ -121,9 +121,11 @@ Now that you have designed your integration flow, let's deploy it for further ex
 
     <!-- border -->![5-1-Deploy-Status](5-1-Deploy-Status.png)
 
-2. Choose **Yes** in the confirmation dialog for deployment. Upon deployment confirmation, choose the **Deployment Status** tab on the property sheet.
+2. Choose **Yes** in the confirmation dialog for deployment. 
 
-3. On the **Deployment Status** tab, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
+3. Upon deployment confirmation, choose the **Deployment Status** tab on the property sheet.
+
+4. On the **Deployment Status** tab, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
 
     <!-- border -->![5-2-Deployment-Status](5-2-Deployment-Status.png)
 

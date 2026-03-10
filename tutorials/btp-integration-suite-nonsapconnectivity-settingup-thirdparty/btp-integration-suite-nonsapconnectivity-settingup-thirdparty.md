@@ -8,7 +8,7 @@ author_name: Melanie Cueppers
 author_profile: https://github.com/MelanieCueppers
 ---
 
-For the sake of providing an example, we're using a BambooHR trial system that already contains sample data. You can also use a third-party system of your choice to which connectivity is supported via Open Connectors. Currently, Open Connectors provides connectivity to more than 170 third-party applications and solutions. See [Connectors Catalog](https://help.openconnectors.ext.hana.ondemand.com/home/catalog).
+For the sake of providing an example, we're using a BambooHR trial system that already contains sample data. You can also use a third-party system of your choice to which connectivity is supported using Open Connectors. Currently, Open Connectors provides connectivity to more than 170 third-party applications and solutions. See [Connectors Catalog](https://help.openconnectors.ext.hana.ondemand.com/home/catalog).
 
 > Remember that the BambooHR trial account is valid only for 7 days. If you start this tutorial today, make sure that you complete the mission within next 7 days.
 
@@ -43,14 +43,14 @@ For the sake of providing an example, we're using a BambooHR trial system that a
 
 ### Generate an API Key
 
-SAP Integration Suite communicates with BambooHR via APIs. Each API request that is sent from SAP Integration Suite will be authenticated by BambooHR - for which you must generate an API Key. You can find more information [here](https://documentation.bamboohr.com/docs/getting-started#authentication).
+SAP Integration Suite communicates with BambooHR using APIs. Each API request that is sent from SAP Integration Suite will be authenticated by BambooHR - for which you must generate an API Key. For more information, see [Getting Started with the API](https://documentation.bamboohr.com/docs/getting-started#authentication).
 
 1. On any page of the BambooHR system, in the bottom left corner, click on the BambooHR logo **Account** and choose **API Keys**.
     <!-- border -->![API-Setup](2-1-API-Setup.png)
 
-2. Add a new API Key by providing a name.
+2. Choose **New API Key** and provide a name for your new key.
 
-   <!-- border -->![API-Keys](2-2-API-Keys.png)
+    <!-- border -->![API-Keys](2-2-API-Keys.png)
 
 3. Copy the actual key. You need the key to perform the subsequent steps of the mission.
 
