@@ -4,7 +4,6 @@ author_name: Johannes Doberer
 author_profile: https://github.com/JohannesDoberer
 auto_validation: true
 time: 20
-keywords: tutorial
 tags: [ tutorial>beginner, programming-tool>javascript]
 primary_tag: topic>user-interface
 ---
@@ -13,13 +12,13 @@ primary_tag: topic>user-interface
 <!-- description --> Learn how to build a UI5 application that utilizes the Luigi micro frontend framework. With the help of Luigi Container, you can create more modular and reusable applications in a simple way.
 
 ## Prerequisites
- - It's recommended to try the simpler Luigi examples on [GitHub](https://github.com/SAP/luigi/tree/main/core/examples) first to get acquainted with the framework.
+ - It is recommended to try the simpler Luigi examples on [GitHub](https://github.com/SAP/luigi/tree/main/core/examples) first to get acquainted with the framework.
  - You need to have [Node.js](https://nodejs.org/en/download/current/) installed.
 
 ## You will learn
   - The basics of the Luigi micro frontend framework and Luigi Container 
-  - How to install Luigi Container.
-  - How to use Luigi Container inside a sample UI5 application.
+  - How to install Luigi Container
+  - How to use Luigi Container inside a sample UI5 application
 
 ## Intro
 
@@ -29,7 +28,7 @@ Normally, Luigi consists of two main parts: **Luigi Core** and **Luigi Client**.
 
 However, a third feature called [Luigi Container](https://docs.luigi-project.io/docs/luigi-container) allows you to easily insert Luigi micro frontends anywhere without the need for a Luigi Core application. This feature simplifies the use of Luigi for developers, eliminating the need for significant changes in their applications.
 
-This tutorial shows you how to incorporate micro frontends inside a [UI5](https://sdk.openui5.org) application. Nevertheless, a similar process will also apply to other frontend frameworks such as [Angular](https://angular.io/) or [React](https://react.dev/).
+This tutorial will show you how to incorporate micro frontends inside a [UI5](https://sdk.openui5.org) application. Nevertheless, a similar process will also apply to other frontend frameworks such as [Angular](https://angular.io/) or [React](https://react.dev/).
 
 > **Note:** In addition to this tutorial, you can also experiment with the Luigi Container test app on [GitHub](https://github.com/SAP/luigi/tree/main/container/test-app).
 
@@ -77,149 +76,68 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     ```
 
 
-2. In this step, you'll add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with the following content. Keep in mind that the version numbers might be higher in your case.
+2. In this step, you will add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with the one below. Keep in mind that the version numbers might be higher in your case.
 
     ```yaml
-    specVersion: "3.0"
+    specVersion: "4.0"
     metadata:
       name: luigi.ui5app
     type: application
     framework:
       name: OpenUI5
-      version: "1.121.1"
+      version: "1.146.0"
       libraries:
         - name: sap.m
         - name: sap.ui.core
-        - name: themelib_sap_fiori_3
         - name: themelib_sap_horizon
     builder:
+      resources:
+        excludes:
+          - "test/e2e/**"
       customTasks:
         - name: ui5-tooling-modules-task
-          afterTask: generateVersionInfo
+          afterTask: replaceVersion
     server:
       customMiddleware:
         - name: ui5-tooling-modules-middleware
           afterMiddleware: compression
+          configuration:
+            debug: true
+            persistentCache: false
+        - name: "@ui5/middleware-code-coverage"
+          afterMiddleware: compression
+          configuration:
+            excludePatterns:
+              - "resources/"
+              - "test/"
         - name: ui5-middleware-livereload
           afterMiddleware: compression
 
     ```
-
-3. Create a new folder called `control` in `luigi.ui5app/webapp`. In it, create a file called `LuigiContainer.js` and paste the following content into it: 
-
-    ```javascript
-    sap.ui.define([
-        "sap/ui/core/webc/WebComponent",
-        "@luigi-project/container"
-    ], function(WebComponent) {
-        "use strict";
-
-        /**
-         * The luigi.ui5app.control.LuigiContainer is a component to render a Luigi micro frontend (iframe or web component based) without the need of it being a Luigi Core application.
-         */
-        var LuigiContainer = WebComponent.extend("luigi.ui5app.control.LuigiContainer", {
-            metadata: {
-                tag: "luigi-container",
-                properties: {
-                    /**
-                     * Defines the view URL to load
-                     */
-                    viewURL: {
-                        type: "string",
-                        defaultValue: "",
-                        mapping: {
-                            to: "viewURL"
-                        }
-                    },
-
-                    /**
-                     * Defines whether to load the Luigi component as web component
-                     */
-                    webComponent: {
-                        type: "any",
-                        defaultValue: false,
-                        mapping: {
-                            to: "webcomponent",
-                            formatter: "_mapIsWebComponent"
-                        }
-                    },
-
-                    /**
-                     * Defines the height of the control
-                     */
-                    height: {
-                        type: "sap.ui.core.CSSSize",
-                        mapping: "style"
-                    },
-
-                    /**
-                     * Defines the width of the control
-                     */
-                    width: {
-                        type: "sap.ui.core.CSSSize",
-                        mapping: "style"
-                    },
-
-                    /**
-                     * Defines label of the Luigi component
-                     */
-                    label: {
-                        type: "string",
-                        defaultValue: ""
-                    },
-
-                    /**
-                     * Defines the context to use
-                     */
-                    context: {
-                        type: "object",
-                        defaultValue: {}
-                    },
-
-                    theme: {
-                        type: "string",
-                        defaultValue: ""
-                    }
-                },
-                methods: [
-                    "updateContext", /** Updates the context of the Luigi component */ 
-                    "sendCustomMessage", /** Sends a custom message to the referenced iFrame or web component */
-                    "closeAlert" /** Sends a message to the Luigi component notifying that the alert has been closed */
-                ] 
-            }
-        });
-
-        LuigiContainer.prototype._mapIsWebComponent = function(vIsWebComponent) {
-            return vIsWebComponent !== "false" && vIsWebComponent ? "true" : undefined;
-        };
-
-        return LuigiContainer;
-    });
-    ```
-
-4. In Command Prompt/Terminal, download the Luigi Container npm package: 
+3. In Command Prompt/Terminal, download the Luigi Container npm package: 
 
     ```shell
     npm install @luigi-project/container
+    npm install --save-dev @ui5/webcomponents
     ```
 
-5. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added. Keep in mind that the version numbers might be higher in your case.
+4. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added. Keep in mind that the version numbers might be higher in your case.
 
     ```json
     [...]
     "devDependencies": {
     [...]
-    //Around line 30
-        "ui5-tooling-modules": "^3.2.4"
+        "ui5-tooling-modules": "^3.35.0",
+        "@ui5/webcomponents": "^2.21.0",
     },
     "dependencies": {
-        "@luigi-project/container": "^1.0.0"
+        "@luigi-project/container": "^1.7.6"
     }
     ```
 
 ### Use Luigi Container 
 
-1. In this step, you'll use Luigi Container in your app and configure the Luigi [viewURL](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property to render a micro frontend on the page. Go to the `webapp/view/Main.view.xml` file of your UI5 application. Replace the content with the following: 
+1. In this step, you will use Luigi Container in your app and configure the Luigi [viewurl](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property in order to render a micro frontend on the page. Go to the `webapp/view/Main.view.xml` file of your UI5 application. Replace the content with the following: 
 
     ```xml
     <mvc:View
@@ -228,19 +146,18 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
         xmlns="sap.m"
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:core="sap.ui.core"
-        xmlns:luigi="luigi.ui5app.control"
-        core:require="{
-            core: 'sap/ui/core/Core'
-        }">
+        xmlns:webc="@ui5/webcomponents"
+        xmlns:luigi="@luigi-project/container" 
+	    core:require="{
+		    core: 'sap/ui/core/Core'
+	    }">
 
         <Page
             title="{i18n>appTitle}"
-            text="{i18n>appTitle}"
             icon="sap-icon://accept"
-            id="page"
-            description="{i18n>appDescription}">
+            id="page">
             <content>
-                <luigi:LuigiContainer viewURL="https://sdk.openui5.org/test-resources/sap/m/demokit/cart/webapp/index.html" theme="{= core.getConfiguration().getTheme() }"/>
+                <luigi:LuigiContainer viewurl="https://sdk.openui5.org/test-resources/sap/m/demokit/cart/webapp/index.html" theme="{= core.getConfiguration().getTheme() }"/>
             </content>
         </Page>
 
@@ -257,12 +174,12 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 
     <!-- border -->![Shopping micro frontend](shopping.png)
 
-4. Now that your application is using Luigi Container, you can easily exchange micro frontends to create a modular, scalable app. To insert a different micro frontend, simply go back to `webapp/view/Main.view.xml` and change the Luigi [viewURL](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property like so:  
+4. Now that your application is using Luigi Container, you can easily exchange micro frontends in order to create a modular, scalable app. To insert a different micro frontend, simply go back to `webapp/view/Main.view.xml` and change the Luigi [viewURL](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property like so:  
 
     ```xml
     [...]
             <content>
-                <luigi:LuigiContainer viewURL="https://fiddle.luigi-project.io/examples/microfrontends/fundamental/table-demo-page.html" theme="{= core.getConfiguration().getTheme() }"/>
+                <luigi:LuigiContainer viewurl="https://fiddle.luigi-project.io/examples/microfrontends/fundamental/table-demo-page.html" theme="{= core.getConfiguration().getTheme() }"/>
             </content>
     [...]
     ```
