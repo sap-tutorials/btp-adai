@@ -12,7 +12,7 @@ primary_tag: topic>user-interface
 <!-- description --> Create skeleton React and UI5 projects and install Luigi.
 
 ## Prerequisites
- - It's recommended to try the simpler examples on [GitHub](https://github.com/SAP/luigi/tree/master/core/examples) or the [Getting Started page](https://docs.luigi-project.io/docs/getting-started/?section=examples) before this tutorial.
+ - It's recommended to try the simpler examples on [GitHub](https://github.com/luigi-project/luigi/tree/master/core/examples) or the [Getting Started page](https://docs.luigi-project.io/docs/getting-started/?section=examples) before this tutorial.
  - You need to install [Node.js](https://nodejs.org/en/download/current/). If you already have an old version installed on your machine, please run `npm install npm@latest -g`.
  - You need to install [SAP Fonts](https://experience.sap.com/fiori-design-web/downloads/#sap-icon-font).
 
@@ -50,7 +50,7 @@ In this step, you will create a React skeleton project which will be used to cre
     npm install style-loader css-loader --save-dev
     ```
     ​
-4. The React application will be bundled using Webpack. Download the Luigi Webpack configuration from an existing [Luigi example app](https://github.com/SAP/luigi/blob/main/core/examples/luigi-example-react/webpack.config.js) using the line below:
+4. The React application will be bundled using Webpack. Download the Luigi Webpack configuration from an existing [Luigi example app](https://github.com/luigi-project/luigi/blob/main/core/examples/luigi-example-react/webpack.config.js) using the line below:
 
     ```Shell
      curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/webpack.config.js > webpack.config.js
@@ -72,7 +72,7 @@ In this step, you will create a React skeleton project which will be used to cre
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/src/views/sample1.js > src/views/sample1.js
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/src/views/sample1.js > src/views/sample2.js
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/public/index.html > public/index.html
-    curl https://github.com/SAP/luigi/blob/main/core/examples/luigi-example-react/public/sampleapp.html > public/sampleapp.html
+    curl https://github.com/luigi-project/luigi/blob/main/core/examples/luigi-example-react/public/sampleapp.html > public/sampleapp.html
     ```
 
 7.  Ins​tall and run the configuration:

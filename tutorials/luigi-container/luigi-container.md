@@ -12,7 +12,7 @@ primary_tag: topic>user-interface
 <!-- description --> Learn how to build a UI5 application that utilizes the Luigi micro frontend framework. With the help of Luigi Container, you can create more modular and reusable applications in a simple way.
 
 ## Prerequisites
- - It is recommended to try the simpler Luigi examples on [GitHub](https://github.com/SAP/luigi/tree/main/core/examples) first to get acquainted with the framework.
+ - It is recommended to try the simpler Luigi examples on [GitHub](https://github.com/luigi-project/luigi/tree/main/core/examples) first to get acquainted with the framework.
  - You need to have [Node.js](https://nodejs.org/en/download/current/) installed.
 
 ## You will learn
@@ -30,7 +30,7 @@ However, a third feature called [Luigi Container](https://docs.luigi-project.io/
 
 This tutorial will show you how to incorporate micro frontends inside a [UI5](https://sdk.openui5.org) application. Nevertheless, a similar process will also apply to other frontend frameworks such as [Angular](https://angular.io/) or [React](https://react.dev/).
 
-> **Note:** In addition to this tutorial, you can also experiment with the Luigi Container test app on [GitHub](https://github.com/SAP/luigi/tree/main/container/test-app).
+> **Note:** In addition to this tutorial, you can also experiment with the Luigi Container test app on [GitHub](https://github.com/luigi-project/luigi/tree/main/container/test-app). 
 
 ---
 
