@@ -81,7 +81,7 @@ If you need help with the tutorials or Luigi in general, you can:
 
 - Refer to the source code for the completed tutorial app on our [SAP Samples repository](https://github.com/SAP-samples/luigi-micro-frontend-application).  
 - Refer to the [Luigi documentation](https://docs.luigi-project.io/docs/getting-started).
-- Check out our [GitHub Discussions](https://github.com/SAP/luigi/discussions) page.
+- Check out our [GitHub Discussions](https://github.com/luigi-project/luigi/discussions) page.
 - Contact the Luigi team on [Slack](https://slack.luigi-project.io).
 
 
