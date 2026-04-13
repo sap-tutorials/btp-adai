@@ -13,7 +13,7 @@ primary_tag: topic>user-interface
 
 ## Prerequisites
  - It is recommended to try the simpler Luigi examples on [GitHub](https://github.com/luigi-project/luigi/tree/main/core/examples) first to get acquainted with the framework.
- - You need to have [Node.js](https://nodejs.org/en/download/current/) installed.
+ - You need to have [Node.js](https://nodejs.org/en/download/current/) >=20.19.0 installed.
 
 ## You will learn
   - The basics of the Luigi micro frontend framework and Luigi Container 
