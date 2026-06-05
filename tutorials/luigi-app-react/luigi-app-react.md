@@ -353,7 +353,7 @@ In this step, you will make changes to the entry point `index.js` for the React 
     root.render(<App />);
     ```
 
-  2. Next, go to the `react-core-mf/src/views` directory created in step 6 of the [previous tutorial](luigi-app-basic-setup). Find the file called `home.js` and paste the following code into it:
+2. Next, go to the `react-core-mf/src/views` directory created in step 6 of the [previous tutorial](luigi-app-basic-setup). Find the file called `home.js` and paste the following code into it:
 
     ```JavaScript
     import React, { useState, useEffect } from 'react';
