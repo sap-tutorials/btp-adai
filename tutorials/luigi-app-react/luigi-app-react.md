@@ -507,7 +507,7 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
 
   1. In `react-core-mf/public/luigi-config.js` add a child node `:id` to the `products` node:
 
-    ```js
+    ```JavaScript
           children: [
                       {
                           pathSegment: "products",
@@ -527,7 +527,7 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
 
 2. Next, create a new file in `react-core-mf/src/views` named `productDetail.js` and paste following content into it:
 
-    ```js
+    ```JavaScript
         import React, { useEffect, useState, useRef } from 'react';
         import "../../node_modules/fundamental-styles/dist/fundamental-styles.css";
         import "@ui5/webcomponents-icons/dist/AllIcons.js";
