@@ -238,7 +238,20 @@ These are the Luigi navigation parameters you will use:
 1. Go to the file `react-core-mf/public/luigi-config.js`. This is where you can find the Luigi configuration. Copy and paste this code inside it:
 
     ```JavaScript
-   
+        var defaultLocale = "en-US";
+        function myTranslationProvider() {
+          var dict = {
+            "en-US": { PRODUCTS: "Products", ORDERHISTORY: "Order History" },
+          };
+          return {
+            getTranslation: function (label, interpolation, locale) {
+              const local = locale || Luigi.i18n().getCurrentLocale() || defaultLocale
+              var translations = dict[local] || dict[defaultLocale];
+              return (translations && translations[label]) || label;
+            },
+          };
+        }
+
         Luigi.setConfig({
           navigation: {
             nodes: () => [
@@ -268,22 +281,6 @@ These are the Luigi navigation parameters you will use:
             },
           },
         });
-        
-
-    var defaultLocale = "en-US";
-    function myTranslationProvider() {
-      var dict = {
-        "en-US": { PRODUCTS: "Products", ORDERHISTORY: "Order History" },
-      };
-      return {
-        getTranslation: function (label, interpolation, locale) {
-          const local = locale || Luigi.i18n().getCurrentLocale() || defaultLocale
-          return (
-            dict[local][label] || label
-          );
-        },
-      };
-    }
     ```
 
 
@@ -447,7 +444,7 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
     import React, { useEffect, useState } from 'react';
     import "../../node_modules/fundamental-styles/dist/fundamental-styles.css";
     import "@ui5/webcomponents-icons/dist/AllIcons.js";
-    import { Grid, List, StandardListItem } from "@ui5/webcomponents-react";
+    import { Grid, List, ListItemStandard } from "@ui5/webcomponents-react";
     import { linkManager } from "@luigi-project/client";
     import { ProductCollection } from "../assets/products.js";
 
@@ -458,9 +455,9 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
         const tempList = [];
         ProductCollection.forEach((product) => {
           tempList.push(
-            <StandardListItem id={product.id} key={product.id} additionalText={product.price + " " + product.currencyCode} additionalTextState="Information" description={product.description} growing="None" headerText={product.orderQuantity} icon={product.icon} type="Active" mode="None" onItemClick={() => handleItemClick(product.id)}>
-              <p>{product.name}</p>
-            </StandardListItem>
+            <ListItemStandard id={product.id} key={product.id} additionalText={product.price + " " + product.currencyCode} additionalTextState="Information" description={product.description} icon={product.icon} type="Active" onItemClick={() => handleItemClick(product.id)}>
+          {product.name}
+        </ListItemStandard>
           );
           setListItems(tempList);
         });
@@ -510,7 +507,7 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
 
   1. In `react-core-mf/public/luigi-config.js` add a child node `:id` to the `products` node:
 
-    ```js
+    ```JavaScript
           children: [
                       {
                           pathSegment: "products",
@@ -530,131 +527,131 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
 
 2. Next, create a new file in `react-core-mf/src/views` named `productDetail.js` and paste following content into it:
 
-    ```js
-      import React, { useEffect, useState, useRef } from 'react';
-      import "../../node_modules/fundamental-styles/dist/fundamental-styles.css";
-      import "@ui5/webcomponents-icons/dist/AllIcons.js";
-      import {
-          Grid, ObjectPage, Label, DynamicPageHeader, DynamicPageTitle, ObjectStatus, FlexBox, Button, Toast, ObjectPageSection, FormItem, Form, Text, Bar
-      } from "@ui5/webcomponents-react";
-      import { linkManager, getContext } from "@luigi-project/client";
-      import { ProductCollection } from "../assets/products.js";
+    ```JavaScript
+        import React, { useEffect, useState, useRef } from 'react';
+        import "../../node_modules/fundamental-styles/dist/fundamental-styles.css";
+        import "@ui5/webcomponents-icons/dist/AllIcons.js";
+        import {
+            Grid, ObjectPage, Label, DynamicPageHeader, DynamicPageTitle, ObjectStatus, FlexBox, Button, Toast, ObjectPageSection, FormItem, Form, Text, Bar
+        } from "@ui5/webcomponents-react";
+        import { linkManager, getContext } from "@luigi-project/client";
+        import { ProductCollection } from "../assets/products.js";
 
-      const ProductDetail = (props) => {
-          const [currentProduct, setCurrentProduct] = useState({});
-          const [availability, setAvailability] = useState({
-              state: "Warning",
-              text: props.localeDict.OUTOFSTOCK
-          });
-          const toast = useRef(null);
+        const ProductDetail = (props) => {
+            const [currentProduct, setCurrentProduct] = useState({});
+            const [availability, setAvailability] = useState({
+                state: "Warning",
+                text: props.localeDict.OUTOFSTOCK
+            });
+            const toast = useRef(null);
 
-          useEffect(() => {
-              setProductAndAvailability();
-          }, []);
+            useEffect(() => {
+                setProductAndAvailability();
+            }, []);
 
-          function setProductAndAvailability() {
-              // get id from Luigi Client getContext API
-              const id = getContext().id;
+            function setProductAndAvailability() {
+                // get id from Luigi Client getContext API
+                const id = getContext().id;
 
-              let product = ProductCollection.find(
-                  (product) => product.id.toString() === id
-              ) || ProductCollection[0]
+                let product = ProductCollection.find(
+                    (product) => product.id.toString() === id
+                ) || ProductCollection[0]
 
-              setCurrentProduct(product);
-              currentProduct.stock ? setAvailability({ state: "Success", text: props.localeDict.AVAILABLE }) : ""
-          }
+                setCurrentProduct(product);
+                currentProduct.stock ? setAvailability({ state: "Success", text: props.localeDict.AVAILABLE }) : ""
+            }
 
-          // Use Luigi Client linkManager API to navigate to the previous microfrontend
-          function navBack() {
-              // checks if there is a previous view in history
-              if (linkManager().hasBack()) {
-                  // navigates to the previously opened microfrontend
-                  linkManager().goBack();
-              } else {
-                  // navigates to the products page directly
-                  linkManager().navigate("/home/products");
-              }
-          };
+            // Use Luigi Client linkManager API to navigate to the previous microfrontend
+            function navBack() {
+                // checks if there is a previous view in history
+                if (linkManager().hasBack()) {
+                    // navigates to the previously opened microfrontend
+                    linkManager().goBack();
+                } else {
+                    // navigates to the products page directly
+                    linkManager().navigate("/home/products");
+                }
+            };
 
-          return (
-              <Grid position="Center" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL10 L10 M10 S10">
-                  <ObjectPage
-                      headerContent={
-                          <DynamicPageHeader>
-                              <FlexBox alignItems="Center" wrap="Wrap">
-                                  <FlexBox direction="Column" style={{ padding: "10px" }}>
-                                      <Label>
-                                          {props.localeDict.AVAILABLEQUANT + currentProduct.stock}
-                                      </Label>
-                                  </FlexBox>
-                              </FlexBox>
-                          </DynamicPageHeader>
-                      }
-                      footer={
-                          <Bar design="FloatingFooter"
-                              endContent={
-                                  <>
-                                      <Button design="Emphasized" onClick={() => { toast.current.show() }}>
-                                          {props.localeDict.ADDTOCART}
-                                      </Button>
-                                      <Button design="Default" onClick={navBack}>
-                                          {props.localeDict.BACK}
-                                      </Button>
-                                  </>
-                              }
-                          />
-                      }
-                      headerContentPinnable
-                      headerTitle={
-                          <DynamicPageTitle
-                              actions={
-                                  <>
-                                      <Toast ref={toast}>
-                                          {props.localeDict.PRODUCTADDED}
-                                      </Toast>
-                                      <Button design="Emphasized" onClick={() => { toast.current.show() }}>
-                                          {props.localeDict.ADDTOCART}
-                                      </Button>
-                                      <Button onClick={navBack}>
-                                          {props.localeDict.BACK}
-                                      </Button>
-                                  </>
-                              }
-                              header={currentProduct.name}
-                          >
-                              <ObjectStatus state={availability.state}>
-                                  {availability.text}
-                              </ObjectStatus>
-                          </DynamicPageTitle>
-                      }
-                      onSelectedSectionChange={function noRefCheck() { }}
-                      selectedSectionId="details"
-                      showHideHeaderButton
-                      style={{
-                          height: "700px",
-                      }}
-                  >
-                      <ObjectPageSection aria-label="Details" id="details" titleText="Details">
-                          <Form columnsL={2} columnsM={2} columnsXL={3} labelSpanL={1} labelSpanM={1} labelSpanXL={1}>
-                              <FormItem label="Name">
-                                  <Text>{currentProduct.name}</Text>
-                              </FormItem>
-                              <FormItem label={props.localeDict.DESCRIPTION}>
-                                  <Text>{currentProduct.description}</Text>
-                              </FormItem>
-                              <FormItem label={props.localeDict.PRICE}>
-                                  <Text>
-                                      {currentProduct.price + " " + currentProduct.currencyCode}
-                                  </Text>
-                              </FormItem>
-                          </Form>
-                      </ObjectPageSection>
-                  </ObjectPage>
-              </Grid>
-          );
-      };
+            return (
+                <Grid position="Center" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL10 L10 M10 S10">
+                    <ObjectPage
+                        headerContent={
+                            <DynamicPageHeader>
+                                <FlexBox alignItems="Center" wrap="Wrap">
+                                    <FlexBox direction="Column" style={{ padding: "10px" }}>
+                                        <Label>
+                                            {props.localeDict.AVAILABLEQUANT + currentProduct.stock}
+                                        </Label>
+                                    </FlexBox>
+                                </FlexBox>
+                            </DynamicPageHeader>
+                        }
+                        footer={
+                            <Bar design="FloatingFooter"
+                                endContent={
+                                    <>
+                                        <Button design="Emphasized" onClick={() => { toast.current.show() }}>
+                                            {props.localeDict.ADDTOCART}
+                                        </Button>
+                                        <Button design="Default" onClick={navBack}>
+                                            {props.localeDict.BACK}
+                                        </Button>
+                                    </>
+                                }
+                            />
+                        }
+                        headerContentPinnable
+                        headerTitle={
+                            <DynamicPageTitle
+                                actions={
+                                    <>
+                                        <Toast ref={toast}>
+                                            {props.localeDict.PRODUCTADDED}
+                                        </Toast>
+                                        <Button design="Emphasized" onClick={() => { toast.current.show() }}>
+                                            {props.localeDict.ADDTOCART}
+                                        </Button>
+                                        <Button onClick={navBack}>
+                                            {props.localeDict.BACK}
+                                        </Button>
+                                    </>
+                                }
+                                header={currentProduct.name}
+                            >
+                                <ObjectStatus state={availability.state}>
+                                    {availability.text}
+                                </ObjectStatus>
+                            </DynamicPageTitle>
+                        }
+                        onSelectedSectionChange={function noRefCheck() { }}
+                        selectedSectionId="details"
+                        showHideHeaderButton
+                        style={{
+                            height: "700px",
+                        }}
+                    >
+                        <ObjectPageSection aria-label="Details" id="details" titleText="Details">
+                            <Form columnsL={2} columnsM={2} columnsXL={3} labelSpanL={1} labelSpanM={1} labelSpanXL={1}>
+                                <FormItem label="Name">
+                                    <Text>{currentProduct.name}</Text>
+                                </FormItem>
+                                <FormItem label={props.localeDict.DESCRIPTION}>
+                                    <Text>{currentProduct.description}</Text>
+                                </FormItem>
+                                <FormItem label={props.localeDict.PRICE}>
+                                    <Text>
+                                        {currentProduct.price + " " + currentProduct.currencyCode}
+                                    </Text>
+                                </FormItem>
+                            </Form>
+                        </ObjectPageSection>
+                    </ObjectPage>
+                </Grid>
+            );
+        };
 
-      export default ProductDetail;
+        export default ProductDetail;
 
     ```
 
@@ -676,9 +673,13 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
         </Router>
     ```
 
+### Install missing dependency
+
+```Shell
+  npm i @ui5/webcomponents-fiori
+```
 
 ### Run your core app
-
 
 In this step, you can check if your core app is configured correctly so far by running it locally.
 
