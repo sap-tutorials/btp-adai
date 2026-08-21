@@ -34,48 +34,48 @@ This message type is further consumed in message mappings, which we will learn l
 1. Choose **Design** > **Integrations and APIs** to view the list of integration packages.
 2. Select the integration package in which you want to add a Data Type or Message Type and choose **Edit**.
    
-    <!-- border -->![Edit Integration Package](create_step1-2.png)
+    ![Edit Integration Package](create_step1-2.png)
 
 3. Navigate to the Artifacts tab and choose **Add** > **Data Type** or **Add** > **Message Type** to add a data Type or message type artifact respectively.
    
-    <!-- border -->![Add Artifact](create_step3.png)
+    ![Add Artifact](create_step3.png)
 
 4. In the dialog box, choose **Import from ES Repository**. 
 5. Now, ES Repository appears as the **Source**. In the Name list, select an ES Repository from the list of connected systems. The Address is automatically populated.
 6. Choose **Connect**. A list of available data types or message types in ES repository appears.
 
-     <!-- border -->![Import Artifact](create_step6.png)
+     ![Import Artifact](create_step6.png)
 
 7. Select the data type or message type that you wish to import.
 8.  Select the **Include Dependent Data Types** checkbox if you wish to include the dependent data type objects while importing the selected data type or message type.
    
-    <!-- border -->![Include Dependent Data Types](create_step8.png)
+    ![Include Dependent Data Types](create_step8.png)
 
 9.  Choose **View Summary** to view a summary of all the artifacts to be imported. From the list of objects, you can view the following object status in the Information column:
     - Create artifact: Means that this object will be created for the first time.
 
-    <!-- border -->![Import result: create artifact](create_step9_createartifact.png)
+    ![Import result: create artifact](create_step9_createartifact.png)
 
     - Skips; version already exists: Means that the selected version of this object already exists in an integration package, which can be reused. Hence, object import is skipped. Duplicate object isn't created.
 
-    <!-- border -->![Import result: create artifact](create_step9_skip.png)
+    ![Import result: create artifact](create_step9_skip.png)
 
     - Adds new version: Means that a version of this object already exists in an integration package. But, it is not the latest version, which is being imported from the ES repository. So, latest version of the object is created.
 
-    <!-- border -->![Import result: create artifact](create_step9_addsnewversion.png)
+    ![Import result: create artifact](create_step9_addsnewversion.png)
 
     - Error; ID already exists: Means that an artifact with the same ID as the selected primary data type or message type already exists in an integration package. Choose **Resolve**, to assign another ID for this artifact. Then, choose **View Summary**.
     
-    <!-- border -->![Import result:create artifact](create_step9_error.png)
+    ![Import result:create artifact](create_step9_error.png)
 
 10.   Choose **Add**. Import results with the details of created, skipped, failed artifacts appear. In the **Artifacts** tab, choose the added artifact to launch it in editor. 
 
-     <!-- border -->![Include Dependent Data Types](create_step10.png)
+   ![Include Dependent Data Types](create_step10.png)
 
 11.   Choose **Edit** to bring the artifact in editing mode.
     You can now start adding new nodes to the data type or message type artifacts or edit the existing details of the artifact. 
 
-     <!-- border -->![Include Dependent Data Types](create_step11.png)
+   ![Include Dependent Data Types](create_step11.png)
 
 ### Create new DT & MT
 
@@ -83,11 +83,11 @@ This message type is further consumed in message mappings, which we will learn l
 2. Select the integration package in which you want to create a Data Type or Message Type and choose **Edit**. You can also create a new integration package first. See [here](https://help.sap.com/docs/integration-suite/sap-integration-suite/creating-integration-package?version=Cloud&locale=en-US).
 3. Navigate to the Artifacts tab and **Add** > **Data Type** or **Add** > **Message Type** to add a data type or message type artifact respectively.
 
-    <!-- border -->![Add Artifact](create_step3.png)
+    ![Add Artifact](create_step3.png)
 
 4. In the dialog box, choose **Create**.
 
-    <!-- border -->![Create Artifact](create_create_step1.png)
+    ![Create Artifact](create_create_step1.png)
 
 
 5. Enter the value in the fields.

@@ -65,11 +65,11 @@ GET http://localhost:4004/odata/v4/catalog/Books?
 
 Click on **Send Request** inside the `tests.http` file, to execute requests against your service.
 
-<!-- border -->![Shows the request and a pointer to the send request button.](request_1.png)
+![Shows the request and a pointer to the send request button.](request_1.png)
 
 The REST client gives you the response of your service and you see immediately if the request was successful.
 
-<!-- border -->![Successful response.](request_1_response.png)
+![Successful response.](request_1_response.png)
 
 >Curious what the OData queries, disabled by the '#', do? Not all of them work right now, they are relevant later in this tutorial. Nevertheless, you can try it out, remove the '#' one line at a time and send the request. More learning content about OData is available in [Learn about OData Fundamentals](odata-01-intro-origins).
 
@@ -99,7 +99,7 @@ Aspects give you shortcuts, for concise and comprehensible models, interoperabil
 
 The aspect [managed](https://cap.cloud.sap/docs/cds/common#aspect-managed) is defined in `@sap/cds/common` as follows:
 
-<!-- border -->![The definition of the aspect managed that is meant to easily capture changes by user and name.](aspect_managed_def.png)
+![The definition of the aspect managed that is meant to easily capture changes by user and name.](aspect_managed_def.png)
 
 Use `managed`, to add four elements to capture `created by/at` and latest `modified by/at` management information for records.
 
@@ -125,7 +125,7 @@ Let's see it in action.
 
 This aspect is also [used](https://cap.cloud.sap/docs/cds/cdl#using) in your project and you've seen the effect, for example, when you fetched all books. The response contained those fields, even though they are not explicitly part of your entity definition in the `data-model.cds` file.
 
-<!-- border -->![The response to a request, highlighting the fields added by the aspect managed.](aspect_managed.png)
+![The response to a request, highlighting the fields added by the aspect managed.](aspect_managed.png)
 
 There are other common reuse aspects. Have a look at the [documentation for `cuid`](https://cap.cloud.sap/docs/cds/common#aspect-cuid) and [ for `temporal`](https://cap.cloud.sap/docs/cds/common#aspect-temporal).
 
@@ -143,9 +143,9 @@ type Currency : Association to sap.common.Currencies;
 
 The entity `sap.common.Currencies` uses the aspect `CodeList` defined in `@sap/cds/common` and adds the fields `code` and `symbol` to the ones already defined in `Codelist`.
 
-<!-- border -->![The definition of the entity currencies.](common-countries.png)
+![The definition of the entity currencies.](common-countries.png)
 
-<!-- border -->![The definition of the aspect codelist.](common-codelist.png)
+![The definition of the aspect codelist.](common-codelist.png)
 
 Here's an example of how you [used](https://cap.cloud.sap/docs/cds/cdl#using) that reuse type in your project already:
 ```CDS
@@ -180,11 +180,11 @@ JPY;¥;Yen;Japanese Yen
 
 Use the `GET` request on the catalog service you've included previously in your `tests.http` file. Enable the expand part of the query:
 
-<!-- border -->![The get request modified, so that now currency is expanded.](get_currency.png)
+![The get request modified, so that now currency is expanded.](get_currency.png)
 
 See the effect:
 
-<!-- border -->![The response, highlighting the expanded currency.](get_currency_result.png)
+![The response, highlighting the expanded currency.](get_currency_result.png)
 
 There are also the reuse types [`Country`](https://cap.cloud.sap/docs/cds/common#type-country) and [`Language`](https://cap.cloud.sap/docs/cds/common#type-language) that follow the same principle as `Currency`.
 
@@ -213,11 +213,11 @@ Open the `data-model.cds` file in the graphical modeler and add a new relationsh
 
 Stick with the defaults, which means using `books` as property name, `my.bookshop.Books` as target entity and `authors` as backlink property.
 
-<!-- border -->![The **New Relationship** screen to define the association to-many, the property name, the target entity type, and the backlink property.](graph-modeler-assoc-many.png)
+![The **New Relationship** screen to define the association to-many, the property name, the target entity type, and the backlink property.](graph-modeler-assoc-many.png)
 
 This is how your data model looks now in the graphical modeler.
 
-<!-- border -->![The graphical modeler showing the authors and books entity and a visual representation of their relationship.](graph-modeler-assoc-many-1.png)
+![The graphical modeler showing the authors and books entity and a visual representation of their relationship.](graph-modeler-assoc-many-1.png)
 
 This is a [_one-to-many_ association](https://cap.cloud.sap/docs/guides/domain-models#one--to-many-associations). Such an association always needs `on` conditions (backlink property) referring to some reverse association on the target side. Basically this expresses, that in your model **one book has exactly one author** and at the same time **one author can have many books**. If you defined your service accordingly, as in the `AdminService`, you can find all books of an author if you navigate the `Author` entity (`/admin/Authors?$expand=books`). Use `Alice` without a password to access the service. You'll learn more about it later in this tutorial.
 
@@ -284,7 +284,7 @@ Content-Type: application/json;IEEE754Compatible=true
 
 Execute the request and you see a success message.
 
-<!-- border -->![The successful response to the request.](create-order-success.png)
+![The successful response to the request.](create-order-success.png)
 
 With the `POST` request, you sent an order that contained the items. Those can be `many` order items, and each order item consists of `book_ID` and `amount`. `book_ID` is the foreign key, as we use an association to the `Books` entity in the `OrderItems` entity's key `book` and the `Books` key is `ID`.
 
@@ -335,7 +335,7 @@ Authorization: Basic alice:
 
 You get a success message. You've successfully used `alice` as an admin persona to create a book.
 
-<!-- border -->![Created book successfully.](create-success-message.png)
+![Created book successfully.](create-success-message.png)
 
 Now try to get exactly the book you've just created.
 
@@ -346,7 +346,7 @@ GET http://localhost:4004/odata/v4/catalog/Books?
    &$filter=ID eq 2
 ```
 
-<!-- border -->![The response showing the successfully created book.](get-book-success.png)
+![The response showing the successfully created book.](get-book-success.png)
 
 > For diving deeper into security topics, read [our Cookbook Authorization](https://cap.cloud.sap/docs/guides/authorization)
 
@@ -415,7 +415,7 @@ GET http://localhost:4004/odata/v4/catalog/Books?
 
 Execute the request and see the localized data for title and description:
 
-<!-- border -->![The response with German title and description.](localizedData.png)
+![The response with German title and description.](localizedData.png)
 
 _If you'd like to learn more about serving localized data, have a look at our [Cookbook | Localized Data](https://cap.cloud.sap/docs/guides/localized-data#serving-localized-data)_
 
@@ -446,7 +446,7 @@ Let's switch from our SQLite to the SAP HANA Cloud database.
 
     This creates everything you need to connect to your SAP HANA Cloud instance from the studio. It also adapts your project, so you can use the profiles that we will introduce in the next step. When you started to deploy to SQLite, the `cds.requires` section in your `package.json` was modified accordingly. See what's been added/changed now:
 
-    <!-- border -->![In the package.json file inside the cds.requires section there's a new production profile that contains the SAP HANA configuration..](hdbtable_config.png)
+    ![In the package.json file inside the cds.requires section there's a new production profile that contains the SAP HANA configuration..](hdbtable_config.png)
 
     > ### What's going on?
     You've added the configuration to use SAP HANA Cloud under the `[production]` profile. Using the development profile, `db.kind=sql` evaluates to `sqlite`. This is a default when using configuration profiles, so the development profile is not mentioned here explicitly. You can also [set both configurations explicitly](https://cap.cloud.sap/docs/node.js/cds-env#profiles), if you wish to deviate from or enhance the defaults.
@@ -457,7 +457,7 @@ Let's switch from our SQLite to the SAP HANA Cloud database.
 
 1. Press **F1** and type `login` to login to your Cloud Foundry space.
 
-    <!-- border -->![The cloud foundry login wizard.](cf_login.png)
+    ![The cloud foundry login wizard.](cf_login.png)
 
 1. Deploy to SAP HANA Cloud: `cds deploy --to hana --production`
 
@@ -465,7 +465,7 @@ Let's switch from our SQLite to the SAP HANA Cloud database.
 
 1. Create a run configuration for the _production_ profile and name it `bookshop-hybrid`.
 
-    <!-- border -->![The wizard showing available profiles for the bookshop project.](run_config_hybrid.png)
+    ![The wizard showing available profiles for the bookshop project.](run_config_hybrid.png)
 
     The name *hybrid* describes that you are using SAP HANA Cloud on SAP BTP and at the same time have your services running in the application studio without deployment to SAP BTP.
 
@@ -476,7 +476,7 @@ Let's switch from our SQLite to the SAP HANA Cloud database.
     > ### What's going on?
     This is to avoid clashes with other running applications. Your other run configuration ( `Run bookshop-local` ) uses port `4004`.
 
-    <!-- border -->![The content of the launch.json file.](run_config_2.png)
+    ![The content of the launch.json file.](run_config_2.png)
 
     > Now you have a run configuration for the development profile, using the SQLite file-based database and one for the production profile connecting to SAP HANA Cloud. At the same , with both run configurations, your services run in the application studio.
 
@@ -484,34 +484,34 @@ Let's switch from our SQLite to the SAP HANA Cloud database.
 
 1. Add the following line to the `.env` file and save the file:
 
-    ```INI
-    cds_requires_auth_kind=mocked-auth
-    ```
+   ```INI
+   cds_requires_auth_kind=mocked-auth
+   ```
 
     > ### What's going on?
     As you're using the production profile in your run configuration, this automatically requests the JWT authentication strategy. To become not too complex at this point, this environment configuration here, overrides the default (JWT) strategy and uses again mocked authentication strategy.
 
 1. Enable the binding to your SAP HANA service instance from the run configurations panel.
 
-    <!-- border -->![In the run configurations panel, expand the _Run bookshop-hybrid_ run configuration to access the available _db - hana_ binding. Click on the _Bind_ button at the right side of the _db - hana_ binding and bind to your SAP HANA service instance.](bind-hana.png)
+    ![In the run configurations panel, expand the _Run bookshop-hybrid_ run configuration to access the available _db - hana_ binding. Click on the _Bind_ button at the right side of the _db - hana_ binding and bind to your SAP HANA service instance.](bind-hana.png)
 
 1. Run your project with the `Run bookshop-hybrid` configuration.
 
     You see in the console log, that your SAP HANA Cloud instance is used.
 
-    ```Shell/Bash[7]
-    ...
-    [cds] - model loaded from 4 file(s):
-    db/data-model.cds
-    srv/admin-service.cds
-    srv/cat-service.cds
-    node_modules/@sap/cds/common.cds
-    : [cds] - connect to db > hana {certificate: '...', driver: 'com.sap.db.jdbc.Driver', hdi_password: '...', hdi_user: '...', host: '...', …}
-    [cds] - launched in: 1208.56298828125ms
-    [cds] - launched in: 1.209s
-    : [cds] - serving AdminService {at: '/admin'}
-    ...
-    ```
+   ```Shell/Bash[7]
+   ...
+   [cds] - model loaded from 4 file(s):
+   db/data-model.cds
+   srv/admin-service.cds
+   srv/cat-service.cds
+   node_modules/@sap/cds/common.cds
+   : [cds] - connect to db > hana {certificate: '...', driver: 'com.sap.db.jdbc.Driver', hdi_password: '...', hdi_user: '...', host: '...', …}
+   [cds] - launched in: 1208.56298828125ms
+   [cds] - launched in: 1.209s
+   : [cds] - serving AdminService {at: '/admin'}
+   ...
+   ```
 
 
 

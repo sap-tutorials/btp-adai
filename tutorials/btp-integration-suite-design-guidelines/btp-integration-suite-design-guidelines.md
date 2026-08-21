@@ -54,7 +54,7 @@ After you've set up your SAP Integration Suite tenant (refer to the prerequisite
 
 2. Scroll down till you find the integration package called **Learn the Basics**.
 
-    <!-- border -->![Discover Tab in SAP Integration Suite](btp-design-guidelines_design-space.png)
+    ![Discover Tab in SAP Integration Suite](btp-design-guidelines_design-space.png)
 
 
 ### Copy an integration flow package
@@ -66,7 +66,7 @@ Once you've found the integration package called **Learn the Basics**, copy it i
 
 2. Choose **Copy**. Wait for the confirmation that the package was copied successfully. 
 
-<!-- border -->![Copy Integration Package](btp-design-guidelines_design-space-package.png) 
+![Copy Integration Package](btp-design-guidelines_design-space-package.png) 
 
 
 
@@ -79,7 +79,7 @@ After you've successfully copied your integration flow package, go to **Design**
 
 2. Select the integration flow you're interested in. In our example, **Modeling Basics - Timer-Initiated Scenario**.
 
-    <!-- border -->![Modeling Basics](btp-design-guidelines_modeling-basics.png)  
+    ![Modeling Basics](btp-design-guidelines_modeling-basics.png)  
 
 3. You are now looking at the integration flow editor view. Here, your integration flow is displayed, showcasing all its components and steps. Your integration flow consists of three components:
 
@@ -87,7 +87,7 @@ After you've successfully copied your integration flow package, go to **Design**
     - A message body **Define message body** that defines a hard-coded message body that reads `Hello World!`;
     - A write step called **Write data store entry** that takes the message body and writes it to the data store.
 
-      <!-- border -->![Integration Flow](btp-design-guidelines_design-space-iflow.png)
+      ![Integration Flow](btp-design-guidelines_design-space-iflow.png)
 
     > Tip: *Select the respective shapes, to view the parameters of the respective integration flow step. You might need to pull up the window from the bottom of your screen.*
 
@@ -106,7 +106,7 @@ After you've successfully copied your integration flow package, go to **Design**
    
 5.  Upon deployment confirmation, choose the **Deployment Status** tab on the property sheet. Here, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
 
-    <!-- border -->![Deployment-Status](Deployment-Status.png)
+    ![Deployment-Status](Deployment-Status.png)
 
 
 
@@ -129,7 +129,7 @@ In this final step, check whether the data store entry "Hello world" has been wr
 
 6. Select the entry and click **Download** to download a file containing the predefined message body.
 
-    <!-- border -->![Download Integration Flow](btw-design-guidelines_download.png)
+    ![Download Integration Flow](btw-design-guidelines_download.png)
 
 7. Open the file with the "Hello World" message.
 

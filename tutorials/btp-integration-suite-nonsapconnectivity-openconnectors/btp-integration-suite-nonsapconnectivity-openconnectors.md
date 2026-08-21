@@ -20,13 +20,13 @@ author_profile: https://github.com/MelanieCueppers
 
 1. In your SAP Integration Suite home page, under **Capabilities** section, look out for the tile **Extend Non-SAP Connectivity**. Choose **Discover Connectors**.
 
-    <!-- border -->![Access-OpenConnectors](1-1-Access-OpenConnectors.png)    
+    ![Access-OpenConnectors](1-1-Access-OpenConnectors.png)    
 
     You're now directed to the Open Connectors web page.
 
 2. Choose **Connectors**.
 
-    <!-- border -->![Connectors-Catalog](1-2-Connectors-Catalog.png)   
+    ![Connectors-Catalog](1-2-Connectors-Catalog.png)   
 
     You see a catalog of various third-party applications that are supported by Open Connectors.
 
@@ -35,13 +35,13 @@ author_profile: https://github.com/MelanieCueppers
 
 1. In the list, look out for **Bamboo HR** and choose **API Docs**.
 
-    <!-- border -->![Access-BambooHR](2-1-Access-BambooHR.png) 
+    ![Access-BambooHR](2-1-Access-BambooHR.png) 
 
     You see a list of operations that are supported by BambooHR via REST APIs.  
 
 2. Choose **Authenticate Instance** to connect to your BambooHR system.
 
-    <!-- border -->![Authenticate](2-2-Authenticate.png) 
+    ![Authenticate](2-2-Authenticate.png) 
 
 3. Enter a name for the instance.
 
@@ -51,7 +51,7 @@ author_profile: https://github.com/MelanieCueppers
 
 6. Choose **Create Instance**.
 
-    <!-- border -->![Domain-APIKey](2-6-Domain-APIKey.png)
+    ![Domain-APIKey](2-6-Domain-APIKey.png)
 
 
 ### Test the API Docs
@@ -60,19 +60,19 @@ You've now successfully created a BambooHR connector instance. In this step, you
 
 1. Choose **Test in the API docs**.
 
-    <!-- border -->![Test-API](3-1-Test-API.png)
+    ![Test-API](3-1-Test-API.png)
 
 2. In the list of APIs, look out for the category **employees** and choose the GET API **/employees**.
 
     This API fetches a list of all employees (sample data) in your BambooHR trial system.
 
-    <!-- border -->![Get-Employees-API](3-2-Get-Employees-API.png)
+    ![Get-Employees-API](3-2-Get-Employees-API.png)
 
 3. To test the API, choose **Try it out** and **Execute**.
 
     You see a successful response with response code 200 and a response body containing employees data from your BambooHR trial system.
     
-    <!-- border -->![API-Response](3-3-API-Response.png)
+    ![API-Response](3-3-API-Response.png)
 
     You've now successfully established a connection between your BambooHR trial system and the Open Connectors capability of SAP Integration Suite.
 
@@ -85,7 +85,7 @@ In this step, you'll create security material in Cloud Integration that takes ca
 
 1. In the successful API response, copy the authorization values for the properties **User**, **Organization**, and **Element**. You can find them in the Curl area above the server response you just received.  
 
-    <!-- border -->![Authorization-Values](4-1-Authorization-Values.png)
+    ![Authorization-Values](4-1-Authorization-Values.png)
 
 2. In your SAP Integration Suite home page, choose **Monitor > Integrations and APIs**.
 
@@ -101,7 +101,7 @@ In this step, you'll create security material in Cloud Integration that takes ca
 
 7. Paste the values that you copied from Open Connectors. Choose **Deploy**.
 
-    <!-- border -->![Deploy-User-Credential](4-7-Deploy-User-Credential.png)
+    ![Deploy-User-Credential](4-7-Deploy-User-Credential.png)
 
 
 ### Copy the Request URL
@@ -110,7 +110,7 @@ In a later tutorial of this mission, you will have to provide a request to this 
 
 In the successful API response, copy the **Request URL**.
 
-<!-- border -->![5-1-Copy-Base-URI](5-1-Copy-Base-URI.png)
+![5-1-Copy-Base-URI](5-1-Copy-Base-URI.png)
 
 
 ---
