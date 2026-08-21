@@ -36,11 +36,11 @@ In this step, you copy the endpoint address of the integration flow.
 
 2. In the **Deployment Status** tab of the property sheet, choose the navigation link.
 
-    <!-- border -->![Access Deployed Artifact](1-2-access-deployed-artifacts.png)
+    ![Access Deployed Artifact](1-2-access-deployed-artifacts.png)
 
 3. In the **Endpoints** tab, choose the **Copy** icon.
 
-    <!-- border -->![Endpoint URL](1-3-copy-endpoint-url.png)
+    ![Endpoint URL](1-3-copy-endpoint-url.png)
 
 
 
@@ -64,33 +64,33 @@ In this step, you define and expose an integration flow endpoint as an applicati
     |  Title    | **`Product Details API`**
     |  API Base Path          | **`/products`**
 
-    <!-- border -->![Create API](2-4-create-api-new.png)
+    ![Create API](2-4-create-api-new.png)
 
     Select **Create**.
 
 4. On the landing page, go to the **Resources** tab and choose **Add**.
 
-    <!-- border -->![Add resources](2-5-create-api-resources.png)
+    ![Add resources](2-5-create-api-resources.png)
 
 5. In the field **Tag**, enter **`Product Details`**, and in the field **Path Prefix** enter **`/details`**.  
 
-    <!-- border -->![Add details](2-6-add-resources.png)
+    ![Add details](2-6-add-resources.png)
 
 6. Under **Operations**, delete all tabs except the **POST** tab and choose **OK**.
 
-    <!-- border -->![Add operations](2-7-save-resources.png)
+    ![Add operations](2-7-save-resources.png)
 
     The API resource is displayed.
 
 7. Choose **Deploy** to create and activate the API proxy for your integration flow.
 
-    <!-- border -->![Deploy](009.png)
+    ![Deploy](009.png)
 
 8. Choose the **POST** operation to display more details on the API. A default API definition in Open API specification format is also generated.
 
 9. To update the generated API definition in Open API format, choose **Edit** > **Edit in API Designer**.
 
-    <!-- border -->![Edit API designer](010.png)
+    ![Edit API designer](010.png)
 
     The API designer opens.
 
@@ -100,9 +100,9 @@ In this step, you define and expose an integration flow endpoint as an applicati
 
     >**TIP**: Instead of copying the example, type it manually.
 
-    <!-- border -->![change product identifier before](011-before.png)
+    ![change product identifier before](011-before.png)
 
-    <!-- border -->![change product identifier after](011-after.png)
+    ![change product identifier after](011-after.png)
 
     Choose **Save**.
 
@@ -110,11 +110,11 @@ In this step, you define and expose an integration flow endpoint as an applicati
 
     Now choose the **POST** request. You notice the API changed, in particular, the request body now contains one element with a product identifier.
 
-    <!-- border -->![Resources Tab API Changes](014.png)
+    ![Resources Tab API Changes](014.png)
 
 12. When you choose **Try Out** and then **Execute**, since no authentication details have been configured, you get an error message with error code 401 (not authorized). We will fix this error in the next steps of this tutorial.
 
-    <!-- border -->![Error message](015.png)
+    ![Error message](015.png)
 
     With this step, you have successfully created an API proxy for your integration flow and generated an API documentation for your REST API in **`OpenAPI`** format.
 
@@ -127,13 +127,13 @@ In this step, you define and expose an integration flow endpoint as an applicati
 
 2. Under the **Instances** section, look out for the service instance that was created. Choose the key under the **Credentials** column to open the service key.
 
-      <!-- border -->![view key](3-2-key-view.png)
+      ![view key](3-2-key-view.png)
 
     >**TIP**: In trial accounts, the default name that the booster provides for the service instance is **default-it-rt-integration-flow**. In free tier accounts, the instance name is user defined.
 
 3. Copy the values of the **`clientid`**, **`clientsecret`** and **`tokenurl`** parameters. These are the credentials that you later use to make a request to your integration flow.
 
-      <!-- border -->![Copy clientid and clientsecret](3-3-copy-clientid-secret-tokenurl.png)
+      ![Copy clientid and clientsecret](3-3-copy-clientid-secret-tokenurl.png)
 
 
 ### Assign policy template
@@ -146,45 +146,45 @@ This grant type works in the following way: In a first call, the API client prov
 
 2. Search for the package **Connect to SAP Business Technology Platform Services** and select it.
 
-    <!-- border -->![choose API](017.png)
+    ![choose API](017.png)
 
 3. Navigate to **Artifacts** tab, where you find one artifact.
 
 4. Under **Actions**, choose **Copy**.
 
-    <!-- border -->![Actions](019.png)
+    ![Actions](019.png)
 
 5. Once the artifact was copied successfully, go to **Configure** > **APIs**.
 
 6. Choose the API that you created in the previous step.
 
-    <!-- border -->![API Proxy](021.png)
+    ![API Proxy](021.png)
 
 7. Choose **Edit**.
 
-    <!-- border -->![Edit](022.png)
+    ![Edit](022.png)
 
 8. Select **Policies**.
 
-    <!-- border -->![Policies ](023.png)
+    ![Policies ](023.png)
 
     The policy editor opens.
 
 9. Choose **Policy Template** > **Apply**.
 
-    <!-- border -->![Policy Template](024.png)
+    ![Policy Template](024.png)
 
 10. Select the template **`Cloud_Platform_Connectivity`** and choose **Apply**.
 
-    <!-- border -->![add Template](025.png)
+    ![add Template](025.png)
 
 11. Open the node **Target Endpoint**.
 
-    <!-- border -->![TargetEndPoint](026.png)
+    ![TargetEndPoint](026.png)
 
 12. Choose **`PreFlow`**.
 
-    <!-- border -->![PreFlow](027.png)
+    ![PreFlow](027.png)
 
 13. In the editor, the OAuth workflow defined by the policy is visualized as a graphical model.
 
@@ -192,33 +192,33 @@ This grant type works in the following way: In a first call, the API client prov
 
 14. In the graphical model of the **Policy Editor**, choose the **`getcredential`** shape.
 
-    <!-- border -->![Graphic Model](028.png)
+    ![Graphic Model](028.png)
 
 15. Paste the value of **`clientid`** and **`clientsecret`** as shown in the following image.
 
-    <!-- border -->![Values](029.png)
+    ![Values](029.png)
 
 16. In the policy editor, choose the **`getoauthtoken`** shape.
 
-    <!-- border -->![token](030.png)
+    ![token](030.png)
 
 17. Paste the value of **`tokenurl`** as shown in the following screenshot.
 
     >**Note**: Make sure that you append **`?grant_type=client_credentials`** to the token URL that you pasted.
 
-    <!-- border -->![tokenURL](031.png)
+    ![tokenURL](031.png)
 
 18. Select **Update**.
 
-    <!-- border -->![tokenURL](032.png)
+    ![tokenURL](032.png)
 
 19. Select **Save**.
 
-    <!-- border -->![Save](033.png)
+    ![Save](033.png)
 
 20. To deploy your changes, choose **Click to Deploy** in the message strip at the top of the screen.
 
-    <!-- border -->![Save](033_New.png)
+    ![Save](033_New.png)
 
 21. Confirm the deployment.
 
@@ -233,19 +233,19 @@ In this step, you try out the API to get product details as a response from the 
 
 1. Go to the **Resources** tab.
 
-    <!-- border -->![ResourceTab](034.png)
+    ![ResourceTab](034.png)
 
 2. Choose **Try Out**.
 
-    <!-- border -->![try out](035.png)
+    ![try out](035.png)
 
 3. Choose **Execute**.
 
-    <!-- border -->![Execute](036.png)
+    ![Execute](036.png)
 
 4. As result, you see the response from the **`WebShop`** with the product details for the given product identifier.
 
-    <!-- border -->![WebShop](037.png)
+    ![WebShop](037.png)
 
 
 ### Congratulations!

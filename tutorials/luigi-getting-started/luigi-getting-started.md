@@ -71,7 +71,7 @@ The app consists of three main parts:
 
 In the end, the homepage for your finished app should look like this:
 
-<!-- border -->![Luigi shopping app](luigi-shopping-app.png)
+![Luigi shopping app](luigi-shopping-app.png)
 
 
 ### Further support
