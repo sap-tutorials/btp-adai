@@ -33,21 +33,21 @@ author_profile: https://github.com/MelanieCueppers
 
       Choose **Save** and then choose **Artifacts** to navigate to the artifacts tab. In this tab, you will create your first integration flow.
 
-      <!-- border -->![Provide package details and navigate to artifacts](2-1-enter-integration-package-details.png)
+      ![Provide package details and navigate to artifacts](2-1-enter-integration-package-details.png)
 
 2. Choose **Add** > **Integration Flow**.
 
-      <!-- border -->![Add integration flow artifact](2-2-add-integration-flow-new.png)
+      ![Add integration flow artifact](2-2-add-integration-flow-new.png)
 
       Enter a **Name** for the integration flow and  choose **Add and Open in Editor**.
 
-      <!-- border -->![Enter integration flow details and confirm](2-2-enter-iflow-details.png)
+      ![Enter integration flow details and confirm](2-2-enter-iflow-details.png)
 
 3. Choose **Edit** to start editing the integration flow.
 
     Choose **Restore** at the bottom right corner to bring up the **Property Sheet**. Property sheet is the place where you define the parameters for every step in the integration flow.
 
-      <!-- border -->![Start editing the integration flow](3-1-edit-iflow.png)
+      ![Start editing the integration flow](3-1-edit-iflow.png)
 
 
 ### Connect sender channel with HTTPS adapter
@@ -56,17 +56,17 @@ In this step, you define your sender channel and sender adapter. In this case, w
 
 1. Choose the **Sender** step. Create the sender channel by clicking the arrow icon on **Sender** and dragging it to the **Start** step.
 
-    <!-- border -->![Create the sender channel](4-1-connect-sender-channel.png)
+    ![Create the sender channel](4-1-connect-sender-channel.png)
 
 2. In the **Adapter Type** prompt, select the **HTTPS** adapter.
 
-    <!-- border -->![Select HTTPS adapter](4-2-select-https-adapter.png)
+    ![Select HTTPS adapter](4-2-select-https-adapter.png)
 
 3. In the property sheet, select the **Connection** tab. In the **Address** field, enter **`/products/details`**.
 
     Optionally, you can enter any value of your choice, but ensure that you use **"/"** symbol before specifying the endpoint name. Deselect the **CSRF Protected** checkbox (this will be selected by default).
 
-    <!-- border -->![Configure HTTPS connection](4-3-configure-https-connection.png)
+    ![Configure HTTPS connection](4-3-configure-https-connection.png)
 
 
 
@@ -76,11 +76,11 @@ Input to the integration flow is sent in JSON format. At a later point, you comm
 
 1. From the palette (the grey bar on the top containing integration flow steps), choose **Message Transformers** > **Converter** > **JSON to XML Converter**.
 
-    <!-- border -->![JSON to XML Converter](5-1-json-to-xml-converter.png)
+    ![JSON to XML Converter](5-1-json-to-xml-converter.png)
 
 2. Connect the converter to the message path by clicking on the message path.
 
-    <!-- border -->![Connect JSON to XML Converter to message path](5-2-connect-jsonxml-converter.png)
+    ![Connect JSON to XML Converter to message path](5-2-connect-jsonxml-converter.png)
 
 
 ### Add and configure content modifier
@@ -89,7 +89,7 @@ The Content Modifier allows you to modify a incoming message by changing the con
 
 1. Choose **Message Transformers** > **Content Modifier** and add it to the message path, as you did for the **JSON to XML Converter**.
 
-    <!-- border -->![Add Content Modifier](6-1-connect-content-modifier.png)
+    ![Add Content Modifier](6-1-connect-content-modifier.png)
 
 2. In the property sheet, choose **Message Header** > **Add** to configure the **Content Modifier**. Enter the following parameters:
 
@@ -101,7 +101,7 @@ The Content Modifier allows you to modify a incoming message by changing the con
     |  **Source Value**       | **`//productIdentifier`**
     |  **Data Type**    | **`java.lang.String`**
 
-    <!-- border -->![Configure Content Modifier](6-2-configure-content-modifier.png)
+    ![Configure Content Modifier](6-2-configure-content-modifier.png)
 
 
 ### Add request reply step
@@ -110,9 +110,9 @@ Certain integration scenarios might require that Cloud Integration communicates 
 
 From the palette, choose **Call** > **External Call** > **Request Reply**. Connect it to the message path, similar to the previous steps.
 
-  <!-- border -->![Connect request reply step](7-1-connect-request-reply-1.png)
+  ![Connect request reply step](7-1-connect-request-reply-1.png)
 
-  <!-- border -->![Connect request reply step](7-1-connect-request-reply.png)
+  ![Connect request reply step](7-1-connect-request-reply.png)
 
 You have now created a step that will (in the further step) connect and communicate with on OData service, and retrieves data from it.
 
@@ -123,45 +123,45 @@ You have now created a step that will (in the further step) connect and communic
 
     >**TIP:** Use the pan and zoom controls (highlighted in yellow) for resizing the canvas. Use the guidelines to ensure that **Receiver** is aligned with the **Request Reply** step.
 
-    <!-- border -->![Move Receiver below Request Reply](8-1-move-receiver.png)
+    ![Move Receiver below Request Reply](8-1-move-receiver.png)
 
 2. Connect the **Request Reply** to **Receiver** by dragging the arrow icon on **Request Reply** to the **Receiver**.
 
-    <!-- border -->![Connect Request Reply to Receiver](8-2-connect-requestreply-receiver.png)
+    ![Connect Request Reply to Receiver](8-2-connect-requestreply-receiver.png)
 
 3. In the **Adapter Type** prompt, select **OData**. In the **Message Protocol** prompt, select **OData V2**.
 
-    <!-- border -->![Select adapter](8-3-select-odata-adapter.png)
+    ![Select adapter](8-3-select-odata-adapter.png)
 
-    <!-- border -->![Select message protocol](8-3-select-odata-adapter-msg-protocol.png)
+    ![Select message protocol](8-3-select-odata-adapter-msg-protocol.png)
 
 4. Select the **Connection** tab. In the **Address** field, enter **`https://refapp-espm-ui-cf.cfapps.eu10.hana.ondemand.com/espm-cloud-web/espm.svc`**. This is the URL of the online web shop from which the product details will be fetched.
 
 5. Select the **Processing** tab and choose **Select** in the **Resource Path** field.
 
-    <!-- border -->![OData processing resource path selection - 1](8-5-odata-processing-1.png)
+    ![OData processing resource path selection - 1](8-5-odata-processing-1.png)
 
 6. Ensure the connection details are the same and choose **Step 2**.
 
 7. Choose the **Select Entity** field and choose **Products** from the dropdown list.
 
-    <!-- border -->![OData processing resource path selection - 3](8-7-odata-processing-3.png)
+    ![OData processing resource path selection - 3](8-7-odata-processing-3.png)
 
 8. Enable the **Select All Fields** checkbox and choose **Step 3**.
 
-    <!-- border -->![OData processing resource path selection - 4](8-8-odata-processing-4.png)
+    ![OData processing resource path selection - 4](8-8-odata-processing-4.png)
 
 9. In the **Filter By** section, choose the **Select Field** icon.
 
-    <!-- border -->![OData processing resource path selection - 5](8-9-odata-processing-5.png)
+    ![OData processing resource path selection - 5](8-9-odata-processing-5.png)
 
 10. Choose **Product ID** and then **OK**.
 
-    <!-- border -->![OData processing resource path selection - 6](8-10-odata-processing-6.png)
+    ![OData processing resource path selection - 6](8-10-odata-processing-6.png)
 
 11. In the dropdown list, select **Equal**. In the value field, enter **`${header.productIdentifier}`**. Choose **Finish**.
 
-    <!-- border -->![OData processing resource path selection - 7](8-11-odata-processing-7.png)
+    ![OData processing resource path selection - 7](8-11-odata-processing-7.png)
 
 Now you have configured the OData adapter to fetch the details of the product based on the product ID that you send as input while making the HTTP call.
 
@@ -172,11 +172,11 @@ Now you have configured the OData adapter to fetch the details of the product ba
 
 1. Choose **Deploy** to deploy the integration flow. Choose **Yes** in the confirmation dialog for deployment. The deployment can take some time to finish.
 
-    <!-- border -->![Deploy integration flow and access deployment status](9-1-deploy-iflow.png)
+    ![Deploy integration flow and access deployment status](9-1-deploy-iflow.png)
 
 2. Once the integration flow is deployed, go to the **Deployment Status** tab in the propery sheet. Here, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
 
-    <!-- border -->![View deployment status](9-2-view-deployment-status.png)
+    ![View deployment status](9-2-view-deployment-status.png)
 
 
 Later in the mission, you will use the endpoint of the deployed integration flow in a subsequent step. You will define the integration flow endpoint as application programming interface (API). And finally, call the integration flow API using API Management.

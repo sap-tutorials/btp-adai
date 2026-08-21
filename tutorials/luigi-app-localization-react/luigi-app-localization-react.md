@@ -26,43 +26,43 @@ primary_tag: topic>user-interface
 
 2. Change the `label` attribute of the `products` and `order` node as shown below:
 
-    ```JavaScript
-    children: [
-            {
-                pathSegment: "products",
-                //<---Around line 13, change this label---> 
-                label: "PRODUCTS",
-                //<------>
-                icon: "product",
-                viewUrl: "/sampleapp.html#/microfrontend/products",
-                keepSelectedForChildren: true,
-                children: [{
-                    pathSegment: ':id',
-                    viewUrl: '/sampleapp.html#/microfrontend/productDetail/:id',
-                    context: { id: ':id' }
-                }]
-            },
-            {
-                pathSegment: 'order',
-                //<---Around line 25, change this label--->
-                label: 'ORDERHISTORY',
-                //<------>
-                icon: 'history',
-                viewUrl: 'http://localhost:8080/index.html'
-            }
-        ],
-    ```
+   ```JavaScript
+   children: [
+           {
+               pathSegment: "products",
+               //<---Around line 13, change this label---> 
+               label: "PRODUCTS",
+               //<------>
+               icon: "product",
+               viewUrl: "/sampleapp.html#/microfrontend/products",
+               keepSelectedForChildren: true,
+               children: [{
+                   pathSegment: ':id',
+                   viewUrl: '/sampleapp.html#/microfrontend/productDetail/:id',
+                   context: { id: ':id' }
+               }]
+           },
+           {
+               pathSegment: 'order',
+               //<---Around line 25, change this label--->
+               label: 'ORDERHISTORY',
+               //<------>
+               icon: 'history',
+               viewUrl: 'http://localhost:8080/index.html'
+           }
+       ],
+   ```
 
 3. Add the following translation for German inside the `myTranslationProvider` function:
 
-    ```JavaScript
-    var dict = {
-      "en-US": { PRODUCTS: "Products", ORDERHISTORY: "Order History" },
-      //Around line 55, add the following: 
-      "de-DE": { PRODUCTS: "Produkte", ORDERHISTORY: "Bestellungen" },
-      //<------>
-    };
-    ```
+   ```JavaScript
+   var dict = {
+     "en-US": { PRODUCTS: "Products", ORDERHISTORY: "Order History" },
+     //Around line 55, add the following: 
+     "de-DE": { PRODUCTS: "Produkte", ORDERHISTORY: "Bestellungen" },
+     //<------>
+   };
+   ```
 
 
 ### Add second language in `language.js`
@@ -111,9 +111,9 @@ export const dict = {
 
 1. In the file `react-core-mf/src/views/home.js`, update the options state to include both English and German as in the following:
 
-    ```JavaScript
-    const [options] = useState([{ key: 'en-US', text: 'en-US' }, { key: 'de-DE', text: 'de-DE' }]);
-    ```
+   ```JavaScript
+   const [options] = useState([{ key: 'en-US', text: 'en-US' }, { key: 'de-DE', text: 'de-DE' }]);
+   ```
 
 
 

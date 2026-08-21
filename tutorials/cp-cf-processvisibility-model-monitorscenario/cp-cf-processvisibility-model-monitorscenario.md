@@ -38,15 +38,15 @@ You can view the details of a scenario definition such as who created the scenar
 
 1. Type and search for the scenario definition name as a keyword. In this tutorial, we search for **Employee Onboarding Process**, which is the scenario definition name used across the tutorial.
 
-    <!-- border -->![Employee Onboarding Process](Employee-Onboarding-Process-3.png)
+    ![Employee Onboarding Process](Employee-Onboarding-Process-3.png)
 
 2. Choose **Process Data** to process the acquired data of a scenario manually.
 
-    <!-- border -->![Processing Data](Process-Data-04.png)
+    ![Processing Data](Process-Data-04.png)
 
 3. On successful processing of data, you can see the processing information listed under **Processing Information** tab.
 
-    <!-- border -->![Processing Information](Processing-Information-05.png)
+    ![Processing Information](Processing-Information-05.png)
 
     You can view the details about the ongoing or completed processing runs such as Start Time, Status, Events Processed, Events in Buffer, Instances Processed.
 

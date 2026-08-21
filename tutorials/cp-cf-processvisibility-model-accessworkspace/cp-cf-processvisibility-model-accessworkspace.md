@@ -39,27 +39,27 @@ The process visibility capability provides **Process Workspace** to gain visibil
 
 1. In the **Scenarios** table, choose the **Employee Onboarding Process** scenario.
 
-    <!-- border -->![Scenario](Scenario-Table.png)
+    ![Scenario](Scenario-Table.png)
 
     You can see the process workspace overview page of the **Employee Onboarding Process** scenario as shown below.
 
-    <!-- border -->![Scenario overview page](overview.png)
+    ![Scenario overview page](overview.png)
 
     Above is the default process workspace for a visibility scenario. If you enhance your visibility scenario with more phases, calculated attributes, and performance indicators, you can see a dashboard as shown below. This dashboard can be used to track the workflow instances. For more information on creating and enhancing the visibility scenario, see [Creating a Scenario](https://help.sap.com/viewer/62fd39fa3eae4046b23dba285e84bfd4/Cloud/en-US/df284fd12073454392c5db8913f82d81.html)
 
-      <!-- border -->![Enhanced overview page](Enhanced-Workspace.png)
+      ![Enhanced overview page](Enhanced-Workspace.png)
 
 2. Choose one of the tiles to view the details of the workflow instances contributing to the respective performance indicators.
 
-    <!-- border -->![Scenario On track page](overview-Ontrack.png)
+    ![Scenario On track page](overview-Ontrack.png)
 
 3. Choose an instance from the table to navigate to the details view of that particular scenario instance.
 
-    <!-- border -->![Performance indicator view](PPI - 01.png)
+    ![Performance indicator view](PPI - 01.png)
 
     The scenario instance details view provides detailed information about the selected instance.
 
-    <!-- border -->![Instances view](instance-details-view.png)
+    ![Instances view](instance-details-view.png)
 
     In the scenario instance details view, you can view the following:
 
@@ -67,16 +67,16 @@ The process visibility capability provides **Process Workspace** to gain visibil
 
     -	**Phases** view displays progress of the workflow, how much time has elapsed, how many more phases and steps are left, and any violations which could bring the instance to risk based on the target cycle time.
 
-      <!-- border -->![Phases](Phases.png)
+      ![Phases](Phases.png)
 
     - **Path** view provides an ordered list or a flow chart to show the progress of the workflow in terms of time taken to traverse from one task to another. This helps the business users to identify the bottlenecks, inconsistencies, and possible causes of the delays in the workflow.
 
-      <!-- border -->![Path](Path.png)
+      ![Path](Path.png)
 
     - **Action Logs** view displays the activity logs of actions of the type **Trigger Workflow from SAP Workflow Service**. It displays the name of the action, the status of the action, the user triggering the action, and the time when the action was triggered. The reason for the failure can be seen by clicking the failed icon in action status.
 
       In this tutorial, actions are not configured for the **Employee Onboarding Process** scenario. Hence, there are no actions logs displayed for this scenario instance.
 
-      <!-- border -->![Action Logs](Action-logs.png)
+      ![Action Logs](Action-logs.png)
 
 
