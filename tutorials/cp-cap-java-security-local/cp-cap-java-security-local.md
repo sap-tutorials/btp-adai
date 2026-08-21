@@ -26,12 +26,12 @@ In this tutorial you add authentication to your application by adding the `cds-s
 
 1. Edit the `pom.xml` in the `srv` directory (not the `pom.xml` file located in the root project folder) and under the `<dependencies>` tag add the `cds-starter-cloudfoundry` dependency. Make sure you **Save** the file.
 
-    ```xml
-    <dependency>
-        <groupId>com.sap.cds</groupId>
-        <artifactId>cds-starter-cloudfoundry</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+       <groupId>com.sap.cds</groupId>
+       <artifactId>cds-starter-cloudfoundry</artifactId>
+   </dependency>
+   ```
 
 ### Add authentication to the Orders service
 
@@ -43,26 +43,26 @@ You will now demonstrate this secure-by-default behavior using the `OrdersServic
 
 3. Observe that the response contains status `HTTP/1.1 401`.
 
-    <!-- border -->![The request without authentication header and it's response.](authentication-required.png)
+    ![The request without authentication header and it's response.](authentication-required.png)
 
 4. To create an order, you need to provide credentials. For local development CAP has built-in mock users. Modify the request like follows:
 
-    ```HTTP
-    ### Create Order
+   ```HTTP
+   ### Create Order
 
-    POST http://localhost:8080/odata/v4/OrdersService/Orders
-    Content-Type: application/json
-    Authorization: Basic authenticated:
+   POST http://localhost:8080/odata/v4/OrdersService/Orders
+   Content-Type: application/json
+   Authorization: Basic authenticated:
 
-    {
-      "items": [
-        {
-          "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
-          "amount": 2
-        }
-      ]
-    }
-    ```
+   {
+     "items": [
+       {
+         "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
+         "amount": 2
+       }
+     ]
+   }
+   ```
 
     > Here you have added the `Authorization` HTTP header to the request and provided the credentials for the built-in `authenticated` mock user. This user has an empty password.
 
@@ -76,55 +76,55 @@ Built-in mock users are good for initial local testing, but you may need separat
 
 1. Add the `security` section to the `application.yaml` file under `srv/src/main/resources` as follows:
 
-    ```YAML
-    ---
-    spring:
-      config.activate.on-profile: default
-      sql.init.schema-locations: classpath:schema-h2.sql
-    cds:
-      datasource:
-        auto-config.enabled: false
-      security:
-        mock:
-          users:
-            - name: klaus
-              password: pass_klaus
-              additional:
-                firstName: Klaus
-                lastName: Sussard
-                email: Klaus.Sussard@mail.com
-            - name: mia
-              password: pass_mia
-              additional:
-                firstName: Mia
-                lastName: Bonnellac
-                email: Mia.Bonnellac@mail.com
-    ```
+   ```YAML
+   ---
+   spring:
+     config.activate.on-profile: default
+     sql.init.schema-locations: classpath:schema-h2.sql
+   cds:
+     datasource:
+       auto-config.enabled: false
+     security:
+       mock:
+         users:
+           - name: klaus
+             password: pass_klaus
+             additional:
+               firstName: Klaus
+               lastName: Sussard
+               email: Klaus.Sussard@mail.com
+           - name: mia
+             password: pass_mia
+             additional:
+               firstName: Mia
+               lastName: Bonnellac
+               email: Mia.Bonnellac@mail.com
+   ```
 
     > Here you defined two users that have no explicit role assignment and will implicitly belong to the `authenticated-user` pseudo-role.
 
 2. Restart your application with the command `mvn spring-boot:run`. In the startup logs you can observe the created mock users with their user names, roles, and passwords. They are added in addition to the built-in mock users.
 
-    <!-- border -->![users are added to application at startup](mock-users.png)
+    ![users are added to application at startup](mock-users.png)
 
 3. Modify the HTTP request, you have used earlier to include credentials to one of the mock users:
 
-    ```HTTP
-    ### Create Order
+   ```HTTP
+   ### Create Order
 
-    POST http://localhost:8080/odata/v4/OrdersService/Orders
-    Content-Type: application/json
-    Authorization: Basic klaus:pass_klaus
+   POST http://localhost:8080/odata/v4/OrdersService/Orders
+   Content-Type: application/json
+   Authorization: Basic klaus:pass_klaus
 
-    {
-      "items": [
-        {
-          "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
-          "amount": 2
-        }
-      ]
-    }
-    ```
+   {
+     "items": [
+       {
+         "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
+         "amount": 2
+       }
+     ]
+   }
+   ```
 
 4. Choose **Send Request** above it and see that a new order is created.
 
@@ -136,58 +136,58 @@ You will now add a user role `Administrators` to your application.
 
 1. Add a new mock user to the `application.yaml` file after the existing users as follows:
 
-    ```YAML
-    ---
-    spring:
-      config.activate.on-profile: default
-      sql.init.schema-locations: classpath:schema-h2.sql
-    cds:
-      datasource:
-        auto-config.enabled: false
-      security:
-        mock:
-          users:
-            - name: klaus
-              password: pass_klaus
-              additional:
-                firstName: Klaus
-                lastName: Sussard
-                email: Klaus.Sussard@mail.com
-            - name: mia
-              password: pass_mia
-              additional:
-                firstName: Mia
-                lastName: Bonnellac
-                email: Mia.Bonnellac@mail.com
-            - name: sabine
-              password: pass_sabine
-              roles:
-                - Administrators
-              additional:
-                firstName: Sabine
-                lastName: Autumnpike
-                email: Sabine.Autumnpike@mail.com
-    ```
+   ```YAML
+   ---
+   spring:
+     config.activate.on-profile: default
+     sql.init.schema-locations: classpath:schema-h2.sql
+   cds:
+     datasource:
+       auto-config.enabled: false
+     security:
+       mock:
+         users:
+           - name: klaus
+             password: pass_klaus
+             additional:
+               firstName: Klaus
+               lastName: Sussard
+               email: Klaus.Sussard@mail.com
+           - name: mia
+             password: pass_mia
+             additional:
+               firstName: Mia
+               lastName: Bonnellac
+               email: Mia.Bonnellac@mail.com
+           - name: sabine
+             password: pass_sabine
+             roles:
+               - Administrators
+             additional:
+               firstName: Sabine
+               lastName: Autumnpike
+               email: Sabine.Autumnpike@mail.com
+   ```
 
     > You used the attribute `roles` to add the `Administrators` role to that user.
 
 2. Add the `annotate` definition at the end of the `services.cds` file in the `srv` directory to make the `AdminService` available only to users with an `Administrators` role:
 
-    ```CDS
-    annotate AdminService @(requires: 'Administrators');
-    ```
+   ```CDS
+   annotate AdminService @(requires: 'Administrators');
+   ```
 
 3. Restart your application with the command `mvn spring-boot:run`.
 
 4. Add a new request to the `requests.http` file:
 
-    ```HTTP
-    ### Read Products
+   ```HTTP
+   ### Read Products
 
-    GET http://localhost:8080/odata/v4/AdminService/Products
-    Accept: application/json
-    Authorization: Basic sabine:pass_sabine
-    ```
+   GET http://localhost:8080/odata/v4/AdminService/Products
+   Accept: application/json
+   Authorization: Basic sabine:pass_sabine
+   ```
 
 5. Choose **Send Request** above this request and see that you receive the list of products.
 
@@ -204,22 +204,22 @@ You can use the `@restrict` annotation to add more sophisticated authorization c
 
 1. Modify the service definition for `OrdersService` in the `services.cds`  file in folder `srv` as follows:
 
-    ```CDS
-    // Define Orders Service
-    service OrdersService {
-        @(restrict: [
-            { grant: '*', to: 'Administrators' },
-            { grant: '*', where: 'createdBy = $user' }
-        ])
-        entity Orders as projection on db.Orders;
+   ```CDS
+   // Define Orders Service
+   service OrdersService {
+       @(restrict: [
+           { grant: '*', to: 'Administrators' },
+           { grant: '*', where: 'createdBy = $user' }
+       ])
+       entity Orders as projection on db.Orders;
 
-        @(restrict: [
-            { grant: '*', to: 'Administrators' },
-            { grant: '*', where: 'parent.createdBy = $user' }
-        ])
-        entity OrderItems as projection on db.OrderItems;
-    }
-    ```
+       @(restrict: [
+           { grant: '*', to: 'Administrators' },
+           { grant: '*', where: 'parent.createdBy = $user' }
+       ])
+       entity OrderItems as projection on db.OrderItems;
+   }
+   ```
 
     > With that you grant administrators access to all orders, while regular users only see the orders that were created by them. As you expose `OrderItems` as a separate entity, you have to add security configuration there as well. We use a path expression across the `parent` association, which points to `Orders`, to limit the items to those belonging to orders that were created by the respective user.
 
@@ -227,52 +227,52 @@ You can use the `@restrict` annotation to add more sophisticated authorization c
 
 3. Execute an HTTP request to create orders with credentials of one of the mock users you added earlier:
 
-    ```HTTP
-    ### Create Order as Mia
+   ```HTTP
+   ### Create Order as Mia
 
-    POST http://localhost:8080/odata/v4/OrdersService/Orders
-    Content-Type: application/json
-    Authorization: Basic mia:pass_mia
+   POST http://localhost:8080/odata/v4/OrdersService/Orders
+   Content-Type: application/json
+   Authorization: Basic mia:pass_mia
 
-    {
-      "items": [
-        {
-          "book_ID": "fd0c5fda-8811-4e20-bcff-3a776abc290a",
-          "amount": 10
-        }
-      ]
-    }
-    ```
+   {
+     "items": [
+       {
+         "book_ID": "fd0c5fda-8811-4e20-bcff-3a776abc290a",
+         "amount": 10
+       }
+     ]
+   }
+   ```
 
     With separate requests you can see that each user, except administrators, only has access to their own orders and items. Execute the following requests by adding them to the `requests.http` file to verify that:
 
-    ```HTTP
-    ### Read Orders as Mia
+   ```HTTP
+   ### Read Orders as Mia
 
-    GET http://localhost:8080/odata/v4/OrdersService/Orders?$expand=items
-    Accept: application/json
-    Authorization: Basic mia:pass_mia
-    ```
+   GET http://localhost:8080/odata/v4/OrdersService/Orders?$expand=items
+   Accept: application/json
+   Authorization: Basic mia:pass_mia
+   ```
 
     You will see the own orders and items.
 
-    ```HTTP
-    ### Read Orders as Klaus
+   ```HTTP
+   ### Read Orders as Klaus
 
-    GET http://localhost:8080/odata/v4/OrdersService/OrderItems
-    Accept: application/json
-    Authorization: Basic klaus:pass_klaus
-    ```
+   GET http://localhost:8080/odata/v4/OrdersService/OrderItems
+   Accept: application/json
+   Authorization: Basic klaus:pass_klaus
+   ```
 
     You will not see any items.
 
-    ```HTTP
-    ### Read Orders as Sabine (Administrator)
+   ```HTTP
+   ### Read Orders as Sabine (Administrator)
 
-    GET http://localhost:8080/odata/v4/OrdersService/Orders?$expand=items
-    Accept: application/json
-    Authorization: Basic sabine:pass_sabine
-    ```
+   GET http://localhost:8080/odata/v4/OrdersService/Orders?$expand=items
+   Accept: application/json
+   Authorization: Basic sabine:pass_sabine
+   ```
 
     You will see all orders and items.
 

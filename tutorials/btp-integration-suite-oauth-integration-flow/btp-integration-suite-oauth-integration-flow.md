@@ -29,7 +29,7 @@ This tutorial exemplifies a 2-step authentication process. In general, you must 
 1.	In the first call, the sender retrieves an access token from the SAP Business Technology Platform (SAP BTP) token server. For this step, the sender provides a client certificate. 
 2.	In the second call, the sender accesses the Cloud Integration runtime and is authenticated based on the access token. When authentication has been established, the integration flow is processed in the Cloud Integration runtime.
 
-<!-- border -->![Authentication Process](btp-integration-inbound-authen.png)
+![Authentication Process](btp-integration-inbound-authen.png)
 
 The application Postman is used to simulate a sender system. 
 
@@ -65,12 +65,12 @@ Define a service instance. With a service instance, you define how to access a c
     -  **Space**: Select the space that hosts your Cloud Integration application (for example, the **dev** space).
     -  **Instance Name**: Specify any name for the instance.
 
-      <!-- border -->![Service Instance Creation](btp-integration-service-instance-1.png)
+      ![Service Instance Creation](btp-integration-service-instance-1.png)
 
 4. Select **Next**.
 5. On the screen “Parameters”, leave the settings as they are. With Roles “ESBMessaging.send” and Grant-types as “Client Credentials”. 
 
-    <!-- border -->![Service Instance Parameters](btp-integration-service-instance-2.png)
+    ![Service Instance Parameters](btp-integration-service-instance-2.png)
 
     The default role **ESBMessaging.send** provides permission for the sender system to process integration flows. 
 
@@ -92,14 +92,14 @@ You now define a service to go along to your service instance.
 
 2. Click on **Create Service Key**.
 
-    <!-- border -->![Service Key Creation](btp-integration-service-key-1.png)
+    ![Service Key Creation](btp-integration-service-key-1.png)
 
 3. Specify a service key **Name**. To use an SAP-generated certificate for the step to retrieve the access token, select `Certificate` as **Key Type**. You can keep the default settings for **Validity** and **Key Size**.
 4. Click **Create**.
 
 5. Next, to display the details of the service key, choose **...** > **View**: 
 
-    <!-- border -->![Service Key View](btp-integration-service-key-2.png)
+    ![Service Key View](btp-integration-service-key-2.png)
 
    Each service key with an SAP generated client certificate contains certain properties. You need the following parts for the configuration of your sender (Postman):
 
@@ -115,7 +115,7 @@ You now define a service to go along to your service instance.
 
 Example: This is how the JSON representation of the service key looks like when you open it in SAP BTP cockpit:
 
-<!-- border -->![JSON File](btp-integration-JSON-file-2.png)
+![JSON File](btp-integration-JSON-file-2.png)
 
 
 ### Prepare the Certificate and Key Content
@@ -129,7 +129,7 @@ Upload the public certificate (including chain, content of property **certificat
 
     > You can use Word to format the content by using the **Find and Replace** dialog with the following values (once done, copy the content into the text file):
 
-    <!-- border -->![Word Hint](btp-integration-word-find.png)
+    ![Word Hint](btp-integration-word-find.png)
 
     The figure shows the **Find and Replace** dialog in Word with the following entries: 
 
@@ -139,7 +139,7 @@ Upload the public certificate (including chain, content of property **certificat
 
     The correctly formatted content looks like this (beginning of the certificate content):
 
-    <!-- border -->![Certificate](btp-integration-certificate.png)
+    ![Certificate](btp-integration-certificate.png)
 
 3.	Save the text file as file with the extension `.cer`, for example, `certificate.cer`.
 
@@ -155,7 +155,7 @@ On your desktop, configure Postman as sender.
 
 2.	Select the **Certificates** tab and choose **Add certificates**.
 
-    <!-- border -->![Add Certificates](btp-integration-add-certificates.png)
+    ![Add Certificates](btp-integration-add-certificates.png)
 
 3.	Specify the following parameters:
       - **Host**: Add the URL of the `tokenurl` property (without the `https://` at the beginning and the `/oauth/token` at the end).
@@ -182,16 +182,16 @@ If you have configured everything correctly, you receive a response in Postman t
 4. Select **Create**.
 5. Enter the name and description of the integration package (you can choose any name you want) and **Save**.
 
-    <!-- border -->![Create Integration Package](btp-integration-design-integration-flow-1.png)
+    ![Create Integration Package](btp-integration-design-integration-flow-1.png)
 
 6. In your Integration package, choose the **Artifacts** tab.
 7. Choose **Add** > **Integration Flow**. You are now adding an integration flow to your integration package.
 
-    <!-- border -->![Add Integration Flow](btp-integration-design-integration-flow-2.png) 
+    ![Add Integration Flow](btp-integration-design-integration-flow-2.png) 
 
 8. Specify a name for the integration flow and choose **OK**. You can use any name. Make sure that the Product Profile is set to Cloud Integration.
 
-    <!-- border -->![Specify Name for Integration Flow](btp-integration-design-integration-flow-3.png) 
+    ![Specify Name for Integration Flow](btp-integration-design-integration-flow-3.png) 
 
 9.  Select the newly created integration flow by clicking.
     
@@ -201,35 +201,35 @@ If you have configured everything correctly, you receive a response in Postman t
     
     You will notice that on top of the model, the integration flow component palette is activated that allows you to add shapes to the model. 
 
-    <!-- border -->![Component Palette](btp-integration-design-integration-flow-4-2.png) 
+    ![Component Palette](btp-integration-design-integration-flow-4-2.png) 
 
 11. Click the **Receiver** shape and remove it by selecting the recycle bin icon. 
     
     You don't need a receiver component in this integration flow that is why you should delete it.  
 
-     <!-- border -->![Receiver Shape](btp-integration-design-integration-flow-5.png) 
+     ![Receiver Shape](btp-integration-design-integration-flow-5.png) 
 
 12. Select the Sender shape so that the icons appear next to it - instead can we add the graphic here and remove the bit from ”like” to “before” as shown for the Receiver shape before. Delete the sender shape.
 13. Again, select the Sender shape so that icons appear next to it. Select the arrow icon (as shown in the figure above) and drag and drop it to the integration flow **Start** shape. 
 
-     <!-- border -->![Drag and Drop Arrow Icon](btp-integration-design-integration-flow-6-2.png)  
+     ![Drag and Drop Arrow Icon](btp-integration-design-integration-flow-6-2.png)  
 
     A screen  where you can select an adapter type opens. Select HTTPS.   
 
     In this scenario, the sender system (Postman) calls the integration flow through a basic HTTPS request. 
 
-     <!-- border -->![Choose Adapter Type](btp-integration-design-integration-flow-7-2.png) 
+     ![Choose Adapter Type](btp-integration-design-integration-flow-7-2.png) 
 
     As long as the connection line is selected, you can access the properties sheet of the HTTPS adapter. 
 
 14. Within the configurations for the HTTPS adapter, choose the **Connection** tab.
 15. For **Address** enter **/GetTimestamp**. Keep the other settings (for the parameters **Authorization**, **User Roles**, and **CSRF Protected**) as they are. The role **ESBMessaging.send** is assigned to the service key. 
 
-     <!-- border -->![Connection Tab](btp-integration-design-integration-flow-8-2.png) 
+     ![Connection Tab](btp-integration-design-integration-flow-8-2.png) 
 
 16. In the palette on top of the model, select the **Message Transformers** icon and choose **Content Modifier**.
 
-     <!-- border -->![Message Transformers Icon](btp-integration-design-integration-flow-9-2.png) 
+     ![Message Transformers Icon](btp-integration-design-integration-flow-9-2.png) 
 
     Place the cursor on the connection line between the Start and the End shapes to add the Content Modifier element to the integration flow. 
 
@@ -239,7 +239,7 @@ If you have configured everything correctly, you receive a response in Postman t
 
     **${date:now:yyyy-MM-dd HH:mm:ss}**
 
-    <!-- border -->![Body Field](btp-integration-design-integration-flow-10-2.png) 
+    ![Body Field](btp-integration-design-integration-flow-10-2.png) 
 
     The so-configured Content Modifier element creates a message body with the actual timestamp.  
 
@@ -260,7 +260,7 @@ Perform the following steps to deploy the integration scenario.
 3. Choose **OK**. 
 4. Go to **Monitor** > **Integrations**.
 
-     <!-- border -->![Integration Suite Navigation](btp-integration-design-integration-flow-11-2.png) 
+     ![Integration Suite Navigation](btp-integration-design-integration-flow-11-2.png) 
 
 5. Select the left tile under **Manage Integration Content**. 
 
@@ -271,7 +271,7 @@ Perform the following steps to deploy the integration scenario.
 6. Select the newly deployed integration flow. 
 7. In tab **Endpoints**, you find the endpoint address.
 
-     <!-- border -->![Endpoints Tab](btp-integration-design-integration-flow-12-2.png)  
+     ![Endpoints Tab](btp-integration-design-integration-flow-12-2.png)  
 
 8. Copy the endpoint address to the clipboard. You need it to configure the Postman client. 
 
@@ -301,7 +301,7 @@ As described above, in general, you need to configure and run two separate reque
 4. Click **Get New Access Token**. The access token is fetched from the token server and displayed on the next screen. In other words, the first request is performed. 
 5. To use the retrieved access token for the second request (to call the API resource), click **Proceed**. The request is shown with the access token.
 
-     <!-- border -->![Create Request](btp-integration-request.png)
+     ![Create Request](btp-integration-request.png)
 
 6. Click **Send**. The Cloud Integration runtime is called, and the integration flow is processed. The response is sent back to Postman. The response contains the actual timestamp (in UTC time zone).  
 

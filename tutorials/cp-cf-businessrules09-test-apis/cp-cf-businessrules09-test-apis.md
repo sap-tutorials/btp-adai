@@ -128,21 +128,21 @@ To try out the APIs, you need to configure your trial environment on SAP API Bus
 
 2. In SAP API Business Hub, select **Invoke a Rule Service** API and then choose **`/v2/workingset-rule-services`**. Paste the rule service ID in place of **`<rule-service-ID>`** in the following JSON payload and copy it to the **Body** of the API:
 
-    ```JSON
-        {
-      "RuleServiceId": "<rule-service-ID>",
-      "Vocabulary": [
-        {
-          "Employee": {
-            "IsFullTimeEmployee": true,
-            "countryofCompany": "USA",
-            "jobTitle": "Engineer II",
-             "company": "ACE_USA"
-           }
-        }
-      ]
-    }
-    ```
+   ```JSON
+       {
+     "RuleServiceId": "<rule-service-ID>",
+     "Vocabulary": [
+       {
+         "Employee": {
+           "IsFullTimeEmployee": true,
+           "countryofCompany": "USA",
+           "jobTitle": "Engineer II",
+            "company": "ACE_USA"
+          }
+       }
+     ]
+   }
+   ```
 
     Then choose **Run**.
 
@@ -157,18 +157,18 @@ To try out the APIs, you need to configure your trial environment on SAP API Bus
 
 5. Paste the rule service ID in place of **`<rule-service-ID>`** in the following JSON payload and copy it to the **Body** of the same API:
 
-    ```JSON
-        {
-      "RuleServiceId": "<rule-service-ID>",
-      "Vocabulary": [
-        {
-          "Equipment": {
-            "TotalAmount": 780
-           }
-        }
-      ]
-    }
-    ```
+   ```JSON
+       {
+     "RuleServiceId": "<rule-service-ID>",
+     "Vocabulary": [
+       {
+         "Equipment": {
+           "TotalAmount": 780
+          }
+       }
+     ]
+   }
+   ```
  6. Observe the API response in the response body of the API.
 
     ![Configure environment](testing14.png)

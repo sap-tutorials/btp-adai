@@ -58,12 +58,12 @@ Copy the `url:` parameter from your service key.
 
 4. Navigate to the **Body** tab and copy paste the following code snippet.
 
-    ```JSON
-    {
-      "configName" : "isCrossDomainMappingAllowed",
-      "configValue" : "true"
-    }
-    ```
+   ```JSON
+   {
+     "configName" : "isCrossDomainMappingAllowed",
+     "configValue" : "true"
+   }
+   ```
     !![EnterCodeSnippet](Body_Parameters.png)
 
     Click **Send**.

@@ -45,7 +45,7 @@ Finally, use an open API Client like Postman to securely invoke the deployed int
 
 For the sake of providing an example, we're using a BambooHR trial system that already contains sample data. You can also use a third-party system of your choice to which connectivity is supported via Open Connectors. Currently, Open Connectors provides connectivity to more than 170 third-party applications and solutions. See [Connectors Catalog](https://help.openconnectors.ext.hana.ondemand.com/home/catalog).
 
-  <!-- border -->![Use case](The-Usecase.png)
+  ![Use case](The-Usecase.png)
 
 
 ---

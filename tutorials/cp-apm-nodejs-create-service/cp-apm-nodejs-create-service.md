@@ -46,9 +46,9 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
 
 1. Open a command line window and run the following command in a folder of your choice to create the project:
 
-    ```Shell/Bash
-    cds init my-bookshop
-    ```
+   ```Shell/Bash
+   cds init my-bookshop
+   ```
 
     > This creates a folder `my-bookshop` in the current directory.
 
@@ -56,24 +56,24 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
 
 3. Go to **Terminal** **&rarr;** **New Terminal** to open a command line window within VS Code and run the following command in the root level of your project:
 
-    ```Shell/Bash
-    cds watch
-    ```
+   ```Shell/Bash
+   cds watch
+   ```
 
     > This command tries to start a `cds` server. Whenever you feed your project with new content, for example, by adding or modifying `.cds`, `.json`, or `.js` files, the server automatically restarts to serve the new content.
 
     > As there's no content in the project so far, it just keeps waiting for content with a message as shown:
 
-    ```Shell/Bash
-    cds serve all --with-mocks --in-memory? 
-    ( live reload enabled for browsers ) 
+   ```Shell/Bash
+   cds serve all --with-mocks --in-memory? 
+   ( live reload enabled for browsers ) 
 
-            ___________________________
- 
+           ___________________________
 
-        No models found in db/,srv/,app/,app/*.
-        Waiting for some to arrive...
-    ```
+
+       No models found in db/,srv/,app/,app/*.
+       Waiting for some to arrive...
+   ```
 
 [OPTION END]
 
@@ -81,9 +81,9 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
 
 1. Open a command line window and run the following command in a folder of your choice to create the project:
 
-    ```Shell/Bash
-    cds init my-bookshop --nodejs
-    ```
+   ```Shell/Bash
+   cds init my-bookshop --nodejs
+   ```
 
     > This creates a folder `my-bookshop` in the current directory.
 
@@ -91,24 +91,24 @@ With your installed CDS command line tool, you can now create a new CAP-based pr
 
 3. Go to **View** **&rarr;** **Command Palette** **&rarr;** **Terminal: Create New Terminal** to open a command line window within VS Code and run the following command in the root level of your project:
 
-    ```Shell/Bash
-    cds watch
-    ```
+   ```Shell/Bash
+   cds watch
+   ```
 
     > This command tries to start a `cds` server. Whenever you feed your project with new content, for example, by adding or modifying `.cds`, `.json`, or `.js` files, the server automatically restarts to serve the new content.
 
     > As there's no content in the project so far, it just keeps waiting for content with a message as shown:
 
-    ```Shell/Bash
-    cds serve all --with-mocks --in-memory?
-    watching: cds,csn,csv,ts,mjs,cjs,js,json,properties,edmx,xml,env,css,gif,html,jpg,png,svg...
-    live reload enabled for browsers
-            _______________________
+   ```Shell/Bash
+   cds serve all --with-mocks --in-memory?
+   watching: cds,csn,csv,ts,mjs,cjs,js,json,properties,edmx,xml,env,css,gif,html,jpg,png,svg...
+   live reload enabled for browsers
+           _______________________
 
 
-        No models found in db/,srv/,app/,schema,services.
-        Waiting for some to arrive...
-    ```
+       No models found in db/,srv/,app/,schema,services.
+       Waiting for some to arrive...
+   ```
 
 [OPTION END]
 
@@ -120,7 +120,7 @@ After initializing the project, you should see the following empty folders:
 - `db`: for the database level schema model
 - `srv`: for the service definition layer
 
-  <!-- border; size:540px -->![Folder structure](folder_structure.png)
+  ![Folder structure](folder_structure.png)
 
 Add normalized entity definitions into a data model and have your services expose potentially de-normalized views on those entities.
 
@@ -128,33 +128,33 @@ Add normalized entity definitions into a data model and have your services expos
 
 2. Add the following code to the file `schema.cds`:
 
-    ```CDS
-    service CatalogService {
+   ```CDS
+   service CatalogService {
 
-        namespace bookshop;
+       namespace bookshop;
 
-        entity Books {
-        key ID     : Integer;
-            title  : String;
-            author : Association to Authors;
-            stock  : Integer;
-        }
+       entity Books {
+       key ID     : Integer;
+           title  : String;
+           author : Association to Authors;
+           stock  : Integer;
+       }
 
-        entity Authors {
-        key ID    : Integer;
-            name  : String;
-            books : Association to many Books
-                        on books.author = $self;
-        }
+       entity Authors {
+       key ID    : Integer;
+           name  : String;
+           books : Association to many Books
+                       on books.author = $self;
+       }
 
-        entity Orders {
-        key ID     : Integer;
-            book   : Association to Books;
-            amount : Integer;
-        }
+       entity Orders {
+       key ID     : Integer;
+           book   : Association to Books;
+           amount : Integer;
+       }
 
-    }
-    ```
+   }
+   ```
 
     > Remember to save your files choosing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
@@ -162,40 +162,40 @@ Add normalized entity definitions into a data model and have your services expos
 
 4. Open the file `cat-service.cds` and replace the existing code with:
 
-    ```CDS
-    using {bookshop} from '/db/schema';
+   ```CDS
+   using {bookshop} from '/db/schema';
 
-        service CatalogService {
-        entity Books   as projection on bookshop.Books;
-        entity Authors as projection on bookshop.Authors;
-        entity Orders  as projection on bookshop.Orders;
-    }
-    ```
+       service CatalogService {
+       entity Books   as projection on bookshop.Books;
+       entity Authors as projection on bookshop.Authors;
+       entity Orders  as projection on bookshop.Orders;
+   }
+   ```
 
     > The syntax highlighting is provided by the extension. Learn more about it's features in this short [demo](https://www.youtube.com/watch?v=eY7BTzch8w0) and see the [features and commands](https://cap.cloud.sap/docs/tools/cds-editors#cds-editor) in the CAP documentation.
 
 3. As soon as you've saved your file, the still running `cds watch` reacts immediately with some new output as shown below:
 
-    ```Shell/Bash
-    [cds] - using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { database: ':memory:' }
-    /> successfully deployed to in-memory database. 
+   ```Shell/Bash
+   [cds] - using bindings from: { registry: '~/.cds-services.json' }
+   [cds] - connect to db > sqlite { database: ':memory:' }
+   /> successfully deployed to in-memory database. 
 
-    [cds] - using auth strategy { kind: 'mocked' }
-    [cds] - serving CatalogService {
-        at: [ '/odata/v4/catalog' ],
-        decl: 'srv/cat-service.cds:3'
-    }
-    [cds] - server listening on { url: 'http://localhost:4004' }
-    [cds] - server v9.7.0 launched in 668 ms
-    [cds] - [ terminate with ^C ]
-    ```
+   [cds] - using auth strategy { kind: 'mocked' }
+   [cds] - serving CatalogService {
+       at: [ '/odata/v4/catalog' ],
+       decl: 'srv/cat-service.cds:3'
+   }
+   [cds] - server listening on { url: 'http://localhost:4004' }
+   [cds] - server v9.7.0 launched in 668 ms
+   [cds] - [ terminate with ^C ]
+   ```
 
     > This means, `cds watch` detected the changes in `srv/cat-service.cds` and automatically bootstrapped an in-memory SQLite database when restarting the server process.
 
 4. To test your service, go to: <http://localhost:4004>
 
-    <!-- border; size:540px -->![Generated index page](application_local.png)
+    ![Generated index page](application_local.png)
 
     > You won't see data, because you haven't added a data model yet. Click on the available links to see the service is running.
 
@@ -211,22 +211,22 @@ This adds csv files with a header line and 10 rows of mock data for all entities
 
     > After you added these files, `cds watch` restarts the server with an output, telling that the files have been detected and their content been loaded into the database automatically:
 
-    ```Shell/Bash
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { database: ':memory:' }
-     > init from ./db/csv/my.bookshop-Books.csv
-    /> successfully deployed to sqlite in-memory db
+   ```Shell/Bash
+   [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
+   [cds] - connect to db > sqlite { database: ':memory:' }
+    > init from ./db/csv/my.bookshop-Books.csv
+   /> successfully deployed to sqlite in-memory db
 
-    [cds] - using auth strategy { kind: 'mocked' }
-    [cds] - serving CatalogService {
-        at: [ '/odata/v4/catalog' ],
-        decl: 'srv/cat-service.cds:3',
-        impl: 'srv/cat-service.js'
-    }
-    [cds] - server listening on { url: 'http://localhost:4004' }
-    [cds] - server v9.7.1 launched in 419 ms
-    [cds] - [ terminate with ^C ]
-    ```
+   [cds] - using auth strategy { kind: 'mocked' }
+   [cds] - serving CatalogService {
+       at: [ '/odata/v4/catalog' ],
+       decl: 'srv/cat-service.cds:3',
+       impl: 'srv/cat-service.js'
+   }
+   [cds] - server listening on { url: 'http://localhost:4004' }
+   [cds] - server v9.7.1 launched in 419 ms
+   [cds] - [ terminate with ^C ]
+   ```
 
     > Note, The in-memory database data will will be lost when `cds watch` stops, this is fine for development purposes but you have the option of using a [persistent database](https://cap.cloud.sap/docs/guides/databases/sqlite#using-persistent-databases) as well.
 
@@ -255,7 +255,7 @@ The command creates a test file in the test folder. The file has tests for each 
 
 Click on `Send Request`, to execute requests against your service.
 
-<!-- border; size:540px -->![Send a request](send_request.png)
+![Send a request](send_request.png)
 
 > This `Send Request` button is provided by the [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). It appears for every single request. This is important for the following step, when you execute, for example, the `Order a Book` request.
 
@@ -273,20 +273,20 @@ Click on `Send Request` below the Books_GET request and you can see the response
 
 2. Add the following code to the file `cat-service.js`:
 
-    ```JavaScript
-    const cds = require('@sap/cds')
-    class CatalogService extends cds.ApplicationService {
-        init() {
-            const { Books, Orders } = this - entities
-            this.after("CREATE", Orders, async req => {
-                let { ID, amount, book ID } = req
-                let result = await UPDATE(Books, bookID)
-    •with （｛
-                stock: ('-': amount)
-    })
-    return super.init()
-    module.exports = CatalogService
-    ```
+   ```JavaScript
+   const cds = require('@sap/cds')
+   class CatalogService extends cds.ApplicationService {
+       init() {
+           const { Books, Orders } = this - entities
+           this.after("CREATE", Orders, async req => {
+               let { ID, amount, book ID } = req
+               let result = await UPDATE(Books, bookID)
+   •with （｛
+               stock: ('-': amount)
+   })
+   return super.init()
+   module.exports = CatalogService
+   ```
 
     > Remember to save your files choosing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
@@ -296,7 +296,7 @@ Click on `Send Request` below the Books_GET request and you can see the response
 
     > Look at the stock of book and note it's ID, for example, `20126637`.
 
-    <!-- border; size:540px -->![Test the request](get_stock.png)
+    ![Test the request](get_stock.png)
 
 3. Execute the `Order a Book` request.
 
@@ -310,19 +310,19 @@ Click on `Send Request` below the Books_GET request and you can see the response
 
 You can extend the CDS model using Expressions as well, to see this in action replace the projection on the Books entity in `srv/cat-service.cds` as shown here:
 
-    ```CDS
-    using {bookshop} from '../db/schema';
+   ```CDS
+   using {bookshop} from '../db/schema';
 
-    service CatalogService {
-    entity Books as
-        select from bookshop.Books {
-            stock > 50 ? title : title || ' - 10% discount' as displayTitle : String
-        }
+   service CatalogService {
+   entity Books as
+       select from bookshop.Books {
+           stock > 50 ? title : title || ' - 10% discount' as displayTitle : String
+       }
 
-    entity Authors as projection on bookshop.Authors;
-    entity Orders  as projection on bookshop.Orders;
-    }
-    ```
+   entity Authors as projection on bookshop.Authors;
+   entity Orders  as projection on bookshop.Orders;
+   }
+   ```
 
 Now when you run the `Browse Books` Requests again you will see that the books with stock greater than 50 will have a 10% discount in the title.
 

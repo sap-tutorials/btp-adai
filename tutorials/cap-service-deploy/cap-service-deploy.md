@@ -39,9 +39,9 @@ It's now time to switch to SAP HANA as a database and prepare your project for a
 
 2. To prepare the project, execute in the root level of your project in VS Code:
 
-    ```Shell/Bash
-    cds add hana,mta,xsuaa,approuter --for production
-    ```
+   ```Shell/Bash
+   cds add hana,mta,xsuaa,approuter --for production
+   ```
 
     > `--for production` adds all configuration added by this command in the `package.json` file into a `cds.requires.[production]` block.
 
@@ -57,23 +57,23 @@ It's now time to switch to SAP HANA as a database and prepare your project for a
 
 3. Update your dependencies, as with the previous command you added some dependencies to your `package.json`.
 
-    ```Shell/Bash
-    npm update --package-lock-only
-    ```
+   ```Shell/Bash
+   npm update --package-lock-only
+   ```
 
 4. (Optional) Following this tutorial strictly, you don't have an own UI yet in your project. To enable the index page with SAP Fiori preview, add the following configuration in the `package.json` of your `my-bookshop` project in VS Code:
 
-    ```JSON
-    "cds": {
-      "fiori": {
-        "preview": true
-      },
-      "server": {
-        "index": true
-      },
-    }
+   ```JSON
+   "cds": {
+     "fiori": {
+       "preview": true
+     },
+     "server": {
+       "index": true
+     },
+   }
 
-    ```
+   ```
 
     > `server.index:true` enables the generated index page also in `production` mode as you saw it in your local application in the previous tutorial in step 4 when using `cds watch`. `fiori_preview:true` enables SAP Fiori preview in the same way. These features are meant to help you during development and should not be used in productive applications.
 
@@ -83,21 +83,21 @@ The Cloud Foundry API endpoint is required so that you can log on to your SAP BT
 
 1. Go to the [SAP BTP Trial Cockpit](https://cockpit.hanatrial.ondemand.com/cockpit#/home/trial) and choose **Go To Your Trial Account**.
 
-    <!-- border -->![business technology platform cockpit view](cockpit.png)
+    ![business technology platform cockpit view](cockpit.png)
 
 2. From the **Account Explorer** overview navigate to your subaccount.
 
-    <!-- border -->![subaccount tile](subaccount.png)
+    ![subaccount tile](subaccount.png)
 
 3. From your subaccount copy the **Cloud Foundry Environment API Endpoint** value.
 
-    <!-- border -->![CF API endpoint value](api_endpoint.png)
+    ![CF API endpoint value](api_endpoint.png)
 
 4. Go back to VS Code to the command line. Authenticate with your login credentials using the following command:
 
-    ```Shell/Bash
-    cf login
-    ```
+   ```Shell/Bash
+   cf login
+   ```
 
     > For this you need the cf command line client, see the prerequisites.
 
@@ -127,9 +127,9 @@ The MBT Build tool uses the `mta.yaml` file that has been created using `cds add
 
 1. In VS Code, in the root of your project, execute the following command to build the archive.
 
-    ```Shell/Bash
-    mbt build -t gen --mtar mta.tar
-    ```
+   ```Shell/Bash
+   mbt build -t gen --mtar mta.tar
+   ```
 
     > For this you need the MBT Build Tool, see the prerequisites.
 
@@ -137,9 +137,9 @@ The MBT Build tool uses the `mta.yaml` file that has been created using `cds add
 
 2. Deploy the archive using `cf deploy`.
 
-    ```Shell/Bash
-    cf deploy gen/mta.tar
-    ```
+   ```Shell/Bash
+   cf deploy gen/mta.tar
+   ```
 
     > For this you need the MultiApps CF CLI plugin, see the prerequisites.
 
@@ -151,15 +151,15 @@ The MBT Build tool uses the `mta.yaml` file that has been created using `cds add
 
 3. In the deploy log, find the application URL of `my-bookshop`:
 
-    ```Shell/Bash
-    Application "my-bookshop" started and available at "[org]-[space]-my-bookshop.cfapps.[region].hana.ondemand.com"
-    ```
+   ```Shell/Bash
+   Application "my-bookshop" started and available at "[org]-[space]-my-bookshop.cfapps.[region].hana.ondemand.com"
+   ```
 
     This is the URL of the AppRouter, which enforces the authentication flow.
 
 4. Open this URL in the browser and try out the provided links, for example, `/odata/v4/catalog/Books`. Application data is fetched from SAP HANA. If enabled in step 1.4 you can also try the **Fiori preview**.
 
-    <!-- border -->![application preview](application_cloud_fiori.png)
+    ![application preview](application_cloud_fiori.png)
 
 > What you achieved
 >

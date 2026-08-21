@@ -90,23 +90,23 @@ In this step, you will import the `DesigntoOperate.zip` file to the **Configure 
 
 1. Open the **Configure Visibility Scenarios** tile from the **Workflow Management** dashboard.
 
-    <!-- border -->![config scenario](config-flp.png)
+    ![config scenario](config-flp.png)
 
 2. Choose the **Import Scenario** icon.
 
-    <!-- border -->![import scenario](CVS-Import.png)
+    ![import scenario](CVS-Import.png)
 
 3. In the **Import Scenario** dialog, browse for the `DesigntoOperate.zip` file from your local system and choose **Import**.
 
-    <!-- border -->![Browse screen](D2O-zipfile-import.png)
+    ![Browse screen](D2O-zipfile-import.png)
 
     You can now see the imported visibility scenario as shown.
 
-    <!-- border -->![imported scenario](screen9-d2o.png)
+    ![imported scenario](screen9-d2o.png)
 
 4. Choose the **Design to Operate** visibility scenario from the list and choose **Activate**.
 
-    <!-- border -->![Activate](screen9-activate.png)
+    ![Activate](screen9-activate.png)
 
     >You will see a message upon successful activation of the scenario.
 
@@ -118,15 +118,15 @@ In this step, you can process the data of the activated visibility scenario usin
 
 1. Open the **Monitor Visibility Scenarios** tile from the **Workflow Management** dashboard.
 
-    <!-- border -->![monitor scenarios](MVS.png)
+    ![monitor scenarios](MVS.png)
 
 2. Choose the **Design to Operate** scenario definition, then choose **Process Data**.
 
-    <!-- border -->![Process Data](screen10-monitor.png)
+    ![Process Data](screen10-monitor.png)
 
 3. On successful processing of data, choose the refresh icon to view the processing information listed out under **Processing Information**.
 
-    <!-- border -->![Refresh](screen10-refresh.png)
+    ![Refresh](screen10-refresh.png)
 
 
 ### Track the visibility scenario
@@ -136,15 +136,15 @@ In this step, you will be able to track the progress of the sample Design-To-Ope
 
 1. Open the **Process Workspace** tile from the **Workflow Management** dashboard.
 
-    <!-- border -->![process workspace](PW.png)
+    ![process workspace](PW.png)
 
 2. Choose the **Design to Operate** visibility scenario.
 
-    <!-- border -->![D2O](screen11-processworkspace.png)
+    ![D2O](screen11-processworkspace.png)
 
     You can view the overview page for the **Design to Operate** visibility scenario as shown below. You can view information such as open orders, cycle time, open orders by product category, and so on.
 
-    <!-- border -->![D2O](screen11-overviewpws.png)
+    ![D2O](screen11-overviewpws.png)
 
     >You can customize the cards displayed on the overview page by modifying the visibility scenario in the **Configure Visibility Scenarios** application. For more information on creating and enhancing a scenario, see [Create a Scenario](https://help.sap.com/viewer/62fd39fa3eae4046b23dba285e84bfd4/Cloud/en-US/df284fd12073454392c5db8913f82d81.html) documentation.
 

@@ -21,7 +21,7 @@ SAP Business Application Studio enables you to connect and interact with the Git
   
 To begin using Simplified Git, you must have a project that includes a Git repository. From the **SIMPLIFIED GIT** view, you can open a folder with an existing Git project, clone a repository locally using a URL, or create a new project with a local Git repository and connect it to a remote one.
 
-<!-- border -->![Add Git Repo](simplified-git-add-repo.png)
+![Add Git Repo](simplified-git-add-repo.png)
 
 
 ## You will learn
@@ -36,35 +36,35 @@ Cloning a Git repository creates a local copy of a remote repository, allowing o
 
 2. Click **Clone Repository**.
 
-    <!-- border -->![clone from Git](clone1.png)
+    ![clone from Git](clone1.png)
 
 3. In the command palette, enter the URL of the repository containing the project you want to clone and press **Enter**.
 
-    <!-- border -->![Enter URL](cl2.png)
+    ![Enter URL](cl2.png)
 
 4. Select the `projects` folder and click **OK** to clone the repository to this folder.
 
-    <!-- border -->![Add to projects](cl3.png)
+    ![Add to projects](cl3.png)
 
 5. Enter your Git username and password (or token).
    
-    <!-- border -->![Enter Git username](enter-git-username.png)
+    ![Enter Git username](enter-git-username.png)
 
-    <!-- border -->![Enter Git token](enter-git-token.png)
+    ![Enter Git token](enter-git-token.png)
    
 6. Choose whether to save your Git credentials for future use.
 
-     <!-- border -->![Save Git credential](save-credentials-git.png)
+     ![Save Git credential](save-credentials-git.png)
 
 7. Click **Open** to open the cloned repository in SAP Business Application Studio.
    
-    <!-- border -->![Open cloned repo](open-git-repo-ws.png)
+    ![Open cloned repo](open-git-repo-ws.png)
 
     >You can also choose to open the repository in a new window or to add it to the workspace.
 
     The project from the Git repository has been cloned into your dev space.
 
-    <!-- border -->![Project added](cl4.png). 
+    ![Project added](cl4.png). 
 
 
 ### Connect to a Remote Git Repository
@@ -88,16 +88,16 @@ Before connecting to a remote repository, make sure the following prerequisites 
          This will initiate your project in Git and add a remote repository.
 
 
-        <!-- border -->![Initialize & Publish Repo](initialize-publish-repo.png)
+        ![Initialize & Publish Repo](initialize-publish-repo.png)
 
       3. In the command palette, select your project folder as the workspace folder to initialize the repository in.
 
-        <!-- border -->![Folder for initializing repo](connect-git-repo-projects-folder.png)
+        ![Folder for initializing repo](connect-git-repo-projects-folder.png)
 
 
 4. Add the URL for the remote repository where your local repository will be pushed.
    
-    <!-- border -->![Remote repo URL](remote-repo-url-initialize.png)
+    ![Remote repo URL](remote-repo-url-initialize.png)
 
 5. Enter your Git username and password (or token).
 
@@ -113,18 +113,18 @@ Before connecting to a remote repository, make sure the following prerequisites 
 
 2. Click ![simplified git icon](cl1.png) to open **SIMPLIFIED GIT** from the activity bar. You will see your new file has been added to the **PENDING CHANGES** section. Likewise, the Simplified Git icon shows there is one change waiting for you.
 
-    <!-- border -->![Pending changes](co1.png)
+    ![Pending changes](co1.png)
 
 
     >The **PENDING CHANGES** section lists all changes that you have made in your project that have not yet been committed and synced to your connected remote Git repository. Select the files with changes that you want to include in the commit by using the checkboxes beside each file.
 
 3. Enter a message describing the change you made to the project.
 
-    <!-- border -->![add message](co2.png)
+    ![add message](co2.png)
 
 4. Click **Commit and Sync**.
 
-    <!-- border -->![commit](co3.png)
+    ![commit](co3.png)
 
     Your changes are now added to the `main` branch of your project. This means that the changes will be visible to anyone else working on the project. You can create a separate branch where you can work and make changes until you are ready to commit to the `main` branch.
 
@@ -145,7 +145,7 @@ Pull is a combination of 2 commands:
    
 
 
-    <!-- border -->![pull](pullchanges.png) 
+    ![pull](pullchanges.png) 
 
 
     The changes made in the remote repository are now added to your local branch. 
@@ -158,11 +158,11 @@ Merge operations can fail when the same parts of a file have been modified diffe
 
 When there are conflicts, the **MERGE FILES** section is displayed.
    
-<!-- border -->![merge files](merge-files.png)
+![merge files](merge-files.png)
 
 1. Click one of the files to resolve the conflict. A split view is displayed.
 
-    <!-- border -->![split view](split-view.png)
+    ![split view](split-view.png)
 
 2. Choose one of the following options to resolve the merge conflict:
     - **Accept Current Change**: Apply the selected line of change from the current (local) branch.
@@ -187,25 +187,25 @@ In the **PENDING CHANGES** section, you can discard the relevant changes:
 - To discard all selected changes, hover over the **PENDING CHANGES** section title and click ![Discard selected changed](discard-changes.png).
 
 
-    <!-- border -->![Discard selected changes](discard-selected-changes.png)
+    ![Discard selected changes](discard-selected-changes.png)
 
 
 - To discard changes for a specific file, hover over the file containing the changes you want to discard and click ![Discard changes in a file](discard-changes.png).
   
 
-    <!-- border -->![Discard changes in file](discard-changes-in-file.png)
+    ![Discard changes in file](discard-changes-in-file.png)
 
 #### Ignore Pending Changes Individually
 
 To ignore pending changes in a specific file, hover over the file containing the changes you want to ignore and click ![Add to .gitignore](add-to-gitignore.png).
 
 
-<!-- border -->![Add to gitignore](add-to-gitignore-file.png)
+![Add to gitignore](add-to-gitignore-file.png)
 
 #### Open Updated File
 To open a file with pending changes, hover over the file and click ![Open File](open-file.png).
 
-<!-- border -->![Open file](open-file-screen.png)
+![Open file](open-file-screen.png)
 
 ### Create a Branch
 
@@ -213,24 +213,24 @@ Create a new branch using the **SIMPLIFIED GIT** view and publish it to the remo
 
 1. In the **Branch** section, open the dropdown list and select **+ Add New Branch**.
    
-    <!-- border -->![Add branch](add-new-branch.png)
+    ![Add branch](add-new-branch.png)
 
 2. Enter a name for the new branch.
 
-    <!-- border -->![Name branch](name-new-branch.png)
+    ![Name branch](name-new-branch.png)
 
 
 3. Select one the following options:
     - **main**: Create a branch of the main directory on the local repository.
     - **origin/main**: Create a branch of the main directory on the remote repository.
     
-     <!-- border -->![Select base branch](select-base-branch.png)
+     ![Select base branch](select-base-branch.png)
 
     The new branch is added to the dropdown list in the **Branch** section.
 
-    <!-- border -->![New branch in list](new-branch-dropdown.png)
+    ![New branch in list](new-branch-dropdown.png)
 
 
 4. Select **Publish Branch** to sync the new branch with the remote repository.
    
-    <!-- border -->![Publish Branch](publish-branch.png)
+    ![Publish Branch](publish-branch.png)
