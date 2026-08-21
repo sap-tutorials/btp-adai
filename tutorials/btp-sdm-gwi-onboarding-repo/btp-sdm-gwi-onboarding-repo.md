@@ -48,21 +48,21 @@ Copy the `url:` parameter from the generated service key.
 
 4. Navigate to the **Body** tab and copy paste the following code snippet.
 
-    ```JSON
-    {
-      "repository": {
-        "displayName": "MytestReposiory",
-        "description": "Onboarding as part of the tutorial",
-        "repositoryType": "external",
-        "externalId": "MyTutONBRepo",
-        "repositoryCategory": "GoogleWorkspace",
-        "repositoryId": "GoogleConnectorEntry"
-      },
-      "connection": {
-        "destinationName": "MyTest"
-      }
-    }
-    ```
+   ```JSON
+   {
+     "repository": {
+       "displayName": "MytestReposiory",
+       "description": "Onboarding as part of the tutorial",
+       "repositoryType": "external",
+       "externalId": "MyTutONBRepo",
+       "repositoryCategory": "GoogleWorkspace",
+       "repositoryId": "GoogleConnectorEntry"
+     },
+     "connection": {
+       "destinationName": "MyTest"
+     }
+   }
+   ```
 
     >**Note** Please modify the details according to your needs. It is not necessary to follow the same code snippet. A few details, such as display name, and destination names, may change. It is important that you read the Prerequisites again.
 

@@ -29,7 +29,7 @@ To use the `AdminService`, you need to assign yourself to the role collection `B
 
 1. Select the `BookStore_Administrators` role collection and choose **Edit**. Enter your email address in the **ID** and **E-Mail** field and choose **Save**.
 
-    <!-- border -->![role assignment to administrator](role-assignment.png)
+    ![role assignment to administrator](role-assignment.png)
 
 
 
@@ -37,9 +37,9 @@ To use the `AdminService`, you need to assign yourself to the role collection `B
 
 1. To take effect of the change to the role collection, you need to restart the approuter:
 
-    ```Shell/Bash
-    cf restart bookstore
-    ```
+   ```Shell/Bash
+   cf restart bookstore
+   ```
 
 2. Open the application in the browser. The according route can be found under routes of the previous step.
 

@@ -24,11 +24,11 @@ In this step, you copy the endpoint address of the deployed integration flow.
 
 2. On the **Deployment Status** tab of the property sheet, choose the **Navigate to Manage Integration Content**.
 
-    <!-- border -->![Access Deployed Artifact](1-2-Monitoring.png)
+    ![Access Deployed Artifact](1-2-Monitoring.png)
 
 3. On the **Endpoints** tab, choose **Copy** icon. If you don't see an endpoint, wait for a few minutes until the endpoint appears.
 
-    <!-- border -->![Copy Endpoint URL](1-3-Copy-Endpoint.png)
+    ![Copy Endpoint URL](1-3-Copy-Endpoint.png)
 
 
 ### Test the integration scenario

@@ -33,30 +33,30 @@ Therefore, you will now define the complete domain model that is used by the pro
 
 1. Go to your `db` folder and create a file called `schema.cds`.
 
-    <!-- border -->![schema cds file creation](schema-cds.png)
+    ![schema cds file creation](schema-cds.png)
 
 2. Add the following code to your newly created `schema.cds` file and make sure you **Save** the file:
 
-    ```CDS
-    namespace sap.capire.products;
+   ```CDS
+   namespace sap.capire.products;
 
-    using { Currency, cuid, managed, sap.common.CodeList } from '@sap/cds/common';
+   using { Currency, cuid, managed, sap.common.CodeList } from '@sap/cds/common';
 
-    entity Products : cuid, managed {
-        title    : localized String(111);
-        descr    : localized String(1111);
-        stock    : Integer;
-        price    : Decimal(9,2);
-        currency : Currency;
-        category : Association to Categories;
-    }
+   entity Products : cuid, managed {
+       title    : localized String(111);
+       descr    : localized String(1111);
+       stock    : Integer;
+       price    : Decimal(9,2);
+       currency : Currency;
+       category : Association to Categories;
+   }
 
-    entity Categories : CodeList {
-        key ID   : Integer;
-        parent   : Association to Categories;
-        children : Composition of many Categories on children.parent = $self;
-    }
-    ```
+   entity Categories : CodeList {
+       key ID   : Integer;
+       parent   : Association to Categories;
+       children : Composition of many Categories on children.parent = $self;
+   }
+   ```
 
 ### Understand keywords
 
@@ -106,11 +106,11 @@ Look at these explained keywords yourself and learn more about it.
 
 2. Hold **`CTRL`** and hover over a keyword, then move the hand cursor over the keyword. This opens up you a tiny overlay with the definition of this particular item.
 
-    <!-- border -->![overlay of definition](overlay-commons.png)
+    ![overlay of definition](overlay-commons.png)
 
 3. A right-click (or use **`F12`**) on the definition opens up the context menu. There you can find, for example, **Peek definition** to get a much bigger overlay.  Not only the definition of this particular item is displayed, you also have the ability to navigate through the whole source file of this definition without opening the file itself.
 
-    <!-- border -->![right-click to peek definition information](rightclick-peek.png)
+    ![right-click to peek definition information](rightclick-peek.png)
 
 ### Rewrite the `AdminService`
 
@@ -124,14 +124,14 @@ In this example you will use the most simple projection, which exposes the domai
 
 2. Replace the content with the following code and make sure you **Save** the file:
 
-    ```CDS
-    using { sap.capire.products as db } from '../db/schema';
+   ```CDS
+   using { sap.capire.products as db } from '../db/schema';
 
-    service AdminService {
-        entity Products   as projection on db.Products;
-        entity Categories as projection on db.Categories;
-    }
-    ```
+   service AdminService {
+       entity Products   as projection on db.Products;
+       entity Categories as projection on db.Categories;
+   }
+   ```
 
 ### Use CAP's generic persistence handling
 
@@ -149,14 +149,14 @@ In case you need a persistent database between application runs you can use a fi
 
 2. You will now create some `Categories` through a HTTP request. Add the following request to the `requests.http` file you have created earlier by pasting the following content:
 
-    ```HTTP
-    ### Create Categories
+   ```HTTP
+   ### Create Categories
 
-    POST http://localhost:8080/odata/v4/AdminService/Categories
-    Content-Type: application/json
+   POST http://localhost:8080/odata/v4/AdminService/Categories
+   Content-Type: application/json
 
-    {"ID": 1, "name": "TechEd", "descr": "TechEd related topics", "children": [{"ID": 10, "name": "CAP Java", "descr": "Run on Java"}, {"ID": 11, "name": "CAP Node.js", "descr": "Run on Node.js"}]}
-    ```
+   {"ID": 1, "name": "TechEd", "descr": "TechEd related topics", "children": [{"ID": 10, "name": "CAP Java", "descr": "Run on Java"}, {"ID": 11, "name": "CAP Node.js", "descr": "Run on Node.js"}]}
+   ```
 
     Choose `Send Request` which appears over the new request. This request will create multiple, nested categories, at once through a deep insert.
 
@@ -178,14 +178,14 @@ In the following tutorial, the application will be reused by a bookstore applica
 
 1. The name of the `products-service` reuse module, should be `@sap/capire-products`. Therefore, open the `package.json` file within the `~/projects/products-service` folder and change the value of `name` field from `products-service-cds` to `@sap/capire-products`. If you want to you can also provide a meaningful description in the `description` field.
 
-    <!-- border -->![adjust the package.json in the root folder of your project](package-json.png)
+    ![adjust the package.json in the root folder of your project](package-json.png)
 
 2. To make it easier to reuse the module, an `index.cds` file can be added to the `products-service`. This ensures a better decoupling from other applications. Create a new file `index.cds` in the `~/projects/products-service` folder and place the following content inside this file, making sure you **Save** the file:
 
-    ```CDS
-    using from './db/schema';
-    using from './srv/admin-service';
-    ```
+   ```CDS
+   using from './db/schema';
+   using from './srv/admin-service';
+   ```
 
 Congratulations! You have successfully developed the products service application, which is based on a CDS domain model and service definition.
 

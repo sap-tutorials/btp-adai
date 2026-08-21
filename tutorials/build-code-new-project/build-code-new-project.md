@@ -31,7 +31,7 @@ parser: v2
 
 2. Click **Create**, and from the dropdown list, select **Create**.  
 
-    <!-- border -->![Create](create from lobby.png)
+    ![Create](create from lobby.png)
 
     Under the **Create** option, you also add existing projects to your SAP Build workspace in the following ways:
 
@@ -41,11 +41,11 @@ parser: v2
 
 3. Click the **Application** tile.
 
-    <!-- border -->![Build an Application](3.png)
+    ![Build an Application](3.png)
 
 4. Select the type of application you want to create.
    
-    <!-- border -->![Select application type](4.png)
+    ![Select application type](4.png)
 
     * Select **Full-Stack** to develop, extend, and deploy full-stack applications of type **Full Stack with Productivity Tools**.
     * Select **Frontend** to build responsive, interactive web UIs.
@@ -54,32 +54,32 @@ parser: v2
 
 5. If you selected a Full Stack application, select **Full-Stack Node.JS**, **Full-Stack Java**, or **Full-Stack ABAP** as your development stack.
 
-    <!-- border -->![Select development stack](5.png)
+    ![Select development stack](5.png)
 
 6. Provide a name for your project.
 
 6. Select the dev space where you want the project to reside.
     >SAP Build Code recommends the dev space it deems most suitable, and it will automatically create a new one for you if you don't already have one. If you have other dev spaces of the same type (for example, Full-Stack), you can select between them. If you want to create a different dev space, or a dev space or another type, go to the Dev Space Manager. See [Working in the Dev Space Manager](https://help.sap.com/docs/build_code/d0d8f5bfc3d640478854e6f4e7c7584a/ad40d52d0bea4d79baaf9626509caf33.html?locale=en-US).
 
-    <!-- border -->![Select dev space](7.png)
+    ![Select dev space](7.png)
 
 7.  Click **Review**. 
    
     A summary of your selections is displayed.
 
-    <!-- border -->![Select development stack](8.png)
+    ![Select development stack](8.png)
 
 8.  Click **Create**.
 
     You can see the project being created in the Project table of the lobby.  
     >The creation of the project may take a few moments.
 
-    <!-- border -->![Creating](pending.png)
+    ![Creating](pending.png)
 
 
 10. After you see a message stating that the project has been created successfully, click the project to open it.
 
-    <!-- border -->![Open Project](toaster.png)
+    ![Open Project](toaster.png)
 
     The project opens in SAP Business Application Studio, the SAP Build Code development environment.
 

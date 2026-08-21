@@ -28,7 +28,7 @@ In the following tutorials, you will learn that the CAP Java runtime can handle 
 1. Create the Java package, by creating a new folder called `handlers` under `srv/src/main/java/customer
 /products_service`.
 
-    <!-- border -->![package for Custom Event Handlers](handler-package.png)
+    ![package for Custom Event Handlers](handler-package.png)
 
 2. Create the Java class file `AdminService.java` in the created `handlers` folder, with the following content and make sure you **Save** the file:
 
@@ -90,17 +90,17 @@ Stop your application if it's still running by using **`CTRL+C`** in the termina
 
 1. Restart the application by running the following command in the terminal:
 
-    ```Shell/Bash
-    cd ~/projects/products-service && mvn clean spring-boot:run
-    ```
+   ```Shell/Bash
+   cd ~/projects/products-service && mvn clean spring-boot:run
+   ```
 
 2. Choose **Open in New Tab** when prompted.
 
-    <!-- border -->![open application in new tab message](open-in-new-tab.png)
+    ![open application in new tab message](open-in-new-tab.png)
 
     A new Browser tab is opened with your application.
 
-    <!-- border -->![application opened](application-opened.png)
+    ![application opened](application-opened.png)
 
 ### Insert data through HTTP request
 
@@ -110,20 +110,20 @@ Try to insert some data into the running application. For example, by using the 
 
 2. Add the following request to the file:
 
-    ```HTTP
-    ### Create Product
+   ```HTTP
+   ### Create Product
 
-    POST http://localhost:8080/odata/v4/AdminService/Products
-    Content-Type: application/json
+   POST http://localhost:8080/odata/v4/AdminService/Products
+   Content-Type: application/json
 
-    {"ID": 42, "title": "My Tutorial Product", "descr": "You are doing an awesome job!"}
-    ```
+   {"ID": 42, "title": "My Tutorial Product", "descr": "You are doing an awesome job!"}
+   ```
 
     The POST request causes an [OData Insert](https://www.odata.org/getting-started/basic-tutorial/#create) on the entity **Products** of the service **`AdminService`**. The type of the content is specified in the Content-Type header of the HTTP request and the content of the actual request is passed in the body of the request as [JSON](https://www.json.org/json-en.html).
 
 3. Choose **Send Request** above the request in the file. You will see the result on the right side of the window.
 
-    <!-- border -->![response is displayed on the right](request-and-response.png)
+    ![response is displayed on the right](request-and-response.png)
 
 ### Read data using the Products entity page
 
@@ -131,11 +131,11 @@ Try to insert some data into the running application. For example, by using the 
 
 2. Choose **Products** from the app welcome page or add `/odata/v4/AdminService/Products` to the app URL.
 
-  <!-- border -->![link on welcome page](products-link.png)
+  ![link on welcome page](products-link.png)
 
 You should see something like this:
 
-  <!-- border -->![records for Products entity](products-data.png)
+  ![records for Products entity](products-data.png)
 
 This is the record you have inserted in the previous step through the HTTP request.
 
