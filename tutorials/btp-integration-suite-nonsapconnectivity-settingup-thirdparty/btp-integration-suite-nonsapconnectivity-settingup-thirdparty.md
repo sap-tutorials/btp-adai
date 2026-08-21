@@ -28,7 +28,7 @@ For the sake of providing an example, we're using a BambooHR trial system that a
 
     Based on the company name you provide, the domain name is auto-populated.
 
-    <!-- border -->![Get-Free-Trial](1-1-Get-Free-Trial.png)
+    ![Get-Free-Trial](1-1-Get-Free-Trial.png)
 
 3. If you want to change the domain name, choose **Edit** and provide a domain name of your choice.
 
@@ -46,11 +46,11 @@ For the sake of providing an example, we're using a BambooHR trial system that a
 SAP Integration Suite communicates with BambooHR using APIs. Each API request that is sent from SAP Integration Suite will be authenticated by BambooHR - for which you must generate an API Key. For more information, see [Getting Started with the API](https://documentation.bamboohr.com/docs/getting-started#authentication).
 
 1. On any page of the BambooHR system, in the bottom left corner, click on the BambooHR logo **Account** and choose **API Keys**.
-    <!-- border -->![API-Setup](2-1-API-Setup.png)
+    ![API-Setup](2-1-API-Setup.png)
 
 2. Choose **New API Key** and provide a name for your new key.
 
-    <!-- border -->![API-Keys](2-2-API-Keys.png)
+    ![API-Keys](2-2-API-Keys.png)
 
 3. Copy the actual key. You need the key to perform the subsequent steps of the mission.
 

@@ -32,14 +32,14 @@ To set up the API Management capability from Integration Suite, you should first
 1. Log on to SAP BTP Cockpit and navigate to your subaccount.
 
 2. In the navigation area of the subaccount, choose **Services** > **Service Marketplace**. Search for **Integration Suite** and choose **Create**.
-   <!-- border -->![Integration Suite Tile](Isuite-tile.png)
+   ![Integration Suite Tile](Isuite-tile.png)
 
 3. On the **New Instances and Subscriptions** dialog, select the **Service** and the **Plan** and choose **Create**.
    Wait for the subscription to complete successfully.
-   <!-- border -->![Create Integration Suite Subscription](Isuite-create.png)
+   ![Create Integration Suite Subscription](Isuite-create.png)
 
 4. Choose **View Subscription** on the **Creation in Progress** dialog.
-   <!-- border -->![Creation of Integration Suite Subscription in Progress](View-Subscription.png)
+   ![Creation of Integration Suite Subscription in Progress](View-Subscription.png)
    Check the status of the submission in subscriptions section on the **Instances and Subscriptions** page. If the subscription is successful you'll notice the status of the **Integration Suite** shown as **Subscribed**.
 
    To access Integration Suite, you must first assign the "Integration Provisioner" role to yourself.
@@ -53,13 +53,13 @@ To set up the API Management capability from Integration Suite, you should first
 
 
 1. On the navigation pane, choose **Security** > **Users**.
-   <!-- border -->![Assign Role](User-Role.png)
+   ![Assign Role](User-Role.png)
 
 2. Select the user to whom you want to assign the role, and under **Role Collections** section, choose **Assign Role Collection**.
-   <!-- border -->![Assign Role Collection](Assign-Role-Collection.png)
+   ![Assign Role Collection](Assign-Role-Collection.png)
 
 3. In the resulting dialog box, select the **Integration_Provisioner** role and choose **Assign Role Collection**.
-   <!-- border -->![Assign Integration Provisioner Role](integration-provisioner-role.png)
+   ![Assign Integration Provisioner Role](integration-provisioner-role.png)
 
 
 
@@ -69,29 +69,29 @@ To set up the API Management capability from Integration Suite, you should first
 1. Once the **Integration Provisioner** role is assigned, choose **Instances and Subscriptions** on the left navigation pane.
 
 2. Under **Subscriptions** look for **Integration Suite**, and choose **Go To Application**.
-  <!-- border -->![Getting directed to Integration Suite Homepage](go-to-application.png)
+  ![Getting directed to Integration Suite Homepage](go-to-application.png)
 
 
 ### Activate API Management Capability 
 
 
 1. On the Integration Suite home page, under **Capabilities**, choose **Add Capabilities**.
-   <!-- border -->![Add Capabilities](add-capabilities.png)
+   ![Add Capabilities](add-capabilities.png)
 
 2. To design, develop, publish, and oversee APIs in a secure and scalable environment, choose **Manage APIs** and choose **Next** on the **Activate Capabilities** dialog.
-   <!-- border -->![Add API Management Capability](design-develop-manage.png)
+   ![Add API Management Capability](design-develop-manage.png)
 
 3. To discover, consume and monitor APIs from a centralized API catalogue, select the checkbox **Developer Hub**. 
    Once you enable Developer Hub, you will get an option to enable **API Composition**.
 
       If you want to expose all your business data in the form of a single semantically connected data graph, select the checkbox for **API Composition**, and choose **Next**.
-      <!-- border -->![Activate Developer Hub](activate-abhe-api-composition.png)
+      ![Activate Developer Hub](activate-abhe-api-composition.png)
 
 4. Choose **Activate** on the **Activate Capabilities** dialog.
-   <!-- border -->![API Portal and Developer Hub is Active ](activate-devhub-api-composition.png)
+   ![API Portal and Developer Hub is Active ](activate-devhub-api-composition.png)
 
 5. On the resulting screen, choose **OK** once the status changes from **In Progress** to **Active**.  
-   <!-- border -->![API Portal and Developer Hub is Active ](Isuite-activated_apim-api-composition.png)
+   ![API Portal and Developer Hub is Active ](Isuite-activated_apim-api-composition.png)
 
 6. Go to the **SAP BTP Cockpit**, choose **Security** > **Users** and select the user to whom you want to assign the role. Under **Role Collections** section, choose **Assign Role Collection**. In the resulting dialog box, choose the following roles and choose **Assign Role Collection**:
 
@@ -109,7 +109,7 @@ To set up the API Management capability from Integration Suite, you should first
    
 
 1. On the **Integration Suite** home page, choose **Settings** > **Runtimes** from the left navigation pane.
-   <!-- border -->![Setting Up API Management Service](settings-api.png)
+   ![Setting Up API Management Service](settings-api.png)
 
 2. On the **Configure the API Management Service** page, configure the following and choose **Activate**: 
 
@@ -123,19 +123,19 @@ To set up the API Management capability from Integration Suite, you should first
 
     - Provide an email ID in **Notification Contact** to receive updates.
 
-    <!-- border -->![Configure the API Management Service](config-apim-service.png)
+    ![Configure the API Management Service](config-apim-service.png)
 
 3. In the **Set-up Confirmation** window, review the provided details and choose **Confirm** to start the onboarding process.
-   <!-- border -->![Configure the API Management Service](config-apim-service-confirm.png)
+   ![Configure the API Management Service](config-apim-service-confirm.png)
       You're redirected to a progress window, which states **API Management Service Setup In Progress**.
 
       The **Configuration** process is triggered, where the necessary resources are provisioned for you. It's followed by **Testing the Setup**, where a simple API Proxy is deployed and invoked to check that everything is set up properly.
 
       When the processes complete, the indicators turn green to indicate that the processes are successful. A **Release Notification** email is sent out to the email ID, which you provided earlier in the process in the **Configure the API Management Service** screen. This e-mail contains details of the newly set up API Management service on your account.
-    <!-- border -->![Completion of API Management Onboarding](apim-setup-complete.png)
+    ![Completion of API Management Onboarding](apim-setup-complete.png)
 
 4. Log out of the **Integration Suite** and login again.
-   <!-- border -->![Welcome to API Management Service](welcome-msg.png)
+   ![Welcome to API Management Service](welcome-msg.png)
 
     You can now create APIs, build API proxies as a service provider, or use APIs and other convenient services.
 
