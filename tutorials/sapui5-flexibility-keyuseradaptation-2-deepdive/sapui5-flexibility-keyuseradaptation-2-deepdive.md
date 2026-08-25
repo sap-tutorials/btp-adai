@@ -51,13 +51,13 @@ In the next steps you will learn how to create other UI changes and see more fea
 
 7. The field is removed from the form.
 
-8. You can press **Undo** on the toolbar to revert your last action.
+8. You can press the **Undo** icon on the toolbar to revert your last action.
 
     ![Undo](step1-undo.png)
 
     >You can also add the removed field back using the same **Add Field** action from steps 3 and 4.
 
-9. By pressing **Redo** on the same toolbar, you can execute the action again.
+9. By pressing the **Redo** icon on the same toolbar, you can execute the action again.
 
 ### Combining and splitting elements
 
@@ -88,7 +88,7 @@ In the next steps you will learn how to create other UI changes and see more fea
 
 ### Navigation mode
 
-1. Key user adaptation always starts in **Adaptation** mode, where you can execute actions on controls to create UI changes. On the middle of the toolbar, press **Navigation**. This will bring you to *navigation* mode, where you are able to interact normally with the application controls without leaving key user adaptation.
+1. Key user adaptation always starts in **Adaptation** mode, where you can execute actions on controls to create UI changes. On the top right of the toolbar, switch off the **Adaptation Mode** toggle. This will bring you to *navigation* mode, where you are able to interact normally with the application controls without leaving key user adaptation.
 
     ![Navigation](step3-navigation.png)
 
@@ -96,29 +96,23 @@ In the next steps you will learn how to create other UI changes and see more fea
 
     ![Selection](step3-secondproduct.png) 
 
-3. Now press **UI Adaptation** in the toolbar to go back to adaptation mode. You can now continue making UI changes while on the detail page of the second product.
+3. Now switch the **Adaptation Mode** toggle back on to go back to adaptation mode. You can now continue making UI changes while on the detail page of the second product.
    
 >In more complex applications, the navigation mode is useful for cases like navigating between pages or opening and adapting content inside dialogs.
 
 ### Visualization mode
 
-1. On the middle of the toolbar, press **Visualization**. This will bring you to *visualization* mode, where you can see the UI changes which were created in the application so far.
+1. Make sure the **Adaptation Mode** toggle is switched on. In adaptation mode you can already see markers on the elements where UI changes were made.
 
     ![Visualization](step4-visualization.png)
 
-2. In this mode you can see markers on the elements where UI changes were made.
+2. To inspect the changes of a particular element, select it and, in the context menu, click the visualization (glasses) icon.
 
-    ![Indicators](step4-indicators.png) 
+    ![Indicators](step4-indicatorselection.png) 
 
-3. Click on a marker to see a detailed list of changes created for that element.
+3. This opens the *Change List*, a detailed list of the changes created for that element, including the change type, a description, who created it and when.
 
     ![Details](step4-indicatordetail.png)
-    
-    >Darker marker colours mean that more changes were created for a particular element.
-
-4. On the toolbar, you can also select particular UI change types to be displayed or filter them by whether they were already part of the *Draft* or just created - *Unsaved*.
-   
-    ![Filtering](step4-filtering.png)
 
 >For the SAPUI5 Demokit apps, the key user changes are saved in your browser's local storage. If you create too many versions and want to get a clean state, you can remove all entries starting with *sap.ui.fl* from your browser's local storage.
 
