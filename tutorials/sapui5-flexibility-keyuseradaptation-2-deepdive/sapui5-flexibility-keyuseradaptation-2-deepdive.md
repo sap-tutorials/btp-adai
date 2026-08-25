@@ -29,7 +29,7 @@ In the next steps you will learn how to create other UI changes and see more fea
 
 1. Go again to the [SAPUI5 Demo Kit](https://ui5.sap.com/#/demoapps), and open the **Key User Adaptation** demo app under *SAPUI5 Flexibility Demo Apps*.
 
-2. Start key user adaptation by clicking on the upper right **DU** icon and selecting **Adapt UI**. Make sure to select *Original App* on the Version drop down (left side of the toolbar). This will load the app without any previous UI changes so you can start a new draft. The draft is only visible to key users and only while in adaptation mode - end users will not see any UI changes until the draft is activated as a version.
+2. Start key user adaptation by clicking on the upper right **JD** icon and selecting **Adapt UI**. Make sure to select *Original App* on the Version drop down (left side of the toolbar). This will load the app without any previous UI changes so you can start a new draft. The draft is only visible to key users and only while in adaptation mode - end users will not see any UI changes until the draft is activated as a version.
 
 3. Go to the **General Information** section and right-click on the first field, **Product**. Then select **Add: Field**.
 
@@ -51,13 +51,13 @@ In the next steps you will learn how to create other UI changes and see more fea
 
 7. The field is removed from the form.
 
-8. You can press **Undo** on the toolbar to revert your last action.
+8. You can press the **Undo** icon on the toolbar to revert your last action.
 
     ![Undo](step1-undo.png)
 
     >You can also add the removed field back using the same **Add Field** action from steps 3 and 4.
 
-9. By pressing **Redo** on the same toolbar, you can execute the action again.
+9. By pressing the **Redo** icon on the same toolbar, you can execute the action again.
 
 ### Combining and splitting elements
 
@@ -69,23 +69,26 @@ In the next steps you will learn how to create other UI changes and see more fea
    
     ![Combine](step2-combine.png)
 
-4. Both fields are now combined into one. This feature is useful to save space on the UI, especially in applications with many fields.
+4. Both fields are now combined into one. You can now rename the combined field to simply "Name". This feature is useful to save space on the UI, especially in applications with many fields. The combined field can also be split back to the two original fields.
     
     >The order of the entries in the combined field depends on the order in which the original fields were selected. The combined field will appear in the same position as the field where you triggered the *Combine* action.
 
+    >By now you probably noticed that not all actions are available for every control. The available actions depend on many factors such as the control type, where it is located in the application and whether the action makes sense in the application context.
+
+<!-- REMOVED DUE TO BUG WITH RENAME OF COMBINED FIELDS - REINSTATE AFTER FIXED INCLUDING INSTRUCTIONS FOR THE RELOAD
 5. Right-click on this field again and press **Split**. The fields are now separated again.
 
     ![Split](step2-split.png)
 
  6. Both fields retain the name from the combined field. This is because the field might have been renamed, and you don't want to lose the new name. Rename them back to *First Name* and *Last Name*.
 
-    ![Rename](step2-afterrename.png)
+    ![Rename](step2-afterrename.png) -->
 
-    > By now you probably noticed that not all actions are available for every control. The available actions depend on many factors such as the control type, where it is located in the application and whether the action makes sense in the application context.
+
 
 ### Navigation mode
 
-1. Key user adaptation always starts in **Adaptation** mode, where you can execute actions on controls to create UI changes. On the middle of the toolbar, press **Navigation**. This will bring you to *navigation* mode, where you are able to interact normally with the application controls without leaving key user adaptation.
+1. Key user adaptation always starts in **Adaptation** mode, where you can execute actions on controls to create UI changes. On the top right of the toolbar, switch off the **Adaptation Mode** toggle. This will bring you to *navigation* mode, where you are able to interact normally with the application controls without leaving key user adaptation.
 
     ![Navigation](step3-navigation.png)
 
@@ -93,29 +96,23 @@ In the next steps you will learn how to create other UI changes and see more fea
 
     ![Selection](step3-secondproduct.png) 
 
-3. Now press **UI Adaptation** in the toolbar to go back to adaptation mode. You can now continue making UI changes while on the detail page of the second product.
+3. Now switch the **Adaptation Mode** toggle back on to go back to adaptation mode. You can now continue making UI changes while on the detail page of the second product.
    
 >In more complex applications, the navigation mode is useful for cases like navigating between pages or opening and adapting content inside dialogs.
 
 ### Visualization mode
 
-1. On the middle of the toolbar, press **Visualization**. This will bring you to *visualization* mode, where you can see the UI changes which were created in the application so far.
+1. Make sure the **Adaptation Mode** toggle is switched on. In adaptation mode you can already see markers on the elements where UI changes were made.
 
     ![Visualization](step4-visualization.png)
 
-2. In this mode you can see markers on the elements where UI changes were made.
+2. To inspect the changes of a particular element, select it and, in the context menu, click the visualization (glasses) icon.
 
-    ![Indicators](step4-indicators.png) 
+    ![Indicators](step4-indicatorselection.png) 
 
-3. Click on a marker to see a detailed list of changes created for that element.
+3. This opens the *Change List*, a detailed list of the changes created for that element, including the change type, a description, who created it and when.
 
     ![Details](step4-indicatordetail.png)
-    
-    >Darker marker colours mean that more changes were created for a particular element.
-
-4. On the toolbar, you can also select particular UI change types to be displayed or filter them by whether they were already part of the *Draft* or just created - *Unsaved*.
-   
-    ![Filtering](step4-filtering.png)
 
 >For the SAPUI5 Demokit apps, the key user changes are saved in your browser's local storage. If you create too many versions and want to get a clean state, you can remove all entries starting with *sap.ui.fl* from your browser's local storage.
 

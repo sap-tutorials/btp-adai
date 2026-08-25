@@ -25,7 +25,7 @@ Different users work with SAPUI5 applications differently - e.g. depending on wh
 
 1. Go to the [SAPUI5 Demo Kit](https://ui5.sap.com/#/demoapps), and open the **Key User Adaptation** demo app under *SAPUI5 Flexibility Demo Apps*.
 
-2. Go to the user actions menu of the app (in this demo app you are the *Default User*).
+2. Go to the user actions menu of the app (in this demo app you are *John Doe*).
 
     ![User actions menu](step1-useractionsmenu.png)
 
@@ -67,19 +67,19 @@ Different users work with SAPUI5 applications differently - e.g. depending on wh
 
 ### Activate your version and exit key user adaptation
 
-1. Press the **Activate New Version** button in the toolbar.
+1. Open the version menu in the toolbar (the drop down currently showing *Draft*) and choose **Activate New Version**.
 
-    > Some systems do not support versioning. In this case, just press **Save**, and exit key user adaptation.
+    > Some systems do not support versioning. In this case, just press **Save** (the save icon in the toolbar), and exit key user adaptation.
 
-    ![Save](step4-activate.png)
+    ![Activate New Version](step4-activate.png)
 
 2. Enter a name for your version, e.g. "My First Version" and press **Confirm**.
    
     ![Enter Version Name](step4-newversionname.png)
 
-    > If you just want to save your changes without making them visible to other users yet, simply press **Save** on the toolbar. The changes will then be saved to the *Draft*. 
+    > If you just want to save your changes without making them visible to other users yet, simply press the **Save** icon in the toolbar. The changes will then be saved to the *Draft*. 
 
-3. Now press the **Exit** button in the toolbar to leave key user adaptation.
+3. Now press the **X** button on the top right of the toolbar to leave key user adaptation.
 
     ![Exit](step4-exit.png)
 
@@ -93,15 +93,19 @@ Congratulations! You just made your first key user adaptations and activated you
 
 1. Start key user adaptation again (like in Step 1).
 
-2. On the Version drop down (left side of the toolbar), select *Original App*.
+2. Open the version menu in the toolbar (the drop down on the left side, currently showing your active version) and choose **Manage All Versions**.
+
+    ![Manage All Versions](step5-manageallappversions.png)
+
+3. In the *Manage All Versions* dialog you can see all versions of the app, including who created them and when. To restore the original app, click the arrow on the right side of the *Original App* entry.
 
     ![Original App](step5-originalapp.png)
 
-3. Now press **Activate New Version**, enter a suitable name like "Back to Original App" and press **Confirm**.
+4. Enter a suitable name like "Back to Original App" and press **Confirm** to reactivate the original app as a new version.
 
     ![Reset](step5-backtooriginalapp.png)
 
-4. Finally, press the **Exit** button in the toolbar to leave key user adaptation.
+5. Finally, press the **X** button on the top right of the toolbar to leave key user adaptation.
 
 
 Now the application is back to how it originally was. Feel free to try out other functions before moving to the next tutorial, where you will learn more details on how key user adaptation works and what it can achieve.
