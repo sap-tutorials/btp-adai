@@ -26,7 +26,7 @@ parser: v2
 - You've installed the latest version of [Visual Studio Code](https://code.visualstudio.com/) (VS Code).
 - (Windows only) You've installed the [SQLite](https://sqlite.org/download.html) tools for Windows. Find the steps how to install it in the [How Do I Install SQLite](https://cap.cloud.sap/docs/advanced/troubleshooting#how-do-i-install-sqlite-on-windows) section of the CAP documentation.
 - Install the cds command line tool as described on [Capire](https://cap.cloud.sap/docs/get-started/#nodejs-and-cds-dk)
-- and VS-Code extensions as described on [Capire](https://cap.cloud.sap/docs/get-started/#visual-studio-code-proposed-extensions)
+- Install the VS-Code extensions as described on [Capire](https://cap.cloud.sap/docs/get-started/#visual-studio-code-proposed-extensions)
 - You've installed an HTTP client, for example, [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 - If you don't have a Cloud Foundry Trial subaccount and dev space on [SAP BTP](https://cockpit.hanatrial.ondemand.com/cockpit/) yet, create your [Cloud Foundry Trial Account](hcp-create-trial-account) with **US East (VA) as region** and, if necessary [Manage Entitlements](cp-trial-entitlements). You need this to continue after this tutorial.
 
@@ -172,7 +172,7 @@ Add normalized entity definitions into a data model and have your services expos
    }
    ```
 
-    > The syntax highlighting is provided by the extension. Learn more about it's features in this short [demo](https://www.youtube.com/watch?v=eY7BTzch8w0) and see the [features and commands](https://cap.cloud.sap/docs/tools/cds-editors#cds-editor) in the CAP documentation.
+    > The syntax highlighting in your editor is provided by the extension. Learn more about it's features in this short [demo](https://www.youtube.com/watch?v=eY7BTzch8w0) and see the [features and commands](https://cap.cloud.sap/docs/tools/cds-editors#cds-editor) in the CAP documentation.
 
 3. As soon as you've saved your file, the still running `cds watch` reacts immediately with some new output as shown below:
 
@@ -201,7 +201,7 @@ Add normalized entity definitions into a data model and have your services expos
 
 ### Add initial data
 
-You will add plain CSV files in folder `db/data` to fill your database tables with initial data. In the command line window execute the following:
+1. You will add plain CSV files in folder `db/data` to fill your database tables with initial data. In **a new** command line window execute the following:
 
 ```sh
 cds add data -n 10
@@ -209,7 +209,7 @@ cds add data -n 10
 
 This adds csv files with a header line and 10 rows of mock data for all entities to the `db/data/` folder. The name of the files matches the entities' namespace and name, separated by `-`.
 
-    > After you added these files, `cds watch` restarts the server with an output, telling that the files have been detected and their content been loaded into the database automatically:
+> After you added these files, `cds watch` restarts the server with an output, telling that the files have been detected and their content been loaded into the database automatically:
 
    ```Shell/Bash
    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
@@ -228,9 +228,7 @@ This adds csv files with a header line and 10 rows of mock data for all entities
    [cds] - [ terminate with ^C ]
    ```
 
-    > Note, The in-memory database data will will be lost when `cds watch` stops, this is fine for development purposes but you have the option of using a [persistent database](https://cap.cloud.sap/docs/guides/databases/sqlite#using-persistent-databases) as well.
-
-3. To test your service, open a web browser and go to:
+2. To test your service, open a web browser and go to:
 
     <http://localhost:4004/odata/v4/catalog/Books>
 
@@ -305,6 +303,9 @@ Click on `Send Request` below the Books_GET request and you can see the response
 4. Execute the `Browse Books` request again.
 
     > The stock of book `20126637` is lower than before.
+
+    > Note, your changes to the generated data will be lost when `cds watch` stops, this is because the database is running in-memory by default which is ideal for development. If you want your changes to persist you can also use a [persistent database](https://cap.cloud.sap/docs/guides/databases/sqlite#using-persistent-databases).
+
 
 ### Extend CDS Model
 
