@@ -265,6 +265,8 @@ Click on `Send Request` below the Books_GET request and you can see the response
 {"ID": 20126637, "title": "title-263665472"}
 ```
 
+> Note, when you stop and run `cds watch` again it only loads the generated CSV data to the in-memory database which is ideal for development. To preserve any changes you make, use a [persistent database](https://cap.cloud.sap/docs/guides/databases/sqlite#using-persistent-databases).
+
 ### Add custom logic
 
 1. In the **`srv`** folder, create a new file called `cat-service.js`.
@@ -290,22 +292,21 @@ Click on `Send Request` below the Books_GET request and you can see the response
 
     > Whenever orders are created, this code is triggered. It updates the book stock by the given amount.
 
-2. In the `CatalogService.http` file, execute the `Browse Books` request.
+3. In the `CatalogService.http` file, execute the `Browse Books` request.
 
     > Look at the stock of book and note it's ID, for example, `20126637`.
 
     ![Test the request](get_stock.png)
 
-3. Execute the `Order a Book` request.
+4. Execute the `Order a Book` request.
 
     > This triggers the logic above and reduces the stock.
 
-4. Execute the `Browse Books` request again.
+5. Execute the `Browse Books` request again.
 
     > The stock of book `20126637` is lower than before.
 
-    > Note, your changes to the generated data will be lost when `cds watch` stops, this is because the database is running in-memory by default which is ideal for development. If you want your changes to persist you can also use a [persistent database](https://cap.cloud.sap/docs/guides/databases/sqlite#using-persistent-databases).
-
+> As an optional exercise, add a handler to make sure that there's enough stock for the order being created.
 
 ### Extend CDS Model
 
@@ -328,3 +329,5 @@ You can extend the CDS model using Expressions as well, to see this in action re
 Now when you run the `Browse Books` Requests again you will see that the books with stock greater than 50 will have a 10% discount in the title.
 
 [Learn more about the CDS Expression Language (CXL)](https://cap.cloud.sap/docs/cds/cxl)
+
+> As an other optional exercise, update the handler to apply the discount if the order is eligible for it.
