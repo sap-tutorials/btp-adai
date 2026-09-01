@@ -288,8 +288,8 @@ The REST client gives you the response of your service and you see immediately i
    class CatalogService extends cds.ApplicationService {
        init() {
            const { Books, Orders } = this.entities
-           this.after("CREATE", Orders, async req => {
-               let { ID, amount, book_ID } = req
+           this.after("CREATE", Orders, async (_, req) => {
+               let { ID, amount, book_ID } = req.data
                let result = await UPDATE(Books, book_ID)
                .with ({ stock: {'-': amount}})
            })
@@ -305,8 +305,8 @@ The REST client gives you the response of your service and you see immediately i
    export default class CatalogService extends    cds.ApplicationService {
        init() {
            const { Books, Orders } = this.entities
-           this.after("CREATE", Orders, async req => {
-               let { ID, amount, book_ID } = req
+           this.after("CREATE", Orders, async (_, req) => {
+               let { amount, book_ID } = req.data
                let result = await UPDATE(Books, book_ID)
                .with ({ stock: {'-': amount}})
            })
@@ -316,9 +316,9 @@ The REST client gives you the response of your service and you see immediately i
    ```
    [OPTION END]
 
-    > Remember to save your files choosing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+> Remember to save your files choosing <kbd>Ctrl</kbd> + <kbd>S</kbd>.
 
-    > Whenever orders are created, this code is triggered. It updates the book stock by the given amount.
+> Whenever orders are created, this code is triggered. It updates the book stock by the given amount.
 
 3. In the `CatalogService.http` file, execute the `Browse Books` request.
 
@@ -346,14 +346,15 @@ You can extend the CDS model using Expressions as well, to see this in action re
    service CatalogService {
    entity Books as
        select from bookshop.Books {
+           *,
            stock > 50 ? title : title || ' - 10% discount' as displayTitle : String
        }
-
-   entity Authors as projection on bookshop.Authors;
-   entity Orders  as projection on bookshop.Orders;
+   
+       entity Authors as projection on bookshop.Authors;
+       entity Orders  as projection on bookshop.Orders;
+   
    }
    ```
-
 Now when you run the `Browse Books` Requests again you will see that the books with stock greater than 50 will have a 10% discount in the title.
 
 [Learn more about the CDS Expression Language (CXL)](https://cap.cloud.sap/docs/cds/cxl)
