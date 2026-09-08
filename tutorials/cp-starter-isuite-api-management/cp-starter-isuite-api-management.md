@@ -55,7 +55,8 @@ In this step, you define and expose an integration flow endpoint as an applicati
 2. Go to **Configure** > **APIs** and choose **Create** to create an API proxy.
 
 3. On the **Create API** dialog, next to **Select**, select **URL** and specify the following parameters:
->**IMPORTANT**: Paste only the endpoint URL until **`/http/products`**. Otherwise, the scenario will not run correctly.
+
+    >**IMPORTANT**: Paste only the endpoint URL until **`/http/products`**. Otherwise, the scenario will not run correctly.
 
     |  Parameter    | Settings
     |  :------------- | :-------------
