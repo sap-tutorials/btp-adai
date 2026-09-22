@@ -2,7 +2,7 @@
 parser: v2
 auto_validation: true
 time: 40
-tags: [ tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment]
+tags: [ tutorial>beginner, software-product>sap-business-technology-platform, software-product>sap-btp--cloud-foundry-environment, software-product>sap-integration-suite]
 primary_tag: software-product>sap-integration-suite
 author_name: Melanie Cueppers
 author_profile: https://github.com/MelanieCueppers
@@ -12,16 +12,15 @@ author_profile: https://github.com/MelanieCueppers
 <!-- description --> Design an integration flow to integrate an online webshop that exposes data via OData service and fetch the product details.
 
 ## Prerequisites
- - You've provisioned your SAP Integration Suite tenant. For more information, see [Set Up SAP Integration Suite Trial](cp-starter-isuite-onboard-subscribe).
 
+- You've provisioned your SAP Integration Suite tenant. For more information, see [Set Up SAP Integration Suite Trial](cp-starter-isuite-onboard-subscribe).
 
 ## You will learn
-  - How to design and deploy an integration flow using the web-based integration flow designer
-  - How to design an integration flow to fetch data from an online web shop that is available as an OData service
 
+- How to design and deploy an integration flow using the web-based integration flow designer
+- How to design an integration flow to fetch data from an online web shop that is available as an OData service
 
-  ### Create an integration package and integration flow
-
+### Create an integration package and integration flow
 
 1. Choose **Design** > **Integrations and APIs** > **Create** to create an integration package.
 
@@ -48,7 +47,6 @@ author_profile: https://github.com/MelanieCueppers
     Choose **Restore** at the bottom right corner to bring up the **Property Sheet**. Property sheet is the place where you define the parameters for every step in the integration flow.
 
       ![Start editing the integration flow](3-1-edit-iflow.png)
-
 
 ### Connect sender channel with HTTPS adapter
 
