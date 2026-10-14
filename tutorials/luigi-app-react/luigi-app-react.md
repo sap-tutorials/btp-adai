@@ -26,7 +26,7 @@ In a real life implementation, this data would be provided by an external servic
 
 1. Navigate to `react-core-mf/src/assets` and create a `products.js` file with the following content:
 
-   ```Javascript
+```Javascript
    export const ProductCollection = [
    {
        "id": 101,
@@ -129,7 +129,7 @@ In a real life implementation, this data would be provided by an external servic
        "description": "34'' Monitor, Display with stand Height adjustable (115 mm), tiltable (-5° to 21°), rotatable (-30° to 30°) Security slot (cable lock sold separately), anti-theft slot for locking to stand (for display). Includes: DisplayPort cable, HDMI cable, Power cable, Stand, USB 3.0 Type-A to Type-B cable, USB-C cable."
    }
 ];
-   ```
+```
 
 
 
@@ -484,7 +484,7 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
 
 4. Add the routing module to the `index.js` by adding the following lines to the file:
 
-   ```JavaScript
+  ```JavaScript
    //<---Around line 8, paste this line: --->:
    import Products from "./views/products.js";
    //<------>
@@ -497,7 +497,7 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
        //<------>
      </Routes>
    </Router>
-   ```
+  ```
 
 
 ### Add "Product Detail" view to Luigi app
