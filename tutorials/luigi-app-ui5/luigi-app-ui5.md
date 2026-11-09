@@ -29,25 +29,24 @@ In this step, you will import Luigi Client to the UI5 micro-frontend so you can 
     <script src="https://unpkg.com/@luigi-project/client@latest/luigi-client.js"></script>
     ```
 
-2. In the same file, change the UI5 option from `data-sap-ui-frameOptions="trusted"` to `data-sap-ui-frameOptions="allow"`. Directly below, add `data-sap-ui-preload=""`:
+2. In the same file, change the bootstrap option from `data-sap-ui-frame-options="trusted"` to `data-sap-ui-frame-options="allow"`. Directly below, add `data-sap-ui-preload=""`. Note that the UI5 generator uses local resources (`src="resources/sap-ui-core.js"`) and hyphenated bootstrap attributes, so your generated file should look like this afterwards:
 
     ```HTML
     <script
         id="sap-ui-bootstrap"
-        src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-        data-sap-ui-theme="sap_fiori_3"
-        data-sap-ui-resourceroots='{
+        src="resources/sap-ui-core.js"
+        data-sap-ui-resource-roots='{
                 "luigi.ui5": "./"
             }'
-        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-async="true"
+        data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
+        data-sap-ui-compat-version="edge"
 
-        <!-- Change these 2 attributes -->
-        data-sap-ui-frameOptions="allow"
+        <!-- Change this attribute and add the one below -->
+        data-sap-ui-frame-options="allow"
         data-sap-ui-preload=""
         <!-- To the shown values -->
 
+        data-sap-ui-async="true"
     ></script>
     ```
 
@@ -84,7 +83,7 @@ In this step, you will add a new navigation node in Luigi config hosted in the R
           ],
     ```
 
-2. Open the `ui5-mf/webapp/view/MainView.view.xml` file in your UI5 app, and replace the content with:
+2. Open the `ui5-mf/webapp/view/Main.view.xml` file in your UI5 app, and replace the content with:
 
     ```XML
     <mvc:View controllerName="luigi.ui5.controller.Main"
@@ -252,6 +251,16 @@ npm start
 ```
 
 You should be able to access the app at `http://localhost:8080/index.html`. If you want to see the UI5 project in the context of the larger app, open a new terminal window, navigate to `react-core-mf` and run `npm start`. Refresh your browser to see the changes.
+
+
+
+### Tutorial navigation
+
+**Back:** [Build Luigi App with React ←](luigi-app-react)  |  **Next:** [Add Localization to Luigi React Application →](luigi-app-localization-react)
+
+
+
+---
 
 
 

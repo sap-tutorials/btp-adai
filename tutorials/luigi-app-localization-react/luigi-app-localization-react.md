@@ -30,7 +30,7 @@ primary_tag: topic>user-interface
     children: [
             {
                 pathSegment: "products",
-                //<---Around line 13, change this label---> 
+                //<---Around line 27, change this label---> 
                 label: "PRODUCTS",
                 //<------>
                 icon: "product",
@@ -44,7 +44,7 @@ primary_tag: topic>user-interface
             },
             {
                 pathSegment: 'order',
-                //<---Around line 25, change this label--->
+                //<---Around line 39, change this label--->
                 label: 'ORDERHISTORY',
                 //<------>
                 icon: 'history',
@@ -57,8 +57,8 @@ primary_tag: topic>user-interface
 
     ```JavaScript
     var dict = {
+      //Around line 4, add the following: 
       "en-US": { PRODUCTS: "Products", ORDERHISTORY: "Order History" },
-      //Around line 55, add the following: 
       "de-DE": { PRODUCTS: "Produkte", ORDERHISTORY: "Bestellungen" },
       //<------>
     };
@@ -117,6 +117,9 @@ export const dict = {
 
 
 
+### Tutorial navigation
+
+**Back:** [Build Luigi Micro-Frontend with UI5 ←](luigi-app-ui5)  |  **Next:** [Add Localization to Luigi UI5 Micro-Frontend →](luigi-app-localization-ui5)
 
 
 

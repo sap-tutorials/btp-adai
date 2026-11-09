@@ -46,7 +46,7 @@ In this step, you will create a React skeleton project which will be used to cre
 
     ```Shell
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/package.json > package.json
-    npm install fundamental-styles @ui5/webcomponents-react --save
+    npm install fundamental-styles @ui5/webcomponents-react @ui5/webcomponents-fiori --save
     npm install style-loader css-loader --save-dev
     ```
     ​
@@ -68,11 +68,12 @@ In this step, you will create a React skeleton project which will be used to cre
 
     ```Shell
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/public/luigi-config.js > public/luigi-config.js
+    curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/src/index.js > src/index.js
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/src/views/home.js > src/views/home.js
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/src/views/sample1.js > src/views/sample1.js
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/src/views/sample1.js > src/views/sample2.js
     curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/public/index.html > public/index.html
-    curl https://github.com/luigi-project/luigi/blob/main/core/examples/luigi-example-react/public/sampleapp.html > public/sampleapp.html
+    curl https://raw.githubusercontent.com/SAP/luigi/main/core/examples/luigi-example-react/public/sampleapp.html > public/sampleapp.html
     ```
 
 7.  Ins​tall and run the configuration:
@@ -96,31 +97,35 @@ In this step, you will create a skeleton UI5 project for your UI5 micro-frontend
 
 1. If you didn't already, navigate to the root folder of your project in the terminal.
 
-2. Create a new folder:
-
-    ```Shell
-    mkdir ui5-mf && cd ui5-mf
-    ```
-
-3. Install the UI5 project generator:
+2. Install the UI5 project generator:
 
     ```Shell
     npm install -g yo generator-easy-ui5
     ```
 
-4. Enter this command in the Terminal/Command Prompt:
+3. Enter this command in the Terminal/Command Prompt:
 
     ```Shell
-    yo easy-ui5
+    yo easy-ui5 app
     ```
 
-5. Use the settings shown in the screenshot below. For "Select your generator", use the arrow keys to scroll down and select `app`. For the questions "Which framework do you want to use?" and "Who is the author of this application?", choose the default option and press Enter. 
+4. Answer the generator prompts as follows:
 
-    ![UI5 Terminal](ui5-yo.png)
+    - **Enter your application id (namespace)?** Enter `luigi.ui5`. This value matters: the later tutorial steps rely on it for the resource root (`luigi.ui5`) and controller names (for example `luigi.ui5.controller.Main`).
+    - **Which framework do you want to use?** Choose the default (`OpenUI5`) and press Enter.
+    - For all remaining questions (framework version, author, etc.), choose the default option and press Enter.
+
+5. The generator creates the app in a folder named after the namespace (`luigi.ui5`). To match the paths used in the following tutorials, rename this folder to `ui5-mf`:
+
+    ```Shell
+    mv luigi.ui5 ui5-mf
+    ```
 
 
 
+### Tutorial navigation
 
+**Back:** [Introduction to Luigi ←](luigi-getting-started)  |  **Next:** [Build Luigi App with React →](luigi-app-react)
 
 
 

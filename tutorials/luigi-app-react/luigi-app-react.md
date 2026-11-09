@@ -26,7 +26,7 @@ In a real life implementation, this data would be provided by an external servic
 
 1. Navigate to `react-core-mf/src/assets` and create a `products.js` file with the following content:
 
-    ```Javascript
+  ```Javascript
     export const ProductCollection = [
     {
         "id": 101,
@@ -128,8 +128,8 @@ In a real life implementation, this data would be provided by an external servic
         "orderQuantity": 3,
         "description": "34'' Monitor, Display with stand Height adjustable (115 mm), tiltable (-5° to 21°), rotatable (-30° to 30°) Security slot (cable lock sold separately), anti-theft slot for locking to stand (for display). Includes: DisplayPort cable, HDMI cable, Power cable, Stand, USB 3.0 Type-A to Type-B cable, USB-C cable."
     }
-];
-    ```
+    ];
+  ```
 
 
 
@@ -294,7 +294,7 @@ In this step, you will make changes to the entry point `index.js` for the React 
     ```JavaScript
     import React, { useState, useEffect } from 'react';
     import { createRoot } from 'react-dom/client';
-    import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+    import { HashRouter as Router, Routes, Route } from 'react-router';
     import Home from './views/home.js';
     import { dict } from './language.js';
     import { addInitListener, addContextUpdateListener, removeContextUpdateListener, removeInitListener, uxManager} from '@luigi-project/client';
@@ -633,13 +633,13 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
                     >
                         <ObjectPageSection aria-label="Details" id="details" titleText="Details">
                             <Form columnsL={2} columnsM={2} columnsXL={3} labelSpanL={1} labelSpanM={1} labelSpanXL={1}>
-                                <FormItem label="Name">
+                                <FormItem labelContent={<Label>Name</Label>}>
                                     <Text>{currentProduct.name}</Text>
                                 </FormItem>
-                                <FormItem label={props.localeDict.DESCRIPTION}>
+                                <FormItem labelContent={<Label>{props.localeDict.DESCRIPTION}</Label>}>
                                     <Text>{currentProduct.description}</Text>
                                 </FormItem>
-                                <FormItem label={props.localeDict.PRICE}>
+                                <FormItem labelContent={<Label>{props.localeDict.PRICE}</Label>}>
                                     <Text>
                                         {currentProduct.price + " " + currentProduct.currencyCode}
                                     </Text>
@@ -673,12 +673,6 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
         </Router>
     ```
 
-### Install missing dependency
-
-```Shell
-  npm i @ui5/webcomponents-fiori
-```
-
 ### Run your core app
 
 In this step, you can check if your core app is configured correctly so far by running it locally.
@@ -687,6 +681,12 @@ In this step, you can check if your core app is configured correctly so far by r
 
 2. Input `npm start`. Your application should be up and running at `http://localhost:3000/`. You should be able to see the homepage and "Products" view. You can also navigate toward the `ProductDetail` view via "Products".
 
+
+
+
+### Tutorial navigation
+
+**Back:** [Build Skeleton React and UI5 Projects ←](luigi-app-basic-setup)  |  **Next:** [Build Luigi Micro-Frontend with UI5 →](luigi-app-ui5)
 
 
 

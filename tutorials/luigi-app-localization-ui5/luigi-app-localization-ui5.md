@@ -45,8 +45,10 @@ In this step, you will add a function to get the current language from Luigi Cli
 
             onListItemPress: function (oEvent) {
                 const id = oEvent.getSource().getBindingContext().getProperty("id");
-                // Getting trasnlated text for the modal text title
-                const title = this.getView().getModel("i18n").getResourceBundle().getText("ModalText");
+                // Getting translated text for the modal title. The i18n ResourceModel is loaded
+                // asynchronously, so we read the text via getProperty() instead of
+                // getResourceBundle().getText() (which would return a Promise, not the bundle).
+                const title = this.getView().getModel("i18n").getProperty("ModalText");
 
                 LuigiClient.linkManager().openAsModal('/home/products/' + id, { title: title, size: 'm' });
             }
@@ -87,17 +89,16 @@ In this step, you will create files with the text that is to be changed within t
     ```HTML
     <script
         id="sap-ui-bootstrap"
-        src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-        data-sap-ui-theme="sap_fiori_3"
+        src="resources/sap-ui-core.js"
         data-sap-ui-language='en-US'
-        data-sap-ui-resourceroots='{
+        data-sap-ui-resource-roots='{
                 "luigi.ui5": "./"
             }'
-        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-async="true"
-        data-sap-ui-frameOptions="allow"
+        data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
+        data-sap-ui-compat-version="edge"
+        data-sap-ui-frame-options="allow"
         data-sap-ui-preload=""
+        data-sap-ui-async="true"
     ></script>
     ```
 
@@ -147,8 +148,9 @@ Now, your app should be complete and you can run it locally to see if everything
 
 
 
+### Tutorial navigation
 
-
+**Back:** [Add Localization to Luigi React Application ←](luigi-app-localization-react)  |  **Next (optional):** [Implement Micro Frontends in Your UI5 App with Luigi Container →](luigi-container)
 
 
 

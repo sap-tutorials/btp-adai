@@ -54,7 +54,9 @@ Make sure the `easy-ui5` generator is listed.
 
 2. Answer the prompts in this way to create your new project: 
 
-    <!-- border -->![UI5 Generator](ui5.png)
+    - **Enter your application id (namespace)?** Enter `luigi.ui5app`. 
+    - **Which framework do you want to use?** Choose the default (`OpenUI5`) and press Enter.
+    - For all remaining questions (framework version, author, etc.), choose the default option and press Enter.
 
 3. Run the app locally:
 
@@ -85,7 +87,7 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     type: application
     framework:
       name: OpenUI5
-      version: "1.146.0"
+      version: "1.154.0"
       libraries:
         - name: sap.m
         - name: sap.ui.core
@@ -127,11 +129,11 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
     [...]
     "devDependencies": {
     [...]
-        "ui5-tooling-modules": "^3.35.0",
-        "@ui5/webcomponents": "^2.21.0",
+        "ui5-tooling-modules": "^3.43.0",
+        "@ui5/webcomponents": "^2.28.0",
     },
     "dependencies": {
-        "@luigi-project/container": "^1.7.6"
+        "@luigi-project/container": "^1.8.0"
     }
     ```
 
@@ -187,3 +189,15 @@ To use npm packages in UI5, you need to first install the tooling extension `ui5
 5. Open `http://localhost:8080/` in your browser. You should see the new micro frontend on your page: 
 
     <!-- border -->![Table micro frontend](table.png)
+
+
+
+### Tutorial navigation
+
+This is a standalone tutorial, independent of the React core-app chain. If you came from that series, you can go back to its final step:
+
+**Back:** [Add Localization to Luigi UI5 Micro-Frontend ←](luigi-app-localization-ui5)
+
+
+
+---
