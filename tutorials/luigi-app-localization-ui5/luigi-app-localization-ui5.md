@@ -25,30 +25,38 @@ In this step, you will add a function to get the current language from Luigi Cli
  1. Open the `ui5-mf/webapp/controller/Main.controller.js` file and replace its content with the code below:
 
     ```js
-    sap.ui.define(["luigi/ui5/controller/BaseController"], function (Controller) {
+    sap.ui.define([
+        "luigi/ui5/controller/BaseController",
+        "sap/ui/model/json/JSONModel",
+        "sap/base/i18n/Localization"
+    ], function (Controller, JSONModel, Localization) {
         "use strict";
 
         return Controller.extend("luigi.ui5.controller.Main", {
-            onInit: function (Controller) {
-                const oModel = new sap.ui.model.json.JSONModel();
+            onInit: function () {
+                const oModel = new JSONModel();
 
-                oModel.loadData("../model/products.json");
+                oModel.loadData(sap.ui.require.toUrl("luigi/ui5/model/products.json"));
                 this.getView().setModel(oModel);
-                //This has been added - to update the current language 
+
                 const updateCurrentLanguage = () => {
                     const currentLanguage = LuigiClient.uxManager().getCurrentLocale();
-                    sap.ui.getCore().getConfiguration().setLanguage(currentLanguage);
-                }
-                //This has been added - listener for language changes 
-                LuigiClient.addInitListener(updateCurrentLanguage);
+                    Localization.setLanguage(currentLanguage || "en-US");
+                };
+                this._initListener = LuigiClient.addInitListener(updateCurrentLanguage);
+                this._contextUpdateListener = LuigiClient.addContextUpdateListener(updateCurrentLanguage);
             },
 
-            onListItemPress: function (oEvent) {
+            onExit: function () {
+                LuigiClient.removeInitListener(this._initListener);
+                LuigiClient.removeContextUpdateListener(this._contextUpdateListener);
+            },
+
+            onListItemPress: async function (oEvent) {
                 const id = oEvent.getSource().getBindingContext().getProperty("id");
-                // Getting translated text for the modal title. The i18n ResourceModel is loaded
-                // asynchronously, so we read the text via getProperty() instead of
-                // getResourceBundle().getText() (which would return a Promise, not the bundle).
-                const title = this.getView().getModel("i18n").getProperty("ModalText");
+                // Works with both synchronous and asynchronous ResourceModels.
+                const bundle = await this.getView().getModel("i18n").getResourceBundle();
+                const title = bundle.getText("ModalText");
 
                 LuigiClient.linkManager().openAsModal('/home/products/' + id, { title: title, size: 'm' });
             }
@@ -80,6 +88,24 @@ In this step, you will create files with the text that is to be changed within t
     Quantity = Quantity
     ```
 
+
+3. Replace the content of the default `ui5-mf/webapp/i18n/i18n.properties` with the English content from step 2 so that the new keys also exist in the fallback bundle.
+
+4. In `ui5-mf/webapp/manifest.json`, set the `sap.ui5.models.i18n` model to the following. Preserve the other models and manifest settings:
+
+    ```JSON
+    "i18n": {
+      "type": "sap.ui.model.resource.ResourceModel",
+      "settings": {
+        "bundleName": "luigi.ui5.i18n.i18n",
+        "supportedLocales": ["", "en", "de"],
+        "fallbackLocale": "en",
+        "async": true
+      }
+    }
+    ```
+
+    This enables both language bundles, even if the generated manifest initially restricts `supportedLocales` to the default bundle.
 
 ### Add default language to index.html
 
@@ -144,7 +170,15 @@ Now, your app should be complete and you can run it locally to see if everything
     npm start
     ```
 
-3. See your completed app at `http://localhost:3000/`. Try changing the language and clicking around. If there are errors, retrace your steps in the tutorial or compare with the finished app on [SAP Samples](https://github.com/SAP-samples/luigi-micro-frontend-application).
+3. See your completed app at `http://localhost:3000/`. Check these tutorial outcomes:
+
+    - Home switches between English and German.
+    - Products and Order History navigation labels are translated.
+    - Clicking a product opens its details with quantity, availability and price.
+    - Add to cart displays the translated toast; Back returns to Products.
+    - Order History loads the UI5 product list. Clicking an entry opens the React detail view in a Luigi modal with a translated title.
+
+    The reference implementation is [Luigi Micro Frontend Application](https://github.com/SAP/luigi/tree/main/samples/luigi-micro-frontend-application). This tutorial builds the same example functionality, not a production shopping application. If a check fails, compare the relevant files and dependency versions with the reference; a successful build alone does not verify browser interactions.
 
 
 

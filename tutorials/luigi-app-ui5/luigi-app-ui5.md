@@ -26,7 +26,7 @@ In this step, you will import Luigi Client to the UI5 micro-frontend so you can 
 
     ```HTML
     <!--Inside the head tag -->
-    <script src="https://unpkg.com/@luigi-project/client@latest/luigi-client.js"></script>
+    <script src="https://unpkg.com/@luigi-project/client@2.33.0/luigi-client.js"></script>
     ```
 
 2. In the same file, change the bootstrap option from `data-sap-ui-frame-options="trusted"` to `data-sap-ui-frame-options="allow"`. Directly below, add `data-sap-ui-preload=""`. Note that the UI5 generator uses local resources (`src="resources/sap-ui-core.js"`) and hyphenated bootstrap attributes, so your generated file should look like this afterwards:
@@ -41,10 +41,8 @@ In this step, you will import Luigi Client to the UI5 micro-frontend so you can 
         data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
         data-sap-ui-compat-version="edge"
 
-        <!-- Change this attribute and add the one below -->
         data-sap-ui-frame-options="allow"
         data-sap-ui-preload=""
-        <!-- To the shown values -->
 
         data-sap-ui-async="true"
     ></script>
@@ -111,14 +109,17 @@ In this step, you will add a new navigation node in Luigi config hosted in the R
 3. Open `ui5-mf/webapp/controller/Main.controller.js` and replace it with:
 
     ```JavaScript
-    sap.ui.define(["luigi/ui5/controller/BaseController"], function (Controller) {
+    sap.ui.define([
+        "luigi/ui5/controller/BaseController",
+        "sap/ui/model/json/JSONModel"
+    ], function (Controller, JSONModel) {
         "use strict";
 
         return Controller.extend("luigi.ui5.controller.Main", {
-            onInit: function (Controller) {
-                const oModel = new sap.ui.model.json.JSONModel();
+            onInit: function () {
+                const oModel = new JSONModel();
 
-                oModel.loadData("../model/products.json");
+                oModel.loadData(sap.ui.require.toUrl("luigi/ui5/model/products.json"));
                 this.getView().setModel(oModel);
             },
 
