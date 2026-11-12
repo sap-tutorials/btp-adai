@@ -26,7 +26,7 @@ In a real life implementation, this data would be provided by an external servic
 
 1. Navigate to `react-core-mf/src/assets` and create a `products.js` file with the following content:
 
-    ```Javascript
+  ```Javascript
     export const ProductCollection = [
     {
         "id": 101,
@@ -128,8 +128,8 @@ In a real life implementation, this data would be provided by an external servic
         "orderQuantity": 3,
         "description": "34'' Monitor, Display with stand Height adjustable (115 mm), tiltable (-5° to 21°), rotatable (-30° to 30°) Security slot (cable lock sold separately), anti-theft slot for locking to stand (for display). Includes: DisplayPort cable, HDMI cable, Power cable, Stand, USB 3.0 Type-A to Type-B cable, USB-C cable."
     }
-];
-    ```
+    ];
+  ```
 
 
 
@@ -173,7 +173,6 @@ In this step, you will create another HTML file which will serve as a template f
       <html lang="en">
         <head>
           <meta charset="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>React App</title>
         </head>
@@ -191,9 +190,9 @@ In this step, you will create another HTML file which will serve as a template f
 
 In this step, you will configure `webpack` and adjust dependencies in order to make it easier to develop and build the app.
 
-1. Go to `react-core-mf/webpack.config.js`. Note that by default the `webpack-dev-server` will redirect all requests to `index.html` which is the app's main entry point where the Luigi Core library is injected. However, since the micro-frontends are also built in the same environment, it's necessary to host the root React micro-frontend app inside another file, in this case named `sampleapp.html`. This has been done in lines 40-16 and a similar approach can be chosen with any other frontend framework:
+1. Open `react-core-mf/webpack.config.js`. The `CopyWebpackPlugin` serves `public/index.html` as the Luigi Core entry point. The `HTMLWebpackPlugin` injects the React bundle into `sampleapp.html`, which hosts the React micro-frontends. Keep these two entry points separate.
 
-2. In `webpack.config.js` around line 80, add a Webpack rule to allow importing CSS in the React project:
+2. In the existing `module.rules` array, add the CSS rule below after the JavaScript rule. Do not add a second `module` property:
 
     ```Javascript
       module: {
@@ -294,7 +293,7 @@ In this step, you will make changes to the entry point `index.js` for the React 
     ```JavaScript
     import React, { useState, useEffect } from 'react';
     import { createRoot } from 'react-dom/client';
-    import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+    import { HashRouter as Router, Routes, Route } from 'react-router';
     import Home from './views/home.js';
     import { dict } from './language.js';
     import { addInitListener, addContextUpdateListener, removeContextUpdateListener, removeInitListener, uxManager} from '@luigi-project/client';
@@ -305,30 +304,18 @@ In this step, you will make changes to the entry point `index.js` for the React 
 
     const App = () => {
       const [currentLocale, setCurrentLocale] = useState('en-US');
-      const [initListener, setInitListener] = useState(null);
-      const [contextUpdateListener, setContextUpdateListener] = useState(null);
-
       useEffect(() => {
         const updateCurrentLanguage = () => {
-          setCurrentLocale(uxManager().getCurrentLocale())
-        }
+          setCurrentLocale(uxManager().getCurrentLocale() || 'en-US');
+        };
 
-        setInitListener(
-          addInitListener(() => {
-            console.log("Luigi Client initialized.");
-            // update current language upon Luigi Client initialization
-            updateCurrentLanguage();
-          })
-        );
+        const initListener = addInitListener(() => {
+          console.log("Luigi Client initialized.");
+          updateCurrentLanguage();
+        });
+        const contextUpdateListener = addContextUpdateListener(updateCurrentLanguage);
 
-        setContextUpdateListener(
-          addContextUpdateListener(() => {
-            // update current language upon Luigi Client context update event
-            updateCurrentLanguage();
-          })
-        );
-
-        return function cleanup() {
+        return () => {
           removeContextUpdateListener(contextUpdateListener);
           removeInitListener(initListener);
         };
@@ -352,41 +339,42 @@ In this step, you will make changes to the entry point `index.js` for the React 
 
   2. Next, go to the `react-core-mf/src/views` directory created in step 6 of the [previous tutorial](luigi-app-basic-setup). Find the file called `home.js` and paste the following code into it:
 
-    ```JavaScript
-    import React, { useState, useEffect } from 'react';
-    import "fundamental-styles/dist/fundamental-styles.css";
-    import { addInitListener, addContextUpdateListener, removeContextUpdateListener, removeInitListener, sendCustomMessage } from "@luigi-project/client";
-    import { Grid, Panel, Select, Option } from "@ui5/webcomponents-react";
+  ```JavaScript  
+  import React, { useState } from 'react';
+  import "fundamental-styles/dist/fundamental-styles.css";
+  import { sendCustomMessage } from "@luigi-project/client";
+  import { Grid, Panel, Select, Option } from "@ui5/webcomponents-react";
 
-    const Home = (props) => {
-      const [options] = useState([{ key: 'en-US', text: 'en-US' }]);
+  const Home = (props) => {
+    const [options] = useState([{ key: 'en-US', text: 'en-US' }]);
 
-      function onChangeValue(event) {
-        sendCustomMessage({
-          id: "set-language",
-          locale: event.detail.selectedOption.innerText,
-        });
-      }
+    function onChangeValue(event) {
+      sendCustomMessage({
+        id: "set-language",
+        locale: event.detail.selectedOption.innerText,
+      });
+    }
 
-      return (
-        <Grid position="Center" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL10 L10 M10 S10">
-          <Panel headerText={props.localeDict.WELCOME_LUIGI} headerLevel="H3">
-            <Select onChange={onChangeValue}>
-              {options.map((language) => (
-                <Option key={language.key}>{language.text}</Option>
-              ))}
-            </Select>
-          </Panel>
-        </Grid>
-      );
-    };
+    return (
+      <Grid position="Center" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL10 L10 M10 S10">
+        <Panel headerText={props.localeDict.WELCOME_LUIGI} headerLevel="H3">
+          <Select onChange={onChangeValue}>
+            {options.map((language) => (
+              <Option key={language.key}>{language.text}</Option>
+            ))}
+          </Select>
+        </Panel>
+      </Grid>
+    );
+  };
 
-    export default Home;
-    ```
+  export default Home;
+  ```
+    
 
 3. Create a new file in `react-core-mf/src` called `language.js` with the following content:
 
-    ```JavaScript
+  ```JavaScript
     export const dict = {
       "en-US": {
         ITEMS: "Products",
@@ -403,7 +391,7 @@ In this step, you will make changes to the entry point `index.js` for the React 
         OUTOFSTOCK: "Out of stock",
       },
     };
-    ```
+  ```
 
 
 ### Add "Products" view to Luigi app
@@ -455,9 +443,16 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
         const tempList = [];
         ProductCollection.forEach((product) => {
           tempList.push(
-            <ListItemStandard id={product.id} key={product.id} additionalText={product.price + " " + product.currencyCode} additionalTextState="Information" description={product.description} icon={product.icon} type="Active" onItemClick={() => handleItemClick(product.id)}>
-          {product.name}
-        </ListItemStandard>
+            <ListItemStandard
+              id={product.id}
+              key={product.id}
+              additionalText={product.price + " " + product.currencyCode}
+              additionalTextState="Information"
+              description={product.description}
+              icon={product.icon}
+              type="Active"
+              text={product.name}
+            />
           );
           setListItems(tempList);
         });
@@ -482,7 +477,7 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
     export default Products;
     ```
 
-4. Add the routing module to the `index.js` by adding the following lines to the file:
+4. Add the `Products` import to `index.js` and add its route inside the existing `<Routes>` block. The following is an excerpt; keep the surrounding `App` component unchanged:
 
     ```JavaScript
     //<---Around line 8, paste this line: --->:
@@ -491,10 +486,9 @@ In this step, you will add a navigation node in Luigi for the "Products" micro-f
    ...
     <Router basename="microfrontend">
       <Routes>
-        <Route path="/home" render={(props) => <Home {...props} localeDict={dict[this.state.currentLocale]} currentLocale={this.state.currentLocale} />} />
-        //<---Around line 45, paste this line: --->
+        <Route path="/home" element={<Home localeDict={dict[currentLocale]} currentLocale={currentLocale} />} />
+        {/* Add the Products route here. */}
         <Route path="/products" element={<Products localeDict={dict[currentLocale]} />} />
-        //<------>
       </Routes>
     </Router>
     ```
@@ -507,23 +501,23 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
 
   1. In `react-core-mf/public/luigi-config.js` add a child node `:id` to the `products` node:
 
-    ```JavaScript
-          children: [
-                      {
-                          pathSegment: "products",
-                          label: "Products",
-                          icon: "product",
-                          viewUrl: "/sampleapp.html#/microfrontend/products",
-                          //<---Paste the section below to your config:--->
-                          keepSelectedForChildren: true,
-                          children: [{
-                              pathSegment: ':id',
-                              viewUrl: '/sampleapp.html#/microfrontend/productDetail/:id',
-                              context: { id: ':id' }
-                          }]
-                          //<------>
-                      },
-    ```
+      ```JavaScript
+      children: [
+        {
+            pathSegment: "products",
+            label: "Products",
+            icon: "product",
+            viewUrl: "/sampleapp.html#/microfrontend/products",
+            //<---Paste the section below to your config:--->
+            keepSelectedForChildren: true,
+            children: [{
+                pathSegment: ':id',
+                viewUrl: '/sampleapp.html#/microfrontend/productDetail/:id',
+                context: { id: ':id' }
+            }]
+            //<------>
+        },
+      ```
 
 2. Next, create a new file in `react-core-mf/src/views` named `productDetail.js` and paste following content into it:
 
@@ -532,7 +526,7 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
         import "../../node_modules/fundamental-styles/dist/fundamental-styles.css";
         import "@ui5/webcomponents-icons/dist/AllIcons.js";
         import {
-            Grid, ObjectPage, Label, DynamicPageHeader, DynamicPageTitle, ObjectStatus, FlexBox, Button, Toast, ObjectPageSection, FormItem, Form, Text, Bar
+            Grid, ObjectPage, Label, ObjectPageHeader, ObjectPageTitle, ObjectStatus, FlexBox, Button, Toast, ObjectPageSection, FormItem, Form, Text, Bar, Toolbar
         } from "@ui5/webcomponents-react";
         import { linkManager, getContext } from "@luigi-project/client";
         import { ProductCollection } from "../assets/products.js";
@@ -540,7 +534,7 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
         const ProductDetail = (props) => {
             const [currentProduct, setCurrentProduct] = useState({});
             const [availability, setAvailability] = useState({
-                state: "Warning",
+                state: "Critical",
                 text: props.localeDict.OUTOFSTOCK
             });
             const toast = useRef(null);
@@ -558,7 +552,10 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
                 ) || ProductCollection[0]
 
                 setCurrentProduct(product);
-                currentProduct.stock ? setAvailability({ state: "Success", text: props.localeDict.AVAILABLE }) : ""
+                setAvailability({
+                    state: product.stock ? "Positive" : "Critical",
+                    text: product.stock ? props.localeDict.AVAILABLE : props.localeDict.OUTOFSTOCK
+                });
             }
 
             // Use Luigi Client linkManager API to navigate to the previous microfrontend
@@ -576,8 +573,8 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
             return (
                 <Grid position="Center" defaultIndent="XL1 L1 M1 S1" defaultSpan="XL10 L10 M10 S10">
                     <ObjectPage
-                        headerContent={
-                            <DynamicPageHeader>
+                        headerArea={
+                            <ObjectPageHeader>
                                 <FlexBox alignItems="Center" wrap="Wrap">
                                     <FlexBox direction="Column" style={{ padding: "10px" }}>
                                         <Label>
@@ -585,13 +582,13 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
                                         </Label>
                                     </FlexBox>
                                 </FlexBox>
-                            </DynamicPageHeader>
+                            </ObjectPageHeader>
                         }
-                        footer={
+                        footerArea={
                             <Bar design="FloatingFooter"
                                 endContent={
                                     <>
-                                        <Button design="Emphasized" onClick={() => { toast.current.show() }}>
+                                        <Button design="Emphasized" onClick={() => { toast.current.open = true }}>
                                             {props.localeDict.ADDTOCART}
                                         </Button>
                                         <Button design="Default" onClick={navBack}>
@@ -601,45 +598,40 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
                                 }
                             />
                         }
-                        headerContentPinnable
-                        headerTitle={
-                            <DynamicPageTitle
-                                actions={
-                                    <>
-                                        <Toast ref={toast}>
-                                            {props.localeDict.PRODUCTADDED}
-                                        </Toast>
-                                        <Button design="Emphasized" onClick={() => { toast.current.show() }}>
+                        titleArea={
+                            <ObjectPageTitle
+                                actionsBar={
+                                    <Toolbar>
+                                        <Button design="Emphasized" onClick={() => { toast.current.open = true }}>
                                             {props.localeDict.ADDTOCART}
                                         </Button>
                                         <Button onClick={navBack}>
                                             {props.localeDict.BACK}
                                         </Button>
-                                    </>
+                                    </Toolbar>
                                 }
                                 header={currentProduct.name}
                             >
                                 <ObjectStatus state={availability.state}>
                                     {availability.text}
                                 </ObjectStatus>
-                            </DynamicPageTitle>
+                            </ObjectPageTitle>
                         }
                         onSelectedSectionChange={function noRefCheck() { }}
                         selectedSectionId="details"
-                        showHideHeaderButton
                         style={{
                             height: "700px",
                         }}
                     >
                         <ObjectPageSection aria-label="Details" id="details" titleText="Details">
-                            <Form columnsL={2} columnsM={2} columnsXL={3} labelSpanL={1} labelSpanM={1} labelSpanXL={1}>
-                                <FormItem label="Name">
+                            <Form layout="S1 M2 L2 XL3" labelSpan="S12 M1 L1 XL1">
+                                <FormItem labelContent={<Label>Name</Label>}>
                                     <Text>{currentProduct.name}</Text>
                                 </FormItem>
-                                <FormItem label={props.localeDict.DESCRIPTION}>
+                                <FormItem labelContent={<Label>{props.localeDict.DESCRIPTION}</Label>}>
                                     <Text>{currentProduct.description}</Text>
                                 </FormItem>
-                                <FormItem label={props.localeDict.PRICE}>
+                                <FormItem labelContent={<Label>{props.localeDict.PRICE}</Label>}>
                                     <Text>
                                         {currentProduct.price + " " + currentProduct.currencyCode}
                                     </Text>
@@ -647,6 +639,9 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
                             </Form>
                         </ObjectPageSection>
                     </ObjectPage>
+                    <Toast ref={toast}>
+                        {props.localeDict.PRODUCTADDED}
+                    </Toast>
                 </Grid>
             );
         };
@@ -655,7 +650,7 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
 
     ```
 
-2. Add the route configuration to the `index.js` by pasting below code into it:
+3. Add the `ProductDetail` import to `index.js` and add its route inside the existing `<Routes>` block. This excerpt uses the same React Router API as the Home and Products routes:
 
     ```JavaScript
         //<---Around line 9, paste this line:--->
@@ -664,20 +659,13 @@ In this step, you will add the `ProductDetail` view to the app. You will be able
        ...
         <Router basename="microfrontend">
           <Routes>
-            <Route path="/home" render={(props) => <Home {...props} localeDict={dict[this.state.currentLocale]} currentLocale={this.state.currentLocale} />} />
-            <Route path="/products" render={(props) => <Products {...props} localeDict={dict[this.state.currentLocale]} />} />
-            //<---Around line 50, paste this line:--->
-            <Route path="/productDetail/:id" element={<ProductDetail localeDict={dict[currentLocale]} />} />  
-            //<------>    
+            <Route path="/home" element={<Home localeDict={dict[currentLocale]} currentLocale={currentLocale} />} />
+            <Route path="/products" element={<Products localeDict={dict[currentLocale]} />} />
+            {/* Add the ProductDetail route here. */}
+            <Route path="/productDetail/:id" element={<ProductDetail localeDict={dict[currentLocale]} />} />
           </Routes>
         </Router>
     ```
-
-### Install missing dependency
-
-```Shell
-  npm i @ui5/webcomponents-fiori
-```
 
 ### Run your core app
 
@@ -685,8 +673,16 @@ In this step, you can check if your core app is configured correctly so far by r
 
 1. Open a terminal/command prompt window. Navigate to the `react-core-mf` folder.
 
-2. Input `npm start`. Your application should be up and running at `http://localhost:3000/`. You should be able to see the homepage and "Products" view. You can also navigate toward the `ProductDetail` view via "Products".
+2. Run `npm run build` first to check that all imports and components compile. Then run `npm start` and open `http://localhost:3000/`. Check Home, the Products list, and a Product Detail view, including the header, availability status and both action buttons. The add-to-cart action only displays a toast; this tutorial does not implement a cart backend.
 
+    This tutorial uses UI5 Web Components React 2: `ObjectPage` takes `headerArea`, `titleArea` and `footerArea`, and its header uses `ObjectPageHeader` / `ObjectPageTitle`. Do not use the similarly named `DynamicPageHeader` / `DynamicPageTitle` components here. Pinning and header toggling are available by default.
+
+
+
+
+### Tutorial navigation
+
+**Back:** [Build Skeleton React and UI5 Projects ←](luigi-app-basic-setup)  |  **Next:** [Build Luigi Micro-Frontend with UI5 →](luigi-app-ui5)
 
 
 

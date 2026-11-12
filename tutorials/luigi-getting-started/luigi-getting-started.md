@@ -86,7 +86,9 @@ If you need help with the tutorials or Luigi in general, you can:
 
 
 
+### Tutorial navigation
 
+**Next:** [Build Skeleton React and UI5 Projects →](luigi-app-basic-setup)
 
 
 
