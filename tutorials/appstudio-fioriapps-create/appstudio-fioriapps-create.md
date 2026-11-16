@@ -45,17 +45,17 @@ The flow consists of the following parts:
 
 1. In the left-hand sidebar of SAP Business Application Studio, select **the hamburger icon | File | Open Folder...** to open the **Open Folder** dialog.
 
-    <!-- border -->![open workspace dialog](BAS-Open-Workspace-1-.png)
+    ![open workspace dialog](BAS-Open-Workspace-1-.png)
 
 2. The **Open Folder** dialog opens at the center of the SAP Business Application Studio window. First, select the **projects** entry.
 
 3. Then click **OK**.
 
-    <!-- border -->![open workspace dialog](BAS-Open-Workspace-2-1-2.png)
+    ![open workspace dialog](BAS-Open-Workspace-2-1-2.png)
 
 4. In the project explorer, select **New Folder…** to create a new folder for your project. Insert `FioriDemo` as folder name.
 
-    <!-- border -->![open workspace dialog](BAS-Open-Workspace-3-.png)
+    ![open workspace dialog](BAS-Open-Workspace-3-.png)
 
 
 ### Generate an App Based on the SAP Fiori Basic Template
@@ -63,11 +63,11 @@ The flow consists of the following parts:
 
 1. In the **Get Started** tab, click **New Project from Template**.
 
-    <!-- border -->![launch generate app](BAS-Generate-App-1-1-.png)
+    ![launch generate app](BAS-Generate-App-1-1-.png)
 
     >If the **Get Started** Page does not appear, in the left side bar, select **the hamburger icon | Help | Get Started**.
 
-    ><!-- border -->![Welcome Page from help menu](BAS-Welcome-Page-from-Help-Menu-2.png)
+    >![Welcome Page from help menu](BAS-Welcome-Page-from-Help-Menu-2.png)
 
     >The easiest way to develop an SAPUI5 freestyle app from scratch is to create it from a template. To continue developing an existing application, the best practice is to use git source code management and clone the repository.
 
@@ -77,7 +77,7 @@ The flow consists of the following parts:
 
 2. Select the **SAP Fiori generator** tile, and click **Start**.
 
-    <!-- border -->![fiori template group](BAS-Generate-App-2-1-.png)
+    ![fiori template group](BAS-Generate-App-2-1-.png)
 
 3. For **Template Selection**, select the following, and click **Next**.
 
@@ -85,7 +85,7 @@ The flow consists of the following parts:
     |:----------|:------|
     | Which `template` do you want to use? | **Basic** tile |
 
-    <!-- border -->![Floorplan Selection](BAS-Generate-App-3-1-.png)
+    ![Floorplan Selection](BAS-Generate-App-3-1-.png)
 
 4. For **Data Source and Service Selection**, select the following, and click **Next**. 
 
@@ -95,11 +95,11 @@ The flow consists of the following parts:
     | System | **`ES5`** |
     | Service | **`ZGWSAMPLE_BASIC (1) - OData V2`** |
 
-    <!-- border -->![Data Source and Service Selection](BAS-Generate-App-4-1-.png)
+    ![Data Source and Service Selection](BAS-Generate-App-4-1-.png)
 
 5. For **Entity Selection > View name**, enter `Suppliers`, and click **Next**.
 
-    <!-- border -->![Entity Selection > View name](BAS-Generate-App-5-1-.png)
+    ![Entity Selection > View name](BAS-Generate-App-5-1-.png)
 
 6. For **Project Attributes**, select the following, and click **Next**.
 
@@ -119,11 +119,11 @@ The flow consists of the following parts:
 
     Make sure to set the correct project folder path and to use the latest SAPUI5 version.
 
-    <!-- border -->![Project Attributes](BAS-Generate-App-6-1-.png)
+    ![Project Attributes](BAS-Generate-App-6-1-.png)
 
     > You might need to scroll to see the latest version when selecting the **Minimum SAPUI5version**.
 
-    ><!-- border --> ![Minimum SAPUI5 version](BAS-Generate-App-6-2-.png)
+    >![Minimum SAPUI5 version](BAS-Generate-App-6-2-.png)
 
 
 7. For **Deployment Configuration**, select the following, and click **Next**.
@@ -134,7 +134,7 @@ The flow consists of the following parts:
     | Destination name | **ES5 - https: //sapes5.sapdevcenter.com** |
     | Add Router Module | Add Application to Managed Application Router |
 
-    <!-- border -->![deployment configuration](BAS-Generate-App-7-1-.png)
+    ![deployment configuration](BAS-Generate-App-7-1-.png)
 
 8. For **Fiori Launchpad Configuration**, enter the following, and click **Finish**.
 
@@ -145,11 +145,11 @@ The flow consists of the following parts:
     | Title | **Suppliers** |
     | Subtitle (optional) | **Our Suppliers** |
 
-    <!-- border -->![launchpad configuration](BAS-Generate-App-8-1-.png)
+    ![launchpad configuration](BAS-Generate-App-8-1-.png)
 
 9. Wait until the installation of project dependencies is completed. A notification that "The project has been generated" appears at the bottom right of the screen. The **Application Information** tab opens, and the files and project structure in the **Explorer** view are updated.
 
-    <!-- border -->![application generated](BAS-Generate-App-10-1-.png)
+    ![application generated](BAS-Generate-App-10-1-.png)
 
 
 
@@ -159,15 +159,15 @@ The flow consists of the following parts:
 
 1.	Click the **Run Configurations** icon to open the `Run Configurations` view. You'll see a set of run configurations that were created when you generated the app.
 
-    <!-- border -->![local run](BAS-Local-Run-1-1-.png)
+    ![local run](BAS-Local-Run-1-1-.png)
 
     >If you use a smaller screen the **Run Configurations** icon might be hidden. Then search for the **...** icon. Selecting this icon will open a menu showing all hidden menu entries.
 
-    ><!-- border -->![hidden menu entries](BAS-Generate-App-10-2-.png)
+    >![hidden menu entries](BAS-Generate-App-10-2-.png)
 
 2.	Hover over the **`Start businesspartners`** run configuration and click the **Play** icon next to it to run the app locally in the dev space.
 
-    <!-- border -->![local run](BAS-Local-Run-2-1-.png)
+    ![local run](BAS-Local-Run-2-1-.png)
 
     >You may be prompted to allow pop-ups.
 
@@ -175,11 +175,11 @@ The flow consists of the following parts:
 
     >A new tab opens in SAP Business Application Studio where you can see the log of the running app.
 
-    <!-- border -->![local run](BAS-Local-Run-3-1-3-.png)
+    ![local run](BAS-Local-Run-3-1-3-.png)
 
 3. A new browser tab opens showing the app. At this stage of development, the app only shows a title.
 
-    <!-- border -->![app running locally](AppStudio-Local-Run-3-.png)
+    ![app running locally](AppStudio-Local-Run-3-.png)
 
 
 
@@ -190,41 +190,41 @@ The layout editor allows users to easily make changes in the app using a visual 
 
 1. Click **Toggle Bottom Panel** to free screen space for the editors pane.
 
-    <!-- border -->![toggle bottom pane](BAS-Close-Bottom-Pane-1-.png)
+    ![toggle bottom pane](BAS-Close-Bottom-Pane-1-.png)
 
 2. Click the **Explorer** button to open the `Explorer` view.
 
-    <!-- border -->![open explorer view](BAS-Open-Explorer-View-.png)
+    ![open explorer view](BAS-Open-Explorer-View-.png)
 
 3. Choose **`FioriDemo` / `businesspartners` > `webapp` > `view`**, right-click the `Suppliers.view.xml` file, and click **Open with...**
 
-     <!-- border -->![Open with Layout Editor](BAS-Open-Layout-Editor-1-.png)
+     ![Open with Layout Editor](BAS-Open-Layout-Editor-1-.png)
 
 4. The **Select editor** dialog opens at the top center of the SAP Business Application Studio window. Select the **Layout Editor** entry.
 
-    <!-- border -->![Open with Layout Editor](BAS-Open-Layout-Editor-1-2-.png)
+    ![Open with Layout Editor](BAS-Open-Layout-Editor-1-2-.png)
 
     >You may need to wait a bit for the layout editor extension to load.
 
     The **Suppliers** view opens in the layout editor.
 
-    <!-- border -->![open layout editor](BAS-Open-Layout-Editor-2-.png)
+    ![open layout editor](BAS-Open-Layout-Editor-2-.png)
 
 5. Open the `Suppliers.view.xml` file with the **Text Editor** and see how modifications in the layout editor show up in the text editor. You don't have to open both editors for development. You can do the development work using either of the editors, or both. In this tutorial, you'll have both editors open for demo purposes.
 
-    <!-- border -->![Open code editor](BAS-Open-Code-Editor-1-.png)
+    ![Open code editor](BAS-Open-Code-Editor-1-.png)
 
 6. The **Suppliers** view opens in the text editor in a tab next to the layout editor.
 
-    <!-- border -->![open code editor](BAS-Open-Code-Editor-2-.png)
+    ![open code editor](BAS-Open-Code-Editor-2-.png)
 
 7. For convenience, drag the text editor below the layout editor.
 
-    <!-- border -->![drag-drop editor](BAS-Drag-Drop-Code-Editor-1-.png)
+    ![drag-drop editor](BAS-Drag-Drop-Code-Editor-1-.png)
 
     >The layout editor and text editor are stacked so you can see how making changes to one shows up in the other.
 
-    ><!-- border -->![drag-drop editor](BAS-Drag-Drop-Code-Editor-2-.png)
+    >![drag-drop editor](BAS-Drag-Drop-Code-Editor-2-.png)
 
 
 
@@ -239,53 +239,53 @@ Edit your app using the layout editor, with no need to do any coding.
 
 1. In the **Controls** pane, enter `List` in the search box to filter the controls.
 
-    <!-- border -->![Filter List control](BAS-Enhance-App-1-.png)
+    ![Filter List control](BAS-Enhance-App-1-.png)
 
     >To get more screen real-estate, click the **Explorer** button to close the `Explorer` view, and adjust the ratio between the layout editor and the code editor.
     
-    ><!-- border -->![Explorer Button](BAS-explorer-button.png)
+    >![Explorer Button](BAS-explorer-button.png)
 
 2. Drag the **List** control and drop it on the **View** control in the canvas.
 
-    <!-- border -->![Drag and drop](BAS-Enhance-App-2-.png)
+    ![Drag and drop](BAS-Enhance-App-2-.png)
 
     >Adding the list control to the view is reflected in both the layout editor and the text editor.
 
-    ><!-- border -->![Link text e.g., Destination screen](BAS-Enhance-App-2-2-.png)
+    >![Link text e.g., Destination screen](BAS-Enhance-App-2-2-.png)
 
 3. Select the **Standard List Item** control by clicking the **List** control you just added (the breadcrumb indicates which control is selected) and, in the **Entity Set** property in the **Properties** pane, click the Bind icon.
 
-    <!-- border -->![Open entity set bind window](BAS-Enhance-App-3-.png)
+    ![Open entity set bind window](BAS-Enhance-App-3-.png)
 
     >The **Select Entity Set** view is displayed.
 
 4. Select the **Define entity set and set the selected control as template** option, and in the **Entity Set** dropdown list, choose the `BusinessPartnerSet` entity set. Click **Bind** to complete the operation.
 
-    <!-- border -->![entity set bind window](BAS-Enhance-App-4-.png)
+    ![entity set bind window](BAS-Enhance-App-4-.png)
 
     >The space of the **Select Entity Set** view may be too narrow to show all options. If you do not see the **Define entity set and set the selected control as template** option, scroll down in the **Select Entity Set** view to make it available.
 
     >The bind operation is reflected in both the **Layout Editor** and the code editor.
 
-    ><!-- border -->![entity set bind window](BAS-Enhance-App-5-.png)
+    >![entity set bind window](BAS-Enhance-App-5-.png)
 
 5. In the **Properties** pane, in the **Title** property, click the **Bind** icon.
 
-    <!-- border -->![open Title bind window](BAS-Enhance-App-5-2-.png)
+    ![open Title bind window](BAS-Enhance-App-5-2-.png)
 
     >The **Data Binding** view is displayed.
 
 6. Click the **Clear expression** (eraser) icon to clear the default text, and in the data field double-click  `CompanyName`. Click **Bind** to complete the operation.
 
-    <!-- border -->![Title bound](BAS-Enhance-App-6-.png)
+    ![Title bound](BAS-Enhance-App-6-.png)
 
 7. Repeat the last two steps for the **Description** property in the **Properties** pane. Choose  `WebAddress`.
 
-    <!-- border -->![Bind Description](BAS-Enhance-App-8-.png)
+    ![Bind Description](BAS-Enhance-App-8-.png)
 
 8. Wait for the live reload of the app to complete. A list of suppliers is displayed.
 
-    <!-- border -->![Bind Description](AppStudio-Change-UI-9-.png)
+    ![Bind Description](AppStudio-Change-UI-9-.png)
 
 
 

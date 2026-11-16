@@ -33,9 +33,9 @@ You first need to provision your SAP HANA Cloud instance, which is a prerequisit
 
 1. To prepare the project, execute the following in the root level of your project:
 
-    ```Shell/Bash
-    cds add hana,mta,xsuaa,approuter --for production
-    ```
+   ```Shell/Bash
+   cds add hana,mta,xsuaa,approuter --for production
+   ```
 
     > `--for production` adds all configuration added by this command in the `.cdsrc.json` file into a `requires.[production]` block.
 
@@ -51,13 +51,13 @@ You first need to provision your SAP HANA Cloud instance, which is a prerequisit
 
 2. (Optional) Following this tutorial strictly, you don't have an own UI yet in your project. To enable the index page with SAP Fiori preview, add the following configuration in the `application.yaml` of your `bookstore` project in VS Code:
 
-    ```yaml
-    ---
-    spring:
-      config.activate.on-profile: cloud
-    cds:
-      index-page.enabled: true
-    ```
+   ```yaml
+   ---
+   spring:
+     config.activate.on-profile: cloud
+   cds:
+     index-page.enabled: true
+   ```
 
     > Setting `cds.index-page.enabled: true` turns on the generated index page and the SAP Fiori preview in `production` mode, just like you've seen in your local application in previous tutorials. These features are designed to assist you during development and should not be used in productive applications.
 
@@ -69,12 +69,12 @@ Cloud Foundry uses the Open Service Broker API to provide services to applicatio
 
 1. Check the `pom.xml` in the `srv` directory (not the `pom.xml` file located in the root project folder) and under the `<dependencies>` that the `cds-starter-cloudfoundry` dependency is there.
 
-    ```xml
-    <dependency>
-        <groupId>com.sap.cds</groupId>
-        <artifactId>cds-starter-cloudfoundry</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+       <groupId>com.sap.cds</groupId>
+       <artifactId>cds-starter-cloudfoundry</artifactId>
+   </dependency>
+   ```
 
 ### Update `xs-security.json`
 
@@ -82,39 +82,39 @@ The XSUAA security descriptor (`xs-security.json`) that describes the roles for 
 
 1. Open the `xs-security.json` file in SAP Business Application Studio and update the file so it looks like that:
 
-    ```JSON
-    {
-      "xsappname": "bookstore",
-      "tenant-mode": "dedicated",
-      "scopes": [
-        {
-          "name": "$XSAPPNAME.Administrators",
-          "description": "Administrators"
-        }
-      ],
-      "attributes": [],
-      "role-templates": [
-        {
-          "name": "Administrators",
-          "description": "generated",
-          "scope-references": [
-            "$XSAPPNAME.Administrators"
-          ],
-          "attribute-references": []
-        }
-      ],
-      "role-collections": [
-        {
-          "name": "BookStore_Administrators",
-          "description": "BookStore Administrators",
-          "role-template-references": ["$XSAPPNAME.Administrators"]
-        }
-      ],
-      "oauth2-configuration": {
-        "redirect-uris": ["https://*.cfapps.us10-001.hana.ondemand.com/**"]
-      }
-    }
-    ```
+   ```JSON
+   {
+     "xsappname": "bookstore",
+     "tenant-mode": "dedicated",
+     "scopes": [
+       {
+         "name": "$XSAPPNAME.Administrators",
+         "description": "Administrators"
+       }
+     ],
+     "attributes": [],
+     "role-templates": [
+       {
+         "name": "Administrators",
+         "description": "generated",
+         "scope-references": [
+           "$XSAPPNAME.Administrators"
+         ],
+         "attribute-references": []
+       }
+     ],
+     "role-collections": [
+       {
+         "name": "BookStore_Administrators",
+         "description": "BookStore Administrators",
+         "role-template-references": ["$XSAPPNAME.Administrators"]
+       }
+     ],
+     "oauth2-configuration": {
+       "redirect-uris": ["https://*.cfapps.us10-001.hana.ondemand.com/**"]
+     }
+   }
+   ```
 
     > You added the name of your application in the attribute `xsappname` and declared a role collection to which you can assign users later.
 
@@ -126,15 +126,15 @@ The Cloud Foundry API endpoint is required so that you can log on to your SAP BT
 
 1. Go to [SAP BTP Trial Cockpit](https://cockpit.hanatrial.ondemand.com/cockpit#/home/trial) and choose **Go To Your Trial Account**.
 
-    <!-- border -->![business technology platform cockpit view](cockpit.png)
+    ![business technology platform cockpit view](cockpit.png)
 
 2. Navigate to your subaccount by hitting the corresponding tile.
 
-    <!-- border -->![subaccount tile](subaccount-tile.png)
+    ![subaccount tile](subaccount-tile.png)
 
 3. Copy the **Cloud Foundry API endpoint** value as you will need it in the next step.
 
-    <!-- border -->![CF API endpoint value](api-endpoint.png)
+    ![CF API endpoint value](api-endpoint.png)
 
 ### Log into SAP BTP Cloud Foundry environment
 
@@ -142,15 +142,15 @@ The Cloud Foundry API endpoint is required so that you can log on to your SAP BT
 
 2. Run the following command to configure which Cloud Foundry environment you want to connect to in the terminal. **Replace** `<CF_API_ENDPOINT>` with the actual value you obtained in the previous step.
 
-    ```Shell/Bash
-    cf api <CF_API_ENDPOINT>
-    ```
+   ```Shell/Bash
+   cf api <CF_API_ENDPOINT>
+   ```
 
 3. Authenticate using your login credentials using the following command in the terminal:
 
-    ```Shell/Bash
-    cf login
-    ```
+   ```Shell/Bash
+   cf login
+   ```
 
 ### Deploy using cf deploy
 
@@ -160,9 +160,9 @@ The MBT Build tool uses the `mta.yaml` file that has been created using `cds add
 
 1. In the root of your project, execute the following command to build the archive.
 
-    ```Shell/Bash
-    mbt build -t gen --mtar mta.mtar
-    ```
+   ```Shell/Bash
+   mbt build -t gen --mtar mta.mtar
+   ```
 
     > For this you need the MBT Build Tool, which SAP Business Application Studio has already installed.
 
@@ -170,9 +170,9 @@ The MBT Build tool uses the `mta.yaml` file that has been created using `cds add
 
 2. Deploy the archive using `cf deploy`.
 
-    ```Shell/Bash
-    cf deploy gen/mta.mtar
-    ```
+   ```Shell/Bash
+   cf deploy gen/mta.mtar
+   ```
 
     > For this you need the MultiApps CF CLI plugin, which SAP Business Application Studio has already installed.
 
@@ -184,9 +184,9 @@ The MBT Build tool uses the `mta.yaml` file that has been created using `cds add
 
 3. In the deploy log, find the application URL of `bookstore`:
 
-    ```Shell/Bash
-    Application "bookstore" started and available at "[org]-[space]-bookstore.cfapps.[region].hana.ondemand.com"
-    ```
+   ```Shell/Bash
+   Application "bookstore" started and available at "[org]-[space]-bookstore.cfapps.[region].hana.ondemand.com"
+   ```
 
     This is the URL of the AppRouter, which enforces the authentication flow.
 

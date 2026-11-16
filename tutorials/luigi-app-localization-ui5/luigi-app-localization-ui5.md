@@ -24,45 +24,45 @@ In this step, you will add a function to get the current language from Luigi Cli
 
  1. Open the `ui5-mf/webapp/controller/Main.controller.js` file and replace its content with the code below:
 
-    ```js
-    sap.ui.define([
-        "luigi/ui5/controller/BaseController",
-        "sap/ui/model/json/JSONModel",
-        "sap/base/i18n/Localization"
-    ], function (Controller, JSONModel, Localization) {
-        "use strict";
+   ```js
+   sap.ui.define([
+       "luigi/ui5/controller/BaseController",
+       "sap/ui/model/json/JSONModel",
+       "sap/base/i18n/Localization"
+   ], function (Controller, JSONModel, Localization) {
+       "use strict";
 
-        return Controller.extend("luigi.ui5.controller.Main", {
-            onInit: function () {
-                const oModel = new JSONModel();
+       return Controller.extend("luigi.ui5.controller.Main", {
+           onInit: function () {
+               const oModel = new JSONModel();
 
-                oModel.loadData(sap.ui.require.toUrl("luigi/ui5/model/products.json"));
-                this.getView().setModel(oModel);
+               oModel.loadData(sap.ui.require.toUrl("luigi/ui5/model/products.json"));
+               this.getView().setModel(oModel);
 
-                const updateCurrentLanguage = () => {
-                    const currentLanguage = LuigiClient.uxManager().getCurrentLocale();
-                    Localization.setLanguage(currentLanguage || "en-US");
-                };
-                this._initListener = LuigiClient.addInitListener(updateCurrentLanguage);
-                this._contextUpdateListener = LuigiClient.addContextUpdateListener(updateCurrentLanguage);
-            },
+               const updateCurrentLanguage = () => {
+                   const currentLanguage = LuigiClient.uxManager().getCurrentLocale();
+                   Localization.setLanguage(currentLanguage || "en-US");
+               };
+               this._initListener = LuigiClient.addInitListener(updateCurrentLanguage);
+               this._contextUpdateListener = LuigiClient.addContextUpdateListener(updateCurrentLanguage);
+           },
 
-            onExit: function () {
-                LuigiClient.removeInitListener(this._initListener);
-                LuigiClient.removeContextUpdateListener(this._contextUpdateListener);
-            },
+           onExit: function () {
+               LuigiClient.removeInitListener(this._initListener);
+               LuigiClient.removeContextUpdateListener(this._contextUpdateListener);
+           },
 
-            onListItemPress: async function (oEvent) {
-                const id = oEvent.getSource().getBindingContext().getProperty("id");
-                // Works with both synchronous and asynchronous ResourceModels.
-                const bundle = await this.getView().getModel("i18n").getResourceBundle();
-                const title = bundle.getText("ModalText");
+           onListItemPress: async function (oEvent) {
+               const id = oEvent.getSource().getBindingContext().getProperty("id");
+               // Works with both synchronous and asynchronous ResourceModels.
+               const bundle = await this.getView().getModel("i18n").getResourceBundle();
+               const title = bundle.getText("ModalText");
 
-                LuigiClient.linkManager().openAsModal('/home/products/' + id, { title: title, size: 'm' });
-            }
-        });
-    });
-    ```
+               LuigiClient.linkManager().openAsModal('/home/products/' + id, { title: title, size: 'm' });
+           }
+       });
+   });
+   ```
 
 
 ### Add files with multi-language content
@@ -72,21 +72,21 @@ In this step, you will create files with the text that is to be changed within t
 
 1. Find the ​`i18n`​ folder inside ​`webapp`.  Open (or create) a file called `i18n_de.properties` with the following content:
 
-    ```json
-    ModalText = Produktdetails
-    Quantity = Anzahl
-    appTitle = ui5
-    appDescription = Deutsch
-    ```
+   ```json
+   ModalText = Produktdetails
+   Quantity = Anzahl
+   appTitle = ui5
+   appDescription = Deutsch
+   ```
 
 2. Open (or create) a file called `i18n_en.properties` with the following content:
 
-    ```json
-    ModalText = Product Details
-    appTitle = ui5
-    appDescription = English
-    Quantity = Quantity
-    ```
+   ```json
+   ModalText = Product Details
+   appTitle = ui5
+   appDescription = English
+   Quantity = Quantity
+   ```
 
 
 3. Replace the content of the default `ui5-mf/webapp/i18n/i18n.properties` with the English content from step 2 so that the new keys also exist in the fallback bundle.
@@ -112,21 +112,21 @@ In this step, you will create files with the text that is to be changed within t
 
 1. Edit the `ui5-mf/webapp/index.html` file by adding the default language (EN):
 
-    ```HTML
-    <script
-        id="sap-ui-bootstrap"
-        src="resources/sap-ui-core.js"
-        data-sap-ui-language='en-US'
-        data-sap-ui-resource-roots='{
-                "luigi.ui5": "./"
-            }'
-        data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
-        data-sap-ui-compat-version="edge"
-        data-sap-ui-frame-options="allow"
-        data-sap-ui-preload=""
-        data-sap-ui-async="true"
-    ></script>
-    ```
+   ```HTML
+   <script
+       id="sap-ui-bootstrap"
+       src="resources/sap-ui-core.js"
+       data-sap-ui-language='en-US'
+       data-sap-ui-resource-roots='{
+               "luigi.ui5": "./"
+           }'
+       data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
+       data-sap-ui-compat-version="edge"
+       data-sap-ui-frame-options="allow"
+       data-sap-ui-preload=""
+       data-sap-ui-async="true"
+   ></script>
+   ```
 
 
 ### Provide translation in UI5
@@ -136,9 +136,9 @@ This step involves the standard process in UI5 for providing translation.
 
 1. Edit the ​`ui5-mf/webapp/view/Main.view.xml` ​file by marking the translated target text. Replace the `<ObjectAttribute>` tag with:
 
-    ```XML
-    <ObjectAttribute text="{i18n>Quantity}: {orderQuantity}" />
-    ```
+   ```XML
+   <ObjectAttribute text="{i18n>Quantity}: {orderQuantity}" />
+   ```
 
 
 ### Run completed app
@@ -148,27 +148,27 @@ Now, your app should be complete and you can run it locally to see if everything
 
 1. Navigate to the React app and run it:
 
-    ```Shell
-    cd react-core-mf
-    ```
+   ```Shell
+   cd react-core-mf
+   ```
 
     and:
 
-    ```Shell
-    npm start
-    ```
+   ```Shell
+   npm start
+   ```
 
 2. In another window, navigate to the UI5 micro-frontend and run it:
 
-    ```Shell
-    cd ui5-mf
-    ```
+   ```Shell
+   cd ui5-mf
+   ```
 
     and:
 
-    ```Shell
-    npm start
-    ```
+   ```Shell
+   npm start
+   ```
 
 3. See your completed app at `http://localhost:3000/`. Check these tutorial outcomes:
 

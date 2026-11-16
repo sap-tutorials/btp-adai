@@ -38,21 +38,21 @@ From the products service that you created in the previous tutorial, we just wan
 
 2. Before adding the `bookstore` project, we need to make sure that you are in the projects folder. Both projects (`products-service` and `bookstore`) should be placed next to each other. Run the following command in the newly created terminal to go back to the projects folder:
 
-    ```Shell/Bash
-    cd ~/projects
-    ```
+   ```Shell/Bash
+   cd ~/projects
+   ```
 
 3. Now that you are in the correct folder, run the following command:
 
-    ```Shell/Bash
-    cds init bookstore --add java
-    ```
+   ```Shell/Bash
+   cds init bookstore --add java
+   ```
 
 4. To open the bookstore project in a new workspace go to **File** **&rarr;** **Open Folder**.
 
 5. Choose **bookstore** from the project list and then **OK**.
 
-    <!-- border -->![open the bookstore application](open-bookstore.png)
+    ![open the bookstore application](open-bookstore.png)
 
     > If you see a notification asking if you want to synchronize the `Java classpath/configuration`, choose **Always**.
 
@@ -68,17 +68,17 @@ First, we need to simulate a release of the `product-service` module, and consum
 
 1. From the main menu of SAP Business Application Studio, choose **Terminal** **&rarr;** **New Terminal**. Change into the bookstore directory by executing the following command in the terminal:
 
-    ```Shell/Bash
-    cd ~/projects/bookstore
-    ```
+   ```Shell/Bash
+   cd ~/projects/bookstore
+   ```
 
     > This step is optional if you are already in the right directory.
 
 2. Install the reusable service project as npm dependency:
 
-    ```Shell/Bash
-    npm install $(npm pack ../products-service -s)
-    ```
+   ```Shell/Bash
+   npm install $(npm pack ../products-service -s)
+   ```
 
     > `npm pack` creates a tarball from the `products-service`, which is then directly used as a dependency in the bookstore application. Learn more about [`npm pack`](https://docs.npmjs.com/cli-commands/pack.html).
 
@@ -86,13 +86,13 @@ First, we need to simulate a release of the `product-service` module, and consum
 
 3. Install all other packages and simplify the overall dependency structure using [`npm dedupe`](https://docs.npmjs.com/cli/dedupe):
 
-    ```Shell/Bash
-    npm install && npm dedupe
-    ```
+   ```Shell/Bash
+   npm install && npm dedupe
+   ```
 
     If you open the `package.json` of your bookstore project, you will see a dependency to `@sap/capire-products`.
 
-    <!-- border -->![dependency to tutorial products as tarball in package.json](tarball-dependency.png)
+    ![dependency to tutorial products as tarball in package.json](tarball-dependency.png)
 
 ### Define bookstore domain model
 
@@ -102,38 +102,38 @@ Now that you have created your bookstore project, you need to define the domain 
 
 2. Add the following code to your newly created `schema.cds` file and make sure you **Save** the file:
 
-    ```CDS
-    namespace sap.capire.bookstore;
+   ```CDS
+   namespace sap.capire.bookstore;
 
-    using { Currency, cuid, managed }      from '@sap/cds/common';
-    using { sap.capire.products.Products } from '@sap/capire-products';
+   using { Currency, cuid, managed }      from '@sap/cds/common';
+   using { sap.capire.products.Products } from '@sap/capire-products';
 
-    entity Books as projection on Products; extend Products with {
-        // Note: we map Books to Products to allow reusing AdminService as is
-        author : Association to Authors;
-    }
+   entity Books as projection on Products; extend Products with {
+       // Note: we map Books to Products to allow reusing AdminService as is
+       author : Association to Authors;
+   }
 
-    entity Authors : cuid {
-        firstname : String(111);
-        lastname  : String(111);
-        books     : Association to many Books on books.author = $self;
-    }
+   entity Authors : cuid {
+       firstname : String(111);
+       lastname  : String(111);
+       books     : Association to many Books on books.author = $self;
+   }
 
-    @Capabilities.Updatable: false
-    entity Orders : cuid, managed {
-        items    : Composition of many OrderItems on items.parent = $self;
-        total    : Decimal(9,2) @readonly;
-        currency : Currency;
-    }
+   @Capabilities.Updatable: false
+   entity Orders : cuid, managed {
+       items    : Composition of many OrderItems on items.parent = $self;
+       total    : Decimal(9,2) @readonly;
+       currency : Currency;
+   }
 
-    @Capabilities.Updatable: false
-    entity OrderItems : cuid {
-        parent    : Association to Orders not null;
-        book_ID   : UUID;
-        amount    : Integer;
-        netAmount : Decimal(9,2) @readonly;
-    }
-    ```
+   @Capabilities.Updatable: false
+   entity OrderItems : cuid {
+       parent    : Association to Orders not null;
+       book_ID   : UUID;
+       amount    : Integer;
+       netAmount : Decimal(9,2) @readonly;
+   }
+   ```
 
 The domain model defines four entities:
 
@@ -159,27 +159,27 @@ You will now define the services, that should expose the entities you have defin
 
 2. Add the following code to the `services.cds` file and make sure you **Save** the file:
 
-    ```CDS
-    using { sap.capire.bookstore as db } from '../db/schema';
+   ```CDS
+   using { sap.capire.bookstore as db } from '../db/schema';
 
-    // Define Books Service
-    service BooksService {
-        @readonly entity Books as projection   on db.Books { *, category as genre } excluding { category, createdBy, createdAt, modifiedBy, modifiedAt };
-        @readonly entity Authors as projection on db.Authors;
-    }
+   // Define Books Service
+   service BooksService {
+       @readonly entity Books as projection   on db.Books { *, category as genre } excluding { category, createdBy, createdAt, modifiedBy, modifiedAt };
+       @readonly entity Authors as projection on db.Authors;
+   }
 
-    // Define Orders Service
-    service OrdersService {
-        entity Orders as projection on db.Orders;
-        entity OrderItems as projection on db.OrderItems;
-    }
+   // Define Orders Service
+   service OrdersService {
+       entity Orders as projection on db.Orders;
+       entity OrderItems as projection on db.OrderItems;
+   }
 
-    // Reuse Admin Service
-    using { AdminService } from '@sap/capire-products';
-    extend service AdminService with {
-        entity Authors as projection on db.Authors;
-    }
-    ```
+   // Reuse Admin Service
+   using { AdminService } from '@sap/capire-products';
+   extend service AdminService with {
+       entity Authors as projection on db.Authors;
+   }
+   ```
 
 The `services.cds` file defines three services:
 
@@ -205,45 +205,45 @@ After defining the domain model and the services that you want to expose, you co
 
 2. Go to the data folder by running the following command in the terminal:
 
-    ```Shell/Bash
-    cd ~/projects/bookstore/db/data
-    ```
+   ```Shell/Bash
+   cd ~/projects/bookstore/db/data
+   ```
 
 3. Download CSV data for the Authors entity by running the following command in the terminal:
 
-    ```Shell/Bash
-    curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.bookstore-Authors.csv -O
-    ```
+   ```Shell/Bash
+   curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.bookstore-Authors.csv -O
+   ```
 
 4. Download CSV data for the Books entity by running the following command in the terminal:
 
-    ```Shell/Bash
-    curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.bookstore-Books.csv -O
-    ```
+   ```Shell/Bash
+   curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.bookstore-Books.csv -O
+   ```
 
 5. Rename it with the following command:
 
-    ```Shell/Bash
-    mv sap.capire.bookstore-Books.csv sap.capire.products-Products.csv
-    ```
+   ```Shell/Bash
+   mv sap.capire.bookstore-Books.csv sap.capire.products-Products.csv
+   ```
 
 6. Download translated CSV data for the Books entity by running the following command in the terminal:
 
-    ```Shell/Bash
-    curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.bookstore-Books_texts.csv -O
-    ```
+   ```Shell/Bash
+   curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.bookstore-Books_texts.csv -O
+   ```
 
 7. Rename it with the following command:
 
-    ```Shell/Bash
-    mv sap.capire.bookstore-Books_texts.csv sap.capire.products-Products_texts.csv
-    ```
+   ```Shell/Bash
+   mv sap.capire.bookstore-Books_texts.csv sap.capire.products-Products_texts.csv
+   ```
 
 8. Download CSV data for the Categories entity by running the following command in the terminal:
 
-    ```Shell/Bash
-    curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.products-Categories.csv -O
-    ```
+   ```Shell/Bash
+   curl https://raw.githubusercontent.com/SAP-samples/cloud-cap-samples/CAA160-final/bookstore/db/data/sap.capire.products-Categories.csv -O
+   ```
 
     You should now have 4 CSV files with sample data. The files deliver initial data for the service that we reuse and for one entity that we created in the `bookstore` service:
 
@@ -258,17 +258,17 @@ After defining the domain model and the services that you want to expose, you co
 
 1. In the terminal, go to the root of the bookstore project:
 
-    ```Shell/Bash
-    cd ~/projects/bookstore
-    ```
+   ```Shell/Bash
+   cd ~/projects/bookstore
+   ```
 
 2. Ensure that you have stopped all previously running applications (including the `products-service` application) by using **`CTRL+C`**.
 
 3. Start the application by running:
 
-    ```Shell/Bash
-    mvn spring-boot:run
-    ```
+   ```Shell/Bash
+   mvn spring-boot:run
+   ```
 
 4. You will see a pop-up in the SAP Business Application Studio. Choose **Open in a New Tab**.
 
@@ -276,7 +276,7 @@ After defining the domain model and the services that you want to expose, you co
 
     > Instead of clicking on the Books entry on the welcome page, you could simple add `/odata/v4/BooksService/Books` to the URL.
 
-    <!-- border -->![data for books entity](books-data.png)
+    ![data for books entity](books-data.png)
 
 6. To read the localized German example data, append the query parameter `?sap-locale=de` to the URL. For example, `<APP_URL>/odata/v4/BooksService/Books?sap-locale=de`. Try to switch the language between German (`de`) and English (`en`).
 

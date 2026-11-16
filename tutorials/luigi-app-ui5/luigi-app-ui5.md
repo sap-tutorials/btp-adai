@@ -24,29 +24,29 @@ In this step, you will import Luigi Client to the UI5 micro-frontend so you can 
 
 1. Open `ui5-mf/webapp/index.html` and add this line in the head section of the file:
 
-    ```HTML
-    <!--Inside the head tag -->
-    <script src="https://unpkg.com/@luigi-project/client@2.33.0/luigi-client.js"></script>
-    ```
+   ```HTML
+   <!--Inside the head tag -->
+   <script src="https://unpkg.com/@luigi-project/client@2.33.0/luigi-client.js"></script>
+   ```
 
 2. In the same file, change the bootstrap option from `data-sap-ui-frame-options="trusted"` to `data-sap-ui-frame-options="allow"`. Directly below, add `data-sap-ui-preload=""`. Note that the UI5 generator uses local resources (`src="resources/sap-ui-core.js"`) and hyphenated bootstrap attributes, so your generated file should look like this afterwards:
 
-    ```HTML
-    <script
-        id="sap-ui-bootstrap"
-        src="resources/sap-ui-core.js"
-        data-sap-ui-resource-roots='{
-                "luigi.ui5": "./"
-            }'
-        data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
-        data-sap-ui-compat-version="edge"
+   ```HTML
+   <script
+       id="sap-ui-bootstrap"
+       src="resources/sap-ui-core.js"
+       data-sap-ui-resource-roots='{
+               "luigi.ui5": "./"
+           }'
+       data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
+       data-sap-ui-compat-version="edge"
 
-        data-sap-ui-frame-options="allow"
-        data-sap-ui-preload=""
+       data-sap-ui-frame-options="allow"
+       data-sap-ui-preload=""
 
-        data-sap-ui-async="true"
-    ></script>
-    ```
+       data-sap-ui-async="true"
+   ></script>
+   ```
 
 
 ### Create "Order History" view
@@ -56,81 +56,81 @@ In this step, you will add a new navigation node in Luigi config hosted in the R
 
 1. Add an "Order History" node to your Luigi navigation in `react-core-mf/public/luigi-config.js`:
 
-    ```JavaScript
-    children: [
-              {
-                pathSegment: "products",
-                label: "Products",
-                icon: "product",
-                viewUrl: "/sampleapp.html#/microfrontend/products",
-                keepSelectedForChildren: true,
-                children: [{
-                    pathSegment: ':id',
-                    viewUrl: '/sampleapp.html#/microfrontend/productDetail/:id',
-                    context: { id: ':id' }
-                }]
-            }, // <--- Don't forget to add a comma here ---> 
-            //<---Add the section below to the Luigi config--->
-            {
-                pathSegment: 'order',
-                label: 'Order History',
-                icon: 'history',
-                viewUrl: 'http://localhost:8080/index.html'
-            }
-            //<------>
-          ],
-    ```
+   ```JavaScript
+   children: [
+             {
+               pathSegment: "products",
+               label: "Products",
+               icon: "product",
+               viewUrl: "/sampleapp.html#/microfrontend/products",
+               keepSelectedForChildren: true,
+               children: [{
+                   pathSegment: ':id',
+                   viewUrl: '/sampleapp.html#/microfrontend/productDetail/:id',
+                   context: { id: ':id' }
+               }]
+           }, // <--- Don't forget to add a comma here ---> 
+           //<---Add the section below to the Luigi config--->
+           {
+               pathSegment: 'order',
+               label: 'Order History',
+               icon: 'history',
+               viewUrl: 'http://localhost:8080/index.html'
+           }
+           //<------>
+         ],
+   ```
 
 2. Open the `ui5-mf/webapp/view/Main.view.xml` file in your UI5 app, and replace the content with:
 
-    ```XML
-    <mvc:View controllerName="luigi.ui5.controller.Main"
-      displayBlock="true"
-      xmlns="sap.m"
-      xmlns:mvc="sap.ui.core.mvc">
-      <List
-        items="{/ProductCollection}">
-        <ObjectListItem
-          title="{name}"
-          type="Active"
-          press="onListItemPress"
-          number="{
-            parts:[{path:'price'},{path:'currencyCode'}],
-            type: 'sap.ui.model.type.Currency',
-            formatOptions: {showMeasure: false}
-          }"
-          numberUnit="{currencyCode}">
-          <ObjectAttribute text="Quantity: {orderQuantity}" />
-        </ObjectListItem>
-      </List>
-    </mvc:View>
-    ```
+   ```XML
+   <mvc:View controllerName="luigi.ui5.controller.Main"
+     displayBlock="true"
+     xmlns="sap.m"
+     xmlns:mvc="sap.ui.core.mvc">
+     <List
+       items="{/ProductCollection}">
+       <ObjectListItem
+         title="{name}"
+         type="Active"
+         press="onListItemPress"
+         number="{
+           parts:[{path:'price'},{path:'currencyCode'}],
+           type: 'sap.ui.model.type.Currency',
+           formatOptions: {showMeasure: false}
+         }"
+         numberUnit="{currencyCode}">
+         <ObjectAttribute text="Quantity: {orderQuantity}" />
+       </ObjectListItem>
+     </List>
+   </mvc:View>
+   ```
 
 3. Open `ui5-mf/webapp/controller/Main.controller.js` and replace it with:
 
-    ```JavaScript
-    sap.ui.define([
-        "luigi/ui5/controller/BaseController",
-        "sap/ui/model/json/JSONModel"
-    ], function (Controller, JSONModel) {
-        "use strict";
+   ```JavaScript
+   sap.ui.define([
+       "luigi/ui5/controller/BaseController",
+       "sap/ui/model/json/JSONModel"
+   ], function (Controller, JSONModel) {
+       "use strict";
 
-        return Controller.extend("luigi.ui5.controller.Main", {
-            onInit: function () {
-                const oModel = new JSONModel();
+       return Controller.extend("luigi.ui5.controller.Main", {
+           onInit: function () {
+               const oModel = new JSONModel();
 
-                oModel.loadData(sap.ui.require.toUrl("luigi/ui5/model/products.json"));
-                this.getView().setModel(oModel);
-            },
+               oModel.loadData(sap.ui.require.toUrl("luigi/ui5/model/products.json"));
+               this.getView().setModel(oModel);
+           },
 
-            onListItemPress: function (oEvent) {
-                const id = oEvent.getSource().getBindingContext().getProperty("id");
+           onListItemPress: function (oEvent) {
+               const id = oEvent.getSource().getBindingContext().getProperty("id");
 
-                LuigiClient.linkManager().openAsModal('/home/products/' + id, { title: 'Product Detail', size: 'm' });
-            }
-        });
-    });
-    ```
+               LuigiClient.linkManager().openAsModal('/home/products/' + id, { title: 'Product Detail', size: 'm' });
+           }
+       });
+   });
+   ```
 
 4. Navigate to `ui5-mf/webapp/model` and create a `products.json` file with the following content.
 

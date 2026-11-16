@@ -33,7 +33,7 @@ First of all, a new Java class for your event handler methods needs to be define
 
 2. Go to `srv/src/main/java/customer/bookstore` and create a new folder called `handlers`.
 
-    <!-- border -->![handlers package](handlers-package.png)
+    ![handlers package](handlers-package.png)
 
 3. In the created package, create the `OrdersService.java` file with the following content and make sure you **Save** the file:
 
@@ -53,7 +53,7 @@ public class OrdersService implements EventHandler {
 }
 ```
 
-<!-- border -->![OrdersService class overview](ordersservice-class.png)
+![OrdersService class overview](ordersservice-class.png)
 
 > If you see validation errors in your editor, open the context menu on your `pom.xml` in the `srv` directory and select **Reload Project**. That regenerates the classes and makes them available.
 
@@ -63,67 +63,67 @@ You will now add a method to the `OrdersService` Java class to decrease the stoc
 
 1. Add the following code to your `OrdersService` Java class and make sure you **Save** the file:
 
-    ```Java
-    @Autowired
-    PersistenceService db;
+   ```Java
+   @Autowired
+   PersistenceService db;
 
-    @Before(event = CqnService.EVENT_CREATE, entity = OrderItems_.CDS_NAME)
-    public void validateBookAndDecreaseStock(List<OrderItems> items) {
-        for (OrderItems item : items) {
-            String bookId = item.getBookId();
-            Integer amount = item.getAmount();
+   @Before(event = CqnService.EVENT_CREATE, entity = OrderItems_.CDS_NAME)
+   public void validateBookAndDecreaseStock(List<OrderItems> items) {
+       for (OrderItems item : items) {
+           String bookId = item.getBookId();
+           Integer amount = item.getAmount();
 
-            // check if the book that should be ordered is existing
-            CqnSelect sel = Select.from(Books_.class).columns(b -> b.stock()).where(b -> b.ID().eq(bookId));
-            Books book = db.run(sel).first(Books.class)
-                    .orElseThrow(() -> new ServiceException(ErrorStatuses.NOT_FOUND, "Book does not exist"));
+           // check if the book that should be ordered is existing
+           CqnSelect sel = Select.from(Books_.class).columns(b -> b.stock()).where(b -> b.ID().eq(bookId));
+           Books book = db.run(sel).first(Books.class)
+                   .orElseThrow(() -> new ServiceException(ErrorStatuses.NOT_FOUND, "Book does not exist"));
 
-            // check if order could be fulfilled
-            int stock = book.getStock();
-            if (stock < amount) {
-                throw new ServiceException(ErrorStatuses.BAD_REQUEST, "Not enough books on stock");
-            }
+           // check if order could be fulfilled
+           int stock = book.getStock();
+           if (stock < amount) {
+               throw new ServiceException(ErrorStatuses.BAD_REQUEST, "Not enough books on stock");
+           }
 
-            // update the book with the new stock, means minus the order amount
-            book.setStock(stock - amount);
-            CqnUpdate update = Update.entity(Books_.class).data(book).where(b -> b.ID().eq(bookId));
-            db.run(update);
-        }
-    }
+           // update the book with the new stock, means minus the order amount
+           book.setStock(stock - amount);
+           CqnUpdate update = Update.entity(Books_.class).data(book).where(b -> b.ID().eq(bookId));
+           db.run(update);
+       }
+   }
 
-    @Before(event = CqnService.EVENT_CREATE, entity = Orders_.CDS_NAME)
-    public void validateBookAndDecreaseStockViaOrders(List<Orders> orders) {
-        for (Orders order : orders) {
-            if (order.getItems() != null) {
-                validateBookAndDecreaseStock(order.getItems());
-            }
-        }
-    }
-    ```
+   @Before(event = CqnService.EVENT_CREATE, entity = Orders_.CDS_NAME)
+   public void validateBookAndDecreaseStockViaOrders(List<Orders> orders) {
+       for (Orders order : orders) {
+           if (order.getItems() != null) {
+               validateBookAndDecreaseStock(order.getItems());
+           }
+       }
+   }
+   ```
 
 2. Add the following import statements to the top of the `OrdersService` Java class and make sure you **Save** the file:
 
-    ```Java
-    import java.util.List;
-    import org.springframework.beans.factory.annotation.Autowired;
+   ```Java
+   import java.util.List;
+   import org.springframework.beans.factory.annotation.Autowired;
 
-    import com.sap.cds.ql.Select;
-    import com.sap.cds.ql.Update;
-    import com.sap.cds.ql.cqn.CqnSelect;
-    import com.sap.cds.ql.cqn.CqnUpdate;
-    import com.sap.cds.services.ErrorStatuses;
-    import com.sap.cds.services.ServiceException;
-    import com.sap.cds.services.cds.CqnService;
-    import com.sap.cds.services.handler.annotations.Before;
-    import com.sap.cds.services.persistence.PersistenceService;
+   import com.sap.cds.ql.Select;
+   import com.sap.cds.ql.Update;
+   import com.sap.cds.ql.cqn.CqnSelect;
+   import com.sap.cds.ql.cqn.CqnUpdate;
+   import com.sap.cds.services.ErrorStatuses;
+   import com.sap.cds.services.ServiceException;
+   import com.sap.cds.services.cds.CqnService;
+   import com.sap.cds.services.handler.annotations.Before;
+   import com.sap.cds.services.persistence.PersistenceService;
 
-    import cds.gen.ordersservice.OrderItems;
-    import cds.gen.ordersservice.OrderItems_;
-    import cds.gen.ordersservice.Orders;
-    import cds.gen.ordersservice.Orders_;
-    import cds.gen.sap.capire.bookstore.Books;
-    import cds.gen.sap.capire.bookstore.Books_;
-    ```
+   import cds.gen.ordersservice.OrderItems;
+   import cds.gen.ordersservice.OrderItems_;
+   import cds.gen.ordersservice.Orders;
+   import cds.gen.ordersservice.Orders_;
+   import cds.gen.sap.capire.bookstore.Books;
+   import cds.gen.sap.capire.bookstore.Books_;
+   ```
 
 Let's break down what is happening:
 
@@ -219,13 +219,13 @@ If your `OrdersService.java` file still shows some errors right-click on the `po
 
 2. Choose the **Run Configuration** icon on the side panel of SAP Business Application Studio.
 
-    <!-- border -->![select the run configurations item](run-configurations.png)
+    ![select the run configurations item](run-configurations.png)
 
 3. Choose the **Create Configuration** icon (plus sign) and select **`Bookstore`** as your project to run. Choose **Enter** to confirm the name.
 
 4. Click the green arrow to start the application.
 
-    <!-- border -->![start run configuration](start-runconfiguration.png)
+    ![start run configuration](start-runconfiguration.png)
 
     You should see the application starting in the **Debug Console**.
 
@@ -233,21 +233,21 @@ If your `OrdersService.java` file still shows some errors right-click on the `po
 
 6. Enter the following content in the file:
 
-    ```HTTP
-    ### Create Order
+   ```HTTP
+   ### Create Order
 
-    POST http://localhost:8080/odata/v4/OrdersService/Orders
-    Content-Type: application/json
+   POST http://localhost:8080/odata/v4/OrdersService/Orders
+   Content-Type: application/json
 
-    {
-      "items": [
-        {
-          "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
-          "amount": 2
-        }
-      ]
-    }
-    ```
+   {
+     "items": [
+       {
+         "book_ID": "abed2f7a-c50e-4bc5-89fd-9a00a54b4b16",
+         "amount": 2
+       }
+     ]
+   }
+   ```
 
 7. Choose **Send Request** to execute the request.
 
@@ -255,12 +255,12 @@ If your `OrdersService.java` file still shows some errors right-click on the `po
 
       You can also add `/odata/v4/BooksService/Books` to the end of your app URL. Remember the app URL is the URL created when you run your application.  You may also combine the requests in the file you have created by adding a second request at the end of the file:
 
-    ```HTTP
-    ### Read Book
+   ```HTTP
+   ### Read Book
 
-    GET http://localhost:8080/odata/v4/BooksService/Books(abed2f7a-c50e-4bc5-89fd-9a00a54b4b16)
-    Accept: application/json
-    ```
+   GET http://localhost:8080/odata/v4/BooksService/Books(abed2f7a-c50e-4bc5-89fd-9a00a54b4b16)
+   Accept: application/json
+   ```
 
 9. Choose **Send Request** above the second request to execute the request. You will see the current stock of the book you are ordering.
 
@@ -274,28 +274,28 @@ Next, let's add a method to the `OrdersService` Java class to calculate the `net
 
 1. Add the following code to the class and make sure you **Save** the file:
 
-    ```Java
-    @After(event = { CqnService.EVENT_READ, CqnService.EVENT_CREATE }, entity = OrderItems_.CDS_NAME)
-    public void calculateNetAmount(List<OrderItems> items) {
-        for (OrderItems item : items) {
-            String bookId = item.getBookId();
+   ```Java
+   @After(event = { CqnService.EVENT_READ, CqnService.EVENT_CREATE }, entity = OrderItems_.CDS_NAME)
+   public void calculateNetAmount(List<OrderItems> items) {
+       for (OrderItems item : items) {
+           String bookId = item.getBookId();
 
-            // get the book that was ordered
-            CqnSelect sel = Select.from(Books_.class).where(b -> b.ID().eq(bookId));
-            Books book = db.run(sel).single(Books.class);
+           // get the book that was ordered
+           CqnSelect sel = Select.from(Books_.class).where(b -> b.ID().eq(bookId));
+           Books book = db.run(sel).single(Books.class);
 
-            // calculate and set net amount
-            item.setNetAmount(book.getPrice().multiply(new BigDecimal(item.getAmount())));
-        }
-    }
-    ```
+           // calculate and set net amount
+           item.setNetAmount(book.getPrice().multiply(new BigDecimal(item.getAmount())));
+       }
+   }
+   ```
 
 2. Add the following import statements to the top of the `OrdersService` Java class and make sure you **Save** the file:
 
-    ```Java
-    import java.math.BigDecimal;
-    import com.sap.cds.services.handler.annotations.After;
-    ```
+   ```Java
+   import java.math.BigDecimal;
+   import com.sap.cds.services.handler.annotations.After;
+   ```
 
 Let's break it down again:
 
@@ -313,31 +313,31 @@ Finally, add a method to the `OrdersService` Java class to calculate the `total`
 
 1. Add the following code to the class and make sure you **Save** the file:
 
-    ```Java
-    @After(event = { CqnService.EVENT_READ, CqnService.EVENT_CREATE }, entity = Orders_.CDS_NAME)
-    public void calculateTotal(List<Orders> orders) {
-        for (Orders order : orders) {
-            // calculate net amount for expanded items
-            if(order.getItems() != null) {
-                calculateNetAmount(order.getItems());
-            }
+   ```Java
+   @After(event = { CqnService.EVENT_READ, CqnService.EVENT_CREATE }, entity = Orders_.CDS_NAME)
+   public void calculateTotal(List<Orders> orders) {
+       for (Orders order : orders) {
+           // calculate net amount for expanded items
+           if(order.getItems() != null) {
+               calculateNetAmount(order.getItems());
+           }
 
-            // get all items of the order
-            CqnSelect selItems = Select.from(OrderItems_.class).where(i -> i.parent().ID().eq(order.getId()));
-            List<OrderItems> allItems = db.run(selItems).listOf(OrderItems.class);
+           // get all items of the order
+           CqnSelect selItems = Select.from(OrderItems_.class).where(i -> i.parent().ID().eq(order.getId()));
+           List<OrderItems> allItems = db.run(selItems).listOf(OrderItems.class);
 
-            // calculate net amount of all items
-            calculateNetAmount(allItems);
+           // calculate net amount of all items
+           calculateNetAmount(allItems);
 
-            // calculate and set the orders total
-            BigDecimal total = new BigDecimal(0);
-            for(OrderItems item : allItems) {
-                total = total.add(item.getNetAmount());
-            }
-            order.setTotal(total);
-        }
-    }
-    ```
+           // calculate and set the orders total
+           BigDecimal total = new BigDecimal(0);
+           for(OrderItems item : allItems) {
+               total = total.add(item.getNetAmount());
+           }
+           order.setTotal(total);
+       }
+   }
+   ```
 
 Let's break down the code:
 
@@ -353,41 +353,41 @@ Let's break down the code:
 
 1. In SAP Business Application Studio stop your application if it's still running by clicking on the stop icon in the **Debug** side panel.
 
-    <!-- border -->![stop debugging button](stop-debug.png)
+    ![stop debugging button](stop-debug.png)
 
 2. Choose the **Run Configuration** icon on the side panel of SAP Business Application Studio.
 
-    <!-- border -->![select the run configurations item](run-configurations.png)
+    ![select the run configurations item](run-configurations.png)
 
 3. Click on the green arrow to start the application, which appears when you hover over the run configuration.
 
-    <!-- border -->![start run configuration](start-runconfiguration.png)
+    ![start run configuration](start-runconfiguration.png)
 
     You should see the application starting in the **Debug Console**.
 
 4. You will now test your application using some HTTP requests. Add a new request to the file `requests.http`:
 
-    ```HTTP
-    ### Create another Order
+   ```HTTP
+   ### Create another Order
 
-    POST http://localhost:8080/odata/v4/OrdersService/Orders
-    Content-Type: application/json
+   POST http://localhost:8080/odata/v4/OrdersService/Orders
+   Content-Type: application/json
 
-    {
-      "items": [
-        {
-          "book_ID": "fd0c5fda-8811-4e20-bcff-3a776abc290a",
-          "amount": 10
-        }
-      ]
-    }
-    ```
+   {
+     "items": [
+       {
+         "book_ID": "fd0c5fda-8811-4e20-bcff-3a776abc290a",
+         "amount": 10
+       }
+     ]
+   }
+   ```
 
 5. Choose **Send Request** to execute the request.
 
 6. From the index page, choose **Orders**. You will see that the `total` element is filled with the calculated value.
 
-    <!-- border -->![total calculated](total-calculated.png)
+    ![total calculated](total-calculated.png)
 
     >You can also add `/odata/v4/OrdersService/Orders` to the end of your app URL.
 
@@ -395,11 +395,11 @@ Let's break down the code:
 
     This expands the `Orders` with its `OrderItems`. You will see that the `netAmount` element of the `OrderItems` is calculated.
 
-    <!-- border -->![expand items of Order](expand-item.png)
+    ![expand items of Order](expand-item.png)
 
 8. Stop your application by clicking on the stop icon in the **Debug** side panel.
 
-    <!-- border -->![stop debugging button](stop-debug.png)
+    ![stop debugging button](stop-debug.png)
 
 Great job!
 

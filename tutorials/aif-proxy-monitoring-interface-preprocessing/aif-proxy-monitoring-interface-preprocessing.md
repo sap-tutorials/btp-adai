@@ -33,7 +33,7 @@ Go to **Customizing** for SAP Application Interface Framework (transaction code 
 
 Enable **Change** mode. Double-click the existing interface `FLBOOK` to open it and select the **Pre-Processing** flag.
 
-<!-- border -->![Define Interfaces](define-interface-preprocessing.png)
+![Define Interfaces](define-interface-preprocessing.png)
 
 **Save** your changes.
 
@@ -47,13 +47,13 @@ Enable **Change** mode. Double-click the existing interface `FLBOOK` to open it 
 
 3. Select **New Entries** and enter the root node of your interface structure, here **`SXIDAL_FBO_REQUEST`**.
 
-    <!-- border -->![Create New Source Structure](structure-mappings-source-structure.png)
+    ![Create New Source Structure](structure-mappings-source-structure.png)
 
 4. Select the new entry and double-click **Assign Destination Structure** in the menu on the left.
 
 5. Select **New Entries** and enter the **Number of Structure Mapping** **`10`**. As **Destination Structure**, enter the same root node of your interface structure, **`SXIDAL_FBO_REQUEST`**. Finally, select the **Move Corresponding Fields** flag.
 
-    <!-- border -->![Assign Destination Structures](structure-mappings-destination-structured.png)
+    ![Assign Destination Structures](structure-mappings-destination-structured.png)
 
 6. **Save** your changes.
 
@@ -64,7 +64,7 @@ Enable **Change** mode. Double-click the existing interface `FLBOOK` to open it 
 
 In **Message Maintenance** (transaction code `SE91`), create a new message class named **`ZDEMO_MESSAGE`**. In tab **Messages**, add a new message with the message short text **`Agency must not be empty`**.
 
-<!-- border -->![Create New Message Class](message-maintenance-create-class.png)
+![Create New Message Class](message-maintenance-create-class.png)
 
 **Save** your changes.
 
@@ -87,7 +87,7 @@ In **Message Maintenance** (transaction code `SE91`), create a new message class
 
 3. Press **Enter**. Because the check doesn't exist yet, you are asked to create the new check.
 
-    <!-- border -->![Add New Check](add-check-assign.png)
+    ![Add New Check](add-check-assign.png)
 
 4. **Save** the new entry.
 
@@ -99,7 +99,7 @@ In **Message Maintenance** (transaction code `SE91`), create a new message class
     | Error Message Class | **`ZDEMO_MESSAGE`**
     | Error Message Number | **`002`**
 
-    <!-- border -->![Define Check](add-check-define.png)
+    ![Define Check](add-check-define.png)
 
 6. Navigate to **Define Single Checks** and enter the following information for the single check:
 
@@ -108,7 +108,7 @@ In **Message Maintenance** (transaction code `SE91`), create a new message class
     | Check Description | Enter a meaningful description, for example **`Check agency not empty`**
     | Field Check | `Not Empty`
 
-    <!-- border -->![Define Single Checks](add-check-define-single.png)
+    ![Define Single Checks](add-check-define-single.png)
 
 7. **Save** your changes and close the new window.
 
@@ -122,7 +122,7 @@ In the upcoming dialog, enter namespace **`DEMO_2`**, interface **`FLBOOK`**, an
 
 Double-click **Define Changeable Fields** in the menu on the left. Add a new entry with **Index** number **`10`** and **Field Path** **`AGENCY_DATA-AGENCY_ID`**.
 
-<!-- border -->![Define Changeable Fields](define-changeable-fields.png)
+![Define Changeable Fields](define-changeable-fields.png)
 
 **Save** your changes.
 
@@ -136,27 +136,27 @@ After the setup is complete, you should test your settings and verify that the c
 
 Send in a new test message with an empty agency ID.
 
-<!-- border -->![New Test Message in Postman](test-postman.png)
+![New Test Message in Postman](test-postman.png)
 
 If you're using SAP GUI, check the results of your test in the **Interface Monitor** (transaction code **`/n/AIF/IFMON`**).
 
 When you select the summary line for your recipient, you're forwarded to **Monitoring and Error Handling**, where you can see your selected test message. It should be in status **Error** with the message text `Agency must not be empty`.
 
-<!-- border -->![Error Handling without Agency ID](test-error-handling-empty.png)
+![Error Handling without Agency ID](test-error-handling-empty.png)
 
 As you can see from the data, the field `AGENCY_ID` is empty. Since you defined the field as a changeable field in the previous step, you can fix the issue by maintaining a value for the empty field, here **`109`**. **Save** and restart the message.
 
-<!-- border -->![Error Handling with Agency ID](test-error-handling-agency.png)
+![Error Handling with Agency ID](test-error-handling-agency.png)
 
 Alternatively, if you have set up Message Monitoring in the SAP Fiori launchpad, you can check the test results there. For more information, see [How to configure the SAP Fiori Apps for SAP Application Interface Framework](https://blogs.sap.com/2021/11/04/how-to-configure-the-sap-fiori-apps-for-sap-application-interface-framework/).
 
 In the **Message Monitoring** app, select the message, switch to **Edit** mode, and change the agency ID. Save your changes.
 
-<!-- border -->![Message Monitoring Before Restart](test-message-monitoring.png)
+![Message Monitoring Before Restart](test-message-monitoring.png)
 
 Select **Restart**. After the restart, the message is processed successfully.
 
-<!-- border -->![Message Monitoring After Restart](test-message-monitoring-restart.png)
+![Message Monitoring After Restart](test-message-monitoring-restart.png)
 
 Congratulations! You have enhanced a proxy interface with preprocessing in SAP Application Interface Framework.  
 

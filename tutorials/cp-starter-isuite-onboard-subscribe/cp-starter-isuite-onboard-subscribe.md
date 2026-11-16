@@ -40,7 +40,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
   - Using this policy template, you define API access based on the OAuth client credentials grant method.
   - Finally, you invoke the API and get the product details in a response.
 
-  <!-- border -->![Use case](1-Set-up-integration-trial.png)
+  ![Use case](1-Set-up-integration-trial.png)
 
 ### Enter your trial account
 
@@ -63,15 +63,15 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 1. In your web browser, open the [SAP BTP trial cockpit](https://cockpit.hanatrial.ondemand.com/). Select the **Singapore - Azure** region.
    
-    <!-- border -->![Trial Region selection](2-3-Screenshot_AP21.png)
+    ![Trial Region selection](2-3-Screenshot_AP21.png)
 
 2. Navigate to the trial global account by choosing **Go To Your Trial Account**.
 
-    <!-- border -->![Trial global account](2-2-FoundationsCockpit_trial page.png)
+    ![Trial global account](2-2-FoundationsCockpit_trial page.png)
 
 3. From your global account page, choose the appropriate subaccount's tile to navigate.
 
-    <!-- border -->![Access Trial account](2-5-access_trial_account.png)
+    ![Access Trial account](2-5-access_trial_account.png)
 
 
 ### Subscribe to the service
@@ -80,7 +80,7 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 2. Choose **Create**.
 
-    <!-- border -->![Instances & Subscriptions](3-2-Instances&Subscriptions.png)
+    ![Instances & Subscriptions](3-2-Instances&Subscriptions.png)
 
 3. In the **New Instance or Subscription** dialog, choose **Integration Suite** from the list of services.
 
@@ -94,20 +94,20 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 4. Choose the default plan, **trial**, and then choose **Create**. You're now subscribed to the service.
 
-    <!-- border -->![Create Subscription](3-4-Create_Subscription.png)
+    ![Create Subscription](3-4-Create_Subscription.png)
 
 5. Select **Security** > **Users**. Choose the entry against your name. In the **Role Collections** section, select the Three-Dot-Icon and choose **Assign Role Collection**.
 
-    <!-- border -->![Assign Roles](3-6-Assign-Roles.png)
+    ![Assign Roles](3-6-Assign-Roles.png)
 
 6. In the dialog that appears, select **Integration_Provisioner**. Choose **Assign Role Collection**.
 
-    <!-- border -->![Assign Role Collection](3-7-Assign-Role-Collection.png)
+    ![Assign Role Collection](3-7-Assign-Role-Collection.png)
 
 7. Go back to **Instances and Subscriptions**. Select **Integration Suite**. Click **Go to Application** in the **Integration Suite** overview page. Now you are directed to the SAP Integration Suite home page.
     >If you don't have access to the page, log out of SAP Integration Suite, then log in again. 
 
-    <!-- border -->![Assign Role Collection](3-8-Go-to-Application.png)
+    ![Assign Role Collection](3-8-Go-to-Application.png)
 
 
 
@@ -120,30 +120,30 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 1. On the SAP Integration Suite home page, choose **Add Capabilities** to activate the capabilities offered by SAP Integration Suite.
 
-    <!-- border -->![Integration suite launchpad](4-1-isuitenewlaunchpage.png)
+    ![Integration suite launchpad](4-1-isuitenewlaunchpage.png)
 
     For this tutorial, you must select the **Build Integration Scenarios** and **Manage APIs** capabilities. Choose **Next**.
 
-    <!-- border -->![Add Capabilities](4-1-Addcapapbilities.png)
+    ![Add Capabilities](4-1-Addcapapbilities.png)
 
     You do not have to select anything here. Choose **Next**.
 
-    <!-- border -->![Intermediate Step](4-1-CPI_step.png)
+    ![Intermediate Step](4-1-CPI_step.png)
 
     Select the **Developer Hub** checkbox. Choose **Next**.
 
-    <!-- border -->![API management](4-1-API_step_2.png)
+    ![API management](4-1-API_step_2.png)
 
 2. Choose **Activate** to provision the selected capabilities.
 
     >For some capabilities, you can select additional functionalities that you need to choose based on your business requirement.
 
-    <!-- border -->![Activate capabilities](4-2-Activate_capabilities.png)
+    ![Activate capabilities](4-2-Activate_capabilities.png)
 
     The activation takes a while to complete.
     >**IMPORTANT**: Before you proceed, please wait for the capabilities to be activated. They're activated once you can see the respective capability tiles on your home screen. You might need to refresh the browser.
 
-    <!-- border -->![Activation dialog](4-2-Activation.png)
+    ![Activation dialog](4-2-Activation.png)
 
     >To access the features of each capability, you must first assign capability-specific roles, which is explained in the next step.
 
@@ -165,29 +165,29 @@ You use *Cloud Integration* to design and deploy an integration flow. Then, you 
 
 3. From the list of boosters, look out for the tile **Enable Integration Suite** under the **Integration** section. You can start the booster execution by choosing **Start** on the tile.
 
-    <!-- border -->![Booster Tile](5-3-Booster-Tile.png)
+    ![Booster Tile](5-3-Booster-Tile.png)
 
     Alternatively, you can open the tile, read the information, and choose **Start** in the booster page.
 
-    <!-- border -->![Booster Tile](5-3-Booster-Overview.png)
+    ![Booster Tile](5-3-Booster-Overview.png)
 
 4. In the **Configure Subaccount** tab, select your subaccount, organization, and space in which you have subscribed to SAP Integration Suite. Choose **Next**.
 
-    <!-- border -->![Configure Subaccount](5-4-Conf-subaccount.png)
+    ![Configure Subaccount](5-4-Conf-subaccount.png)
 
 5. In the **Select Activated Capabilities** tab, select **Design, Develop, and Operate Integration Scenarios** and **Design, Develop, and Manage APIs**. Choose **Next**.
 
-    <!-- border -->![Select Capabilities](5-5-Select-Capabilities.png)
+    ![Select Capabilities](5-5-Select-Capabilities.png)
 
     >**IMPORTANT**: Make sure that you select only the capabilities that you activated in step 3.
 
 6. In the **Review** tab, check your selections and choose **Finish**. You can see that the booster is being processed.
 
-    <!-- border -->![Booster Progress](5-6-Booster-Progress.png)
+    ![Booster Progress](5-6-Booster-Progress.png)
 
 7. Upon successful execution of the booster, choose **Go to Application**. Also, choose **Access Service Instance(s)** to view the service instance and service key.
 
-    <!-- border -->![Booster Success](5-7-Booster-Success.png)
+    ![Booster Success](5-7-Booster-Success.png)
 
 You can also manually do the role assignment and service instance creation without using the booster. For more information, see [Configure User Access](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/configuring-user-access-to-application) and [Create Service Instances](https://help.sap.com/viewer/368c481cd6954bdfa5d0435479fd4eaf/Cloud/en-US/883f025c30a64373b4e4102238a39fd4.html).
 
@@ -199,7 +199,7 @@ You can also manually do the role assignment and service instance creation witho
 
 Refresh the SAP Integration Suite home page to see that capability-specific menu items were added to the left navigation.
 
-<!-- border -->![Activated Capabilities](6-2-Verifycapabilities.png)
+![Activated Capabilities](6-2-Verifycapabilities.png)
 
 
 

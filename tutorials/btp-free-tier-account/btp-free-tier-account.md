@@ -25,7 +25,7 @@ The global account you will create in this tutorial gives you access to a produc
 ## Intro
   If you want to know which services currently offer free tier service plans, visit the [SAP Discovery Center](https://discovery-center.cloud.sap/#/serviceCatalog?provider=all&regions=all&category=freetierservices) and explore our offerings under **Free Tier Services**.
 
-  <!-- border -->![SAP Discovery Center](btp-free-tier-account-dc.png)
+  ![SAP Discovery Center](btp-free-tier-account-dc.png)
 
   If you're interested in further information about Free Tier, or if you want to exchange information with other users, explore the [BTP Community Topic page](https://community.sap.com/topics/business-technology-platform).
 
@@ -57,7 +57,7 @@ If you've created a new account, you are now asked to add details.
 
 1. Select **Select a Company/Organization** to create a global account on SAP BTP with free tier service plans.
 
-    <!-- border -->![Purchase as a company](btp-free-tier-account-company-registration.png)
+    ![Purchase as a company](btp-free-tier-account-company-registration.png)
 
 2. Next, fill out the address form and provide the following details: **Country**, **Company/Organization Name**, **Address**, **City**, **State**, and **Postal Code** as well as **Industry**. This information is necessary for billing purposes for when you upgrade your account from free tier service plans to paid service plans. Confirm with **Continue**.
 
@@ -71,7 +71,7 @@ The following page offers to configure your solution. Select:
 - **Start Date**: Now (you can configure the start date if required). The account renews itself automatically. You will also see the end date.
 - **Initial Cost**: EUR 0.00
 
-  <!-- border -->![Configure your solution](btp-free-tier-account-configure-3-months.png)
+  ![Configure your solution](btp-free-tier-account-configure-3-months.png)
 
 Proceed by selecting **Check Out**.
 
@@ -123,7 +123,7 @@ You are now in your global account, to be more precise in your **Account Explore
 
 2. Choose **Subaccount**.
 
-    <!-- border -->![Create a Subaccount](btp-free-tier-account-subaccount.png)
+    ![Create a Subaccount](btp-free-tier-account-subaccount.png)
 
 3. A window opens. In the wizard, fill out the following information for your subaccount:
 
@@ -164,11 +164,11 @@ You now need to activate Cloud Foundry environment.
 
 3. Click on **Enable Cloud Foundry**.
 
-    <!-- border -->![Cloud Foundry Environment](btp-free-tier-account-enable-cf.png)
+    ![Cloud Foundry Environment](btp-free-tier-account-enable-cf.png)
 
 4. In the opening wizard, select **free** as plan - any other configuration will generate costs. Keep the rest of settings as they are and proceed by clicking **Create**.
 
-    <!-- border -->![Cloud Foundry Free plan](btp-free-tier-cf-free-plan.png)
+    ![Cloud Foundry Free plan](btp-free-tier-cf-free-plan.png)
 
 > Enabling Cloud Foundry environment might take a couple of moments. Thank you for patience.
 
@@ -182,7 +182,7 @@ As a last step, you now need to create a space to develop in.
 
 2. Select **Create Space**.
 
-    <!-- border -->![Create a space](btp-free-tier-account-space.png)
+    ![Create a space](btp-free-tier-account-space.png)
 
 3. In the opening wizard, enter a meaningful name for your space. The other fields are pre-populated.
 

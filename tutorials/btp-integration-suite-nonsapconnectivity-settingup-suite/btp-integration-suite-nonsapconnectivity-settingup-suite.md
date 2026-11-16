@@ -45,11 +45,11 @@ This step is relevant only if you're setting up your trial account. If you alrea
 
 2. Navigate to the trial global account by choosing **Enter Your Trial Account**.
 
-    <!-- border -->![Trial global account](1-2-FoundationsCockpit_trial page.png)
+    ![Trial global account](1-2-FoundationsCockpit_trial page.png)
 
 3. From your global account page, choose the appropriate subaccount's tile to navigate.
 
-    <!-- border -->![Access Trial account](1-3-access_trial_account.png)
+    ![Access Trial account](1-3-access_trial_account.png)
 
 
 ### Subscribe to SAP Integration Suite
@@ -60,7 +60,7 @@ This step is relevant only if you're setting up your trial account. If you alrea
 
 2. Choose **Create**.
 
-    <!-- border -->![Instances & Subscriptions](2-2-Instances&Subscriptions.png)
+    ![Instances & Subscriptions](2-2-Instances&Subscriptions.png)
 
 3. In the **New Instance or Subscription** dialog, choose **Integration Suite** from the list of services.
 
@@ -74,19 +74,19 @@ This step is relevant only if you're setting up your trial account. If you alrea
 
 4. Choose the default plan which is **trial** and then choose **Create**. You are subscribed to the service now.
 
-    <!-- border -->![Create Subscription](2-4-Create_Subscription.png)
+    ![Create Subscription](2-4-Create_Subscription.png)
 
 5. Select **Security > Users**. Choose the entry against your name. In the **Role Collections** section, choose **Assign Role Collection**.
 
-    <!-- border -->![Assign Roles](2-5-Assign-Roles.png)
+    ![Assign Roles](2-5-Assign-Roles.png)
 
 6. In the dialog that appears, select **Integration_Provisioner**. Choose **Assign Role Collection**.
 
-    <!-- border -->![Assign Role Collection](2-6-Assign-Role-Collection.png)
+    ![Assign Role Collection](2-6-Assign-Role-Collection.png)
 
 7. Click **Go to Application** in the **Integration Suite** overview page. Now you are directed to the Integration Suite home page.
 
-    <!-- border -->![Assign Role Collection](2-7-Go-to-Application.png)
+    ![Assign Role Collection](2-7-Go-to-Application.png)
 
 
 ### Activate the capabilities
@@ -97,30 +97,30 @@ This step is relevant only if you're setting up your trial account. If you alrea
 
 1. In the SAP Integration Suite home page, choose **Add Capabilities** to activate the capabilities offered by SAP Integration Suite.
 
-    <!-- border -->![Integration suite launchpad](3-1-1-isuitenewlaunchpage.png)
+    ![Integration suite launchpad](3-1-1-isuitenewlaunchpage.png)
 
     For this tutorial, you must select the **Build Integration Scenarios** and **Extend Non-SAP Connectivity** capabilities. Choose **Next**.
 
-    <!-- border -->![Add Capabilities](3-1-2-Add-capabilities.png)
+    ![Add Capabilities](3-1-2-Add-capabilities.png)
 
     You do not have to select anything specific for Cloud Integration capability for this scenario. Choose **Next**.
 
-    <!-- border -->![Intermediate Step](3-1-3-CPI-step.png)
+    ![Intermediate Step](3-1-3-CPI-step.png)
 
 2. Choose **Activate** to provision the selected capabilities.
 
-    <!-- border -->![Activate capabilities](3-2-Activate.png)
+    ![Activate capabilities](3-2-Activate.png)
 
 3. Choose **OK**.
 
     The activation takes a while to complete.
     >**IMPORTANT**: Before you proceed, please wait for the capabilities to be activated.
 
-    <!-- border -->![Wait for activation](3-3-Ok.png)
+    ![Wait for activation](3-3-Ok.png)
 
 4. Verify that the activated capabilities are seen on the home page.
 
-    <!-- border -->![Activation-complete](3-4-Activation-complete.png)
+    ![Activation-complete](3-4-Activation-complete.png)
 
 >Though activation is complete, you can't yet access the activated capabilities. To access each capability, you must first assign capability-specific roles which is explained in the next step.
 
@@ -151,7 +151,7 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
 2. Choose **Create**.
 
-    <!-- border -->![Create-Service-Instance](5-2-Create-Service-Instance.png)
+    ![Create-Service-Instance](5-2-Create-Service-Instance.png)
 
 3. In the **New Instance or Subscription** dialog, choose **SAP Process Integration Runtime** from the list of services.
 
@@ -163,13 +163,13 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
 7. Provide a name for your service instance, then choose **Create**.
 
-    <!-- border -->![5-7-Create-Service-Instance](5-7-Create-Service-Instance.png)
+    ![5-7-Create-Service-Instance](5-7-Create-Service-Instance.png)
 
     A service instance is created.
 
 8. Under **Actions** (Three-Dot-Icon), choose **Create Service Key**.
 
-    <!-- border -->![5-8-Create-Service-Key](5-8-Create-Service-Key.png)
+    ![5-8-Create-Service-Key](5-8-Create-Service-Key.png)
 
 9. Provide a name for the service key and choose **Create**.
 
@@ -180,7 +180,7 @@ In this step, you assign yourself the necessary roles to access and use the acti
 
 Refresh the Integration Suite home page to see capability-specific menu items being added to the left navigation.
 
-<!-- border -->![Verify-Access](6-1-Verify-Access.png)
+![Verify-Access](6-1-Verify-Access.png)
 
 
 ---

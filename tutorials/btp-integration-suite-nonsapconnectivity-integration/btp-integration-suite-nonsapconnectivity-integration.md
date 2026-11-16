@@ -29,13 +29,13 @@ author_profile: https://github.com/MelanieCueppers
 
 3. Choose **Save**.
 
-    <!-- border -->![Package-Header](1-2-Package-Header.png)
+    ![Package-Header](1-2-Package-Header.png)
 
 4. Choose the **Artifacts** tab. Here you will create your first integration flow. Choose **Add** > **Integration Flow**.
 
 5. Enter a **Name** for the integration flow and choose **Add and Open in Editor** to open directly.
 
-      <!-- border -->![1-4-Integration-Flow](1-4-Integration-Flow.png)
+      ![1-4-Integration-Flow](1-4-Integration-Flow.png)
 
 6. Alternatively, choose **Add** and open the integration flow by selecting it.
 
@@ -43,7 +43,7 @@ author_profile: https://github.com/MelanieCueppers
 
     Choose **Restore** at the bottom right corner to bring up the **Property Sheet**. The property sheet is where you configure the parameters for every step in the integration flow.
 
-      <!-- border -->![1-6-Edit-Iflow](1-6-Edit-Iflow.png)
+      ![1-6-Edit-Iflow](1-6-Edit-Iflow.png)
 
 
 ### Connect Sender Channel with HTTPS Adapter
@@ -52,28 +52,28 @@ During this step, you define your sender channel and sender adapter. We use an H
 
 1. Choose the **Sender** step. Create the sender channel by clicking the arrow icon on **Sender** and dragging it to the **Start** step.
 
-    <!-- border -->![Create the sender channel](2-1-connect-sender-channel.png)
+    ![Create the sender channel](2-1-connect-sender-channel.png)
 
 2. In the **Adapter Type** prompt, select the **HTTPS** adapter.
 
-    <!-- border -->![Select HTTPS adapter](2-2-select-https-adapter.png)
+    ![Select HTTPS adapter](2-2-select-https-adapter.png)
 
 3. On the property sheet, select the **Connection** tab. In the **Address** field, enter **`/employees/getdetails`**.
 
     Optionally, you can enter any value of your choice, but ensure that you use **"/"** symbol before specifying the endpoint name. Deselect the **CSRF Protected** checkbox (this will be selected by default).
 
-    <!-- border -->![Configure HTTPS connection](2-3-Configure-HTTPS-Connection.png)
+    ![Configure HTTPS connection](2-3-Configure-HTTPS-Connection.png)
 
 
 ### Add Request Reply Step
 
 1. From the palette, choose **Call** > **External Call** > **Request Reply**.
 
-    <!-- border -->![Select Request Reply](3-1-Request-Reply.png)
+    ![Select Request Reply](3-1-Request-Reply.png)
 
 2. Connect it to the message path.
 
-    <!-- border -->![Add request reply](3-1-Request-Reply-Add.png)
+    ![Add request reply](3-1-Request-Reply-Add.png)
 
 
 ### Connect Request Reply to Receiver
@@ -84,7 +84,7 @@ During this step, you define your sender channel and sender adapter. We use an H
 
 2. Drag the arrow icon on **Request Reply** to the **Receiver** step.
 
-    <!-- border -->![Connect Request Reply to Receiver](4-2-Connect Request Reply to Receiver.png)
+    ![Connect Request Reply to Receiver](4-2-Connect Request Reply to Receiver.png)
 
 3. In the **Adapter Type** dialog, select **OpenConnectors**.
 
@@ -96,17 +96,17 @@ During this step, you define your sender channel and sender adapter. We use an H
 
 6. For the **Credential Name**, choose **Select**. A list of available user credentials that are applicable for Open Connectors come up. Select the user credential that you created.
 
-    <!-- border -->![4-6-Credential-Name](4-6-Credential-Name.png)
+    ![4-6-Credential-Name](4-6-Credential-Name.png)
 
 7. For the **Resource**, enter **/employees**.
 
     > At this point, Cloud Integration tests the connection to the mentioned Base URI using the mentioned credential name. This is a way for you to check if everything is going as expected. This connection testing helps you choose the right API resource.
 
-    <!-- border -->![4-7-Resource](4-7-Resource-workaround.png)
+    ![4-7-Resource](4-7-Resource-workaround.png)
 
 8. For **Method**, choose **GET** operation.
 
-    <!-- border -->![4-8-Connection-Tab](4-8-Connection-Tab.png)
+    ![4-8-Connection-Tab](4-8-Connection-Tab.png)
 
 9. Leave the other fields as is. Choose **Save** to keep all your configuration changes.
 
@@ -119,7 +119,7 @@ Now that you have designed your integration flow, let's deploy it for further ex
 
 1. Choose **Deploy** to deploy the integration flow.
 
-    <!-- border -->![5-1-Deploy-Status](5-1-Deploy-Status.png)
+    ![5-1-Deploy-Status](5-1-Deploy-Status.png)
 
 2. Choose **Yes** in the confirmation dialog for deployment. 
 
@@ -127,7 +127,7 @@ Now that you have designed your integration flow, let's deploy it for further ex
 
 4. On the **Deployment Status** tab, you can see details about the deployment for the integration flow. The expected deployment status is **Deployed** and runtime status is **Started**.
 
-    <!-- border -->![5-2-Deployment-Status](5-2-Deployment-Status.png)
+    ![5-2-Deployment-Status](5-2-Deployment-Status.png)
 
 
 Later in the mission, you will use the endpoint of the deployed integration flow. Using **Postman**, you will invoke the endpoint to fetch data from your BambooHR trial system.

@@ -61,13 +61,13 @@ In the previous step you've created an already runnable application. To demo tha
 
 1. Choose `bookshop - development profile (CAP)`.
 
-    <!-- border -->![As of now, there's only the development profile available.](complete-run-conf.png)
+    ![As of now, there's only the development profile available.](complete-run-conf.png)
 
 1. Name your run configuration `Run bookshop-local`.
 
 1. Choose **Run Module** on `Run bookshop-local`.
 
-    <!-- border -->![Next to the run configuration at the right side, click the run module button.](add-run-conf.png)
+    ![Next to the run configuration at the right side, click the run module button.](add-run-conf.png)
 
 Open the URL and look at the application, including the sample data for the `Books` entity (select **Books**) that is being served. This is your first, full-fledged OData service created with CAP.
 
@@ -105,23 +105,23 @@ As books are written by authors you want to add that relationship to your model.
 
 Open the context menu on `db/schema.cds` and select **Open With > CDS Graphical Modeler**.
 
-<!-- border -->![The graphical modeler, showing the authors and the books entity.](graph-modeler-1.png)
+![The graphical modeler, showing the authors and the books entity.](graph-modeler-1.png)
 
 Select the **Books** entity and add a managed association to the **Authors** entity.
 
-<!-- border -->![Selected books entity in the graphical modeler and a pointer to the **Add relationship** icon.](graph-modeler-2.png)
+![Selected books entity in the graphical modeler and a pointer to the **Add relationship** icon.](graph-modeler-2.png)
 
 Stick with the defaults and confirm with **OK**.
 
-<!-- border -->![The **New Relationship** screen to define the association to-one, the property name, and the target entity type.](graph-modeler-3.png)
+![The **New Relationship** screen to define the association to-one, the property name, and the target entity type.](graph-modeler-3.png)
 
 Remember to save the file and see the visualization of your modelled association.
 
-<!-- border -->![The graphical modeler showing the authors and books entity and a visual representation of their relationship.](graph-modeler-4.png)
+![The graphical modeler showing the authors and books entity and a visual representation of their relationship.](graph-modeler-4.png)
 
 As stated before, you could've done it in the code editor as well. So have a look in the code editor what has been changed.
 
-<!-- border -->![The CDS code to model an association.](assoc_in_code.png)
+![The CDS code to model an association.](assoc_in_code.png)
 
 You need a second OData service. This additional service is meant for administrators, so that an administrator can see and edit all books and all authors. Here's how you do it.
 
@@ -148,44 +148,44 @@ The next step is to have a file-based persistence of your data. And it's just so
 
     Open a terminal by going to **Terminal > New Terminal** and execute the following:
 
-    ```Shell/Bash
-    cds env requires.db
-    ```
+   ```Shell/Bash
+   cds env requires.db
+   ```
 
     The response should look as follows:
 
-    ```Shell/Bash
-    {
-      impl: '@cap-js/sqlite',
-      credentials: { url: ':memory:' },
-      kind: 'sqlite'
-    }
-    ```
+   ```Shell/Bash
+   {
+     impl: '@cap-js/sqlite',
+     credentials: { url: ':memory:' },
+     kind: 'sqlite'
+   }
+   ```
 
     You see, that the current configuration uses an in-memory database. Let's change that.
 
 1. Add the needed configuration for a file-based SQLite database to your `package.json`.
 
-    ```json
-    "cds": { "requires": {
-        "db": {
-        "kind": "sqlite",
-        "credentials": { "url": "db.sqlite" }
-        }
-    }}
-    ```
+   ```json
+   "cds": { "requires": {
+       "db": {
+       "kind": "sqlite",
+       "credentials": { "url": "db.sqlite" }
+       }
+   }}
+   ```
 
 1. Go to your terminal and deploy your data to a file-based SQLite3 database.
 
-    ```Shell/Bash
-    cds deploy
-    ```
+   ```Shell/Bash
+   cds deploy
+   ```
 
     This creates a file called `db.sqlite` and deploys the data into this file.
 
 1. Stop and then start your application in debug mode by going to **View > Debug**.
 
-    <!-- border -->![The Debug panel with a pointer to the restart button.](restart-debug-panel.png)
+    ![The Debug panel with a pointer to the restart button.](restart-debug-panel.png)
 
 1. Refresh the browser tab of your application and navigate to the `Books` entity in the `CatalogService`.
 
@@ -205,24 +205,24 @@ This adds csv files with a single header line for all entities to the `db/data/`
 
     >The filename is important to make use of a default to [pick up sample data](https://cap.cloud.sap/docs/guides/databases#providing-initial-data).
 
-    ```CSV
-    ID,title,descr,stock,price,currency_code,authors_ID
-    201,Wuthering Heights,"Wuthering Heights, Emily Brontë's only novel, was published in 1847 under the pseudonym ""Ellis Bell"". It was written between October 1845 and June 1846. Wuthering Heights and Anne Brontë's Agnes Grey were accepted by publisher Thomas Newby before the success of their sister Charlotte's novel Jane Eyre. After Emily's death, Charlotte edited the manuscript of Wuthering Heights and arranged for the edited version to be published as a posthumous second edition in 1850.",12,11.11,GBP,101
-    207,Jane Eyre,"Jane Eyre /ɛər/ (originally published as Jane Eyre: An Autobiography) is a novel by English writer Charlotte Brontë, published under the pen name ""Currer Bell"", on 16 October 1847, by Smith, Elder & Co. of London. The first American edition was published the following year by Harper & Brothers of New York. Primarily a bildungsroman, Jane Eyre follows the experiences of its eponymous heroine, including her growth to adulthood and her love for Mr. Rochester, the brooding master of Thornfield Hall. The novel revolutionised prose fiction in that the focus on Jane's moral and spiritual development is told through an intimate, first-person narrative, where actions and events are coloured by a psychological intensity. The book contains elements of social criticism, with a strong sense of Christian morality at its core and is considered by many to be ahead of its time because of Jane's individualistic character and how the novel approaches the topics of class, sexuality, religion and feminism.",11,12.34,GBP,107
-    251,The Raven,"""The Raven"" is a narrative poem by American writer Edgar Allan Poe. First published in January 1845, the poem is often noted for its musicality, stylized language, and supernatural atmosphere. It tells of a talking raven's mysterious visit to a distraught lover, tracing the man's slow fall into madness. The lover, often identified as being a student, is lamenting the loss of his love, Lenore. Sitting on a bust of Pallas, the raven seems to further distress the protagonist with its constant repetition of the word ""Nevermore"". The poem makes use of folk, mythological, religious, and classical references.",333,13.13,USD,150
-    252,Eleonora,"""Eleonora"" is a short story by Edgar Allan Poe, first published in 1842 in Philadelphia in the literary annual The Gift. It is often regarded as somewhat autobiographical and has a relatively ""happy"" ending.",555,14,USD,150
-    271,Catweazle,"Catweazle is a British fantasy television series, starring Geoffrey Bayldon in the title role, and created by Richard Carpenter for London Weekend Television. The first series, produced and directed by Quentin Lawrence, was screened in the UK on ITV in 1970. The second series, directed by David Reid and David Lane, was shown in 1971. Each series had thirteen episodes, most but not all written by Carpenter, who also published two books based on the scripts.",22,150,JPY,170
-    ```
+   ```CSV
+   ID,title,descr,stock,price,currency_code,authors_ID
+   201,Wuthering Heights,"Wuthering Heights, Emily Brontë's only novel, was published in 1847 under the pseudonym ""Ellis Bell"". It was written between October 1845 and June 1846. Wuthering Heights and Anne Brontë's Agnes Grey were accepted by publisher Thomas Newby before the success of their sister Charlotte's novel Jane Eyre. After Emily's death, Charlotte edited the manuscript of Wuthering Heights and arranged for the edited version to be published as a posthumous second edition in 1850.",12,11.11,GBP,101
+   207,Jane Eyre,"Jane Eyre /ɛər/ (originally published as Jane Eyre: An Autobiography) is a novel by English writer Charlotte Brontë, published under the pen name ""Currer Bell"", on 16 October 1847, by Smith, Elder & Co. of London. The first American edition was published the following year by Harper & Brothers of New York. Primarily a bildungsroman, Jane Eyre follows the experiences of its eponymous heroine, including her growth to adulthood and her love for Mr. Rochester, the brooding master of Thornfield Hall. The novel revolutionised prose fiction in that the focus on Jane's moral and spiritual development is told through an intimate, first-person narrative, where actions and events are coloured by a psychological intensity. The book contains elements of social criticism, with a strong sense of Christian morality at its core and is considered by many to be ahead of its time because of Jane's individualistic character and how the novel approaches the topics of class, sexuality, religion and feminism.",11,12.34,GBP,107
+   251,The Raven,"""The Raven"" is a narrative poem by American writer Edgar Allan Poe. First published in January 1845, the poem is often noted for its musicality, stylized language, and supernatural atmosphere. It tells of a talking raven's mysterious visit to a distraught lover, tracing the man's slow fall into madness. The lover, often identified as being a student, is lamenting the loss of his love, Lenore. Sitting on a bust of Pallas, the raven seems to further distress the protagonist with its constant repetition of the word ""Nevermore"". The poem makes use of folk, mythological, religious, and classical references.",333,13.13,USD,150
+   252,Eleonora,"""Eleonora"" is a short story by Edgar Allan Poe, first published in 1842 in Philadelphia in the literary annual The Gift. It is often regarded as somewhat autobiographical and has a relatively ""happy"" ending.",555,14,USD,150
+   271,Catweazle,"Catweazle is a British fantasy television series, starring Geoffrey Bayldon in the title role, and created by Richard Carpenter for London Weekend Television. The first series, produced and directed by Quentin Lawrence, was screened in the UK on ITV in 1970. The second series, directed by David Reid and David Lane, was shown in 1971. Each series had thirteen episodes, most but not all written by Carpenter, who also published two books based on the scripts.",22,150,JPY,170
+   ```
 
 1. Open `my.bookshop-Authors.csv` file in the `db/data` folder and replace the content.
 
-    ```CSV
-    ID,name
-    101,Emily Brontë
-    107,Charlotte Brontë
-    150,Edgar Allen Poe
-    170,Richard Carpenter
-    ```
+   ```CSV
+   ID,name
+   101,Emily Brontë
+   107,Charlotte Brontë
+   150,Edgar Allen Poe
+   170,Richard Carpenter
+   ```
 
     In the previous step we switched to a file-based persistence. That means you can't see your sample data in your application without deployment. And as we didn't deploy the sample data until now, you can restart your running application and still see the initial sample data.
 
@@ -230,7 +230,7 @@ This adds csv files with a single header line for all entities to the `db/data/`
 
 1. Go to the debug panel with **View > Debug** and restart the app.
 
-    <!-- border -->![The Debug panel with a pointer to the restart button.](restart-debug-panel.png)
+    ![The Debug panel with a pointer to the restart button.](restart-debug-panel.png)
 
     >There is a convenient shortcut that removes the need to restart the app with every change: Execute `cds watch` in the terminal. Call `cds help watch` in the terminal for more information.
 
@@ -238,7 +238,7 @@ This adds csv files with a single header line for all entities to the `db/data/`
 
 1. Select `Books` and see that the newly changed model and its sample data is served as part of your `CatalogService` service.
 
-    <!-- border -->![The sample data returned by the locally running service.](app-books-with-sample.png)
+    ![The sample data returned by the locally running service.](app-books-with-sample.png)
 
     > The JSON displayed here, is formatted by a browser extension.
 

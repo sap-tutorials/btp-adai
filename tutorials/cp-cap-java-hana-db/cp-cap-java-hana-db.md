@@ -26,9 +26,9 @@ In the previous tutorial, you have deployed bookstore application to SAP BTP. In
 
 2. Authenticate using your login credentials using the following command in the terminal:
 
-    ```Shell/Bash
-    cf login
-    ```
+   ```Shell/Bash
+   cf login
+   ```
 >  Should you need to specify the `<CF_API_ENDPOINT>` again, use the actual value you obtained in the previous tutorial.
 
 
@@ -43,12 +43,12 @@ Add an additional Maven dependency to your project. The dependency brings the ab
 
 2. Edit the `pom.xml` in the `srv` directory (not the `pom.xml` file located in the root project folder) and add the following dependency under the `<dependencies>` tag and make sure you **Save** the file:
 
-    ```xml
-    <dependency>
-        <groupId>com.sap.cds</groupId>
-        <artifactId>cds-feature-hana</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+       <groupId>com.sap.cds</groupId>
+       <artifactId>cds-feature-hana</artifactId>
+   </dependency>
+   ```
 
 ### Deploy database artifacts to SAP HANA
 
@@ -56,29 +56,29 @@ Assuming you don't want to use the same service instance as you created during y
 
 1. Go back to the terminal of SAP Business Application Studio and make sure that you are in the root of the bookstore project:
 
-    ```Shell/Bash
-    cd ~/projects/bookstore
-    ```
+   ```Shell/Bash
+   cd ~/projects/bookstore
+   ```
 
 2. Add the following configuration in the file `.cdsrc.json` in the root folder of your `bookstore` project:
 
-    ```JSON
-    {
-      "hana" : {
-        "deploy-format": "hdbtable"
-      }
-    }
-    ```
+   ```JSON
+   {
+     "hana" : {
+       "deploy-format": "hdbtable"
+     }
+   }
+   ```
 
-    <!-- border -->![.cdsrc.json content](cdsrc.png)
+    ![.cdsrc.json content](cdsrc.png)
 
 3. Ensure your SAP HANA Cloud instance is started.
 
 4. Create an SAP HANA service instance and implicitly push all artifacts to the database using:
 
-    ```Shell/Bash
-    cds deploy --to hana:bookstore-hana --store-credentials
-    ```
+   ```Shell/Bash
+   cds deploy --to hana:bookstore-hana --store-credentials
+   ```
 
     > As an effect, `.hdbtable` and `.hdbview` files are generated in the `(gen/)db/src/gen/` folder.
 
@@ -99,9 +99,9 @@ When deploying the application to the cloud, Cloud Foundry will provide the cred
 
 2. Let's test the SAP HANA connectivity. Start your application by running:
 
-    ```Shell/Bash
-    mvn spring-boot:run -Dspring-boot.run.profiles=cloud
-    ```
+   ```Shell/Bash
+   mvn spring-boot:run -Dspring-boot.run.profiles=cloud
+   ```
     >The Java system property `-Dspring-boot.run.profiles=cloud` ensures that the default configuration using H2 as the database, which is still defined in the `application.yaml`, doesn't get activated.
 
     You can observe the log line `Registered DataSource 'ds-bookstore-hana'`, which indicate that the SAP HANA configuration was picked up.

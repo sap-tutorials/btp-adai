@@ -54,7 +54,7 @@ Navigate to the service that you created in the previous tutorial [Create a Serv
 
         !![Select Post](Select Post Method.png)
 
-      4. For encoding, you need to select all the values in the **authorities** field, right click and select the option **EncodeURIComponent**.
+    4. For encoding, you need to select all the values in the **authorities** field, right click and select the option **EncodeURIComponent**.
 
         !![Encoding_Authorities](Encoding_Authorities.png)
 

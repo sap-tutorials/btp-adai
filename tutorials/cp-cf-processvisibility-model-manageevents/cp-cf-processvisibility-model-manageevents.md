@@ -39,19 +39,19 @@ Using the **Event Acquisition** application, you can view the events that have b
 
 1. Choose the filter icon to filter the events based on the attributes.
 
-    <!-- border -->![Filter](Filter.png)
+    ![Filter](Filter.png)
 
     >You can filter the events based on **Process Definition ID**, **Process Instance ID**, **Event Type**, and **Timestamp**.
 
 2. Select the required filter and provide the value that you have used in your visibility scenario. In this tutorial, we apply the filter based on the **Process Definition ID** and we use the value **onboard**.
 
-    <!-- border -->![Filter values](EA-PD.png)
+    ![Filter values](EA-PD.png)
 
-    <!-- border -->![value onboard](Filter-onboard.png)
+    ![value onboard](Filter-onboard.png)
 
     The events acquired will be listed.
 
-    <!-- border -->![Events Listed](Events-list.png)
+    ![Events Listed](Events-list.png)
 
     For more information on the **Events Acquisition** application, refer to the [Managing Events](https://help.sap.com/viewer/62fd39fa3eae4046b23dba285e84bfd4/Cloud/en-US/72a054799c6f41e08b5445b950ac512d.html) documentation.
 

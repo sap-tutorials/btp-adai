@@ -26,7 +26,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
 
 1. Add a phase to your visibility scenario by choosing **+** icon in the **Phases** tab.
 
-    <!-- border -->![Add phase](Config-Step2-addphase1.png)
+    ![Add phase](Config-Step2-addphase1.png)
 
 2. Provide a the following details for the phase and choose **OK**.
 
@@ -43,7 +43,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
     |  :------------- | :-------------
     |  Start Events   | **`StartEvent1 Started`**, **`Change or Confirm equipment Created`**
 
-    <!-- border -->![Phase start](Config-Step2-addphase1details.png)
+    ![Phase start](Config-Step2-addphase1details.png)
 
 4. In the **End Events** drop down, select **Change or Confirm equipment Completed** option.
 
@@ -51,7 +51,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
     |  :------------- | :-------------
     |  End Events     | **`Change or Confirm equipment Completed`**
 
-    <!-- border -->![Phase end](Config-Step2-addphase1details2.png)
+    ![Phase end](Config-Step2-addphase1details2.png)
 
 5. Similarly, create another phase named **Approve Equipment**. Then, select the **Approve Equipment Created** option from the **Start Events** dropdown and **Approve Equipment Completed** option from the **End Events** dropdown and **Save** the changes.
 
@@ -62,7 +62,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
     | Start Events | **`Approve Equipment Created`**
     | End Events    | **`Approve Equipment Completed`**
 
-    <!-- border -->![Add another phase](Config-Step2-addphase2.png)
+    ![Add another phase](Config-Step2-addphase2.png)
 
 
 ### Configure the target
@@ -78,18 +78,18 @@ When you add a workflow to your visibility scenario as a process participant, a 
     | Target Value    | **`30 Days`**, **`0 Hrs`**, **`0 Min`**
     | Threshold       | **`70 %`**
 
-    <!-- border -->![Configure Target](Config-Step3-target.png)
+    ![Configure Target](Config-Step3-target.png)
 
 
 ### Add visibility scenario attributes
 
 1. Choose the **Attributes** tab, you can view a set of default attributes in the left pane.
 
-    <!-- border -->![Attribute](Config-Step3-attributes.png)
+    ![Attribute](Config-Step3-attributes.png)
 
 2. Add a calculated attribute by choosing the **+** icon.
 
-    <!-- border -->![Plus attribute](Config-Step3-addattributes.png)
+    ![Plus attribute](Config-Step3-addattributes.png)
 
 3. Add the following properties in the **Add Calculated Attribute** dialog.
 
@@ -101,7 +101,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
     | Start Event     | **`Approve Equipment Created`**
     | End Event       | **`Approve Equipment Completed`**
 
-    <!-- border -->![Add attribute](Config-Step3-attributes2.png)
+    ![Add attribute](Config-Step3-attributes2.png)
 
 4. **Save** the changes.
 
@@ -111,7 +111,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
 
 1. Navigate to the **Performance Indicators** tab and add a performance indicator by choosing the **+** icon.
 
-    <!-- border -->![Performance indicators](config-Step4-addPF.png)
+    ![Performance indicators](config-Step4-addPF.png)
 
 2. In the **Add Performance Indicator** dialog, provide the following details and choose **OK**.
 
@@ -121,7 +121,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
     | Sub-Title       | **`By Phase`**
     | ID              | **`Open_Onboarding_Requests`**
 
-    <!-- border -->![Add performance indicators](Add-PP.PNG)
+    ![Add performance indicators](Add-PP.PNG)
 
 3. Choose the following options as shown in the **General** and **Data** section of the **Performance Indicators** tab:
 
@@ -144,11 +144,11 @@ When you add a workflow to your visibility scenario as a process participant, a 
     | Measure         | **`Number of Instances`**
     | Dimension       | **`Active Phases`**
 
-    <!-- border -->![Add performance indicators details](config-Step4-addPFdetails.png)
+    ![Add performance indicators details](config-Step4-addPFdetails.png)
 
 4. Choose the **+** icon under the **Filters** section of **Performance Indicators** to add a filter.
 
-    <!-- border -->![Add filter](config-Step4-addPFfilter.png)
+    ![Add filter](config-Step4-addPFfilter.png)
 
 5. In the **Add Filter** dialog, provide the following details:
 
@@ -158,7 +158,7 @@ When you add a workflow to your visibility scenario as a process participant, a 
     | Operator        | **`equal to`**
     | Value           | **`Open`**
 
-    <!-- border -->![Filter details](config-Step4-addPFfilter2.png)
+    ![Filter details](config-Step4-addPFfilter2.png)
 
 6. **Save** the changes.
 
@@ -168,11 +168,11 @@ When you add a workflow to your visibility scenario as a process participant, a 
 
 1. **Save** the scenario and then choose **Activate**.
 
-    <!-- border -->![Activate](config-Step5-activate.png)
+    ![Activate](config-Step5-activate.png)
 
 2. Once the scenario is successfully activated, you can see the status of the **Employee Onboarding Process** scenario as **Active**.
 
-    <!-- border -->![After activate](config-Step5-active.png)
+    ![After activate](config-Step5-active.png)
 
 
 

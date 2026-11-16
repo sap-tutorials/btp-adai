@@ -33,10 +33,10 @@ Dev spaces are like isolated virtual machines in the cloud that can be instantly
     >1. Use a link or a bookmark to open the dev space manager of SAP Business Application Studio.
 
     >2. In a trial account, launch the SAP BTP trial landing page, and choose **SAP Business Application Studio**.
-    ><!-- border -->![launch sap business application studio](BTP-Access-AppStudio-.png)
+    >![launch sap business application studio](BTP-Access-AppStudio-.png)
 
     >3. In a productive account (as well as a trial account), access SAP BTP cockpit, navigate to the subaccount with the SAP Business Application Studio subscription, click **Instances and Subscriptions**, and click **SAP Business Application Studio**.
-    ><!-- border -->![launch bas from cockpit](Cockpit-Go-to-Application-.png)
+    >![launch bas from cockpit](Cockpit-Go-to-Application-.png)
 
     <br>
     >You might be asked to accept the privacy statement. Check the box and click OK.
@@ -46,12 +46,12 @@ Dev spaces are like isolated virtual machines in the cloud that can be instantly
 
     >Landing page for SAP Business Application Studio:
 
-    ><!-- border -->![sap business application studio welcome](BAS-Welcome-.png)
+    >![sap business application studio welcome](BAS-Welcome-.png)
 
     <br>
     >Dev space manager for SAP Business Application Studio:
 
-    ><!-- border -->![Create Dev Space](BAS-Dev-Space-Manager-Empty-.png)
+    >![Create Dev Space](BAS-Dev-Space-Manager-Empty-.png)
 
 3. Enter `Demo_Fiori` for your dev space **name**.
 
@@ -61,11 +61,11 @@ Dev spaces are like isolated virtual machines in the cloud that can be instantly
 
     >To develop UI5 Integration Cards that integrate with SAP Build Work Zone, check the **Development Tools for SAP Build Work Zone** extension in the **Additional SAP Extensions** section.
 
-    <!-- border -->![Create Dev Space](AppStudio-Create-Dev-Space-Fiori-.png)
+    ![Create Dev Space](AppStudio-Create-Dev-Space-Fiori-.png)
 
     >The dev space is in status **STARTING**. Wait until it is in status **RUNNING**. This might take a couple of seconds.
 
-    <!-- border -->![Dev Space Starting](BAS-Dev-Space-Starting-.png)
+    ![Dev Space Starting](BAS-Dev-Space-Starting-.png)
 
 
 
@@ -74,14 +74,14 @@ Dev spaces are like isolated virtual machines in the cloud that can be instantly
 
 1. **Click** the name of the dev space you created.
 
-    <!-- border -->![Open Dev Space](BAS-Open-Dev-Space-.png)
+    ![Open Dev Space](BAS-Open-Dev-Space-.png)
 
     >You might be asked to accept the privacy statement. Check the box and click OK.
 
 
 2. The SAP Fiori dev space opens and the **Get Started** tab appears.
 
-    <!-- border -->![Open Dev Space](BAS-Get-Started-Tab-.png)
+    ![Open Dev Space](BAS-Get-Started-Tab-.png)
 
     >You may be prompted to accept the legal terms.
 

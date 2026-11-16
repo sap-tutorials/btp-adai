@@ -50,7 +50,7 @@ For data type artifact, you can find following details of in the Overview and St
 | Overview | `Description`               | `Description text added while creating the data type`                  |
 | Overview | `ES Repository information` | `ESR information linked with the data type `                           |
 
-<!-- border -->![View DT> Overview](View_DT_overview.png)
+![View DT> Overview](View_DT_overview.png)
 
 
 |    Tab    | Field  |       Description        |        Editable        |
@@ -61,10 +61,10 @@ For data type artifact, you can find following details of in the Overview and St
 | Structure | `Occurrence`   | `Appears only for attributes, can be required or optional`                                                                   | `Yes` |
 | Structure | `Restrictions` | `Restriction of the value range of nodes`                                                                                    | `Yes` |
 
-<!-- border -->![View DT> Structure](View_DT_structure.png)
+![View DT> Structure](View_DT_structure.png)
 
 
-<!-- border -->![View DT> XSD](View_DT_xsd.png)
+![View DT> XSD](View_DT_xsd.png)
 
 
 Most of these fields will be empty when you create new artifacts from Cloud Integration. To assign values in this case, you must edit the artifact. 
@@ -74,20 +74,20 @@ For data types, you can only edit following details from Structure tab.
 
 When you select the node, you see following more details. Now, can click **Edit** to modify or add the details. So, basically for a data type you can edit only following fields:
 
-<!-- border -->![Edit DT> structure](View_DT_structure_editbutton.png)
+![Edit DT> structure](View_DT_structure_editbutton.png)
 
 - **Name**: You can change the name of any node except the root node. The name of two nodes can't be same.
 - **Type**: You can switch from the primitive type to referenced data type, that is, if your data type is defined by built-in type then you can change and assign a user-defined data type or vice versa.
   - **If you switch from Primitive to User-Defined**: The namespace and package name of the referenced data type will be auto populated. 
     > Note: For root node and child attributes, you can reference only Simple Data Types. So, only those allowed Data Types will be listed in the dialog box.
 
-    <!-- border -->![Edit DT> Choose Referenced DT](editdt_choosedt_select.png)
+    ![Edit DT> Choose Referenced DT](editdt_choosedt_select.png)
   
-    <!-- border -->![Edit DT> Choose Referenced DT](editdt_choosedt.png)
+    ![Edit DT> Choose Referenced DT](editdt_choosedt.png)
 
   - **If you switch from User-Defined to Primitive**: Choose the **Value** and namespace will be auto populated depending upon your choice of built-in or derived values. 
 
-    <!-- border -->![Edit DT> Choose Type](EditDT_chooseprimit.png)
+    ![Edit DT> Choose Type](EditDT_chooseprimit.png)
 
   Moreover, consider the following details before modifying or assigning a new type to any node:
 
@@ -118,7 +118,7 @@ When you edit a data type, other than editing the existing nodes, you can also a
 
   However, below mentioned are few conditions, which apply for such additions: 
 
-<!-- border -->![Edit DT> Add elements Attributes](editdt_addele_attr.png)
+![Edit DT> Add elements Attributes](editdt_addele_attr.png)
 
 | Node       | Category    | Type            | Add Element         | Add Attribute |
 | :----------| :------------| ---------------| :---------------    | :---------------   |
@@ -137,7 +137,7 @@ You can also delete nodes from the data type. To do so follow these steps:
   1. Use the checkboxes to select the rows that you want to delete. Only editable nodes can be deleted. 
   2. Choose **Delete** just above the table. Following rules apply for node deletion:
 
-<!-- border -->![Edit DT> delete](delete.png)
+![Edit DT> delete](delete.png)
 
 | Node | Category | Type  | Delete Node |
 | :--- | :------- | :----- | :---------- |
@@ -148,7 +148,7 @@ You can also delete nodes from the data type. To do so follow these steps:
 > Note: When you assign a user-defined data type to an element, the child nodes populated from that user-defined data type can only be deleted from the referenced data type only. So, from the current data type's structure, you can delete the parent element only. 
 For example, in 'xyz' data type 'Element1' is a child element, which refers to 'tutorial_test' data type. Here, you will only be allowed to delete the parent element 'Element1' and not its child nodes (the checkboxes are disabled). To delete the child nodes, you must do it from 'tutorial_test' data type. 
 
-<!-- border -->![Edit DT> delete scenario](delete_case.png)
+![Edit DT> delete scenario](delete_case.png)
 
 Once you edit the data types, you can then save the data types directly or save the data types as a new version. You can do so even if you have errors in your data type structure.
 
@@ -158,20 +158,20 @@ You can change the positions of the nodes by using quick actions like drag, and 
 Use cut, copy, paste actions to modify the data type structure and reuse existing node formats respectively. 
 None of these actions can be performed on the root node. Multi-select is not allowed for any of these actions.
 
-<!-- border -->![Actions Disables](disabled.png)
+![Actions Disables](disabled.png)
 
 **Cut, Copy, Paste**
 
 1. Use the checkbox to select the node to be cut, copied. 
 
-  <!-- border -->![Cut Action](cut.png)
+  ![Cut Action](cut.png)
 
-  <!-- border -->![Copy Action](copy.png)
+  ![Copy Action](copy.png)
 
 
 2. Select the node below which you wish to paste the cut or copied node.
    
-   <!-- border -->![Paste Action](paste.png)
+   ![Paste Action](paste.png)
 
 > Note: All the rules for deleting and adding the node will apply when you cut and paste the nodes respectively.   
 
@@ -188,9 +188,9 @@ Use the up and down arrows (above the table) to change the positions of the node
 
   2. Use the up or down action buttons to change the position of the selected node.
    
-   <!-- border -->![Move up Action](move_up.png)
+   ![Move up Action](move_up.png)
 
-  <!-- border -->![Move up Action](move_down.png)
+  ![Move up Action](move_down.png)
 
 
 > Note: You cannot move up an immediate child node(first node under a parent) at all hierarchies. And, you cannot move last node in a hierarchy down.
@@ -221,29 +221,29 @@ From Structure & Overview tab:
 
 1. Choose **Edit**.
 
-  <!-- border -->![View MT> Edit Overview](viewmt_overview_editbutton.png)
+  ![View MT> Edit Overview](viewmt_overview_editbutton.png)
 
-  <!-- border -->![View MT> Edit Structure](mtstructure_edit.png)
+  ![View MT> Edit Structure](mtstructure_edit.png)
 
 2. Select a row to view the additional details. 
 3. Following fields can be edited in the right hand-panel of Structure tab or from Overview tab:
    - **Data Type Used**: Choose **Select**. Select the integration packages from which you wish to list the data types. Select the data type to be assigned. The structure of the selected data type gets loaded in the tree table.
 
-  <!-- border -->![Edit MT> Structure](mtstructure_dtselect.png)
+  ![Edit MT> Structure](mtstructure_dtselect.png)
 
-  <!-- border -->![Edit MT> Choose Data type](mtoverview_select.png)
+  ![Edit MT> Choose Data type](mtoverview_select.png)
 
-  <!-- border -->![Edit MT> Overview](mtover_choosedt.png)
+  ![Edit MT> Overview](mtover_choosedt.png)
 
   > Note: You can edit the referenced data type of the root node only.
 
    - **Namespace** (Only editable from Overview tab): If the namespace is not mentioned, you can enter a new one or modify the existing one. 
   
-    <!-- border -->![Edit MT> Overview](mtoverview_nmspc.png)
+ ![Edit MT> Overview](mtoverview_nmspc.png)
   
-    > Note: 
-      - XMLNamespace should begin with an alphabet and cannot contain tilde (~), back-quote (`), and caret(^).
-      - The XMLNamespace 'http://www.w3.org/2001/XMLSchema' is dedicated to schema components and cannot be used. 
+ > Note: 
+   - XMLNamespace should begin with an alphabet and cannot contain tilde (~), back-quote (`), and caret(^).
+   - The XMLNamespace 'http://www.w3.org/2001/XMLSchema' is dedicated to schema components and cannot be used. 
  
 
 

@@ -27,21 +27,21 @@ parser: v2
 
 2. Choose **Create Dev Space**.
 
-    <!-- border -->![Create dev space](step2-newicon-create-dev-space.png)
+    ![Create dev space](step2-newicon-create-dev-space.png)
 
 3. Choose a name for your dev space.
 
-    <!-- border -->![Choose Name](add-name.png)
+    ![Choose Name](add-name.png)
 
 4. Choose **Full-Stack Application Using Productivity Tools** as the application type.
 
-    <!-- border -->![Choose SAP Cloud](2.png)
+    ![Choose SAP Cloud](2.png)
 
     >Your dev space comes with several extensions out-of-the-box that you need to develop CAP applications. For example, CDS tools, Java Tools, and MTA Tools.
 
 5. Choose **Create Dev Space**.
 
-    <!-- border -->![Create Dev](click-create-button.png)
+    ![Create Dev](click-create-button.png)
 
     >The creation of the dev space takes a while. You see that the status for your dev space will change from **STARTING** to **RUNNING**.
 

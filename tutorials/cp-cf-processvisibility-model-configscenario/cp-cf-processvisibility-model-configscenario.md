@@ -32,21 +32,21 @@ In this tutorial, you will learn how to add a workflow to your visibility scenar
 
 1. Open the **Workflow Management** dashboard and choose the **Configure Visibility Scenarios** tile present under **Development Tools**.
 
-    <!-- border -->![Home screen](config-flp.png)
+    ![Home screen](config-flp.png)
 
 2. Create a visibility scenario by choosing the **+** icon.
 
-    <!-- border -->![Add scenario](Config-Step1-plus.png)
+    ![Add scenario](Config-Step1-plus.png)
 
 3. In the **New Scenario** dialog, provide **Namespace** and **Name** for your scenario. On providing these values, the **ID** field gets populated automatically. You can choose to edit the **ID** if required. Optionally provide a **Description** to the scenario and choose **Create**.
 
-    <!-- border -->![scenario name](visibility-scenario-name.png)
+    ![scenario name](visibility-scenario-name.png)
 
     You can see the **Employee Onboarding Process** scenario listed in the **Scenarios** table in the **Draft** state.
 
 4. Now, select the **Employee Onboarding Process** scenario in the **Draft** state to edit it.
 
-    <!-- border -->![Draft](Config-Step1-draft.png)
+    ![Draft](Config-Step1-draft.png)
 
 
 
@@ -57,11 +57,11 @@ In this step, you will add the **onboard** workflow to your **Employee Onboardin
 
 1. Under the **Processes** tab, choose the **+** icon and then choose **Add Workflow from SAP Workflow Service** to add a workflow to the visibility scenario.
 
-    <!-- border -->![import workflow](Add-workflow.png)
+    ![import workflow](Add-workflow.png)
 
 2. In the **Add Workflow from SAP Workflow Service** dialog, choose the workflow named **onboard**.
 
-    <!-- border -->![Choose workflow](onboard.png)
+    ![Choose workflow](onboard.png)
 
     Now, the workflow is added as a process participant to your visibility scenario. By default all the events provisioned by the workflow along with the corresponding context of is added into the visibility scenario.
 
@@ -69,7 +69,7 @@ In this step, you will add the **onboard** workflow to your **Employee Onboardin
 
 3. **Save** the changes.
 
-    <!-- border -->![After import](Config-Step1-onboardafter.png)
+    ![After import](Config-Step1-onboardafter.png)
 
   You have now created an **Employee Onboarding Process** visibility scenario with an **onboard** workflow as a process participant.
 
