@@ -52,7 +52,7 @@ Make sure the `easy-ui5` generator is listed.
 
     `yo easy-ui5`
 
-2. Answer the prompts in this way to create your new project: 
+2. Answer the prompts in this way while creating your new app: 
 
     - **Enter your application id (namespace)?** Enter `luigi.ui5app`. 
     - **Which framework do you want to use?** Choose the default (`OpenUI5`) and press Enter.

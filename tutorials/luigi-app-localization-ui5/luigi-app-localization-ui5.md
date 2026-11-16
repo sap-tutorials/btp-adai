@@ -70,7 +70,7 @@ In this step, you will add a function to get the current language from Luigi Cli
 
 In this step, you will create files with the text that is to be changed within the UI5 micro-frontend.
 
-1. Find the ​`i18n`​ folder inside ​`webapp`.  Create a file there called `i18n_de.properties` with the following content:
+1. Find the ​`i18n`​ folder inside ​`webapp`.  Open (or create) a file called `i18n_de.properties` with the following content:
 
     ```json
     ModalText = Produktdetails
@@ -79,7 +79,7 @@ In this step, you will create files with the text that is to be changed within t
     appDescription = Deutsch
     ```
 
-2. Create another file called `i18n_en.properties` with the following content:
+2. Open (or create) a file called `i18n_en.properties` with the following content:
 
     ```json
     ModalText = Product Details
