@@ -23,6 +23,10 @@ primary_tag: topic>user-interface
 
 ---
 
+## Intro
+
+In this tutorial, you will set up the two skeleton projects used throughout the Luigi tutorial series: a React project that hosts the Luigi Core application and a UI5 project for a micro-frontend. You will then add Luigi and the other required dependencies to both.
+
 ### Create React app
 
 

@@ -11,11 +11,18 @@ primary_tag: topic>user-interface
 # Build Luigi Micro-Frontend with UI5
 <!-- description --> Create a micro-frontend with UI5 and connect it to the core React app using Luigi client.
 
+## Prerequisites
+ - You have completed [Build Luigi App with React](luigi-app-react) and have a running Luigi Core React application with the `ui5-mf` project set up.
+
 ## You will learn
   - How to create a Luigi view with UI5
   - How to import Luigi Client to your view
 
 ---
+
+## Intro
+
+In this tutorial, you will create a UI5 micro-frontend for an "Order History" view and connect it to the Luigi Core React application using the Luigi Client.
 
 ### Add Luigi to UI5 micro-frontend
 

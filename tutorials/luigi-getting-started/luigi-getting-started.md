@@ -12,12 +12,19 @@ primary_tag: topic>user-interface
 # Introduction to Luigi
 <!-- description --> Learn about the basic architecture and terminology of the Luigi micro-frontend framework, and learn what you will build in the next tutorial steps.
 
+## Prerequisites
+ - Basic knowledge of JavaScript and web development is helpful but not required.
+
 ## You will learn
   - What micro-frontends are
   - What the Luigi project is
   - Luigi terminology
 
 ---
+
+## Intro
+
+This tutorial introduces the concepts behind the Luigi micro-frontend framework. You will learn what micro-frontends are, what Luigi is, the key terminology used across the tutorial series, and what you will build in the following hands-on tutorials.
 
 ### What are micro-frontends?
 

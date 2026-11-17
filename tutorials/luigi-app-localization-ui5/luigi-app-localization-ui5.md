@@ -11,11 +11,17 @@ primary_tag: topic>user-interface
 # Add Localization to Luigi UI5 Micro-Frontend
 <!-- description --> Enable your micro-frontend to be displayed in multiple languages using the Luigi localization features.
 
+## Prerequisites
+ - You have completed [Build Luigi Micro-Frontend with UI5](luigi-app-ui5) and have a running UI5 micro-frontend connected to the Luigi Core application.
+
 ## You will learn
   - How to add localization to your UI5 micro-frontend
 
 ---
 
+## Intro
+
+In this tutorial, you will add German localization to the UI5 micro-frontend by reading the current language from the Luigi Client and providing translated content for the "Order History" view.
 
 ### Update current language with Luigi Client
 

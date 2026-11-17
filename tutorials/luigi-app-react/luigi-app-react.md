@@ -11,11 +11,18 @@ primary_tag: topic>user-interface
 # Build Luigi App with React
 <!-- description --> Create a mock shopping application with React and configure it using Luigi.
 
+## Prerequisites
+ - You have completed [Build Skeleton React and UI5 Projects](luigi-app-basic-setup) and have the `react-core-mf` project set up with Luigi installed.
+
 ## You will learn
   - How to add content to your React web shopping app
   - How to use Luigi to configure navigation
   - How to create simple micro-frontends using React
 ---
+
+## Intro
+
+In this tutorial, you will build the React Core application for your Luigi shopping app. You will add product data, let Luigi control the entry point, configure webpack, and set up the "Home", "Products" and "Product Detail" navigation nodes and views.
 
 ### Add a file with product data
 

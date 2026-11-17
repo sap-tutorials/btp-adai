@@ -11,11 +11,17 @@ primary_tag: topic>user-interface
 # Add Localization to Luigi React Application
 <!-- description --> Enable your main application to be displayed in multiple languages using the Luigi localization features.
 
+## Prerequisites
+ - You have completed [Build Luigi App with React](luigi-app-react) and have a running Luigi Core React application.
+
 ## You will learn
   - How to add localization to the part of your application developed with React
 
 ---
 
+## Intro
+
+In this tutorial, you will add German localization to the React part of your Luigi application by translating the Luigi navigation labels and the content rendered by the React micro-frontends.
 
 ### Configure localization in Luigi navigation
 
