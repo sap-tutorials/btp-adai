@@ -11,11 +11,17 @@ primary_tag: topic>user-interface
 # Add Localization to Luigi React Application
 <!-- description --> Enable your main application to be displayed in multiple languages using the Luigi localization features.
 
+## Prerequisites
+ - You have completed [Build Luigi App with React](luigi-app-react) and have a running Luigi Core React application.
+
 ## You will learn
   - How to add localization to the part of your application developed with React
 
 ---
 
+## Intro
+
+In this tutorial, you will add German localization to the React part of your Luigi application by translating the Luigi navigation labels and the content rendered by the React micro-frontends.
 
 ### Configure localization in Luigi navigation
 
@@ -30,7 +36,7 @@ primary_tag: topic>user-interface
    children: [
            {
                pathSegment: "products",
-               //<---Around line 13, change this label---> 
+               //<---Around line 27, change this label---> 
                label: "PRODUCTS",
                //<------>
                icon: "product",
@@ -44,7 +50,7 @@ primary_tag: topic>user-interface
            },
            {
                pathSegment: 'order',
-               //<---Around line 25, change this label--->
+               //<---Around line 39, change this label--->
                label: 'ORDERHISTORY',
                //<------>
                icon: 'history',
@@ -57,8 +63,8 @@ primary_tag: topic>user-interface
 
    ```JavaScript
    var dict = {
+     //Around line 4, add the following: 
      "en-US": { PRODUCTS: "Products", ORDERHISTORY: "Order History" },
-     //Around line 55, add the following: 
      "de-DE": { PRODUCTS: "Produkte", ORDERHISTORY: "Bestellungen" },
      //<------>
    };
@@ -117,6 +123,9 @@ export const dict = {
 
 
 
+### Tutorial navigation
+
+**Back:** [Build Luigi Micro-Frontend with UI5 ←](luigi-app-ui5)  |  **Next:** [Add Localization to Luigi UI5 Micro-Frontend →](luigi-app-localization-ui5)
 
 
 
