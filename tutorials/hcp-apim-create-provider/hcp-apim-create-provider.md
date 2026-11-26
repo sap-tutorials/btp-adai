@@ -77,6 +77,8 @@ To create a new provider from this page, click on **Create**
 
 In the overview area, enter the **Name** and **Description** for the API Provider.
 
+**Note**: The gateway system `SAPDeveloperSystemES5` has been decommissioned. Please use your own gateway system instead of `SAPDeveloperSystemES5`.      
+
 **Field** | **Value**
 ----|----
 Name | `SAPDeveloperSystemES5`
@@ -109,7 +111,7 @@ Password | `<your_GATEWAY_password>`
 ![Enter values for catalog services](05b-cf.png)
 
 
-### Save your API provider
+### Save your API Provider
 
 
 Click on **Save** at the top-right side.
